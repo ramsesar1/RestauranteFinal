@@ -11,11 +11,11 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollBar;
 import javax.swing.JButton;
+import javax.swing.JScrollPane;
 
-public class ConsultarOrdenes {
+public class EliminarOrdenes {
 
 	private JFrame frame;
-	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -24,7 +24,7 @@ public class ConsultarOrdenes {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					 ConsultarOrdenes window = new  ConsultarOrdenes();
+					EliminarOrdenes window = new EliminarOrdenes();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +36,7 @@ public class ConsultarOrdenes {
 	/**
 	 * Create the application.
 	 */
-	public  ConsultarOrdenes() {
+	public EliminarOrdenes() {
 		initialize();
 	}
 
@@ -48,18 +48,18 @@ public class ConsultarOrdenes {
 		frame.setBounds(100, 100, 977 ,681);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JPanel ConsultarOrden = new JPanel();
-		ConsultarOrden.setBackground(new Color(255, 69, 0));
-		frame.getContentPane().add(ConsultarOrden, BorderLayout.CENTER);
-		ConsultarOrden.setLayout(null);
+		JPanel EliminarOrden = new JPanel();
+		EliminarOrden.setBackground(new Color(255, 69, 0));
+		frame.getContentPane().add(EliminarOrden, BorderLayout.CENTER);
+		EliminarOrden.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 127, 80));
 		panel_1.setBounds(128, 193, 677, 378);
-		ConsultarOrden.add(panel_1);
+		EliminarOrden.add(panel_1);
 		panel_1.setLayout(null);
 		
-		table = new JTable();
+		JTable table = new JTable();
 		table.setBackground(new Color(255, 127, 80));
 		table.setBounds(149, 166, 375, 112);
 		table.setModel(new DefaultTableModel(
@@ -85,19 +85,21 @@ public class ConsultarOrdenes {
 		panel_2.setBounds(0, 0, 677, 48);
 		panel_1.add(panel_2);
 		
-		JLabel lblNewLabel_1 = new JLabel("Orden a Consultar");
+		JLabel lblNewLabel_1 = new JLabel("Orden a eliminar");
 		lblNewLabel_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 26));
 		panel_2.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel = new JLabel("Consultar ordenes");
+		
+		
+		JLabel lblNewLabel = new JLabel("Eliminar ordenes");
 		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setFont(new Font("Tw Cen MT", Font.PLAIN, 36));
-		lblNewLabel.setBounds(338, 50, 319, 96);
-		ConsultarOrden.add(lblNewLabel);
+		lblNewLabel.setFont(new Font("Tw Cen MT", Font.PLAIN, 40));
+		lblNewLabel.setBounds(347, 23, 319, 96);
+		EliminarOrden.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Back");
-		btnNewButton.setBounds(10, 11, 52, 43);
-		ConsultarOrden.add(btnNewButton);
+		btnNewButton.setBounds(26, 11, 52, 43);
+		EliminarOrden.add(btnNewButton);
 	}
 }
