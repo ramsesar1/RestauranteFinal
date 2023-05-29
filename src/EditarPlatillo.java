@@ -115,6 +115,12 @@ public class EditarPlatillo extends JFrame {
                 lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
                 lblNewLabel_1.setBounds(100, 5, 213, 36);
                 panel.add(lblNewLabel_1);
+                
+                JButton btnNewButton_1 = new JButton("Back");
+                btnNewButton_1.setBounds(10, 11, 44, 29);
+                ConsultaPlatillos.add(btnNewButton_1);
+                
+              
 
     }
 }
