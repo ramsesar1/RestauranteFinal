@@ -4,11 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff60951b-c24a-434f-81e4-0182c2341fee" name="Changes" comment="Se empieza a añadir las ventanas como clases separadas, se juntaran luego, pero primero se añade el mockup" />
+    <list default="true" id="ff60951b-c24a-434f-81e4-0182c2341fee" name="Changes" comment="Se empieza a añadir las ventanas como clases separadas, se juntaran luego, pero primero se añade el mockup">
+      <change afterPath="$PROJECT_DIR$/src/editarCliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/editarCliente2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/eliminarCliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/historialCliente.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
