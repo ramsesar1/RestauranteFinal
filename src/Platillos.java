@@ -40,7 +40,8 @@ public class Platillos extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
-		
+
+
 		JPanel Platillos = new JPanel();
 		contentPane.add(Platillos);
 		Platillos.setLayout(null);

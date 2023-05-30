@@ -23,7 +23,7 @@ public class Platilloconingre extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Ingredientes frame = new Ingredientes();
+                    Platilloconingre frame = new Platilloconingre();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

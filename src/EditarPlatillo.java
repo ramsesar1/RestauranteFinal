@@ -25,7 +25,7 @@ public class EditarPlatillo extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CrearPlatillo frame = new CrearPlatillo();
+                    EditarPlatillo frame = new EditarPlatillo();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,66 +46,67 @@ public class EditarPlatillo extends JFrame {
 
         setContentPane(contentPane);
         contentPane.setLayout(null);
-        
-        JPanel Crearplat = new JPanel();
-        Crearplat.setBackground(new Color(250, 183, 133));
-        Crearplat.setBounds(10, 51, 941, 548);
-        contentPane.add(Crearplat);
-        Crearplat.setLayout(null);
-        
+
+
+        JPanel EditarPlat = new JPanel();
+        EditarPlat.setBackground(new Color(250, 183, 133));
+        EditarPlat.setBounds(10, 51, 941, 548);
+        contentPane.add(EditarPlat);
+        EditarPlat.setLayout(null);
+
         textField = new JTextField();
         textField.setBounds(10, 41, 372, 33);
-        Crearplat.add(textField);
+        EditarPlat.add(textField);
         textField.setColumns(10);
-        
+
         textField_1 = new JTextField();
         textField_1.setColumns(10);
         textField_1.setBounds(10, 447, 372, 33);
-        Crearplat.add(textField_1);
-        
+        EditarPlat.add(textField_1);
+
         JTextArea textArea = new JTextArea();
         textArea.setBounds(10, 234, 372, 147);
-        Crearplat.add(textArea);
-        
+        EditarPlat.add(textArea);
+
         JComboBox comboBox = new JComboBox();
         comboBox.setBounds(10, 131, 372, 33);
-        Crearplat.add(comboBox);
-        
+        EditarPlat.add(comboBox);
+
         JLabel lblNewLabel = new JLabel("Nombre del Platillo:");
         lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
         lblNewLabel.setBounds(10, 11, 242, 19);
-        Crearplat.add(lblNewLabel);
-        
+        EditarPlat.add(lblNewLabel);
+
         JLabel lblIngredientes = new JLabel("Ingredientes:\r\n");
         lblIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
         lblIngredientes.setBounds(10, 85, 265, 37);
-        Crearplat.add(lblIngredientes);
-        
+        EditarPlat.add(lblIngredientes);
+
         JLabel lblDescripcin = new JLabel("Descripción:");
         lblDescripcin.setFont(new Font("Tahoma", Font.PLAIN, 20));
         lblDescripcin.setBounds(10, 190, 331, 33);
-        Crearplat.add(lblDescripcin);
-        
+        EditarPlat.add(lblDescripcin);
+
         JLabel lblPrecio = new JLabel("Precio:");
         lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 20));
         lblPrecio.setBounds(10, 403, 293, 33);
-        Crearplat.add(lblPrecio);
-        
+        EditarPlat.add(lblPrecio);
+
         JButton btnEditarPlat = new JButton("Editar\r\n");
         btnEditarPlat.setFont(new Font("Tahoma", Font.PLAIN, 20));
         btnEditarPlat.setBackground(new Color(254, 211, 122));
         btnEditarPlat.setBounds(391, 494, 150, 43);
-        Crearplat.add(btnEditarPlat);
-        
+        EditarPlat.add(btnEditarPlat);
+
         JButton btnAdjuntarImagen = new JButton("Adjuntar Imagen\r\n");
         btnAdjuntarImagen.setFont(new Font("Tahoma", Font.PLAIN, 20));
         btnAdjuntarImagen.setBackground(new Color(254, 211, 122));
         btnAdjuntarImagen.setBounds(691, 412, 211, 43);
-        Crearplat.add(btnAdjuntarImagen);
-        
-        JLabel lblNewLabel_1 = new JLabel("EditarPlatillo\r\n");
+        EditarPlat.add(btnAdjuntarImagen);
+
+        JLabel lblNewLabel_1 = new JLabel("Editar Platillo");
         lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 26));
-        lblNewLabel_1.setBounds(398, 0, 227, 40);
+        lblNewLabel_1.setBounds(428, 11, 277, 29);
         contentPane.add(lblNewLabel_1);
 	}
 }
