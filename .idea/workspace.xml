@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff60951b-c24a-434f-81e4-0182c2341fee" name="Changes" comment="Todos los botones de back y enfrente">
+    <list default="true" id="ff60951b-c24a-434f-81e4-0182c2341fee" name="Changes" comment="Todos los botones de back y enfrente de inventario funcionan, junto a imagen de fondo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsultaInventario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventario.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +80,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685432286776</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Todos los botones de back y enfrente de inventario funcionan, junto a imagen de fondo">
+      <created>1685438784489</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685438784489</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Todos los botones de back y enfrente de inventario funcionan, junto a imagen de fondo">
+      <created>1685438796109</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685438796109</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -91,6 +103,7 @@
     <MESSAGE value="se añaden los paneles de platillos a la clase restaurante" />
     <MESSAGE value="Se añade funcionalidad a Login, boton de platillos, consulta de platillos y retroceso de estos" />
     <MESSAGE value="Todos los botones de back y enfrente" />
-    <option name="LAST_COMMIT_MESSAGE" value="Todos los botones de back y enfrente" />
+    <MESSAGE value="Todos los botones de back y enfrente de inventario funcionan, junto a imagen de fondo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Todos los botones de back y enfrente de inventario funcionan, junto a imagen de fondo" />
   </component>
 </project>
