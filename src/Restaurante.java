@@ -2,6 +2,7 @@ import java.awt.EventQueue;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Font;
@@ -47,6 +48,15 @@ public class Restaurante extends JFrame {
 
 		JPanel Inicio = new JPanel();
 
+		//clientes
+		JPanel EliminarClientes = new JPanel();
+		JPanel Clientes = new JPanel();
+		JPanel ConsultaClientes = new JPanel();
+		JPanel EditarClientes = new JPanel();
+		JPanel EditarTabla = new JPanel();
+		JPanel CrearClientes = new JPanel();
+
+
 		//platillos
 		JPanel Platillos = new JPanel();
 		JPanel ConsultaPlatillos = new JPanel();
@@ -54,9 +64,6 @@ public class Restaurante extends JFrame {
 		JPanel Crearplat = new JPanel();
 		JPanel Platillosconingre = new JPanel();
 		JPanel ElimPlatillos = new JPanel();
-
-
-
 
 
 		//inventarios
@@ -67,44 +74,42 @@ public class Restaurante extends JFrame {
 		JPanel NuevoArticulo = new JPanel();
 
 
-
-
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
-		
+
 		//--------------------------------------panel Login----------------------------------------------------
-		
-		
+
+
 		JPanel login = new JPanel();
 		contentPane.add(login);
 		login.setLayout(null);
-		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setBounds(273, 205, 391, 313);
 		login.add(panel_1);
 		panel_1.setLayout(null);
-		
+
 		textField = new JTextField();
 		textField.setColumns(10);
 		textField.setBounds(30, 57, 328, 45);
 		panel_1.add(textField);
-		
+
 		contras = new JPasswordField();
 		contras.setColumns(10);
 		contras.setBounds(30, 180, 328, 45);
 		panel_1.add(contras);
-		
+
 		JLabel lblNewLabel = new JLabel("Usuario");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel.setBounds(30, 26, 149, 28);
 		panel_1.add(lblNewLabel);
-		
+
 		lblContrasea = new JLabel("Contraseña");
 		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblContrasea.setBounds(30, 142, 149, 28);
 		panel_1.add(lblContrasea);
-		
+
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -118,18 +123,15 @@ public class Restaurante extends JFrame {
 		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.setBounds(30, 236, 110, 45);
 		panel_1.add(btnNewButton);
-		
+
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnCancelar.setBackground(new Color(255, 255, 255));
 		btnCancelar.setBounds(248, 236, 110, 45);
 		panel_1.add(btnCancelar);
-		
-		
-		
-		
-		//--------------------------------------panel menu inicio----------------------------------------------------
 
+
+		//--------------------------------------panel menu inicio----------------------------------------------------
 
 
 		//contentPane.add(Inicio);
@@ -156,8 +158,6 @@ public class Restaurante extends JFrame {
 				revalidate();
 			}
 		});
-
-
 
 
 		JButton btnNewButtonclientes = new JButton("Clientes\r\n");
@@ -189,9 +189,8 @@ public class Restaurante extends JFrame {
 		panelmenu.add(btnNewButton_2);
 
 
-
 		JLabel Menuicon = new JLabel(new ImageIcon("Menufondo.png"));
-		Menuicon.setBounds(0,0,977,681);
+		Menuicon.setBounds(0, 0, 977, 681);
 		Menuicon.setVisible(true);
 		Menuicon.setOpaque(true);
 		login.add(Menuicon);
@@ -204,8 +203,6 @@ public class Restaurante extends JFrame {
 
 
 		//----Menu principal de platillos-----
-
-
 
 
 //		contentPane.add(Platillos);
@@ -304,7 +301,7 @@ public class Restaurante extends JFrame {
 		Platillos.add(lblplatillos);
 
 		JButton backplatillos = new JButton("Back");
-		backplatillos.setBounds(10, 11, 80, 29);
+		backplatillos.setBounds(10, 11, 44, 29);
 		Platillos.add(backplatillos);
 
 		backplatillos.addActionListener(new ActionListener() {
@@ -318,85 +315,82 @@ public class Restaurante extends JFrame {
 		});
 
 
-
-
 		//----Consultar platillos-----
 
 
+		ConsultaPlatillos.setBackground(new Color(255, 128, 0));
+		//     contentPane.add(ConsultaPlatillos);
+		ConsultaPlatillos.setLayout(null);
 
-        ConsultaPlatillos.setBackground(new Color(255, 128, 0));
-   //     contentPane.add(ConsultaPlatillos);
-        ConsultaPlatillos.setLayout(null);
+		DefaultListModel<String> model = new DefaultListModel<>();
+		model.addElement("Sushi empanizado");
+		model.addElement("Hamburguesa");
+		model.addElement("Lasagna");
+		model.addElement("Pizza");
+		model.addElement("Alitas");
 
-        DefaultListModel<String> model = new DefaultListModel<>();
-        model.addElement("Sushi empanizado");
-        model.addElement("Hamburguesa");
-        model.addElement("Lasagna");
-        model.addElement("Pizza");
-        model.addElement("Alitas");
+		JLabel lblconsultaplatillos = new JLabel("Consultar Platillos");
+		lblconsultaplatillos.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		lblconsultaplatillos.setBounds(360, 11, 254, 52);
+		ConsultaPlatillos.add(lblconsultaplatillos);
 
-                JLabel lblconsultaplatillos = new JLabel("Consultar Platillos");
-                lblconsultaplatillos.setFont(new Font("Tahoma", Font.PLAIN, 26));
-                lblconsultaplatillos.setBounds(360, 11, 254, 52);
-                ConsultaPlatillos.add(lblconsultaplatillos);
+		JPanel panelplati = new JPanel();
+		panelplati.setBounds(37, 51, 877, 570);
+		ConsultaPlatillos.add(panelplati);
+		panelplati.setLayout(null);
 
-                JPanel panelplati = new JPanel();
-                panelplati.setBounds(37, 51, 877, 570);
-                ConsultaPlatillos.add(panelplati);
-                panelplati.setLayout(null);
+		JPanel panelplati_1 = new JPanel();
+		panelplati_1.setBackground(new Color(255, 255, 255));
+		panelplati_1.setBounds(433, 5, 444, 565);
+		panelplati.add(panelplati_1);
+		panelplati_1.setLayout(null);
 
-                JPanel panelplati_1 = new JPanel();
-                panelplati_1.setBackground(new Color(255, 255, 255));
-                panelplati_1.setBounds(433, 5, 444, 565);
-                panelplati.add(panelplati_1);
-                panelplati_1.setLayout(null);
+		JLabel lblNewLabel_2 = new JLabel("Detalles del platillo\r\n");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		lblNewLabel_2.setBounds(111, 11, 225, 61);
+		panelplati_1.add(lblNewLabel_2);
 
-                JLabel lblNewLabel_2 = new JLabel("Detalles del platillo\r\n");
-                lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 26));
-                lblNewLabel_2.setBounds(111, 11, 225, 61);
-                panelplati_1.add(lblNewLabel_2);
+		JLabel lblNewLabel_2_1 = new JLabel("Platillo: Sushi empanizado\r\n");
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 21));
+		lblNewLabel_2_1.setBounds(93, 111, 264, 61);
+		panelplati_1.add(lblNewLabel_2_1);
 
-                JLabel lblNewLabel_2_1 = new JLabel("Platillo: Sushi empanizado\r\n");
-                lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 21));
-                lblNewLabel_2_1.setBounds(93, 111, 264, 61);
-                panelplati_1.add(lblNewLabel_2_1);
+		JLabel lblNewLabel_2_1_2 = new JLabel("Precio: $135");
+		lblNewLabel_2_1_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_2_1_2.setBounds(150, 389, 132, 61);
+		panelplati_1.add(lblNewLabel_2_1_2);
 
-                JLabel lblNewLabel_2_1_2 = new JLabel("Precio: $135");
-                lblNewLabel_2_1_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-                lblNewLabel_2_1_2.setBounds(150, 389, 132, 61);
-                panelplati_1.add(lblNewLabel_2_1_2);
+		JTextArea txtrDescripcinDescubreNuestro = new JTextArea();
+		txtrDescripcinDescubreNuestro.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		txtrDescripcinDescubreNuestro.setTabSize(10);
+		txtrDescripcinDescubreNuestro.setText("Descripción: Descubre nuestro irresistible sushi\r\nempanizado con aguacate y zanahoria: 12\r\npiezas con sabores frescos y deliciosos. Una\r\nexperiencia gastronónmica única que te dejará\r\n             deseando más.");
+		txtrDescripcinDescubreNuestro.setBounds(22, 201, 399, 177);
+		panelplati_1.add(txtrDescripcinDescubreNuestro);
 
-                JTextArea txtrDescripcinDescubreNuestro = new JTextArea();
-                txtrDescripcinDescubreNuestro.setFont(new Font("Tahoma", Font.PLAIN, 19));
-                txtrDescripcinDescubreNuestro.setTabSize(10);
-                txtrDescripcinDescubreNuestro.setText("Descripción: Descubre nuestro irresistible sushi\r\nempanizado con aguacate y zanahoria: 12\r\npiezas con sabores frescos y deliciosos. Una\r\nexperiencia gastronónmica única que te dejará\r\n             deseando más.");
-                txtrDescripcinDescubreNuestro.setBounds(22, 201, 399, 177);
-                panelplati_1.add(txtrDescripcinDescubreNuestro);
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(255, 128, 0));
+		panel_3.setBounds(47, 459, 331, 70);
+		panelplati_1.add(panel_3);
+		panel_3.setLayout(null);
 
-                JPanel panel_3 = new JPanel();
-                panel_3.setBackground(new Color(255, 128, 0));
-                panel_3.setBounds(47, 459, 331, 70);
-                panelplati_1.add(panel_3);
-                panel_3.setLayout(null);
+		JButton btnIngredientes2 = new JButton("Ingredientes");
+		btnIngredientes2.setFont(new Font("Tahoma", Font.PLAIN, 35));
+		btnIngredientes2.setBounds(10, 11, 311, 48);
+		panel_3.add(btnIngredientes2);
 
-                JButton btnIngredientes2 = new JButton("Ingredientes");
-                btnIngredientes2.setFont(new Font("Tahoma", Font.PLAIN, 35));
-                btnIngredientes2.setBounds(10, 11, 311, 48);
-                panel_3.add(btnIngredientes2);
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(255, 128, 0));
+		panel_2.setBounds(35, 40, 288, 519);
+		panelplati.add(panel_2);
 
-                JPanel panel_2 = new JPanel();
-                panel_2.setBackground(new Color(255, 128, 0));
-                panel_2.setBounds(35, 40, 288, 519);
-                panelplati.add(panel_2);
+		JLabel lblNewLabel_1 = new JLabel("Seleccione platillo");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_1.setBounds(100, 5, 213, 36);
+		panelplati.add(lblNewLabel_1);
 
-                JLabel lblNewLabel_1 = new JLabel("Seleccione platillo");
-                lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-                lblNewLabel_1.setBounds(100, 5, 213, 36);
-                panelplati.add(lblNewLabel_1);
-
-                JButton btnbackconsultaplat = new JButton("Back");
-                btnbackconsultaplat.setBounds(10, 11, 80, 29);
-                ConsultaPlatillos.add(btnbackconsultaplat);
+		JButton btnbackconsultaplat = new JButton("Back");
+		btnbackconsultaplat.setBounds(10, 11, 44, 29);
+		ConsultaPlatillos.add(btnbackconsultaplat);
 
 		btnbackconsultaplat.addActionListener(new ActionListener() {
 			@Override
@@ -413,7 +407,7 @@ public class Restaurante extends JFrame {
 
 		EditarPlat.setBackground(new Color(255, 128, 64));
 		EditarPlat.setBounds(0, 0, 961, 642);
-	//	contentPane.add(EditarPlat);
+		//	contentPane.add(EditarPlat);
 		EditarPlat.setLayout(null);
 
 		JPanel paneledplat = new JPanel();
@@ -478,7 +472,7 @@ public class Restaurante extends JFrame {
 		EditarPlat.add(EditarPLatillotitulo);
 
 		JButton btnbackeditarplatillos = new JButton("Back");
-		btnbackeditarplatillos.setBounds(10, 11, 80, 29);
+		btnbackeditarplatillos.setBounds(10, 11, 44, 29);
 		EditarPlat.add(btnbackeditarplatillos);
 
 		btnbackeditarplatillos.addActionListener(new ActionListener() {
@@ -496,7 +490,7 @@ public class Restaurante extends JFrame {
 
 		Crearplat.setBackground(new Color(255, 128, 0));
 		Crearplat.setBounds(0, 0, 961, 642);
-	//	contentPane.add(Crearplat);
+		//	contentPane.add(Crearplat);
 		Crearplat.setLayout(null);
 
 		JPanel panelcrearplat = new JPanel();
@@ -561,9 +555,8 @@ public class Restaurante extends JFrame {
 		Crearplat.add(Crearplatlbl);
 
 
-
 		JButton btnbackcrearplatillos = new JButton("Back");
-		btnbackcrearplatillos.setBounds(10, 11, 80, 29);
+		btnbackcrearplatillos.setBounds(10, 11, 44, 29);
 		Crearplat.add(btnbackcrearplatillos);
 
 		btnbackcrearplatillos.addActionListener(new ActionListener() {
@@ -577,16 +570,11 @@ public class Restaurante extends JFrame {
 		});
 
 
-
-
 		//----Platillos ingredientes-----
 
 
-
-
-
 		Platillosconingre.setBackground(new Color(255, 128, 0));
-	//	contentPane.add(Platillosconingre);
+		//	contentPane.add(Platillosconingre);
 		Platillosconingre.setLayout(null);
 
 		DefaultListModel<String> model2 = new DefaultListModel<>();
@@ -595,9 +583,6 @@ public class Restaurante extends JFrame {
 		model2.addElement("Lasagna");
 		model2.addElement("Pizza");
 		model2.addElement("Alitas");
-
-
-
 
 
 		JLabel lblingredientes = new JLabel("Ingredientes");
@@ -609,7 +594,6 @@ public class Restaurante extends JFrame {
 		panelcrearingre.setBounds(37, 62, 877, 559);
 		Platillosconingre.add(panelcrearingre);
 		panelcrearingre.setLayout(null);
-
 
 
 		JPanel panellista = new JPanel();
@@ -691,7 +675,7 @@ public class Restaurante extends JFrame {
 		panelcrearingre.add(lblPlatillosconingre);
 
 		JButton btnbackingredientes = new JButton("Back");
-		btnbackingredientes.setBounds(10, 11, 80, 29);
+		btnbackingredientes.setBounds(10, 11, 52, 43);
 		Platillosconingre.add(btnbackingredientes);
 
 		btnbackingredientes.addActionListener(new ActionListener() {
@@ -709,29 +693,27 @@ public class Restaurante extends JFrame {
 		//----Eliminar Platillos-----
 
 
+		ElimPlatillos.setBackground(new Color(255, 128, 0));
+		ElimPlatillos.setBounds(0, 0, 961, 642);
+		//  contentPane.add(ElimPlatillos);
+		ElimPlatillos.setLayout(null);
 
+		JLabel lblEliminarPlatillos = new JLabel("Eliminar Platillos");
+		lblEliminarPlatillos.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		lblEliminarPlatillos.setBounds(359, 80, 223, 50);
+		ElimPlatillos.add(lblEliminarPlatillos);
 
-	        ElimPlatillos.setBackground(new Color(255, 128, 0));
-	        ElimPlatillos.setBounds(0, 0, 961, 642);
-	      //  contentPane.add(ElimPlatillos);
-	        ElimPlatillos.setLayout(null);
+		JList list = new JList();
+		list.setBounds(230, 234, 463, 228);
+		ElimPlatillos.add(list);
 
-	        JLabel lblEliminarPlatillos = new JLabel("Eliminar Platillos");
-	        lblEliminarPlatillos.setFont(new Font("Tahoma", Font.PLAIN, 26));
-	        lblEliminarPlatillos.setBounds(359, 80, 223, 50);
-	        ElimPlatillos.add(lblEliminarPlatillos);
-
-	        JList list = new JList();
-	        list.setBounds(230, 234, 463, 228);
-	        ElimPlatillos.add(list);
-
-	        JLabel platilloAEliminar = new JLabel("Platillo a Eliminar");
-	        platilloAEliminar.setFont(new Font("Tahoma", Font.PLAIN, 22));
-	        platilloAEliminar.setBounds(376, 200, 279, 43);
-	        ElimPlatillos.add(platilloAEliminar);
+		JLabel platilloAEliminar = new JLabel("Platillo a Eliminar");
+		platilloAEliminar.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		platilloAEliminar.setBounds(376, 200, 279, 43);
+		ElimPlatillos.add(platilloAEliminar);
 
 		JButton backbtneliminarplat = new JButton("Back");
-		backbtneliminarplat.setBounds(10, 11, 80, 29);
+		backbtneliminarplat.setBounds(10, 11, 44, 29);
 		ElimPlatillos.add(backbtneliminarplat);
 
 		backbtneliminarplat.addActionListener(new ActionListener() {
@@ -745,7 +727,7 @@ public class Restaurante extends JFrame {
 		});
 
 		JLabel platilloIcon = new JLabel(new ImageIcon("Platillosfondo.png"));
-		platilloIcon.setBounds(0,0,977,681);
+		platilloIcon.setBounds(0, 0, 977, 681);
 		platilloIcon.setVisible(true);
 		platilloIcon.setOpaque(true);
 		Platillos.add(platilloIcon);
@@ -753,22 +735,7 @@ public class Restaurante extends JFrame {
 		revalidate();
 
 
-
-
-
 		//--------------------------------------------ordenes-----------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 		//--------------------------------------------inventario--------------------------------------------------------
@@ -776,7 +743,7 @@ public class Restaurante extends JFrame {
 
 		//-----Menu inventario------
 
-	//	contentPane.add(Inventario);
+		//	contentPane.add(Inventario);
 		Inventario.setLayout(null);
 
 		JPanel Panelinventario = new JPanel();
@@ -850,17 +817,14 @@ public class Restaurante extends JFrame {
 		});
 
 
-
-
 		JLabel TituloInventario = new JLabel("Inventario");
 		TituloInventario.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		TituloInventario.setBounds(405, -16, 218, 76);
 		Inventario.add(TituloInventario);
 
 
-
 		JButton btnbackinventario = new JButton("Back");
-		btnbackinventario.setBounds(10, 11, 80, 29);
+		btnbackinventario.setBounds(10, 11, 44, 29);
 		Inventario.add(btnbackinventario);
 		btnbackinventario.addActionListener(new ActionListener() {
 			@Override
@@ -873,7 +837,7 @@ public class Restaurante extends JFrame {
 		});
 
 		JLabel InventarioIcon = new JLabel(new ImageIcon("Inventariofondo.png"));
-		InventarioIcon.setBounds(0,0,977,681);
+		InventarioIcon.setBounds(0, 0, 977, 681);
 		InventarioIcon.setVisible(true);
 		InventarioIcon.setOpaque(true);
 		Inventario.add(InventarioIcon);
@@ -881,15 +845,11 @@ public class Restaurante extends JFrame {
 		revalidate();
 
 
-
 		//----Consultar inventario-----
 
 		ConsultaInv.setBackground(new Color(255, 128, 0));
-	//	contentPane.add(ConsultaInv);
+		//	contentPane.add(ConsultaInv);
 		ConsultaInv.setLayout(null);
-
-
-
 
 
 		JLabel consultarInventario = new JLabel("Consultar Inventario");
@@ -944,10 +904,8 @@ public class Restaurante extends JFrame {
 		ConsultaInv.add(panel_4);
 
 
-
-
 		JButton btnbackinvconsultar = new JButton("Back");
-		btnbackinvconsultar.setBounds(10, 11, 80, 29);
+		btnbackinvconsultar.setBounds(10, 11, 52, 43);
 		ConsultaInv.add(btnbackinvconsultar);
 
 		btnbackinvconsultar.addActionListener(new ActionListener() {
@@ -964,83 +922,80 @@ public class Restaurante extends JFrame {
 		//----Editar inventario-----
 
 
-	        EditarINv.setBackground(new Color(255, 128, 0));
-	        EditarINv.setBounds(0, 0, 961, 642);
-	    //    contentPane.add(EditarINv);
-	        EditarINv.setLayout(null);
+		EditarINv.setBackground(new Color(255, 128, 0));
+		EditarINv.setBounds(0, 0, 961, 642);
+		//    contentPane.add(EditarINv);
+		EditarINv.setLayout(null);
 
 
+		JLabel Editarinvlbl = new JLabel("Editar Inventario\r\n");
+		Editarinvlbl.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		Editarinvlbl.setBounds(388, -16, 214, 115);
+		EditarINv.add(Editarinvlbl);
 
+		JPanel editarinv2 = new JPanel();
+		editarinv2.setBackground(new Color(255, 218, 168));
+		editarinv2.setBounds(10, 204, 941, 427);
+		EditarINv.add(editarinv2);
+		editarinv2.setLayout(null);
 
+		JLabel muestralbl1 = new JLabel("Articulo #5\r\n");
+		muestralbl1.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		muestralbl1.setBounds(55, 11, 145, 31);
+		editarinv2.add(muestralbl1);
 
-	        JLabel Editarinvlbl = new JLabel("Editar Inventario\r\n");
-	        Editarinvlbl.setFont(new Font("Tahoma", Font.PLAIN, 26));
-	        Editarinvlbl.setBounds(388, -16, 214, 115);
-	        EditarINv.add(Editarinvlbl);
+		JLabel muestralbl2 = new JLabel("Articulo #4\r\n\r\n");
+		muestralbl2.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		muestralbl2.setBounds(55, 63, 145, 31);
+		editarinv2.add(muestralbl2);
 
-	        JPanel editarinv2 = new JPanel();
-	        editarinv2.setBackground(new Color(255, 218, 168));
-	        editarinv2.setBounds(10, 204, 941, 427);
-	        EditarINv.add(editarinv2);
-	        editarinv2.setLayout(null);
+		JLabel muestralbl3 = new JLabel("Articulo #2\r\n\r\n");
+		muestralbl3.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		muestralbl3.setBounds(55, 171, 145, 31);
+		editarinv2.add(muestralbl3);
 
-	        JLabel muestralbl1 = new JLabel("Articulo #5\r\n");
-	        muestralbl1.setFont(new Font("Tahoma", Font.PLAIN, 19));
-	        muestralbl1.setBounds(55, 11, 145, 31);
-	        editarinv2.add(muestralbl1);
+		JLabel muestralbl4 = new JLabel("Articulo #3\r\n");
+		muestralbl4.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		muestralbl4.setBounds(55, 118, 145, 31);
+		editarinv2.add(muestralbl4);
 
-	        JLabel muestralbl2 = new JLabel("Articulo #4\r\n\r\n");
-	        muestralbl2.setFont(new Font("Tahoma", Font.PLAIN, 19));
-	        muestralbl2.setBounds(55, 63, 145, 31);
-	        editarinv2.add(muestralbl2);
+		JLabel muestralbl5 = new JLabel("Articulo #1\r\n");
+		muestralbl5.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		muestralbl5.setBounds(55, 225, 145, 31);
+		editarinv2.add(muestralbl5);
 
-	        JLabel muestralbl3 = new JLabel("Articulo #2\r\n\r\n");
-	        muestralbl3.setFont(new Font("Tahoma", Font.PLAIN, 19));
-	        muestralbl3.setBounds(55, 171, 145, 31);
-	        editarinv2.add(muestralbl3);
+		JButton editar1btn = new JButton("Editar");
+		editar1btn.setBounds(732, 19, 128, 23);
+		editarinv2.add(editar1btn);
 
-	        JLabel muestralbl4 = new JLabel("Articulo #3\r\n");
-	        muestralbl4.setFont(new Font("Tahoma", Font.PLAIN, 19));
-	        muestralbl4.setBounds(55, 118, 145, 31);
-	        editarinv2.add(muestralbl4);
+		JButton editarbtn = new JButton("Editar");
+		editarbtn.setBounds(732, 71, 128, 23);
+		editarinv2.add(editarbtn);
 
-	        JLabel muestralbl5 = new JLabel("Articulo #1\r\n");
-	        muestralbl5.setFont(new Font("Tahoma", Font.PLAIN, 19));
-	        muestralbl5.setBounds(55, 225, 145, 31);
-	        editarinv2.add(muestralbl5);
+		JButton editar2btn = new JButton("Editar");
+		editar2btn.setBounds(732, 126, 128, 23);
+		editarinv2.add(editar2btn);
 
-	        JButton editar1btn = new JButton("Editar");
-	        editar1btn.setBounds(732, 19, 128, 23);
-	        editarinv2.add(editar1btn);
+		JButton editar3btn = new JButton("Editar");
+		editar3btn.setBounds(732, 179, 128, 23);
+		editarinv2.add(editar3btn);
 
-	        JButton editarbtn = new JButton("Editar");
-	        editarbtn.setBounds(732, 71, 128, 23);
-	        editarinv2.add(editarbtn);
+		JButton editar4btn = new JButton("Editar");
+		editar4btn.setBounds(732, 233, 128, 23);
+		editarinv2.add(editar4btn);
 
-	        JButton editar2btn = new JButton("Editar");
-	        editar2btn.setBounds(732, 126, 128, 23);
-	        editarinv2.add(editar2btn);
+		JPanel Editarinv3pnl = new JPanel();
+		Editarinv3pnl.setBounds(10, 156, 941, 48);
+		EditarINv.add(Editarinv3pnl);
+		Editarinv3pnl.setLayout(null);
 
-	        JButton editar3btn = new JButton("Editar");
-	        editar3btn.setBounds(732, 179, 128, 23);
-	        editarinv2.add(editar3btn);
-
-	        JButton editar4btn = new JButton("Editar");
-	        editar4btn.setBounds(732, 233, 128, 23);
-	        editarinv2.add(editar4btn);
-
-	        JPanel Editarinv3pnl = new JPanel();
-	        Editarinv3pnl.setBounds(10, 156, 941, 48);
-	        EditarINv.add(Editarinv3pnl);
-	        Editarinv3pnl.setLayout(null);
-
-	        JLabel Articuloaeditarlbl = new JLabel("Articulo a Editar");
-	        Articuloaeditarlbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
-	        Articuloaeditarlbl.setBounds(395, 0, 210, 43);
-	        Editarinv3pnl.add(Articuloaeditarlbl);
+		JLabel Articuloaeditarlbl = new JLabel("Articulo a Editar");
+		Articuloaeditarlbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Articuloaeditarlbl.setBounds(395, 0, 210, 43);
+		Editarinv3pnl.add(Articuloaeditarlbl);
 
 		JButton btnbackeditarinv = new JButton("Back");
-		btnbackeditarinv.setBounds(10, 11, 80, 29);
+		btnbackeditarinv.setBounds(10, 11, 52, 43);
 		EditarINv.add(btnbackeditarinv);
 		btnbackeditarinv.addActionListener(new ActionListener() {
 			@Override
@@ -1060,7 +1015,6 @@ public class Restaurante extends JFrame {
 		EliminarINv.setBounds(0, 0, 961, 642);
 //		contentPane.add(EliminarINv);
 		EliminarINv.setLayout(null);
-
 
 
 		JLabel Eliminarinvlbl = new JLabel("Eliminar Inventario\r\n");
@@ -1130,10 +1084,8 @@ public class Restaurante extends JFrame {
 		panel2eliminv.add(lblarticuloinv);
 
 
-
-
 		JButton btnbackeliminarinventario = new JButton("Back");
-		btnbackeliminarinventario.setBounds(10, 11, 80, 29);
+		btnbackeliminarinventario.setBounds(10, 11, 52, 43);
 		EliminarINv.add(btnbackeliminarinventario);
 
 		btnbackeliminarinventario.addActionListener(new ActionListener() {
@@ -1147,15 +1099,13 @@ public class Restaurante extends JFrame {
 		});
 
 
-
 		//----Añadir al inventario ------
 
 
 		NuevoArticulo.setBackground(new Color(255, 128, 0));
 		NuevoArticulo.setBounds(0, 0, 961, 642);
-	//	contentPane.add(NuevoArticulo);
+		//	contentPane.add(NuevoArticulo);
 		NuevoArticulo.setLayout(null);
-
 
 
 		JLabel lblnuevoarticulo = new JLabel("Nuevo Articulo\r\n");
@@ -1214,7 +1164,7 @@ public class Restaurante extends JFrame {
 		panel2.add(Creararticulobtn);
 
 		JButton btnbackcreararticuloinv = new JButton("Back");
-		btnbackcreararticuloinv.setBounds(10, 11, 80, 29);
+		btnbackcreararticuloinv.setBounds(10, 11, 52, 43);
 		NuevoArticulo.add(btnbackcreararticuloinv);
 
 		btnbackcreararticuloinv.addActionListener(new ActionListener() {
@@ -1228,110 +1178,468 @@ public class Restaurante extends JFrame {
 		});
 
 
-
-
+		//--------------------------------------------clientes----------------------------------------------------------
 
 		//--------------------------------------------clientes----------------------------------------------------------
 		//-----pantalla clientes principal-----
-		/*
+
+		Clientes.setLayout(null);
+		Clientes.repaint();
+		Clientes.revalidate();
+
 		JPanel panelClientes = new JPanel();
-		contentPane.add(panelClientes);
+		panelClientes.setBounds(0, 0, 977, 681);
+		panelClientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Clientes.add(panelClientes);
+		panelClientes.revalidate();
+		panelClientes.repaint();
 		panelClientes.setLayout(null);
 
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBackground(Color.WHITE);
-		panel.setBounds(60, 241, 827, 347);
-		panelClientes.add(panel);*/
+		JPanel panelMenuClientes = new JPanel();
+		panelMenuClientes.setLayout(null);
+		panelMenuClientes.setBackground(Color.WHITE);
+		panelMenuClientes.setOpaque(false);
+		panelMenuClientes.setBounds(60, 241, 827, 347);
+		panelClientes.add(panelMenuClientes);
+
+		JPanel panelMini = new JPanel();
+		panelMini.setLayout(null);
+		panelMini.setBackground(Color.WHITE);
+		panelMini.setOpaque(false);
+		panelMini.setBounds(60, 241, 827, 347);
+		panelClientes.add(panelMini);
+
+		JLabel clienteIcon = new JLabel(new ImageIcon("clientelogo2.jpeg"));
+		clienteIcon.setBounds(0, 0, 951, 631);
+		clienteIcon.setVisible(true);
+		clienteIcon.setOpaque(true);
+		panelClientes.add(clienteIcon);
+
+
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnConsultar.setBackground(new Color(255, 128, 0));
+		btnConsultar.setBounds(112, 95, 217, 60);
+		btnConsultar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Clientes);
+				add(ConsultaClientes);
+				repaint();
+				revalidate();
+
+			}
+		});
+		panelMini.add(btnConsultar);
+
+		JButton btnEditarClientes = new JButton("Editar");
+		btnEditarClientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEditarClientes.setBackground(new Color(255, 128, 0));
+		btnEditarClientes.setBounds(112, 198, 217, 60);
+		btnEditarClientes.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Clientes);
+				add(EditarTabla);
+				repaint();
+				revalidate();
+
+			}
+		});
+		panelMini.add(btnEditarClientes);
+
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEliminar.setBackground(new Color(255, 128, 0));
+		btnEliminar.setBounds(490, 198, 217, 60);
+		btnEliminar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Clientes);
+				add(EliminarClientes);
+				repaint();
+				revalidate();
+
+			}
+		});
+		panelMini.add(btnEliminar);
+
+		JButton btnCrearClientes = new JButton("Crear");
+		btnCrearClientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCrearClientes.setBackground(new Color(255, 128, 0));
+		btnCrearClientes.setBounds(490, 95, 217, 60);
+		panelMini.add(btnCrearClientes);
+
+		btnCrearClientes.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Clientes);
+				add(CrearClientes);
+				repaint();
+				revalidate();
+
+			}
+		});
+
+		JButton backClientes = new JButton("Back");
+		backClientes.setBounds(10, 11, 80, 29);
+		backClientes.repaint();
+		backClientes.revalidate();
+		backClientes.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Clientes);
+				add(Inicio);
+				repaint();
+				revalidate();
+			}
+		});
+		clienteIcon.add(backClientes);
+
 
 		//-----pantalla creacion clientes-----
-		/*JPanel panel = new JPanel();
-		panel.setBounds(221, 150, 610, 426);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);*/
+		CrearClientes.setLayout(null);
+
+		JLabel crearCliente = new JLabel("Crear Cliente");
+		crearCliente.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		crearCliente.setBounds(400, 89, 311, 50);
+		CrearClientes.add(crearCliente);
+
+		JPanel FondoCrear = new JPanel();
+		FondoCrear.setBounds(0, 0, 977, 681);
+		FondoCrear.setBackground(new Color(255, 128, 0));
+		FondoCrear.setLayout(null);
+		CrearClientes.add(FondoCrear);
+
+
+		JPanel panelCrearCliente = new JPanel();
+		panelCrearCliente.setBounds(180, 150, 610, 426);
+
+		FondoCrear.add(panelCrearCliente);
+		panelCrearCliente.setLayout(null);
+
+		JLabel name = new JLabel("Nombre");
+		name.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		name.setBounds(10, 11, 121, 14);
+		panelCrearCliente.add(name);
+
+		JTextField nametxt = new JTextField();
+		nametxt.setBounds(10, 36, 454, 27);
+		panelCrearCliente.add(nametxt);
+		nametxt.setColumns(10);
+
+		JTextField apellidotxt = new JTextField();
+		apellidotxt.setColumns(10);
+		apellidotxt.setBounds(10, 129, 454, 27);
+		panelCrearCliente.add(apellidotxt);
+
+		JTextField celtxt = new JTextField();
+		celtxt.setColumns(10);
+		celtxt.setBounds(10, 238, 276, 27);
+		panelCrearCliente.add(celtxt);
+
+		JTextField direcciontxt = new JTextField();
+		direcciontxt.setColumns(10);
+		direcciontxt.setBounds(10, 337, 454, 27);
+		panelCrearCliente.add(direcciontxt);
+
+		JLabel lblApellidos = new JLabel("Apellidos");
+		lblApellidos.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblApellidos.setBounds(10, 104, 121, 14);
+		panelCrearCliente.add(lblApellidos);
+
+		JLabel lblTelefono = new JLabel("Telefono");
+		lblTelefono.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblTelefono.setBounds(10, 213, 121, 14);
+		panelCrearCliente.add(lblTelefono);
+
+		JLabel lblDireccion = new JLabel("Direccion");
+		lblDireccion.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblDireccion.setBounds(10, 312, 121, 14);
+		panelCrearCliente.add(lblDireccion);
+
+		JButton btnCrearCliente = new JButton("Crear Cliente");
+		btnCrearCliente.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnCrearCliente.setBounds(400, 587, 147, 44);
+		FondoCrear.add(btnCrearCliente);
+
+		JButton backCC = new JButton("Back");
+		backCC.setBounds(10, 11, 80, 29);
+		backCC.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(CrearClientes);
+				add(Clientes);
+				repaint();
+				revalidate();
+			}
+		});
+		FondoCrear.add(backCC);
 
 		//------pantalla edicion de cliente------
-		/*JPanel panel = new JPanel();
-		panel.setBounds(221, 150, 610, 426);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);*/
+		EditarTabla.setLayout(null);
+
+		JPanel editarTablaCliente = new JPanel();
+		editarTablaCliente.setBounds(0, 0, 977, 681);
+		editarTablaCliente.setBackground(new Color(255, 128, 0));
+		editarTablaCliente.setLayout(null);
+		EditarTabla.add(editarTablaCliente);
+
+
+		JTable tablaClientes = new JTable();
+		tablaClientes.setModel(new DefaultTableModel(
+				new Object[][]{
+						{"Cliente #5", "Editar"},
+						{"Cliente #4", "Editar"},
+						{"Cliente #3", "Editar"},
+						{"Cliente #2", "Editar"},
+						{"Cliente #1", "Editar"},
+				},
+				new String[]{
+						"Historia", "Direccion"
+				}
+		));
+		tablaClientes.setBounds(181, 257, 606, 80);
+		editarTablaCliente.add(tablaClientes);
+
+		JPanel panelEditar = new JPanel();
+		panelEditar.setBackground(Color.GRAY);
+		panelEditar.setBounds(181, 215, 606, 42);
+		editarTablaCliente.add(panelEditar);
+		panelEditar.setLayout(null);
+
+		JLabel clienteAEditar = new JLabel("Cliente a Editar");
+		clienteAEditar.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		clienteAEditar.setBounds(225, 11, 182, 20);
+		panelEditar.add(clienteAEditar);
+
+		JLabel consultar_clientes = new JLabel("Consultar Clientes");
+		consultar_clientes.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		consultar_clientes.setBounds(417, 137, 181, 50);
+		editarTablaCliente.add(consultar_clientes);
+
+		JButton btnEdit = new JButton("Editar Cliente");
+		btnEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnEdit.setBounds(400, 587, 147, 44);
+		btnEdit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(EditarTabla);
+				add(EditarClientes);
+				repaint();
+				revalidate();
+			}
+		});
+		editarTablaCliente.add(btnEdit);
+
+		JButton backET = new JButton("Back");
+		backET.setBounds(10, 11, 80, 29);
+		backET.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(EditarTabla);
+				add(Clientes);
+				repaint();
+				revalidate();
+			}
+		});
+		editarTablaCliente.add(backET);
 
 		//-----pantalla seleccion editar cliente-----
-		/*JPanel panel = new JPanel();
-		panel.setBackground(Color.GRAY);
-		panel.setBounds(181, 215, 606, 42);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);*/
+		EditarClientes.setLayout(null);
+
+		JPanel editarCliente = new JPanel();
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		editarCliente.setBounds(0, 0, 977, 681);
+		editarCliente.setBackground(new Color(255, 128, 0));
+		editarCliente.setBorder(new EmptyBorder(5, 5, 5, 5));
+		editarCliente.setLayout(null);
+		EditarClientes.add(editarCliente);
+
+		JLabel lblClienteNum = new JLabel("Cliente #5");
+		lblClienteNum.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblClienteNum.setBounds(428, 89, 311, 50);
+		editarCliente.add(lblClienteNum);
+
+		JPanel paneleditar2 = new JPanel();
+		paneleditar2.setBounds(180, 150, 610, 426);
+		editarCliente.add(paneleditar2);
+		paneleditar2.setLayout(null);
+
+		JLabel lblNameEdit = new JLabel("Nombre");
+		lblNameEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNameEdit.setBounds(10, 11, 121, 14);
+		paneleditar2.add(lblNameEdit);
+
+		JTextField textoEdit1 = new JTextField();
+		textoEdit1.setBounds(10, 36, 454, 27);
+		paneleditar2.add(textoEdit1);
+		textoEdit1.setColumns(10);
+
+		JTextField textoEdit2 = new JTextField();
+		textoEdit2.setColumns(10);
+		textoEdit2.setBounds(10, 129, 454, 27);
+		paneleditar2.add(textoEdit2);
+
+		JTextField textoEdit3 = new JTextField();
+		textoEdit3.setColumns(10);
+		textoEdit3.setBounds(10, 238, 276, 27);
+		paneleditar2.add(textoEdit3);
+
+		JTextField textoEdit4 = new JTextField();
+		textoEdit4.setColumns(10);
+		textoEdit4.setBounds(10, 337, 454, 27);
+		paneleditar2.add(textoEdit4);
+
+		JLabel apellidoEdit = new JLabel("Apellidos");
+		apellidoEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		apellidoEdit.setBounds(10, 104, 121, 14);
+		paneleditar2.add(apellidoEdit);
+
+		JLabel telefonoEdit = new JLabel("Telefono");
+		telefonoEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		telefonoEdit.setBounds(10, 213, 121, 14);
+		paneleditar2.add(telefonoEdit);
+
+		JLabel direccionEdit = new JLabel("Direccion");
+		direccionEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		direccionEdit.setBounds(10, 312, 121, 14);
+		paneleditar2.add(direccionEdit);
+
+		JButton btnEditarCliente = new JButton("Editar Cliente");
+		btnEditarCliente.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnEditarCliente.setBounds(444, 587, 147, 44);
+		editarCliente.add(btnEditarCliente);
+
+		JButton backEC = new JButton("Back");
+		backEC.setBounds(10, 11, 80, 29);
+		backEC.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(EditarClientes);
+				add(EditarTabla);
+				repaint();
+				revalidate();
+			}
+		});
+		editarCliente.add(backEC);
 
 		//-----pantalla consulta de clientes-----
-		/*JPanel panel = new JPanel();
-		panel.setBackground(Color.GRAY);
-		panel.setBounds(181, 215, 606, 42);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);*/
+		ConsultaClientes.setLayout(null);
+
+		JPanel consultarClientes = new JPanel();
+		consultarClientes.setBounds(0, 0, 977, 681);
+		consultarClientes.setBackground(new Color(255, 128, 0));
+		consultarClientes.setLayout(null);
+		ConsultaClientes.add(consultarClientes);
+
+		JTable tablaConsulta = new JTable();
+		tablaConsulta.setModel(new DefaultTableModel(
+				new Object[][]{
+						{"Usuario #5", "Consultar"},
+						{"Usuario #4", "Consultar"},
+						{"Usuario #3", "Consultar"},
+						{"Usuario #2", "Consultar"},
+						{"Usuario #1", "Consultar"},
+				},
+				new String[]{
+						"Historia", "Direccion"
+				}
+		));
+		tablaConsulta.setBounds(181, 257, 606, 80);
+		consultarClientes.add(tablaConsulta);
+
+		JPanel panelConsulta2 = new JPanel();
+		panelConsulta2.setBackground(Color.GRAY);
+		panelConsulta2.setBounds(181, 215, 606, 42);
+		consultarClientes.add(panelConsulta2);
+		panelConsulta2.setLayout(null);
+
+		JLabel historial = new JLabel("Historial");
+		historial.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		historial.setBounds(86, 11, 115, 20);
+		panelConsulta2.add(historial);
+
+		JLabel lbldireccion = new JLabel("Direccion");
+		lbldireccion.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lbldireccion.setBounds(426, 11, 115, 20);
+		panelConsulta2.add(lbldireccion);
+
+		JLabel clientes = new JLabel("Consultar Clientes");
+		clientes.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		clientes.setBounds(417, 137, 181, 50);
+		consultarClientes.add(clientes);
+
+		JButton backConsulta = new JButton("Back");
+		backConsulta.setBounds(10, 11, 80, 29);
+		backConsulta.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(ConsultaClientes);
+				add(Clientes);
+				repaint();
+				revalidate();
+			}
+		});
+		consultarClientes.add(backConsulta);
+
 
 		//----pantalla eliminar clientes----
-		/* JPanel panel = new JPanel();
-        panel.setBackground(Color.GRAY);
-        panel.setBounds(181, 215, 606, 42);
-        frame.getContentPane().add(panel);
+		EliminarClientes.setLayout(null);
 
-        panel.setLayout(null);
-        
-        //----pantalla principal ordenes----
-        JPanel PanelOrdenes = new JPanel();
-		contentPane.add(PanelOrdenes);
-		PanelOrdenes.setLayout(null);
+		JPanel eliminarClientes = new JPanel();
+		eliminarClientes.setBounds(0, 0, 977, 681);
+		eliminarClientes.setBackground(new Color(255, 128, 0));
+		eliminarClientes.setLayout(null);
+		EliminarClientes.add(eliminarClientes);
 
-		JPanel PanelOrdenes1 = new JPanel();
-		PanelOrdenes1 .setLayout(null);
-		PanelOrdenes1 .setBackground(Color.WHITE);
-		PanelOrdenes1 .setBounds(60, 241, 827, 347);
-		PanelOrdenes.add(PanelOrdenes1 );
-        
-        //----pantalla consultar ordenes----
-        JPanel ConsultarOrden = new JPanel();
-		ConsultarOrden.setBackground(new Color(255, 69, 0));
-		frame.getContentPane().add(ConsultarOrden, BorderLayout.CENTER);
-		ConsultarOrden.setLayout(null);
-		
-		//----pantalla crear ordenes----
-		JPanel CrearOrden = new JPanel();
-		CrearOrden.setBackground(new Color(255, 69, 0));
-		frame.getContentPane().add(CrearOrden, BorderLayout.CENTER);
-		CrearOrden.setLayout(null);
-		
-		//----pantalla editar ordenes----
-		JPanel EditarOrdenes = new JPanel();
-		EditarOrdenes.setBackground(new Color(255, 69, 0));
-		frame.getContentPane().add(EditarOrdenes, BorderLayout.CENTER);
-		EditarOrdenes.setLayout(null);
-		
-		//----pantalla eliminar ordenes----
-		JPanel EliminarOrden = new JPanel();
-		EliminarOrden.setBackground(new Color(255, 69, 0));
-		frame.getContentPane().add(EliminarOrden, BorderLayout.CENTER);
-		EliminarOrden.setLayout(null);
-      
-       
-       
-    
-        
-        */
+		JTable tablaEliminar = new JTable();
+		tablaEliminar.setModel(new DefaultTableModel(
+				new Object[][]{
+						{"Cliente #5", "Eliminar"},
+						{"Cliente #4", "Eliminar"},
+						{"Cliente #3", "Eliminar"},
+						{"Cliente #2", "Eliminar"},
+						{"Cliente #1", "Eliminar"},
+				},
+				new String[]{
+						"Historia", "Direccion"
+				}
+		));
+		tablaEliminar.setBounds(181, 257, 606, 80);
+		eliminarClientes.add(tablaEliminar);
 
-       
+		JPanel panelsito = new JPanel();
+		panelsito.setBackground(Color.GRAY);
+		panelsito.setBounds(181, 215, 606, 42);
+		panelsito.setLayout(null);
+		eliminarClientes.add(panelsito);
+
+		JLabel lblTitulo = new JLabel("Cliente a Eliminar");
+		lblTitulo.setFont(new Font("Arial Black", Font.PLAIN, 16));
+		lblTitulo.setBounds(225, 11, 182, 20);
+		panelsito.add(lblTitulo);
+
+		JLabel lblEliminar = new JLabel("Eliminar Clientes");
+		lblEliminar.setFont(new Font("Arial Black", Font.PLAIN, 16));
+		lblEliminar.setBounds(417, 137, 181, 50);
+		eliminarClientes.add(lblEliminar);
+
+		JButton backEliminar = new JButton("Back");
+		backEliminar.setBounds(10, 11, 80, 29);
+		backEliminar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(EliminarClientes);
+				add(Clientes);
+				repaint();
+				revalidate();
+			}
+		});
+		eliminarClientes.add(backEliminar);
 
 
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 }
+
+
