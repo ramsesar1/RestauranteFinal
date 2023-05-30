@@ -2,14 +2,11 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JLabel;
 
 public class Clientes extends JFrame {
 
@@ -45,6 +42,13 @@ public class Clientes extends JFrame {
 		panel.setBackground(Color.WHITE);
 		panel.setBounds(60, 241, 827, 347);
 		panelClientes.add(panel);
+
+		JLabel clienteIcon = new JLabel(new ImageIcon("clientelogo2.jpeg"));
+		clienteIcon.setBounds(0, 0, 951, 631);
+		clienteIcon.setVisible(true);
+		clienteIcon.setOpaque(true);
+		panelClientes.add(clienteIcon);
+
 
 		JButton btnNewButton = new JButton("Consultar");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
