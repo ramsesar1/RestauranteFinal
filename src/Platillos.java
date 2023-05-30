@@ -16,18 +16,7 @@ public class Platillos extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Platillos frame = new Platillos();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
@@ -40,7 +29,8 @@ public class Platillos extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
-		
+
+
 		JPanel Platillos = new JPanel();
 		contentPane.add(Platillos);
 		Platillos.setLayout(null);

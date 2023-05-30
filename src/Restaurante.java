@@ -64,6 +64,7 @@ public class Restaurante extends JFrame {
 		JPanel Crearplat = new JPanel();
 		JPanel Platillosconingre = new JPanel();
 		JPanel ElimPlatillos = new JPanel();
+
 		
 		//Ordenes
 		JPanel Ordenes= new JPanel();
@@ -72,6 +73,7 @@ public class Restaurante extends JFrame {
 		JPanel CrearOrden = new JPanel();
 		JPanel EliminarOrden= new JPanel();
 		JPanel EditarTablaOrd = new JPanel();
+
 
 
 		//inventarios
@@ -173,6 +175,7 @@ public class Restaurante extends JFrame {
 		btnNewButtonclientes.setBackground(new Color(255, 128, 0));
 		btnNewButtonclientes.setBounds(53, 279, 279, 234);
 		panelmenu.add(btnNewButtonclientes);
+
 	    btnNewButtonclientes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -183,6 +186,7 @@ public class Restaurante extends JFrame {
             }
         });
 		
+
 
 		JButton btnentrarinventario = new JButton("Inventario\r\n");
 		btnentrarinventario.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -199,6 +203,7 @@ public class Restaurante extends JFrame {
 				revalidate();
 			}
 		});
+
 
 		JButton btnNewButtonOrden = new JButton("Ordenes\r\n");
 		btnNewButtonOrden.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -217,21 +222,17 @@ public class Restaurante extends JFrame {
 		});
 
 
-		JLabel Menuicon = new JLabel(new ImageIcon("Platillosfondo.png"));
-		Menuicon.setBounds(0, 0, 977, 681);
-		Menuicon.setVisible(true);
-		Menuicon.setOpaque(true);
-		login.add(Menuicon);
-		Inicio.add(Menuicon);
-		repaint();
-		revalidate();
+	
+
+		JButton btnNewButton_2 = new JButton("Ordenes\r\n");
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton_2.setBackground(new Color(255, 128, 0));
+		btnNewButton_2.setBounds(364, 22, 279, 234);
+		panelmenu.add(btnNewButton_2);
+
+
 		
-		
-		
-		
-		
-		
-		
+
 
 
 		//--------------------------------------------platillos---------------------------------------------------------
@@ -771,6 +772,7 @@ public class Restaurante extends JFrame {
 
 
 		//--------------------------------------------ordenes-----------------------------------------------------------
+
 		Ordenes.setLayout(null);
 		Ordenes.repaint();
 		Ordenes.revalidate();
@@ -1115,6 +1117,7 @@ public class Restaurante extends JFrame {
 		
 		
 		
+
 
 		//--------------------------------------------inventario--------------------------------------------------------
 
@@ -1796,10 +1799,14 @@ public class Restaurante extends JFrame {
 		consultar_clientes.setBounds(417, 137, 181, 50);
 		editarTablaCliente.add(consultar_clientes);
 
+
+		
+
 		JButton btnEdit1 = new JButton("Editar Cliente");
-		btnEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnEdit.setBounds(400, 587, 147, 44);
-		btnEdit.addActionListener(new ActionListener() {
+
+		btnEdit1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnEdit1.setBounds(400, 587, 147, 44);
+		btnEdit1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				remove(EditarTabla);
@@ -1808,7 +1815,11 @@ public class Restaurante extends JFrame {
 				revalidate();
 			}
 		});
+
+		
+
 		editarTablaCliente.add(btnEdit1);
+
 
 		JButton backET = new JButton("Back");
 		backET.setBounds(10, 11, 80, 29);
@@ -2017,5 +2028,5 @@ public class Restaurante extends JFrame {
 		eliminarClientes.add(backEliminar);
 
 
-	}
-}
+	}}
+

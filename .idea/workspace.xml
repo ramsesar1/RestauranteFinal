@@ -4,23 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff60951b-c24a-434f-81e4-0182c2341fee" name="Changes" comment="crear cliente agregado">
-      <change afterPath="$PROJECT_DIR$/clientelogo2.jpeg" afterDir="false" />
+    <list default="true" id="ff60951b-c24a-434f-81e4-0182c2341fee" name="Changes" comment="Zona clientes realizada visualmente">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Clientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Clientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConsultarOrdenes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsultarOrdenes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConsultarPlatillo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsultarPlatillo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CrearOrdenes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CrearOrdenes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CrearPlatillo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CrearPlatillo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EditarInventario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditarInventario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EditarOrdenes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditarOrdenes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EditarPlatillo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditarPlatillo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EliminarInventario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EliminarInventario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EliminarOrdenes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EliminarOrdenes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EliminarPlatillo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EliminarPlatillo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ingredientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ingredientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menuinicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menuinicio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NuevoInventario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NuevoInventario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ordenes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ordenes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Platilloconingre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platilloconingre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Platillos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platillos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SeleccionEditarPlat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SeleccionEditarPlat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/editarCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editarCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eliminarCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eliminarCliente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,7 +52,6 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Gamer\IdeaProjects\RestauranteFinal" />
       <recent name="C:\Users\soypr\eclipse-workspace\RestauranteFinal\src" />
     </key>
   </component>
@@ -62,11 +71,62 @@
       <option name="project" value="LOCAL" />
       <updated>1685247662050</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Se añaden mas ventanas, aun pendientes de juntar">
+      <created>1685247961971</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685247961971</updated>
+    </task>
+    <task id="LOCAL-00003" summary="se añaden los paneles de platillos a la clase restaurante">
+      <created>1685419311953</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685419311953</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Se añade funcionalidad a Login, boton de platillos, consulta de platillos y retroceso de estos">
+      <created>1685427096932</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685427096932</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Todos los botones de back y enfrente">
+      <created>1685432286776</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685432286776</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Zona clientes realizada visualmente">
+      <created>1685442737890</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685442737890</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Se empieza a añadir las ventanas como clases separadas, se juntaran luego, pero primero se añade el mockup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se empieza a añadir las ventanas como clases separadas, se juntaran luego, pero primero se añade el mockup" />
+    <MESSAGE value="Se añaden mas ventanas, aun pendientes de juntar" />
+    <MESSAGE value="se añaden los paneles de platillos a la clase restaurante" />
+    <MESSAGE value="Se añade funcionalidad a Login, boton de platillos, consulta de platillos y retroceso de estos" />
+    <MESSAGE value="Todos los botones de back y enfrente" />
+    <MESSAGE value="Zona clientes realizada visualmente" />
+    <option name="LAST_COMMIT_MESSAGE" value="Zona clientes realizada visualmente" />
   </component>
 </project>

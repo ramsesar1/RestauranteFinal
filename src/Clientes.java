@@ -12,7 +12,11 @@ public class Clientes extends JFrame {
 
 	private JPanel contentPane;
 
-	public static void main(String[] args) {
+	private JPanel panelClientes;
+
+	private JPanel panelMini;
+
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -23,7 +27,7 @@ public class Clientes extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	public Clientes() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,15 +37,16 @@ public class Clientes extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
 
-		JPanel panelClientes = new JPanel();
+		panelClientes = new JPanel();
 		contentPane.add(panelClientes);
 		panelClientes.setLayout(null);
 
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBackground(Color.WHITE);
-		panel.setBounds(60, 241, 827, 347);
-		panelClientes.add(panel);
+		panelMini = new JPanel();
+		panelMini.setLayout(null);
+		panelMini.setBackground(Color.WHITE);
+		panelMini.setOpaque(false);
+		panelMini.setBounds(60, 241, 827, 347);
+		panelClientes.add(panelMini);
 
 		JLabel clienteIcon = new JLabel(new ImageIcon("clientelogo2.jpeg"));
 		clienteIcon.setBounds(0, 0, 951, 631);
@@ -50,33 +55,66 @@ public class Clientes extends JFrame {
 		panelClientes.add(clienteIcon);
 
 
-		JButton btnNewButton = new JButton("Consultar");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton.setBackground(new Color(255, 128, 0));
-		btnNewButton.setBounds(112, 95, 217, 60);
-		panel.add(btnNewButton);
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnConsultar.setBackground(new Color(255, 128, 0));
+		btnConsultar.setBounds(112, 95, 217, 60);
+		btnConsultar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				historialCliente consulta = new historialCliente();
+				contentPane.add(consulta.getContentPane());
+				contentPane.remove(panelClientes);
+				contentPane.revalidate();
+				contentPane.repaint();
+			}
+		});
+		panelMini.add(btnConsultar);
 
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnEditar.setBackground(new Color(255, 128, 0));
 		btnEditar.setBounds(112, 198, 217, 60);
-		panel.add(btnEditar);
+		btnEditar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				editarCliente editar = new editarCliente();
+			    contentPane.add(editar.getContentPane());
+				contentPane.remove(panelClientes);
+				contentPane.revalidate();
+				contentPane.repaint();
+			}
+		});
+		panelMini.add(btnEditar);
 
-		JButton btnNewButton_1_1 = new JButton("Eliminar");
-		btnNewButton_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton_1_1.setBackground(new Color(255, 128, 0));
-		btnNewButton_1_1.setBounds(490, 198, 217, 60);
-		panel.add(btnNewButton_1_1);
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEliminar.setBackground(new Color(255, 128, 0));
+		btnEliminar.setBounds(490, 198, 217, 60);
+		btnEliminar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				eliminarCliente eliminar = new eliminarCliente();
+				contentPane.add(eliminar.getContentPane());
+				contentPane.remove(panelClientes);
+				contentPane.revalidate();
+				contentPane.repaint();
+
+			}
+		});
+		panelMini.add(btnEliminar);
 
 		JButton btnCrear = new JButton("Crear");
 		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnCrear.setBackground(new Color(255, 128, 0));
 		btnCrear.setBounds(490, 95, 217, 60);
-		panel.add(btnCrear);
+		panelMini.add(btnCrear);
 
 		btnCrear.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				CrearCliente crear = new CrearCliente();
+				contentPane.add(crear.getContentPane());
 				contentPane.remove(panelClientes);
 				contentPane.revalidate();
 				contentPane.repaint();
@@ -87,5 +125,9 @@ public class Clientes extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		lblNewLabel.setBounds(422, 0, 126, 55);
 		panelClientes.add(lblNewLabel);
+	}
+
+	public void mostrar(){
+	     contentPane.setVisible(true);
 	}
 }

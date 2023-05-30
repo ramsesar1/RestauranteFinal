@@ -16,18 +16,6 @@ public class Ordenes extends JFrame {
 
 	private JPanel contentPane;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Ordenes frame = new Ordenes();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	public Ordenes() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
