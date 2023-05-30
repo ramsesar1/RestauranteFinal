@@ -46,8 +46,15 @@ public class Restaurante extends JFrame {
 		//JPanel de ventanas definidos
 
 		JPanel Inicio = new JPanel();
+
+		//platillos
 		JPanel Platillos = new JPanel();
 		JPanel ConsultaPlatillos = new JPanel();
+		JPanel EditarPlat = new JPanel();
+		JPanel Crearplat = new JPanel();
+		JPanel Platillosconingre = new JPanel();
+		JPanel ElimPlatillos = new JPanel();
+
 
 
 		setContentPane(contentPane);
@@ -200,23 +207,64 @@ public class Restaurante extends JFrame {
 		btnEditar.setBounds(307, 94, 217, 60);
 		panel.add(btnEditar);
 
+		btnEditar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Platillos);
+				add(EditarPlat);
+				repaint();
+				revalidate();
+			}
+		});
+
+
 		JButton btnIngredientes = new JButton("Ingredientes");
 		btnIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnIngredientes.setBackground(new Color(255, 128, 0));
 		btnIngredientes.setBounds(183, 197, 217, 60);
 		panel.add(btnIngredientes);
 
-		JButton btnNewButton_1_1 = new JButton("Eliminar");
-		btnNewButton_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton_1_1.setBackground(new Color(255, 128, 0));
-		btnNewButton_1_1.setBounds(439, 197, 217, 60);
-		panel.add(btnNewButton_1_1);
+		btnIngredientes.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Platillos);
+				add(Platillosconingre);
+				repaint();
+				revalidate();
+			}
+		});
+
+		JButton btneliminar = new JButton("Eliminar");
+		btneliminar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btneliminar.setBackground(new Color(255, 128, 0));
+		btneliminar.setBounds(439, 197, 217, 60);
+		panel.add(btneliminar);
+
+		btneliminar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Platillos);
+				add(ElimPlatillos);
+				repaint();
+				revalidate();
+			}
+		});
 
 		JButton btnCrear = new JButton("Crear");
 		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnCrear.setBackground(new Color(255, 128, 0));
 		btnCrear.setBounds(548, 94, 217, 60);
 		panel.add(btnCrear);
+
+		btnCrear.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Platillos);
+				add(Crearplat);
+				repaint();
+				revalidate();
+			}
+		});
 
 		JLabel lblplatillos = new JLabel("Platillos\r\n");
 		lblplatillos.setFont(new Font("Tahoma", Font.PLAIN, 26));
@@ -236,6 +284,9 @@ public class Restaurante extends JFrame {
 				revalidate();
 			}
 		});
+
+
+
 
 		//----Consultar platillos-----
 
@@ -327,269 +378,310 @@ public class Restaurante extends JFrame {
 
 		//----Editar Platillos-----
 
-		/*
-		JPanel EditarPlat = new JPanel();
-        EditarPlat.setBackground(new Color(250, 183, 133));
-        EditarPlat.setBounds(10, 51, 941, 548);
-        contentPane.add(EditarPlat);
-        EditarPlat.setLayout(null);
 
-        textField = new JTextField();
-        textField.setBounds(10, 41, 372, 33);
-        EditarPlat.add(textField);
-        textField.setColumns(10);
+		EditarPlat.setBackground(new Color(255, 128, 64));
+		EditarPlat.setBounds(0, 0, 961, 642);
+	//	contentPane.add(EditarPlat);
+		EditarPlat.setLayout(null);
 
-        textField_1 = new JTextField();
-        textField_1.setColumns(10);
-        textField_1.setBounds(10, 447, 372, 33);
-        EditarPlat.add(textField_1);
+		JPanel paneledplat = new JPanel();
+		paneledplat.setBackground(new Color(255, 218, 168));
+		paneledplat.setBounds(10, 59, 930, 572);
+		EditarPlat.add(paneledplat);
+		paneledplat.setLayout(null);
 
-        JTextArea textArea = new JTextArea();
-        textArea.setBounds(10, 234, 372, 147);
-        EditarPlat.add(textArea);
+		JTextField NombrePlatEdField = new JTextField();
+		NombrePlatEdField.setColumns(10);
+		NombrePlatEdField.setBounds(23, 73, 372, 33);
+		paneledplat.add(NombrePlatEdField);
 
-        JComboBox comboBox = new JComboBox();
-        comboBox.setBounds(10, 131, 372, 33);
-        EditarPlat.add(comboBox);
+		JTextField PrecioEdPlat = new JTextField();
+		PrecioEdPlat.setColumns(10);
+		PrecioEdPlat.setBounds(23, 479, 372, 33);
+		paneledplat.add(PrecioEdPlat);
 
-        JLabel lblNewLabel = new JLabel("Nombre del Platillo:");
-        lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        lblNewLabel.setBounds(10, 11, 242, 19);
-        EditarPlat.add(lblNewLabel);
+		JTextArea Descripcionarea = new JTextArea();
+		Descripcionarea.setBounds(23, 266, 372, 147);
+		paneledplat.add(Descripcionarea);
 
-        JLabel lblIngredientes = new JLabel("Ingredientes:\r\n");
-        lblIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        lblIngredientes.setBounds(10, 85, 265, 37);
-        EditarPlat.add(lblIngredientes);
+		JComboBox ingredientebox = new JComboBox();
+		ingredientebox.setBounds(23, 163, 372, 33);
+		paneledplat.add(ingredientebox);
 
-        JLabel lblDescripcin = new JLabel("Descripción:");
-        lblDescripcin.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        lblDescripcin.setBounds(10, 190, 331, 33);
-        EditarPlat.add(lblDescripcin);
+		JLabel lblnombreplateditar = new JLabel("Nombre del Platillo:");
+		lblnombreplateditar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblnombreplateditar.setBounds(23, 43, 242, 19);
+		paneledplat.add(lblnombreplateditar);
 
-        JLabel lblPrecio = new JLabel("Precio:");
-        lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        lblPrecio.setBounds(10, 403, 293, 33);
-        EditarPlat.add(lblPrecio);
+		JLabel lblIngredientes = new JLabel("Ingredientes:\r\n");
+		lblIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblIngredientes.setBounds(23, 117, 265, 37);
+		paneledplat.add(lblIngredientes);
 
-        JButton btnEditarPlat = new JButton("Editar\r\n");
-        btnEditarPlat.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        btnEditarPlat.setBackground(new Color(254, 211, 122));
-        btnEditarPlat.setBounds(391, 494, 150, 43);
-        EditarPlat.add(btnEditarPlat);
+		JLabel lblDescripcin = new JLabel("Descripción:");
+		lblDescripcin.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblDescripcin.setBounds(23, 222, 331, 33);
+		paneledplat.add(lblDescripcin);
 
-        JButton btnAdjuntarImagen = new JButton("Adjuntar Imagen\r\n");
-        btnAdjuntarImagen.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        btnAdjuntarImagen.setBackground(new Color(254, 211, 122));
-        btnAdjuntarImagen.setBounds(691, 412, 211, 43);
-        EditarPlat.add(btnAdjuntarImagen);
+		JLabel lblPrecio = new JLabel("Precio:");
+		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblPrecio.setBounds(23, 435, 293, 33);
+		paneledplat.add(lblPrecio);
 
-        JLabel lblNewLabel_1 = new JLabel("Editar Platillo");
-        lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 26));
-        lblNewLabel_1.setBounds(428, 11, 277, 29);
-        contentPane.add(lblNewLabel_1);
+		JButton btnEditarPlat = new JButton("Editar\r\n");
+		btnEditarPlat.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEditarPlat.setBackground(new Color(254, 211, 122));
+		btnEditarPlat.setBounds(404, 526, 150, 43);
+		paneledplat.add(btnEditarPlat);
 
-		 */
+		JButton btnAdjuntarImagen = new JButton("Adjuntar Imagen\r\n");
+		btnAdjuntarImagen.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnAdjuntarImagen.setBackground(new Color(254, 211, 122));
+		btnAdjuntarImagen.setBounds(704, 444, 211, 43);
+		paneledplat.add(btnAdjuntarImagen);
 
+		JLabel EditarPLatillotitulo = new JLabel("Editar Platillo\r\n");
+		EditarPLatillotitulo.setFont(new Font("Tahoma", Font.PLAIN, 27));
+		EditarPLatillotitulo.setBounds(390, 11, 234, 38);
+		EditarPlat.add(EditarPLatillotitulo);
 
+		JButton btnbackeditarplatillos = new JButton("Back");
+		btnbackeditarplatillos.setBounds(10, 11, 44, 29);
+		EditarPlat.add(btnbackeditarplatillos);
+
+		btnbackeditarplatillos.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(EditarPlat);
+				add(Platillos);
+				repaint();
+				revalidate();
+			}
+		});
 
 
 		//----Crear Platillos-----
 
-		/*
-		JPanel Crearplat = new JPanel();
-        Crearplat.setBackground(new Color(250, 183, 133));
-        Crearplat.setBounds(10, 51, 941, 548);
-        contentPane.add(Crearplat);
-        Crearplat.setLayout(null);
+		Crearplat.setBackground(new Color(255, 128, 0));
+		Crearplat.setBounds(0, 0, 961, 642);
+	//	contentPane.add(Crearplat);
+		Crearplat.setLayout(null);
 
-        textField = new JTextField();
-        textField.setBounds(10, 41, 372, 33);
-        Crearplat.add(textField);
-        textField.setColumns(10);
+		JPanel panelcrearplat = new JPanel();
+		panelcrearplat.setBackground(new Color(255, 218, 168));
+		panelcrearplat.setBounds(10, 59, 930, 572);
+		Crearplat.add(panelcrearplat);
+		panelcrearplat.setLayout(null);
 
-        textField_1 = new JTextField();
-        textField_1.setColumns(10);
-        textField_1.setBounds(10, 447, 372, 33);
-        Crearplat.add(textField_1);
+		JTextField NombrePlatCrearField = new JTextField();
+		NombrePlatCrearField.setColumns(10);
+		NombrePlatCrearField.setBounds(23, 73, 372, 33);
+		panelcrearplat.add(NombrePlatCrearField);
 
-        JTextArea textArea = new JTextArea();
-        textArea.setBounds(10, 234, 372, 147);
-        Crearplat.add(textArea);
+		JTextField PreciocrearPlat = new JTextField();
+		PreciocrearPlat.setColumns(10);
+		PreciocrearPlat.setBounds(23, 479, 372, 33);
+		panelcrearplat.add(PreciocrearPlat);
 
-        JComboBox comboBox = new JComboBox();
-        comboBox.setBounds(10, 131, 372, 33);
-        Crearplat.add(comboBox);
+		JTextArea Descripcionareacrear = new JTextArea();
+		Descripcionareacrear.setBounds(23, 266, 372, 147);
+		panelcrearplat.add(Descripcionareacrear);
 
-        JLabel lblNewLabel = new JLabel("Nombre del Platillo:");
-        lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        lblNewLabel.setBounds(10, 11, 242, 19);
-        Crearplat.add(lblNewLabel);
+		JComboBox ingredienteboxcrear = new JComboBox();
+		ingredienteboxcrear.setBounds(23, 163, 372, 33);
+		panelcrearplat.add(ingredienteboxcrear);
 
-        JLabel lblIngredientes = new JLabel("Ingredientes:\r\n");
-        lblIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        lblIngredientes.setBounds(10, 85, 265, 37);
-        Crearplat.add(lblIngredientes);
+		JLabel nombreplatcrearlaberl = new JLabel("Nombre del Platillo:");
+		nombreplatcrearlaberl.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		nombreplatcrearlaberl.setBounds(23, 43, 242, 19);
+		panelcrearplat.add(nombreplatcrearlaberl);
 
-        JLabel lblDescripcin = new JLabel("Descripción:");
-        lblDescripcin.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        lblDescripcin.setBounds(10, 190, 331, 33);
-        Crearplat.add(lblDescripcin);
+		JLabel comboingredcrear = new JLabel("Ingredientes:\r\n");
+		comboingredcrear.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		comboingredcrear.setBounds(23, 117, 265, 37);
+		panelcrearplat.add(comboingredcrear);
 
-        JLabel lblPrecio = new JLabel("Precio:");
-        lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        lblPrecio.setBounds(10, 403, 293, 33);
-        Crearplat.add(lblPrecio);
+		JLabel Descripcioncrearplatlabel = new JLabel("Descripción:");
+		Descripcioncrearplatlabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Descripcioncrearplatlabel.setBounds(23, 222, 331, 33);
+		panelcrearplat.add(Descripcioncrearplatlabel);
 
-        JButton btnCrearPlat = new JButton("Crear");
-        btnCrearPlat.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        btnCrearPlat.setBackground(new Color(254, 211, 122));
-        btnCrearPlat.setBounds(391, 494, 150, 43);
-        Crearplat.add(btnCrearPlat);
+		JLabel lblPreciocrearplat = new JLabel("Precio:");
+		lblPreciocrearplat.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblPreciocrearplat.setBounds(23, 435, 293, 33);
+		panelcrearplat.add(lblPreciocrearplat);
 
-        JButton btnAdjuntarImagen = new JButton("Adjuntar Imagen\r\n");
-        btnAdjuntarImagen.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        btnAdjuntarImagen.setBackground(new Color(254, 211, 122));
-        btnAdjuntarImagen.setBounds(691, 412, 211, 43);
-        Crearplat.add(btnAdjuntarImagen);
+		JButton btnCrearPlat = new JButton("Crear");
+		btnCrearPlat.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCrearPlat.setBackground(new Color(254, 211, 122));
+		btnCrearPlat.setBounds(404, 526, 150, 43);
+		panelcrearplat.add(btnCrearPlat);
 
-        JLabel lblNewLabel_1 = new JLabel("Crear Platillo");
-        lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 26));
-        lblNewLabel_1.setBounds(398, 0, 227, 40);
-        contentPane.add(lblNewLabel_1);
+		JButton btnAdjuntarImagen2 = new JButton("Adjuntar Imagen\r\n");
+		btnAdjuntarImagen2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnAdjuntarImagen2.setBackground(new Color(254, 211, 122));
+		btnAdjuntarImagen2.setBounds(704, 444, 211, 43);
+		panelcrearplat.add(btnAdjuntarImagen2);
+
+		JLabel Crearplatlbl = new JLabel("Crear Platillo");
+		Crearplatlbl.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		Crearplatlbl.setBounds(387, 0, 227, 40);
+		Crearplat.add(Crearplatlbl);
 
 
 
+		JButton btnbackcrearplatillos = new JButton("Back");
+		btnbackcrearplatillos.setBounds(10, 11, 44, 29);
+		Crearplat.add(btnbackcrearplatillos);
 
-		 */
+		btnbackcrearplatillos.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Crearplat);
+				add(Platillos);
+				repaint();
+				revalidate();
+			}
+		});
 
 
 
 
 		//----Platillos ingredientes-----
-/*
 
 
 
 
-  JPanel Platillosconingre = new JPanel();
-        Platillosconingre.setBackground(new Color(255, 128, 0));
-        contentPane.add(Platillosconingre);
-        Platillosconingre.setLayout(null);
 
-        DefaultListModel<String> model = new DefaultListModel<>();
-        model.addElement("Sushi empanizado");
-        model.addElement("Hamburguesa");
-        model.addElement("Lasagna");
-        model.addElement("Pizza");
-        model.addElement("Alitas");
+		Platillosconingre.setBackground(new Color(255, 128, 0));
+	//	contentPane.add(Platillosconingre);
+		Platillosconingre.setLayout(null);
 
-        JButton btnNewButton = new JButton("Back");
-        btnNewButton.setBounds(10, 11, 52, 43);
-        Platillosconingre.add(btnNewButton);
+		DefaultListModel<String> model2 = new DefaultListModel<>();
+		model2.addElement("Sushi empanizado");
+		model2.addElement("Hamburguesa");
+		model2.addElement("Lasagna");
+		model2.addElement("Pizza");
+		model2.addElement("Alitas");
 
 
 
-        JLabel lblNewLabel = new JLabel("Ingredientes");
-        lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 26));
-        lblNewLabel.setBounds(403, 0, 316, 52);
-        Platillosconingre.add(lblNewLabel);
-
-        JPanel panel = new JPanel();
-        panel.setBounds(37, 62, 877, 559);
-        Platillosconingre.add(panel);
-        panel.setLayout(null);
 
 
+		JLabel lblingredientes = new JLabel("Ingredientes");
+		lblingredientes.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		lblingredientes.setBounds(403, 0, 316, 52);
+		Platillosconingre.add(lblingredientes);
 
-        JPanel panel_1 = new JPanel();
-        panel_1.setBackground(new Color(255, 255, 255));
-        panel_1.setBounds(433, 5, 444, 565);
-        panel.add(panel_1);
-        panel_1.setLayout(null);
+		JPanel panelcrearingre = new JPanel();
+		panelcrearingre.setBounds(37, 62, 877, 559);
+		Platillosconingre.add(panelcrearingre);
+		panelcrearingre.setLayout(null);
 
-        JLabel lblNewLabel_2 = new JLabel("Detalles de Ingredientes");
-        lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 26));
-        lblNewLabel_2.setBounds(57, 11, 357, 61);
-        panel_1.add(lblNewLabel_2);
 
-        JLabel lblNewLabel_2_1 = new JLabel("Ingrediente: Queso amarillo");
-        lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 21));
-        lblNewLabel_2_1.setBounds(61, 111, 317, 61);
-        panel_1.add(lblNewLabel_2_1);
 
-        JTextArea txtrDescripcinQuesoImitacin = new JTextArea();
-        txtrDescripcinQuesoImitacin.setFont(new Font("Tahoma", Font.PLAIN, 17));
-        txtrDescripcinQuesoImitacin.setText("Descripción: Queso imitación tipo chedar en rebanadas,\r\n usado para hamburguesas.");
-        txtrDescripcinQuesoImitacin.setBounds(66, 228, 312, 249);
-        panel_1.add(txtrDescripcinQuesoImitacin);
+		JPanel panellista = new JPanel();
+		panellista.setBackground(new Color(255, 255, 255));
+		panellista.setBounds(433, 5, 444, 565);
+		panelcrearingre.add(panellista);
+		panellista.setLayout(null);
 
-        JPanel panel_2 = new JPanel();
-        panel_2.setBackground(new Color(255, 128, 0));
-        panel_2.setBounds(35, 40, 288, 519);
-        panel.add(panel_2);
-        panel_2.setLayout(null);
+		JLabel Detallesingrelbl = new JLabel("Detalles de Ingredientes");
+		Detallesingrelbl.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		Detallesingrelbl.setBounds(57, 11, 357, 61);
+		panellista.add(Detallesingrelbl);
 
-        JButton btnNewButton_1 = new JButton("Queso amarillo\r\n");
-        btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        btnNewButton_1.setBounds(10, 11, 268, 53);
-        panel_2.add(btnNewButton_1);
+		JLabel Tipoingredientelbl = new JLabel("Ingrediente: Queso amarillo");
+		Tipoingredientelbl.setFont(new Font("Tahoma", Font.PLAIN, 21));
+		Tipoingredientelbl.setBounds(61, 111, 317, 61);
+		panellista.add(Tipoingredientelbl);
 
-        JButton btnNewButton_1_1 = new JButton("Queso mozarella");
-        btnNewButton_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        btnNewButton_1_1.setBounds(10, 75, 268, 53);
-        panel_2.add(btnNewButton_1_1);
+		JTextArea txtrDescripcinQuesoImitacin = new JTextArea();
+		txtrDescripcinQuesoImitacin.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		txtrDescripcinQuesoImitacin.setText("Descripción: Queso imitación tipo chedar en rebanadas,\r\n usado para hamburguesas.");
+		txtrDescripcinQuesoImitacin.setBounds(66, 228, 312, 249);
+		panellista.add(txtrDescripcinQuesoImitacin);
 
-        JButton btnNewButton_1_2 = new JButton("Hamburguesa\r\n");
-        btnNewButton_1_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        btnNewButton_1_2.setBounds(10, 75, 268, 53);
-        panel_2.add(btnNewButton_1_2);
+		JPanel panel_10 = new JPanel();
+		panel_10.setBackground(new Color(255, 128, 0));
+		panel_10.setBounds(35, 40, 288, 519);
+		panelcrearingre.add(panel_10);
+		panel_10.setLayout(null);
 
-        JButton btnNewButton_1_2_1 = new JButton("Salsa de tomate");
-        btnNewButton_1_2_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        btnNewButton_1_2_1.setBounds(10, 203, 268, 53);
-        panel_2.add(btnNewButton_1_2_1);
+		JButton Ingredienteprueba2 = new JButton("Queso amarillo\r\n");
+		Ingredienteprueba2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Ingredienteprueba2.setBounds(10, 11, 268, 53);
+		panel_10.add(Ingredienteprueba2);
 
-        JButton btnNewButton_1_3 = new JButton("Tomate");
-        btnNewButton_1_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        btnNewButton_1_3.setBounds(10, 139, 268, 53);
-        panel_2.add(btnNewButton_1_3);
+		JButton Ingredienteprueba1 = new JButton("Queso mozarella");
+		Ingredienteprueba1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Ingredienteprueba1.setBounds(10, 75, 268, 53);
+		panel_10.add(Ingredienteprueba1);
 
-        JButton btnNewButton_1_2_2 = new JButton("Camarones");
-        btnNewButton_1_2_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        btnNewButton_1_2_2.setBounds(10, 331, 268, 53);
-        panel_2.add(btnNewButton_1_2_2);
+		JButton btnNewButton_1_2 = new JButton("Hamburguesa\r\n");
+		btnNewButton_1_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton_1_2.setBounds(10, 75, 268, 53);
+		panel_10.add(btnNewButton_1_2);
 
-        JButton btnNewButton_1_4 = new JButton("Pepperoni");
-        btnNewButton_1_4.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        btnNewButton_1_4.setBounds(10, 267, 268, 53);
-        panel_2.add(btnNewButton_1_4);
+		JButton Ingredienteprueba4 = new JButton("Salsa de tomate");
+		Ingredienteprueba4.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Ingredienteprueba4.setBounds(10, 203, 268, 53);
+		panel_10.add(Ingredienteprueba4);
 
-        JButton btnNewButton_1_4_1 = new JButton("Arroz");
-        btnNewButton_1_4_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        btnNewButton_1_4_1.setBounds(10, 395, 268, 53);
-        panel_2.add(btnNewButton_1_4_1);
+		JButton Ingredienteprueba3 = new JButton("Tomate");
+		Ingredienteprueba3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Ingredienteprueba3.setBounds(10, 139, 268, 53);
+		panel_10.add(Ingredienteprueba3);
 
-        JButton btnNewButton_1_2_2_1 = new JButton("Harina de trigo");
-        btnNewButton_1_2_2_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        btnNewButton_1_2_2_1.setBounds(10, 459, 268, 53);
-        panel_2.add(btnNewButton_1_2_2_1);
+		JButton Ingredienteprueba6 = new JButton("Camarones");
+		Ingredienteprueba6.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Ingredienteprueba6.setBounds(10, 331, 268, 53);
+		panel_10.add(Ingredienteprueba6);
 
-        JLabel lblNewLabel_1 = new JLabel("Platillos con el ingrediente");
-        lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        lblNewLabel_1.setBounds(72, 5, 213, 36);
-        panel.add(lblNewLabel_1);
- */
+		JButton Ingredienteprueba5 = new JButton("Pepperoni");
+		Ingredienteprueba5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Ingredienteprueba5.setBounds(10, 267, 268, 53);
+		panel_10.add(Ingredienteprueba5);
+
+		JButton Ingredienteprueba7 = new JButton("Arroz");
+		Ingredienteprueba7.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Ingredienteprueba7.setBounds(10, 395, 268, 53);
+		panel_10.add(Ingredienteprueba7);
+
+		JButton Ingredienteprueba8 = new JButton("Harina de trigo");
+		Ingredienteprueba8.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Ingredienteprueba8.setBounds(10, 459, 268, 53);
+		panel_10.add(Ingredienteprueba8);
+
+		JLabel lblPlatillosconingre = new JLabel("Platillos con el ingrediente");
+		lblPlatillosconingre.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblPlatillosconingre.setBounds(72, 5, 213, 36);
+		panelcrearingre.add(lblPlatillosconingre);
+
+		JButton btnbackingredientes = new JButton("Back");
+		btnbackingredientes.setBounds(10, 11, 52, 43);
+		Platillosconingre.add(btnbackingredientes);
+
+		btnbackingredientes.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Platillosconingre);
+				add(Platillos);
+
+				repaint();
+				revalidate();
+			}
+		});
+
 
 		//----Eliminar Platillos-----
 
 
 
-		/*
-		 JPanel ElimPlatillos = new JPanel();
+
 	        ElimPlatillos.setBackground(new Color(255, 128, 0));
 	        ElimPlatillos.setBounds(0, 0, 961, 642);
-	        contentPane.add(ElimPlatillos);
+	      //  contentPane.add(ElimPlatillos);
 	        ElimPlatillos.setLayout(null);
 
 	        JLabel lblEliminarPlatillos = new JLabel("Eliminar Platillos");
@@ -601,13 +693,27 @@ public class Restaurante extends JFrame {
 	        list.setBounds(230, 234, 463, 228);
 	        ElimPlatillos.add(list);
 
-	        JLabel lblNewLabel_1 = new JLabel("Platillo a Eliminar");
-	        lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-	        lblNewLabel_1.setBounds(376, 200, 279, 43);
-	        ElimPlatillos.add(lblNewLabel_1);
+	        JLabel platilloAEliminar = new JLabel("Platillo a Eliminar");
+	        platilloAEliminar.setFont(new Font("Tahoma", Font.PLAIN, 22));
+	        platilloAEliminar.setBounds(376, 200, 279, 43);
+	        ElimPlatillos.add(platilloAEliminar);
+
+		JButton backbtneliminarplat = new JButton("Back");
+		backbtneliminarplat.setBounds(10, 11, 44, 29);
+		ElimPlatillos.add(backbtneliminarplat);
+
+		backbtneliminarplat.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(ElimPlatillos);
+				add(Platillos);
+				repaint();
+				revalidate();
+			}
+		});
 
 
-		 */
+
 
 
 
