@@ -10,6 +10,8 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
+
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -106,6 +108,95 @@ public class Restaurante extends JFrame {
 		
 		JPanel inicio = new JPanel();
 
+		//--------------------------------------------platillos---------------------------------------------------------
+		//--------------------------------------------ordenes-----------------------------------------------------------
+		//--------------------------------------------inventario--------------------------------------------------------
+		//--------------------------------------------clientes----------------------------------------------------------
+		//-----pantalla clientes principal-----
+		/*
+		JPanel panelClientes = new JPanel();
+		contentPane.add(panelClientes);
+		panelClientes.setLayout(null);
+
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBackground(Color.WHITE);
+		panel.setBounds(60, 241, 827, 347);
+		panelClientes.add(panel);*/
+
+		//-----pantalla creacion clientes-----
+		/*JPanel panel = new JPanel();
+		panel.setBounds(221, 150, 610, 426);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);*/
+
+		//------pantalla edicion de cliente------
+		/*JPanel panel = new JPanel();
+		panel.setBounds(221, 150, 610, 426);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);*/
+
+		//-----pantalla seleccion editar cliente-----
+		/*JPanel panel = new JPanel();
+		panel.setBackground(Color.GRAY);
+		panel.setBounds(181, 215, 606, 42);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);*/
+
+		//-----pantalla consulta de clientes-----
+		/*JPanel panel = new JPanel();
+		panel.setBackground(Color.GRAY);
+		panel.setBounds(181, 215, 606, 42);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);*/
+
+		//----pantalla eliminar clientes----
+		/* JPanel panel = new JPanel();
+        panel.setBackground(Color.GRAY);
+        panel.setBounds(181, 215, 606, 42);
+        frame.getContentPane().add(panel);
+        panel.setLayout(null);
+        
+        //----pantalla principal ordenes----
+        JPanel PanelOrdenes = new JPanel();
+		contentPane.add(PanelOrdenes);
+		PanelOrdenes.setLayout(null);
+
+		JPanel PanelOrdenes1 = new JPanel();
+		PanelOrdenes1 .setLayout(null);
+		PanelOrdenes1 .setBackground(Color.WHITE);
+		PanelOrdenes1 .setBounds(60, 241, 827, 347);
+		PanelOrdenes.add(PanelOrdenes1 );
+        
+        //----pantalla consultar ordenes----
+        JPanel ConsultarOrden = new JPanel();
+		ConsultarOrden.setBackground(new Color(255, 69, 0));
+		frame.getContentPane().add(ConsultarOrden, BorderLayout.CENTER);
+		ConsultarOrden.setLayout(null);
+		
+		//----pantalla crear ordenes----
+		JPanel CrearOrden = new JPanel();
+		CrearOrden.setBackground(new Color(255, 69, 0));
+		frame.getContentPane().add(CrearOrden, BorderLayout.CENTER);
+		CrearOrden.setLayout(null);
+		
+		//----pantalla editar ordenes----
+		JPanel EditarOrdenes = new JPanel();
+		EditarOrdenes.setBackground(new Color(255, 69, 0));
+		frame.getContentPane().add(EditarOrdenes, BorderLayout.CENTER);
+		EditarOrdenes.setLayout(null);
+		
+		//----pantalla eliminar ordenes----
+		JPanel EliminarOrden = new JPanel();
+		EliminarOrden.setBackground(new Color(255, 69, 0));
+		frame.getContentPane().add(EliminarOrden, BorderLayout.CENTER);
+		EliminarOrden.setLayout(null);
+      
+       
+       
+    
+        
+        */
 		
 		
 		
