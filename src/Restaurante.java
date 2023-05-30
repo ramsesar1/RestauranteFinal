@@ -110,7 +110,7 @@ public class Restaurante extends JFrame {
 		//--------------------------------------------ordenes-----------------------------------------------------------
 		//--------------------------------------------inventario--------------------------------------------------------
 		//--------------------------------------------clientes----------------------------------------------------------
-		//pantalla clientes principal
+		//-----pantalla clientes principal-----
 		/*
 		JPanel panelClientes = new JPanel();
 		contentPane.add(panelClientes);
@@ -122,25 +122,38 @@ public class Restaurante extends JFrame {
 		panel.setBounds(60, 241, 827, 347);
 		panelClientes.add(panel);*/
 
-		//pantalla creacion clientes
+		//-----pantalla creacion clientes-----
 		/*JPanel panel = new JPanel();
 		panel.setBounds(221, 150, 610, 426);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);*/
 
-		//pantalla edicion de cliente
+		//------pantalla edicion de cliente------
 		/*JPanel panel = new JPanel();
 		panel.setBounds(221, 150, 610, 426);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);*/
 
-		//pantalla seleccion editar cliente
+		//-----pantalla seleccion editar cliente-----
 		/*JPanel panel = new JPanel();
 		panel.setBackground(Color.GRAY);
 		panel.setBounds(181, 215, 606, 42);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);*/
 
+		//-----pantalla consulta de clientes-----
+		/*JPanel panel = new JPanel();
+		panel.setBackground(Color.GRAY);
+		panel.setBounds(181, 215, 606, 42);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);*/
+
+		//----pantalla eliminar clientes----
+		/* JPanel panel = new JPanel();
+        panel.setBackground(Color.GRAY);
+        panel.setBounds(181, 215, 606, 42);
+        frame.getContentPane().add(panel);
+        panel.setLayout(null);*/
 
 
 		
