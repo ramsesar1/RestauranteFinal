@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 
-public class EditarPlatillo extends JFrame {
+public class CrearPlatillo extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -37,7 +37,7 @@ public class EditarPlatillo extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public EditarPlatillo() {
+	public CrearPlatillo() {
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 977, 681);
         contentPane = new JPanel();
@@ -91,11 +91,11 @@ public class EditarPlatillo extends JFrame {
         lblPrecio.setBounds(10, 403, 293, 33);
         Crearplat.add(lblPrecio);
         
-        JButton btnEditarPlat = new JButton("Editar\r\n");
-        btnEditarPlat.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        btnEditarPlat.setBackground(new Color(254, 211, 122));
-        btnEditarPlat.setBounds(391, 494, 150, 43);
-        Crearplat.add(btnEditarPlat);
+        JButton btnCrearPlat = new JButton("Crear");
+        btnCrearPlat.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        btnCrearPlat.setBackground(new Color(254, 211, 122));
+        btnCrearPlat.setBounds(391, 494, 150, 43);
+        Crearplat.add(btnCrearPlat);
         
         JButton btnAdjuntarImagen = new JButton("Adjuntar Imagen\r\n");
         btnAdjuntarImagen.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -103,7 +103,7 @@ public class EditarPlatillo extends JFrame {
         btnAdjuntarImagen.setBounds(691, 412, 211, 43);
         Crearplat.add(btnAdjuntarImagen);
         
-        JLabel lblNewLabel_1 = new JLabel("EditarPlatillo\r\n");
+        JLabel lblNewLabel_1 = new JLabel("Crear Platillo");
         lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 26));
         lblNewLabel_1.setBounds(398, 0, 227, 40);
         contentPane.add(lblNewLabel_1);
