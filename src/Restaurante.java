@@ -1,15 +1,10 @@
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JButton;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -47,6 +42,13 @@ public class Restaurante extends JFrame {
 		setBounds(100, 100, 977, 681);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		//JPanel de ventanas definidos
+
+		JPanel Inicio = new JPanel();
+		JPanel Platillos = new JPanel();
+		JPanel ConsultaPlatillos = new JPanel();
+
 
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
@@ -88,6 +90,10 @@ public class Restaurante extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				remove(login);
+				add(Inicio);
+				repaint();
+				revalidate();
 			}
 		});
 		btnNewButton.setBackground(new Color(255, 255, 255));
@@ -105,16 +111,65 @@ public class Restaurante extends JFrame {
 		
 		//--------------------------------------panel menu inicio----------------------------------------------------
 
-		
+
+
+		//contentPane.add(Inicio);
+		Inicio.setLayout(null);
+
+		JPanel panelmenu = new JPanel();
+		panelmenu.setBackground(new Color(255, 255, 255));
+		panelmenu.setBounds(124, 33, 692, 539);
+		Inicio.add(panelmenu);
+		panelmenu.setLayout(null);
+
+		JButton btnplatillos = new JButton("Platillos\r\n");
+		btnplatillos.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnplatillos.setBackground(new Color(255, 128, 0));
+		btnplatillos.setBounds(53, 22, 279, 234);
+		panelmenu.add(btnplatillos);
+
+		btnplatillos.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Inicio);
+				add(Platillos);
+				repaint();
+				revalidate();
+			}
+		});
+
+
+
+
+		JButton btnNewButtonclientes = new JButton("Clientes\r\n");
+		btnNewButtonclientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButtonclientes.setBackground(new Color(255, 128, 0));
+		btnNewButtonclientes.setBounds(53, 279, 279, 234);
+		panelmenu.add(btnNewButtonclientes);
+
+		JButton btnNewButton_3 = new JButton("Inventario\r\n");
+		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton_3.setBackground(new Color(255, 128, 0));
+		btnNewButton_3.setBounds(364, 279, 279, 234);
+		panelmenu.add(btnNewButton_3);
+
+		JButton btnNewButton_2 = new JButton("Ordenes\r\n");
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton_2.setBackground(new Color(255, 128, 0));
+		btnNewButton_2.setBounds(364, 22, 279, 234);
+		panelmenu.add(btnNewButton_2);
+
+
+
+
 
 		//--------------------------------------------platillos---------------------------------------------------------
 
 
 		//----Menu principal de platillos-----
 
-		/*
-		JPanel Platillos = new JPanel();
-		contentPane.add(Platillos);
+
+//		contentPane.add(Platillos);
 		Platillos.setLayout(null);
 
 		JPanel panel = new JPanel();
@@ -123,11 +178,21 @@ public class Restaurante extends JFrame {
 		Platillos.add(panel);
 		panel.setLayout(null);
 
-		JButton btnNewButton = new JButton("Consultar");
-		btnNewButton.setBackground(new Color(255, 128, 0));
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton.setBounds(61, 94, 217, 60);
-		panel.add(btnNewButton);
+		JButton btnconsultar = new JButton("Consultar");
+		btnconsultar.setBackground(new Color(255, 128, 0));
+		btnconsultar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnconsultar.setBounds(61, 94, 217, 60);
+		panel.add(btnconsultar);
+
+		btnconsultar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Platillos);
+				add(ConsultaPlatillos);
+				repaint();
+				revalidate();
+			}
+		});
 
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -153,19 +218,31 @@ public class Restaurante extends JFrame {
 		btnCrear.setBounds(548, 94, 217, 60);
 		panel.add(btnCrear);
 
-		JLabel lblNewLabel = new JLabel("Platillos\r\n");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		lblNewLabel.setBounds(421, 11, 186, 41);
-		Platillos.add(lblNewLabel);
-		*/
+		JLabel lblplatillos = new JLabel("Platillos\r\n");
+		lblplatillos.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		lblplatillos.setBounds(421, 11, 186, 41);
+		Platillos.add(lblplatillos);
+
+		JButton backplatillos = new JButton("Back");
+		backplatillos.setBounds(10, 11, 44, 29);
+		Platillos.add(backplatillos);
+
+		backplatillos.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Platillos);
+				add(Inicio);
+				repaint();
+				revalidate();
+			}
+		});
 
 		//----Consultar platillos-----
 
 
-		/*
-		JPanel ConsultaPlatillos = new JPanel();
+
         ConsultaPlatillos.setBackground(new Color(255, 128, 0));
-        contentPane.add(ConsultaPlatillos);
+   //     contentPane.add(ConsultaPlatillos);
         ConsultaPlatillos.setLayout(null);
 
         DefaultListModel<String> model = new DefaultListModel<>();
@@ -175,70 +252,78 @@ public class Restaurante extends JFrame {
         model.addElement("Pizza");
         model.addElement("Alitas");
 
-                JLabel lblNewLabel = new JLabel("Consultar Platillos");
-                lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 26));
-                lblNewLabel.setBounds(360, 11, 254, 52);
-                ConsultaPlatillos.add(lblNewLabel);
+                JLabel lblconsultaplatillos = new JLabel("Consultar Platillos");
+                lblconsultaplatillos.setFont(new Font("Tahoma", Font.PLAIN, 26));
+                lblconsultaplatillos.setBounds(360, 11, 254, 52);
+                ConsultaPlatillos.add(lblconsultaplatillos);
 
-                JPanel panel = new JPanel();
-                panel.setBounds(37, 51, 877, 570);
-                ConsultaPlatillos.add(panel);
-                panel.setLayout(null);
+                JPanel panelplati = new JPanel();
+                panelplati.setBounds(37, 51, 877, 570);
+                ConsultaPlatillos.add(panelplati);
+                panelplati.setLayout(null);
 
-                JPanel panel_1 = new JPanel();
-                panel_1.setBackground(new Color(255, 255, 255));
-                panel_1.setBounds(433, 5, 444, 565);
-                panel.add(panel_1);
-                panel_1.setLayout(null);
+                JPanel panelplati_1 = new JPanel();
+                panelplati_1.setBackground(new Color(255, 255, 255));
+                panelplati_1.setBounds(433, 5, 444, 565);
+                panelplati.add(panelplati_1);
+                panelplati_1.setLayout(null);
 
                 JLabel lblNewLabel_2 = new JLabel("Detalles del platillo\r\n");
                 lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 26));
                 lblNewLabel_2.setBounds(111, 11, 225, 61);
-                panel_1.add(lblNewLabel_2);
+                panelplati_1.add(lblNewLabel_2);
 
                 JLabel lblNewLabel_2_1 = new JLabel("Platillo: Sushi empanizado\r\n");
                 lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 21));
                 lblNewLabel_2_1.setBounds(93, 111, 264, 61);
-                panel_1.add(lblNewLabel_2_1);
+                panelplati_1.add(lblNewLabel_2_1);
 
                 JLabel lblNewLabel_2_1_2 = new JLabel("Precio: $135");
                 lblNewLabel_2_1_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
                 lblNewLabel_2_1_2.setBounds(150, 389, 132, 61);
-                panel_1.add(lblNewLabel_2_1_2);
+                panelplati_1.add(lblNewLabel_2_1_2);
 
                 JTextArea txtrDescripcinDescubreNuestro = new JTextArea();
                 txtrDescripcinDescubreNuestro.setFont(new Font("Tahoma", Font.PLAIN, 19));
                 txtrDescripcinDescubreNuestro.setTabSize(10);
                 txtrDescripcinDescubreNuestro.setText("Descripción: Descubre nuestro irresistible sushi\r\nempanizado con aguacate y zanahoria: 12\r\npiezas con sabores frescos y deliciosos. Una\r\nexperiencia gastronónmica única que te dejará\r\n             deseando más.");
                 txtrDescripcinDescubreNuestro.setBounds(22, 201, 399, 177);
-                panel_1.add(txtrDescripcinDescubreNuestro);
+                panelplati_1.add(txtrDescripcinDescubreNuestro);
 
                 JPanel panel_3 = new JPanel();
                 panel_3.setBackground(new Color(255, 128, 0));
                 panel_3.setBounds(47, 459, 331, 70);
-                panel_1.add(panel_3);
+                panelplati_1.add(panel_3);
                 panel_3.setLayout(null);
 
-                JButton btnNewButton = new JButton("Ingredientes");
-                btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 35));
-                btnNewButton.setBounds(10, 11, 311, 48);
-                panel_3.add(btnNewButton);
+                JButton btnIngredientes2 = new JButton("Ingredientes");
+                btnIngredientes2.setFont(new Font("Tahoma", Font.PLAIN, 35));
+                btnIngredientes2.setBounds(10, 11, 311, 48);
+                panel_3.add(btnIngredientes2);
 
                 JPanel panel_2 = new JPanel();
                 panel_2.setBackground(new Color(255, 128, 0));
                 panel_2.setBounds(35, 40, 288, 519);
-                panel.add(panel_2);
+                panelplati.add(panel_2);
 
                 JLabel lblNewLabel_1 = new JLabel("Seleccione platillo");
                 lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
                 lblNewLabel_1.setBounds(100, 5, 213, 36);
-                panel.add(lblNewLabel_1);
+                panelplati.add(lblNewLabel_1);
 
-                JButton btnNewButton_1 = new JButton("Back");
-                btnNewButton_1.setBounds(10, 11, 44, 29);
-                ConsultaPlatillos.add(btnNewButton_1);
+                JButton btnbackconsultaplat = new JButton("Back");
+                btnbackconsultaplat.setBounds(10, 11, 44, 29);
+                ConsultaPlatillos.add(btnbackconsultaplat);
 
-		 */
+		btnbackconsultaplat.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(ConsultaPlatillos);
+				add(Platillos);
+				repaint();
+				revalidate();
+			}
+		});
 
 		//----Editar Platillos-----
 
