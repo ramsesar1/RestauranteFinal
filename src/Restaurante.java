@@ -103,7 +103,7 @@ public class Restaurante extends JFrame {
 		
 		
 		
-		//--------------------------------------panel inicio----------------------------------------------------
+		//--------------------------------------panel menu inicio----------------------------------------------------
 
 		
 		JPanel inicio = new JPanel();
@@ -155,6 +155,7 @@ public class Restaurante extends JFrame {
         panel.setBackground(Color.GRAY);
         panel.setBounds(181, 215, 606, 42);
         frame.getContentPane().add(panel);
+
         panel.setLayout(null);
         
         //----pantalla principal ordenes----
@@ -197,6 +198,11 @@ public class Restaurante extends JFrame {
     
         
         */
+
+       
+
+
+
 		
 		
 		
