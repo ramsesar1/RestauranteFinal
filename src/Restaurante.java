@@ -57,6 +57,18 @@ public class Restaurante extends JFrame {
 
 
 
+
+
+		//inventarios
+		JPanel Inventario = new JPanel();
+		JPanel ConsultaInv = new JPanel();
+		JPanel EditarINv = new JPanel();
+		JPanel EliminarINv = new JPanel();
+		JPanel NuevoArticulo = new JPanel();
+
+
+
+
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
 		
@@ -154,11 +166,21 @@ public class Restaurante extends JFrame {
 		btnNewButtonclientes.setBounds(53, 279, 279, 234);
 		panelmenu.add(btnNewButtonclientes);
 
-		JButton btnNewButton_3 = new JButton("Inventario\r\n");
-		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton_3.setBackground(new Color(255, 128, 0));
-		btnNewButton_3.setBounds(364, 279, 279, 234);
-		panelmenu.add(btnNewButton_3);
+		JButton btnentrarinventario = new JButton("Inventario\r\n");
+		btnentrarinventario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnentrarinventario.setBackground(new Color(255, 128, 0));
+		btnentrarinventario.setBounds(364, 279, 279, 234);
+		panelmenu.add(btnentrarinventario);
+
+		btnentrarinventario.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Inicio);
+				add(Inventario);
+				repaint();
+				revalidate();
+			}
+		});
 
 		JButton btnNewButton_2 = new JButton("Ordenes\r\n");
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -168,12 +190,22 @@ public class Restaurante extends JFrame {
 
 
 
+		JLabel Menuicon = new JLabel(new ImageIcon("Menufondo.png"));
+		Menuicon.setBounds(0,0,977,681);
+		Menuicon.setVisible(true);
+		Menuicon.setOpaque(true);
+		login.add(Menuicon);
+		Inicio.add(Menuicon);
+		repaint();
+		revalidate();
 
 
 		//--------------------------------------------platillos---------------------------------------------------------
 
 
 		//----Menu principal de platillos-----
+
+
 
 
 //		contentPane.add(Platillos);
@@ -712,6 +744,13 @@ public class Restaurante extends JFrame {
 			}
 		});
 
+		JLabel platilloIcon = new JLabel(new ImageIcon("Platillosfondo.png"));
+		platilloIcon.setBounds(0,0,977,681);
+		platilloIcon.setVisible(true);
+		platilloIcon.setOpaque(true);
+		Platillos.add(platilloIcon);
+		repaint();
+		revalidate();
 
 
 
@@ -734,6 +773,459 @@ public class Restaurante extends JFrame {
 
 		//--------------------------------------------inventario--------------------------------------------------------
 
+
+		//-----Menu inventario------
+
+	//	contentPane.add(Inventario);
+		Inventario.setLayout(null);
+
+		JPanel Panelinventario = new JPanel();
+		Panelinventario.setLayout(null);
+		Panelinventario.setBackground(Color.WHITE);
+		Panelinventario.setBounds(59, 241, 827, 347);
+		Inventario.add(Panelinventario);
+
+		JButton Consultarinventario = new JButton("Consultar");
+		Consultarinventario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Consultarinventario.setBackground(new Color(255, 128, 0));
+		Consultarinventario.setBounds(112, 95, 217, 60);
+		Panelinventario.add(Consultarinventario);
+
+		Consultarinventario.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Inventario);
+				add(ConsultaInv);
+				repaint();
+				revalidate();
+			}
+		});
+
+		JButton EditarInventario = new JButton("Editar");
+		EditarInventario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		EditarInventario.setBackground(new Color(255, 128, 0));
+		EditarInventario.setBounds(112, 198, 217, 60);
+		Panelinventario.add(EditarInventario);
+
+		EditarInventario.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Inventario);
+				add(EditarINv);
+				repaint();
+				revalidate();
+			}
+		});
+
+		JButton EliminarInventario = new JButton("Eliminar");
+		EliminarInventario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		EliminarInventario.setBackground(new Color(255, 128, 0));
+		EliminarInventario.setBounds(490, 198, 217, 60);
+		Panelinventario.add(EliminarInventario);
+
+		EliminarInventario.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Inventario);
+				add(EliminarINv);
+				repaint();
+				revalidate();
+			}
+		});
+
+		JButton CrearInventario = new JButton("Crear");
+		CrearInventario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		CrearInventario.setBackground(new Color(255, 128, 0));
+		CrearInventario.setBounds(490, 95, 217, 60);
+		Panelinventario.add(CrearInventario);
+
+		CrearInventario.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Inventario);
+				add(NuevoArticulo);
+				repaint();
+				revalidate();
+			}
+		});
+
+
+
+
+		JLabel TituloInventario = new JLabel("Inventario");
+		TituloInventario.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		TituloInventario.setBounds(405, -16, 218, 76);
+		Inventario.add(TituloInventario);
+
+
+
+		JButton btnbackinventario = new JButton("Back");
+		btnbackinventario.setBounds(10, 11, 44, 29);
+		Inventario.add(btnbackinventario);
+		btnbackinventario.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Inventario);
+				add(Inicio);
+				repaint();
+				revalidate();
+			}
+		});
+
+		JLabel InventarioIcon = new JLabel(new ImageIcon("Inventariofondo.png"));
+		InventarioIcon.setBounds(0,0,977,681);
+		InventarioIcon.setVisible(true);
+		InventarioIcon.setOpaque(true);
+		Inventario.add(InventarioIcon);
+		repaint();
+		revalidate();
+
+
+
+		//----Consultar inventario-----
+
+		ConsultaInv.setBackground(new Color(255, 128, 0));
+	//	contentPane.add(ConsultaInv);
+		ConsultaInv.setLayout(null);
+
+
+
+
+
+		JLabel consultarInventario = new JLabel("Consultar Inventario");
+		consultarInventario.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		consultarInventario.setBackground(new Color(128, 128, 0));
+		consultarInventario.setForeground(new Color(0, 0, 0));
+		consultarInventario.setBounds(331, 23, 243, 58);
+		ConsultaInv.add(consultarInventario);
+
+		JLabel lblArticulosporacabar = new JLabel("Articulos por agotarse\r\n");
+		lblArticulosporacabar.setForeground(new Color(255, 255, 255));
+		lblArticulosporacabar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblArticulosporacabar.setBounds(354, 74, 279, 29);
+		ConsultaInv.add(lblArticulosporacabar);
+
+		JPanel widget1 = new JPanel();
+		widget1.setBounds(34, 129, 197, 58);
+		ConsultaInv.add(widget1);
+
+		JPanel widget2 = new JPanel();
+		widget2.setBounds(265, 129, 197, 58);
+		ConsultaInv.add(widget2);
+
+		JPanel widget3 = new JPanel();
+		widget3.setBounds(729, 129, 197, 58);
+		ConsultaInv.add(widget3);
+
+		JPanel widget4 = new JPanel();
+		widget4.setBounds(498, 129, 197, 58);
+		ConsultaInv.add(widget4);
+
+		JPanel paneldetablainventario = new JPanel();
+		paneldetablainventario.setBounds(34, 277, 892, 36);
+		ConsultaInv.add(paneldetablainventario);
+		paneldetablainventario.setLayout(new GridLayout(0, 3, 0, 0));
+
+		JLabel articulodeinventario = new JLabel("Articulo");
+		articulodeinventario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		paneldetablainventario.add(articulodeinventario);
+
+		JLabel tipodeunidadlbl = new JLabel("Unidad");
+		tipodeunidadlbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		paneldetablainventario.add(tipodeunidadlbl);
+
+		JLabel cantidadeninvlbl = new JLabel("Cantidad");
+		cantidadeninvlbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		paneldetablainventario.add(cantidadeninvlbl);
+
+		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(new Color(255, 218, 168));
+		panel_4.setBounds(34, 312, 892, 257);
+		ConsultaInv.add(panel_4);
+
+
+
+
+		JButton btnbackinvconsultar = new JButton("Back");
+		btnbackinvconsultar.setBounds(10, 11, 52, 43);
+		ConsultaInv.add(btnbackinvconsultar);
+
+		btnbackinvconsultar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(ConsultaInv);
+				add(Inventario);
+				repaint();
+				revalidate();
+			}
+		});
+
+
+		//----Editar inventario-----
+
+
+	        EditarINv.setBackground(new Color(255, 128, 0));
+	        EditarINv.setBounds(0, 0, 961, 642);
+	    //    contentPane.add(EditarINv);
+	        EditarINv.setLayout(null);
+
+
+
+
+
+	        JLabel Editarinvlbl = new JLabel("Editar Inventario\r\n");
+	        Editarinvlbl.setFont(new Font("Tahoma", Font.PLAIN, 26));
+	        Editarinvlbl.setBounds(388, -16, 214, 115);
+	        EditarINv.add(Editarinvlbl);
+
+	        JPanel editarinv2 = new JPanel();
+	        editarinv2.setBackground(new Color(255, 218, 168));
+	        editarinv2.setBounds(10, 204, 941, 427);
+	        EditarINv.add(editarinv2);
+	        editarinv2.setLayout(null);
+
+	        JLabel muestralbl1 = new JLabel("Articulo #5\r\n");
+	        muestralbl1.setFont(new Font("Tahoma", Font.PLAIN, 19));
+	        muestralbl1.setBounds(55, 11, 145, 31);
+	        editarinv2.add(muestralbl1);
+
+	        JLabel muestralbl2 = new JLabel("Articulo #4\r\n\r\n");
+	        muestralbl2.setFont(new Font("Tahoma", Font.PLAIN, 19));
+	        muestralbl2.setBounds(55, 63, 145, 31);
+	        editarinv2.add(muestralbl2);
+
+	        JLabel muestralbl3 = new JLabel("Articulo #2\r\n\r\n");
+	        muestralbl3.setFont(new Font("Tahoma", Font.PLAIN, 19));
+	        muestralbl3.setBounds(55, 171, 145, 31);
+	        editarinv2.add(muestralbl3);
+
+	        JLabel muestralbl4 = new JLabel("Articulo #3\r\n");
+	        muestralbl4.setFont(new Font("Tahoma", Font.PLAIN, 19));
+	        muestralbl4.setBounds(55, 118, 145, 31);
+	        editarinv2.add(muestralbl4);
+
+	        JLabel muestralbl5 = new JLabel("Articulo #1\r\n");
+	        muestralbl5.setFont(new Font("Tahoma", Font.PLAIN, 19));
+	        muestralbl5.setBounds(55, 225, 145, 31);
+	        editarinv2.add(muestralbl5);
+
+	        JButton editar1btn = new JButton("Editar");
+	        editar1btn.setBounds(732, 19, 128, 23);
+	        editarinv2.add(editar1btn);
+
+	        JButton editarbtn = new JButton("Editar");
+	        editarbtn.setBounds(732, 71, 128, 23);
+	        editarinv2.add(editarbtn);
+
+	        JButton editar2btn = new JButton("Editar");
+	        editar2btn.setBounds(732, 126, 128, 23);
+	        editarinv2.add(editar2btn);
+
+	        JButton editar3btn = new JButton("Editar");
+	        editar3btn.setBounds(732, 179, 128, 23);
+	        editarinv2.add(editar3btn);
+
+	        JButton editar4btn = new JButton("Editar");
+	        editar4btn.setBounds(732, 233, 128, 23);
+	        editarinv2.add(editar4btn);
+
+	        JPanel Editarinv3pnl = new JPanel();
+	        Editarinv3pnl.setBounds(10, 156, 941, 48);
+	        EditarINv.add(Editarinv3pnl);
+	        Editarinv3pnl.setLayout(null);
+
+	        JLabel Articuloaeditarlbl = new JLabel("Articulo a Editar");
+	        Articuloaeditarlbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
+	        Articuloaeditarlbl.setBounds(395, 0, 210, 43);
+	        Editarinv3pnl.add(Articuloaeditarlbl);
+
+		JButton btnbackeditarinv = new JButton("Back");
+		btnbackeditarinv.setBounds(10, 11, 52, 43);
+		EditarINv.add(btnbackeditarinv);
+		btnbackeditarinv.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(EditarINv);
+				add(Inventario);
+				repaint();
+				revalidate();
+			}
+		});
+
+
+		//----Eliminar inventario------
+
+
+		EliminarINv.setBackground(new Color(255, 128, 0));
+		EliminarINv.setBounds(0, 0, 961, 642);
+//		contentPane.add(EliminarINv);
+		EliminarINv.setLayout(null);
+
+
+
+		JLabel Eliminarinvlbl = new JLabel("Eliminar Inventario\r\n");
+		Eliminarinvlbl.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		Eliminarinvlbl.setBounds(388, -16, 252, 115);
+		EliminarINv.add(Eliminarinvlbl);
+
+		JPanel eliminarinvpnl2 = new JPanel();
+		eliminarinvpnl2.setBackground(new Color(255, 218, 168));
+		eliminarinvpnl2.setBounds(10, 204, 941, 427);
+		EliminarINv.add(eliminarinvpnl2);
+		eliminarinvpnl2.setLayout(null);
+
+		JLabel articulo5lbl = new JLabel("Articulo #5\r\n");
+		articulo5lbl.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		articulo5lbl.setBounds(55, 11, 145, 31);
+		eliminarinvpnl2.add(articulo5lbl);
+
+		JLabel articulo4lbl = new JLabel("Articulo #4\r\n\r\n");
+		articulo4lbl.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		articulo4lbl.setBounds(55, 63, 145, 31);
+		eliminarinvpnl2.add(articulo4lbl);
+
+		JLabel articulo3lbl = new JLabel("Articulo #2\r\n\r\n");
+		articulo3lbl.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		articulo3lbl.setBounds(55, 171, 145, 31);
+		eliminarinvpnl2.add(articulo3lbl);
+
+		JLabel articulo2lbl = new JLabel("Articulo #3\r\n");
+		articulo2lbl.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		articulo2lbl.setBounds(55, 118, 145, 31);
+		eliminarinvpnl2.add(articulo2lbl);
+
+		JLabel articulo1lbl = new JLabel("Articulo #1\r\n");
+		articulo1lbl.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		articulo1lbl.setBounds(55, 225, 145, 31);
+		eliminarinvpnl2.add(articulo1lbl);
+
+		JButton btnNewButton1 = new JButton("Eliminar");
+		btnNewButton1.setBounds(732, 19, 128, 23);
+		eliminarinvpnl2.add(btnNewButton1);
+
+		JButton btnNewButton_1 = new JButton("Eliminar");
+		btnNewButton_1.setBounds(732, 71, 128, 23);
+		eliminarinvpnl2.add(btnNewButton_1);
+
+		JButton eliminarjbutonninv = new JButton("Eliminar");
+		eliminarjbutonninv.setBounds(732, 126, 128, 23);
+		eliminarinvpnl2.add(eliminarjbutonninv);
+
+		JButton btnNewButton_3 = new JButton("Eliminar");
+		btnNewButton_3.setBounds(732, 179, 128, 23);
+		eliminarinvpnl2.add(btnNewButton_3);
+
+		JButton btnNewButton_4 = new JButton("Eliminar");
+		btnNewButton_4.setBounds(732, 233, 128, 23);
+		eliminarinvpnl2.add(btnNewButton_4);
+
+		JPanel panel2eliminv = new JPanel();
+		panel2eliminv.setBounds(10, 156, 941, 48);
+		EliminarINv.add(panel2eliminv);
+		panel2eliminv.setLayout(null);
+
+		JLabel lblarticuloinv = new JLabel("Articulo a Eliminar");
+		lblarticuloinv.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblarticuloinv.setBounds(395, 0, 210, 43);
+		panel2eliminv.add(lblarticuloinv);
+
+
+
+
+		JButton btnbackeliminarinventario = new JButton("Back");
+		btnbackeliminarinventario.setBounds(10, 11, 52, 43);
+		EliminarINv.add(btnbackeliminarinventario);
+
+		btnbackeliminarinventario.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(EliminarINv);
+				add(Inventario);
+				repaint();
+				revalidate();
+			}
+		});
+
+
+
+		//----Añadir al inventario ------
+
+
+		NuevoArticulo.setBackground(new Color(255, 128, 0));
+		NuevoArticulo.setBounds(0, 0, 961, 642);
+	//	contentPane.add(NuevoArticulo);
+		NuevoArticulo.setLayout(null);
+
+
+
+		JLabel lblnuevoarticulo = new JLabel("Nuevo Articulo\r\n");
+		lblnuevoarticulo.setFont(new Font("Tahoma", Font.PLAIN, 27));
+		lblnuevoarticulo.setBounds(393, 11, 311, 48);
+		NuevoArticulo.add(lblnuevoarticulo);
+
+		JPanel panel2 = new JPanel();
+		panel2.setBackground(new Color(255, 218, 168));
+		panel2.setBounds(10, 104, 941, 473);
+		NuevoArticulo.add(panel2);
+		panel2.setLayout(null);
+
+		JLabel lblnombrearticulonuevoinv = new JLabel("Nombre del articulo:");
+		lblnombrearticulonuevoinv.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblnombrearticulonuevoinv.setBounds(358, 23, 250, 43);
+		panel2.add(lblnombrearticulonuevoinv);
+
+		textField = new JTextField();
+		textField.setBounds(358, 62, 238, 33);
+		panel2.add(textField);
+		textField.setColumns(10);
+
+		JLabel lblNewLabel_1_1 = new JLabel("Tipo de unidad:");
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_1_1.setBounds(358, 106, 250, 43);
+		panel2.add(lblNewLabel_1_1);
+
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(358, 143, 238, 30);
+		panel2.add(comboBox);
+
+		JLabel lblNewLabel_1_1_1 = new JLabel("Color del widget:");
+		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_1_1_1.setBounds(358, 184, 250, 43);
+		panel2.add(lblNewLabel_1_1_1);
+
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setBounds(358, 221, 238, 30);
+		panel2.add(comboBox_1);
+
+		JLabel lblNewLabel_1_2 = new JLabel("Cantidad:");
+		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_1_2.setBounds(358, 276, 250, 43);
+		panel2.add(lblNewLabel_1_2);
+
+		JTextField textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(358, 315, 238, 33);
+		panel2.add(textField_1);
+
+		JButton Creararticulobtn = new JButton("Crear");
+		Creararticulobtn.setBackground(new Color(255, 128, 64));
+		Creararticulobtn.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Creararticulobtn.setBounds(411, 419, 124, 43);
+		panel2.add(Creararticulobtn);
+
+		JButton btnbackcreararticuloinv = new JButton("Back");
+		btnbackcreararticuloinv.setBounds(10, 11, 52, 43);
+		NuevoArticulo.add(btnbackcreararticuloinv);
+
+		btnbackcreararticuloinv.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(NuevoArticulo);
+				add(Inventario);
+				repaint();
+				revalidate();
+			}
+		});
 
 
 
