@@ -301,7 +301,7 @@ public class Restaurante extends JFrame {
 		Platillos.add(lblplatillos);
 
 		JButton backplatillos = new JButton("Back");
-		backplatillos.setBounds(10, 11, 44, 29);
+		backplatillos.setBounds(10, 11, 80, 29);
 		Platillos.add(backplatillos);
 
 		backplatillos.addActionListener(new ActionListener() {
@@ -389,7 +389,7 @@ public class Restaurante extends JFrame {
 		panelplati.add(lblNewLabel_1);
 
 		JButton btnbackconsultaplat = new JButton("Back");
-		btnbackconsultaplat.setBounds(10, 11, 44, 29);
+		btnbackconsultaplat.setBounds(10, 11, 80, 29);
 		ConsultaPlatillos.add(btnbackconsultaplat);
 
 		btnbackconsultaplat.addActionListener(new ActionListener() {
@@ -472,7 +472,7 @@ public class Restaurante extends JFrame {
 		EditarPlat.add(EditarPLatillotitulo);
 
 		JButton btnbackeditarplatillos = new JButton("Back");
-		btnbackeditarplatillos.setBounds(10, 11, 44, 29);
+		btnbackeditarplatillos.setBounds(10, 11, 80, 29);
 		EditarPlat.add(btnbackeditarplatillos);
 
 		btnbackeditarplatillos.addActionListener(new ActionListener() {
@@ -556,7 +556,7 @@ public class Restaurante extends JFrame {
 
 
 		JButton btnbackcrearplatillos = new JButton("Back");
-		btnbackcrearplatillos.setBounds(10, 11, 44, 29);
+		btnbackcrearplatillos.setBounds(10, 11, 80, 29);
 		Crearplat.add(btnbackcrearplatillos);
 
 		btnbackcrearplatillos.addActionListener(new ActionListener() {
@@ -675,7 +675,7 @@ public class Restaurante extends JFrame {
 		panelcrearingre.add(lblPlatillosconingre);
 
 		JButton btnbackingredientes = new JButton("Back");
-		btnbackingredientes.setBounds(10, 11, 52, 43);
+		btnbackingredientes.setBounds(10, 11, 80, 29);
 		Platillosconingre.add(btnbackingredientes);
 
 		btnbackingredientes.addActionListener(new ActionListener() {
@@ -713,7 +713,7 @@ public class Restaurante extends JFrame {
 		ElimPlatillos.add(platilloAEliminar);
 
 		JButton backbtneliminarplat = new JButton("Back");
-		backbtneliminarplat.setBounds(10, 11, 44, 29);
+		backbtneliminarplat.setBounds(10, 11, 80, 29);
 		ElimPlatillos.add(backbtneliminarplat);
 
 		backbtneliminarplat.addActionListener(new ActionListener() {
@@ -824,7 +824,7 @@ public class Restaurante extends JFrame {
 
 
 		JButton btnbackinventario = new JButton("Back");
-		btnbackinventario.setBounds(10, 11, 44, 29);
+		btnbackinventario.setBounds(10, 11, 80, 29);
 		Inventario.add(btnbackinventario);
 		btnbackinventario.addActionListener(new ActionListener() {
 			@Override
@@ -905,7 +905,7 @@ public class Restaurante extends JFrame {
 
 
 		JButton btnbackinvconsultar = new JButton("Back");
-		btnbackinvconsultar.setBounds(10, 11, 52, 43);
+		btnbackinvconsultar.setBounds(10, 11, 80, 29);
 		ConsultaInv.add(btnbackinvconsultar);
 
 		btnbackinvconsultar.addActionListener(new ActionListener() {
@@ -995,7 +995,7 @@ public class Restaurante extends JFrame {
 		Editarinv3pnl.add(Articuloaeditarlbl);
 
 		JButton btnbackeditarinv = new JButton("Back");
-		btnbackeditarinv.setBounds(10, 11, 52, 43);
+		btnbackeditarinv.setBounds(10, 11, 80, 29);
 		EditarINv.add(btnbackeditarinv);
 		btnbackeditarinv.addActionListener(new ActionListener() {
 			@Override
@@ -1085,7 +1085,7 @@ public class Restaurante extends JFrame {
 
 
 		JButton btnbackeliminarinventario = new JButton("Back");
-		btnbackeliminarinventario.setBounds(10, 11, 52, 43);
+		btnbackeliminarinventario.setBounds(10, 11, 80, 29);
 		EliminarINv.add(btnbackeliminarinventario);
 
 		btnbackeliminarinventario.addActionListener(new ActionListener() {
@@ -1164,7 +1164,7 @@ public class Restaurante extends JFrame {
 		panel2.add(Creararticulobtn);
 
 		JButton btnbackcreararticuloinv = new JButton("Back");
-		btnbackcreararticuloinv.setBounds(10, 11, 52, 43);
+		btnbackcreararticuloinv.setBounds(10, 11, 80, 29);
 		NuevoArticulo.add(btnbackcreararticuloinv);
 
 		btnbackcreararticuloinv.addActionListener(new ActionListener() {
