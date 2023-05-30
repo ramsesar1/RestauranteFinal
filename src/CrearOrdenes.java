@@ -8,9 +8,12 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollBar;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 
@@ -54,30 +57,32 @@ public class CrearOrdenes {
 		frame.getContentPane().add(CrearOrden, BorderLayout.CENTER);
 		CrearOrden.setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(240, 248, 255));
-		panel_1.setBounds(51, 144, 860, 403);
-		CrearOrden.add(panel_1);
-		panel_1.setLayout(null);
+		JPanel CrearOrden1 = new JPanel();
+		CrearOrden1 .setBackground(new Color(240, 248, 255));
+		CrearOrden1 .setBounds(51, 144, 860, 403);
+		CrearOrden.add(CrearOrden1 );
+		CrearOrden1 .setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(376, 282, -97, -76);
-		panel_1.add(scrollPane);
+	
 		
-		JLabel lblNewLabel = new JLabel("Crear ordenes");
-		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setFont(new Font("Tw Cen MT", Font.PLAIN, 36));
-		lblNewLabel.setBounds(373, 23, 319, 96);
-		CrearOrden.add(lblNewLabel);
+		JLabel CrearOrdenLabel = new JLabel("Crear ordenes");
+		CrearOrdenLabel.setForeground(new Color(0, 0, 0));
+		CrearOrdenLabel.setFont(new Font("Tw Cen MT", Font.PLAIN, 36));
+		CrearOrdenLabel.setBounds(373, 23, 319, 96);
+		CrearOrden.add(CrearOrdenLabel);
 		
-		JButton btnNewButton = new JButton("Back");
-		btnNewButton.setBounds(26, 11, 52, 43);
-		CrearOrden.add(btnNewButton);
+		ImageIcon iconRetroceso3 = new ImageIcon("BotonRetroceder.png");
+		Image imagenR3 = iconRetroceso3.getImage();
+		Image imagenRedimensionada3 = imagenR3.getScaledInstance(35, 33, java.awt.Image.SCALE_SMOOTH);
+		JButton Back3 = new JButton();
+		Back3.setIcon(new ImageIcon(imagenRedimensionada3));
+	    Back3.setBounds(26, 11, 35, 33);
+		CrearOrden.add(Back3);
 		
-		JButton btnNewButton_1 = new JButton("Confirmar orden ");
-		btnNewButton_1.setForeground(Color.BLACK);
-		btnNewButton_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		btnNewButton_1.setBounds(373, 576, 212, 32);
-		CrearOrden.add(btnNewButton_1);
+		JButton ConfirmarOrdenBoton = new JButton("Confirmar orden ");
+		ConfirmarOrdenBoton.setForeground(Color.BLACK);
+		ConfirmarOrdenBoton.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
+		ConfirmarOrdenBoton.setBounds(373, 576, 212, 32);
+		CrearOrden.add(ConfirmarOrdenBoton);
 	}
 }

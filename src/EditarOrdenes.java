@@ -7,9 +7,12 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollBar;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 
@@ -53,16 +56,16 @@ public class EditarOrdenes {
 		frame.getContentPane().add(EditarOrdenes, BorderLayout.CENTER);
 		EditarOrdenes.setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(255, 127, 80));
-		panel_1.setBounds(128, 193, 677, 378);
-		EditarOrdenes.add(panel_1);
-		panel_1.setLayout(null);
+		JPanel EditarOrdenes1 = new JPanel();
+		EditarOrdenes1.setBackground(new Color(255, 127, 80));
+		EditarOrdenes1.setBounds(128, 193, 677, 378);
+		EditarOrdenes.add(EditarOrdenes1);
+		EditarOrdenes1.setLayout(null);
 		
-		JTable table = new JTable();
-		table.setBackground(new Color(255, 127, 80));
-		table.setBounds(149, 166, 375, 112);
-		table.setModel(new DefaultTableModel(
+		JTable EditarOrdentable = new JTable();
+		EditarOrdentable.setBackground(new Color(255, 127, 80));
+		EditarOrdentable.setBounds(149, 166, 375, 112);
+		EditarOrdentable.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null},
 				{null, null},
@@ -76,30 +79,34 @@ public class EditarOrdenes {
 				"New column", "New column"
 			}
 		));
-		table.setForeground(new Color(0, 0, 0));
-		table.setCellSelectionEnabled(true);
-		panel_1.add(table);
+		EditarOrdentable.setForeground(new Color(0, 0, 0));
+		EditarOrdentable.setCellSelectionEnabled(true);
+		EditarOrdenes1.add(EditarOrdentable);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(new Color(169, 169, 169));
-		panel_2.setBounds(0, 0, 677, 48);
-		panel_1.add(panel_2);
+		JPanel EditarOrdenes2 = new JPanel();
+		EditarOrdenes2.setBackground(new Color(169, 169, 169));
+		EditarOrdenes2.setBounds(0, 0, 677, 48);
+		EditarOrdenes1.add(EditarOrdenes2);
 		
-		JLabel lblNewLabel_1 = new JLabel("Orden a editar");
-		lblNewLabel_1.setForeground(new Color(0, 0, 0));
-		lblNewLabel_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 26));
-		panel_2.add(lblNewLabel_1);
+		JLabel OrdenAeditarLabel = new JLabel("Orden a editar");
+		OrdenAeditarLabel.setForeground(new Color(0, 0, 0));
+		OrdenAeditarLabel.setFont(new Font("Tw Cen MT", Font.PLAIN, 26));
+		EditarOrdenes2.add(OrdenAeditarLabel);
 		
 		
 		
-		JLabel lblNewLabel = new JLabel("Editar ordenes");
-		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setFont(new Font("Tw Cen MT", Font.PLAIN, 40));
-		lblNewLabel.setBounds(347, 23, 319, 96);
-		EditarOrdenes.add(lblNewLabel);
+		JLabel EditarOrdenLabel = new JLabel("Editar ordenes");
+		EditarOrdenLabel .setForeground(new Color(0, 0, 0));
+		EditarOrdenLabel .setFont(new Font("Tw Cen MT", Font.PLAIN, 40));
+		EditarOrdenLabel .setBounds(347, 23, 319, 96);
+		EditarOrdenes.add(EditarOrdenLabel);
 		
-		JButton btnNewButton = new JButton("Back");
-		btnNewButton.setBounds(26, 11, 52, 43);
-		EditarOrdenes.add(btnNewButton);
+		ImageIcon iconRetroceso2 = new ImageIcon("BotonRetroceder.png");
+		Image imagenR2 = iconRetroceso2.getImage();
+		Image imagenRedimensionada2 = imagenR2.getScaledInstance(35, 33, java.awt.Image.SCALE_SMOOTH);
+		JButton Back2 = new JButton();
+		 Back2.setIcon(new ImageIcon(imagenRedimensionada2));
+		 Back2.setBounds(26, 11, 35, 33);
+		 EditarOrdenes.add(Back2);
 	}
 }
