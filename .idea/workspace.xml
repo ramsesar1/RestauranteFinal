@@ -5,27 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff60951b-c24a-434f-81e4-0182c2341fee" name="Changes" comment="Zona clientes realizada visualmente">
+      <change afterPath="$PROJECT_DIR$/ordenes.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2023_2_24_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2023_2_24_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2023_8_20_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2023_8_20_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2023_9_33_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2023_9_33_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsultarOrdenes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsultarOrdenes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsultarPlatillo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsultarPlatillo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CrearOrdenes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CrearOrdenes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CrearPlatillo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CrearPlatillo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EditarInventario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditarInventario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EditarOrdenes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditarOrdenes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EditarPlatillo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditarPlatillo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EliminarInventario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EliminarInventario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EliminarOrdenes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EliminarOrdenes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EliminarPlatillo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EliminarPlatillo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ingredientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ingredientes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menuinicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menuinicio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NuevoInventario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NuevoInventario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ordenes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ordenes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Platilloconingre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platilloconingre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Platillos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platillos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SeleccionEditarPlat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SeleccionEditarPlat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/editarCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editarCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eliminarCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eliminarCliente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +37,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\abaro\IdeaProjects\RestauranteFinal" />
       <recent name="C:\Users\soypr\eclipse-workspace\RestauranteFinal\src" />
     </key>
   </component>

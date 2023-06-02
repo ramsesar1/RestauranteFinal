@@ -94,11 +94,19 @@ public class Restaurante extends JFrame {
 		contentPane.add(login);
 		login.setLayout(null);
 
+
+
+		JLabel menufondito = new JLabel(new ImageIcon("Menufondo.png"));
+		menufondito.setBounds(0, 0, 977, 681);
+		menufondito.setLayout(null);
+		login.add(menufondito);
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setBounds(273, 205, 391, 313);
-		login.add(panel_1);
+		menufondito.add(panel_1);
 		panel_1.setLayout(null);
+
 
 		textField = new JTextField();
 		textField.setColumns(10);
@@ -135,9 +143,9 @@ public class Restaurante extends JFrame {
 		panel_1.add(btnNewButton);
 
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnCancelar.setBackground(new Color(255, 255, 255));
-		btnCancelar.setBounds(248, 236, 110, 45);
+		btnCancelar.setBounds(226, 236, 130, 45);
 		panel_1.add(btnCancelar);
 
 
@@ -799,7 +807,7 @@ public class Restaurante extends JFrame {
 		panelMiniOrden.setBounds(60, 241, 827, 347);
 		panelOrdenes.add(panelMiniOrden);
 
-		JLabel IconOrden = new JLabel(new ImageIcon("clientelogo2.jpeg"));
+		JLabel IconOrden = new JLabel(new ImageIcon("ordenes.jpg"));
 		IconOrden.setBounds(0, 0, 951, 631);
 		IconOrden.setVisible(true);
 		IconOrden.setOpaque(true);
