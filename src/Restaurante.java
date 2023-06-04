@@ -11,6 +11,11 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 
 public class Restaurante extends JFrame {
 
@@ -65,7 +70,7 @@ public class Restaurante extends JFrame {
 		JPanel Platillosconingre = new JPanel();
 		JPanel ElimPlatillos = new JPanel();
 
-		
+
 		//Ordenes
 		JPanel Ordenes= new JPanel();
 		JPanel ConsultarOrden = new JPanel();
@@ -184,16 +189,16 @@ public class Restaurante extends JFrame {
 		btnNewButtonclientes.setBounds(53, 279, 279, 234);
 		panelmenu.add(btnNewButtonclientes);
 
-	    btnNewButtonclientes.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                remove(Inicio);
-                add(Clientes);
-                repaint();
-                revalidate();
-            }
-        });
-		
+		btnNewButtonclientes.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(Inicio);
+				add(Clientes);
+				repaint();
+				revalidate();
+			}
+		});
+
 
 
 		JButton btnentrarinventario = new JButton("Inventario\r\n");
@@ -218,7 +223,7 @@ public class Restaurante extends JFrame {
 		btnNewButtonOrden.setBackground(new Color(255, 128, 0));
 		btnNewButtonOrden.setBounds(364, 22, 279, 234);
 		panelmenu.add(btnNewButtonOrden);
-		
+
 		btnNewButtonOrden.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -230,7 +235,7 @@ public class Restaurante extends JFrame {
 		});
 
 
-	
+
 
 		JButton btnNewButton_2 = new JButton("Ordenes\r\n");
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -239,7 +244,7 @@ public class Restaurante extends JFrame {
 		panelmenu.add(btnNewButton_2);
 
 
-		
+
 
 
 
@@ -899,8 +904,8 @@ public class Restaurante extends JFrame {
 		CrearOrden.setLayout(null);
 
 		JLabel crearOrdenes = new JLabel("Crear Ordenes");
-		 crearOrdenes.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		 crearOrdenes.setBounds(400, 89, 311, 50);
+		crearOrdenes.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		crearOrdenes.setBounds(400, 89, 311, 50);
 		CrearOrden.add( crearOrdenes);
 
 		JPanel FondoCrearorden = new JPanel();
@@ -916,7 +921,7 @@ public class Restaurante extends JFrame {
 		FondoCrearorden .add(panelCrearOrden);
 		panelCrearOrden.setLayout(null);
 
-		
+
 
 		JButton botonCrearOrden = new JButton("Crear Orden");
 		botonCrearOrden .setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -1005,8 +1010,8 @@ public class Restaurante extends JFrame {
 		});
 		editarTablaOrden.add(backETOrd);
 
-		
-		
+
+
 
 		//-----pantalla consulta de Ordenes-----
 		ConsultarOrden.setLayout(null);
@@ -1122,9 +1127,9 @@ public class Restaurante extends JFrame {
 		});
 		eliminarOrders.add(backEliminarOrdenn);
 
-		
-		
-		
+
+
+
 
 
 		//--------------------------------------------inventario--------------------------------------------------------
@@ -1567,7 +1572,6 @@ public class Restaurante extends JFrame {
 		});
 
 
-		//--------------------------------------------clientes----------------------------------------------------------
 
 		//--------------------------------------------clientes----------------------------------------------------------
 		//-----pantalla clientes principal-----
@@ -1751,6 +1755,50 @@ public class Restaurante extends JFrame {
 		btnCrearCliente.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnCrearCliente.setBounds(400, 587, 147, 44);
 		FondoCrear.add(btnCrearCliente);
+		btnCrearCliente.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String nombre = nametxt.getText();
+				String apellidos = apellidotxt.getText();
+				String telefono = celtxt.getText();
+				String direccion = direcciontxt.getText();
+
+				// Insertar valores en base de datos
+				try {
+					// Conexion con base de datos
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+
+					//  crear un statement con parametros de query
+					String query = "INSERT INTO clientes (Nombre, Apellidos, Teléfono, Dirección) VALUES (?, ?, ?, ?)";
+					PreparedStatement statement = connection.prepareStatement(query);
+
+					// crear los parametros para los valores
+					statement.setString(1, nombre);
+					statement.setString(2, apellidos);
+					statement.setString(3, telefono);
+					statement.setString(4, direccion);
+
+					//Ejecturas el query
+					int rowsAffected = statement.executeUpdate();
+
+					if (rowsAffected > 0) {
+						System.out.println("Fila insertada");
+						// limpiar los jtextfields despues de añadir nuevo
+						nametxt.setText("");
+						apellidotxt.setText("");
+						celtxt.setText("");
+						direcciontxt.setText("");
+					}
+
+					// Cierra statement y conexion
+					statement.close();
+					connection.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
+
 
 		JButton backCC = new JButton("Back");
 		backCC.setBounds(10, 11, 80, 29);
@@ -1764,6 +1812,25 @@ public class Restaurante extends JFrame {
 			}
 		});
 		FondoCrear.add(backCC);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		//------pantalla edicion de cliente------
 		EditarTabla.setLayout(null);
@@ -1808,7 +1875,7 @@ public class Restaurante extends JFrame {
 		editarTablaCliente.add(consultar_clientes);
 
 
-		
+
 
 		JButton btnEdit1 = new JButton("Editar Cliente");
 
@@ -1824,7 +1891,7 @@ public class Restaurante extends JFrame {
 			}
 		});
 
-		
+
 
 		editarTablaCliente.add(btnEdit1);
 
@@ -2037,4 +2104,3 @@ public class Restaurante extends JFrame {
 
 
 	}}
-

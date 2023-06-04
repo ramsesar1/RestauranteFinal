@@ -11,7 +11,7 @@ import javax.swing.border.EmptyBorder;
 
 public class CrearCliente extends JFrame{
 
-   private JPanel contentPane;
+    private JPanel contentPane;
     private JTextField nametxt;
     private JTextField apellidotxt;
     private JTextField celtxt;

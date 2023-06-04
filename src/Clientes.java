@@ -79,7 +79,7 @@ public class Clientes extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				editarCliente editar = new editarCliente();
-			    contentPane.add(editar.getContentPane());
+				contentPane.add(editar.getContentPane());
 				contentPane.remove(panelClientes);
 				contentPane.revalidate();
 				contentPane.repaint();
@@ -128,6 +128,6 @@ public class Clientes extends JFrame {
 	}
 
 	public void mostrar(){
-	     contentPane.setVisible(true);
+		contentPane.setVisible(true);
 	}
 }
