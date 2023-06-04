@@ -1,20 +1,13 @@
-import java.awt.EventQueue;
+import java.awt.*;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.Font;
+import javax.swing.table.TableCellRenderer;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 
 public class Restaurante extends JFrame {
@@ -2049,6 +2042,12 @@ public class Restaurante extends JFrame {
 
 
 		//----pantalla eliminar clientes----
+
+
+
+
+
+
 		EliminarClientes.setLayout(null);
 
 		JPanel eliminarClientes = new JPanel();
@@ -2057,25 +2056,23 @@ public class Restaurante extends JFrame {
 		eliminarClientes.setLayout(null);
 		EliminarClientes.add(eliminarClientes);
 
-		JTable tablaEliminar = new JTable();
-		tablaEliminar.setModel(new DefaultTableModel(
-				new Object[][]{
-						{"Cliente #5", "Eliminar"},
-						{"Cliente #4", "Eliminar"},
-						{"Cliente #3", "Eliminar"},
-						{"Cliente #2", "Eliminar"},
-						{"Cliente #1", "Eliminar"},
-				},
-				new String[]{
-						"Historia", "Direccion"
-				}
-		));
-		tablaEliminar.setBounds(181, 257, 606, 80);
-		eliminarClientes.add(tablaEliminar);
+		String[] columnNames = {"Nombre", "Apellidos", "Teléfono", "Dirección"};
+		DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
+		JTable tablaEliminar = new JTable(tableModel);
+
+		tablaEliminar.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		JScrollPane scrollPane = new JScrollPane(tablaEliminar);
+		scrollPane.setBounds(131, 257, 606, 300);
+		eliminarClientes.add(scrollPane);
+
+		JComboBox<String> comboBox1 = new JComboBox<>();
+		comboBox1.setBounds(757, 257, 100, 30);
+		eliminarClientes.add(comboBox1);
 
 		JPanel panelsito = new JPanel();
 		panelsito.setBackground(Color.GRAY);
-		panelsito.setBounds(181, 215, 606, 42);
+		panelsito.setBounds(131, 215, 606, 42);
 		panelsito.setLayout(null);
 		eliminarClientes.add(panelsito);
 
@@ -2101,6 +2098,46 @@ public class Restaurante extends JFrame {
 			}
 		});
 		eliminarClientes.add(backEliminar);
+
+		try {
+			// Conectar con base de datos
+			String url = "jdbc:mysql://localhost:3306/clientes";
+			String username = "root";
+			String password = "root";
+			Connection connection = DriverManager.getConnection(url, username, password);
+
+			Statement statement = connection.createStatement();
+
+			String query = "SELECT Nombre, Apellidos, Teléfono, Dirección FROM clientes";
+			ResultSet resultSet = statement.executeQuery(query);
+
+			while (resultSet.next()) {
+				String nombre = resultSet.getString("Nombre");
+				String apellidos = resultSet.getString("Apellidos");
+				String telefono = resultSet.getString("Teléfono");
+				String direccion = resultSet.getString("Dirección");
+
+
+				// añade fila a la tabla
+				Object[] rowData = {nombre, apellidos, telefono, direccion};
+				tableModel.addRow(rowData);
+
+				// Valor combinado del combobox
+				String nameAndLastname = nombre + " " + apellidos;
+
+				// Añade los valores del combobox
+				comboBox1.addItem(nameAndLastname);
+			}
+			repaint();
+
+			// CIerra statement, resultado y conexion
+			statement.close();
+			resultSet.close();
+			connection.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
 
 
 	}}
