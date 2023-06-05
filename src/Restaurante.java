@@ -2046,8 +2046,6 @@ public class Restaurante extends JFrame {
 
 
 
-
-
 		EliminarClientes.setLayout(null);
 
 		JPanel eliminarClientes = new JPanel();
@@ -2067,8 +2065,12 @@ public class Restaurante extends JFrame {
 		eliminarClientes.add(scrollPane);
 
 		JComboBox<String> comboBox1 = new JComboBox<>();
-		comboBox1.setBounds(757, 257, 100, 30);
+		comboBox1.setBounds(757, 257, 140, 30);
 		eliminarClientes.add(comboBox1);
+
+		JButton eliminarcliente = new JButton("Eliminar cliente");
+		eliminarcliente.setBounds(757, 297, 140, 30);
+		eliminarClientes.add(eliminarcliente);
 
 		JPanel panelsito = new JPanel();
 		panelsito.setBackground(Color.GRAY);
@@ -2100,7 +2102,7 @@ public class Restaurante extends JFrame {
 		eliminarClientes.add(backEliminar);
 
 		try {
-			// Conectar con base de datos
+
 			String url = "jdbc:mysql://localhost:3306/clientes";
 			String username = "root";
 			String password = "root";
@@ -2118,25 +2120,69 @@ public class Restaurante extends JFrame {
 				String direccion = resultSet.getString("Dirección");
 
 
-				// añade fila a la tabla
 				Object[] rowData = {nombre, apellidos, telefono, direccion};
 				tableModel.addRow(rowData);
 
-				// Valor combinado del combobox
 				String nameAndLastname = nombre + " " + apellidos;
 
-				// Añade los valores del combobox
+				// añadir valores a combobox
 				comboBox1.addItem(nameAndLastname);
 			}
 			repaint();
 
-			// CIerra statement, resultado y conexion
 			statement.close();
 			resultSet.close();
 			connection.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
+
+		eliminarcliente.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String selectedClient = (String) comboBox1.getSelectedItem();
+				String[] nameAndLastname = selectedClient.split(" ");
+				String nombre = nameAndLastname[0];
+				String apellidos = nameAndLastname[1];
+
+				try {
+					// Conectar
+
+					String url = "jdbc:mysql://localhost:3306/clientes";
+					String username = "root";
+					String password = "root";
+					Connection connection = DriverManager.getConnection(url, username, password);
+
+					Statement statement = connection.createStatement();
+
+					// ELIMINAr fila de la base ded atos
+					String deleteQuery = "DELETE FROM clientes WHERE Nombre='" + nombre + "' AND Apellidos='" + apellidos + "'";
+					statement.executeUpdate(deleteQuery);
+
+					// eliminar fila seleccionada del jtable
+					int rowCount = tableModel.getRowCount();
+					for (int i = 0; i < rowCount; i++) {
+						String tableNombre = (String) tableModel.getValueAt(i, 0);
+						String tableApellidos = (String) tableModel.getValueAt(i, 1);
+						if (tableNombre.equals(nombre) && tableApellidos.equals(apellidos)) {
+							tableModel.removeRow(i);
+							break;
+						}
+					}
+
+					// Eliminar seleccionado del combobox
+					comboBox1.removeItem(selectedClient);
+
+					// Limpiar seleccion del combobox
+					comboBox1.setSelectedIndex(-1);
+
+					statement.close();
+					connection.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
 
 
 
