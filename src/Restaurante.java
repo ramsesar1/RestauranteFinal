@@ -988,12 +988,12 @@ public class Restaurante extends JFrame {
 		OrdenAEditar.setBounds(225, 11, 182, 20);
 		panelEditarOrd.add(OrdenAEditar);
 
-		JLabel consultar_ordenes = new JLabel("Consultar Ordenes");
-		consultar_ordenes.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		consultar_ordenes.setBounds(417, 137, 181, 50);
-		editarTablaOrden.add(consultar_ordenes);
+		JLabel editar_ordenes = new JLabel("Editar Ordenes");
+		editar_ordenes.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		editar_ordenes.setBounds(400, 137, 181, 50);
+		editarTablaOrden.add(editar_ordenes);
 
-		JButton btnEdit = new JButton("Editar Cliente");
+		JButton btnEdit = new JButton("Editar Orden");
 		btnEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnEdit.setBounds(400, 587, 147, 44);
 		btnEdit.addActionListener(new ActionListener() {
