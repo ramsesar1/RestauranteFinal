@@ -99,6 +99,16 @@ public class Restaurante extends JFrame {
 		menufondito.setLayout(null);
 		login.add(menufondito);
 
+		JLabel logotipo = new JLabel(new ImageIcon("iconochido.gif"));
+		logotipo.setBounds(390,0,120,150);
+		menufondito.add(logotipo);
+
+		JLabel nombreLogo = new JLabel("RamSausage");
+		nombreLogo.setFont((new Font("Roboto", Font.ITALIC, 40)));
+		nombreLogo.setForeground(Color.decode("#AB0F0A"));
+		nombreLogo.setBounds(350,145,350,60);
+		menufondito.add(nombreLogo);
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setBounds(273, 205, 391, 313);
@@ -153,11 +163,18 @@ public class Restaurante extends JFrame {
 		//contentPane.add(Inicio);
 		Inicio.setLayout(null);
 
+
+		JLabel menufondito2 = new JLabel(new ImageIcon("Menufondo.png"));
+		menufondito2.setBounds(0, 0, 977, 681);
+		menufondito2.setLayout(null);
+		Inicio.add(menufondito2);
+
 		JPanel panelmenu = new JPanel();
 		panelmenu.setBackground(new Color(255, 255, 255));
 		panelmenu.setBounds(124, 33, 692, 539);
-		Inicio.add(panelmenu);
 		panelmenu.setLayout(null);
+		panelmenu.setOpaque(false);
+		menufondito2.add(panelmenu);
 
 		JButton btnplatillos = new JButton("Platillos\r\n");
 		btnplatillos.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -342,8 +359,8 @@ public class Restaurante extends JFrame {
 		lblplatillos.setBounds(421, 11, 186, 41);
 		Platillos.add(lblplatillos);
 
-		JButton backplatillos = new JButton("Back");
-		backplatillos.setBounds(10, 11, 80, 29);
+		JButton backplatillos = new JButton(new ImageIcon("BotonRetroceder.png"));
+		backplatillos.setBounds(10, 11, 35, 33);
 		Platillos.add(backplatillos);
 
 		backplatillos.addActionListener(new ActionListener() {
@@ -1575,7 +1592,7 @@ public class Restaurante extends JFrame {
 
 		JPanel panelClientes = new JPanel();
 		panelClientes.setBounds(0, 0, 977, 681);
-		panelClientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panelClientes.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		Clientes.add(panelClientes);
 		panelClientes.revalidate();
 		panelClientes.repaint();
@@ -1603,8 +1620,9 @@ public class Restaurante extends JFrame {
 
 
 		JButton btnConsultar = new JButton("Consultar");
-		btnConsultar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnConsultar.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnConsultar.setBackground(new Color(255, 128, 0));
+		btnConsultar.setFocusable(false);
 		btnConsultar.setBounds(112, 95, 217, 60);
 		btnConsultar.addActionListener(new ActionListener() {
 			@Override
@@ -1619,8 +1637,9 @@ public class Restaurante extends JFrame {
 		panelMini.add(btnConsultar);
 
 		JButton btnEditarClientes = new JButton("Editar");
-		btnEditarClientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEditarClientes.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnEditarClientes.setBackground(new Color(255, 128, 0));
+		btnEditarClientes.setFocusable(false);
 		btnEditarClientes.setBounds(112, 198, 217, 60);
 		btnEditarClientes.addActionListener(new ActionListener() {
 			@Override
@@ -1635,8 +1654,9 @@ public class Restaurante extends JFrame {
 		panelMini.add(btnEditarClientes);
 
 		JButton btnEliminar = new JButton("Eliminar");
-		btnEliminar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEliminar.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnEliminar.setBackground(new Color(255, 128, 0));
+		btnEliminar.setFocusable(false);
 		btnEliminar.setBounds(490, 198, 217, 60);
 		btnEliminar.addActionListener(new ActionListener() {
 			@Override
@@ -1651,8 +1671,9 @@ public class Restaurante extends JFrame {
 		panelMini.add(btnEliminar);
 
 		JButton btnCrearClientes = new JButton("Crear");
-		btnCrearClientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCrearClientes.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnCrearClientes.setBackground(new Color(255, 128, 0));
+		btnCrearClientes.setFocusable(false);
 		btnCrearClientes.setBounds(490, 95, 217, 60);
 		panelMini.add(btnCrearClientes);
 
@@ -1667,9 +1688,10 @@ public class Restaurante extends JFrame {
 			}
 		});
 
-		JButton backClientes = new JButton("Back");
-		backClientes.setBounds(10, 11, 80, 29);
+		JButton backClientes = new JButton(new ImageIcon("BotonRetroceder.png"));
+		backClientes.setBounds(10, 11, 35, 33);
 		backClientes.repaint();
+		backClientes.setFocusable(false);
 		backClientes.revalidate();
 		backClientes.addActionListener(new ActionListener() {
 			@Override
@@ -1687,7 +1709,7 @@ public class Restaurante extends JFrame {
 		CrearClientes.setLayout(null);
 
 		JLabel crearCliente = new JLabel("Crear Cliente");
-		crearCliente.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		crearCliente.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		crearCliente.setBounds(400, 89, 311, 50);
 		CrearClientes.add(crearCliente);
 
@@ -1705,7 +1727,7 @@ public class Restaurante extends JFrame {
 		panelCrearCliente.setLayout(null);
 
 		JLabel name = new JLabel("Nombre");
-		name.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		name.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		name.setBounds(10, 11, 121, 14);
 		panelCrearCliente.add(name);
 
@@ -1730,23 +1752,24 @@ public class Restaurante extends JFrame {
 		panelCrearCliente.add(direcciontxt);
 
 		JLabel lblApellidos = new JLabel("Apellidos");
-		lblApellidos.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblApellidos.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		lblApellidos.setBounds(10, 104, 121, 14);
 		panelCrearCliente.add(lblApellidos);
 
 		JLabel lblTelefono = new JLabel("Telefono");
-		lblTelefono.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblTelefono.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		lblTelefono.setBounds(10, 213, 121, 14);
 		panelCrearCliente.add(lblTelefono);
 
 		JLabel lblDireccion = new JLabel("Direccion");
-		lblDireccion.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblDireccion.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		lblDireccion.setBounds(10, 312, 121, 14);
 		panelCrearCliente.add(lblDireccion);
 
 		JButton btnCrearCliente = new JButton("Crear Cliente");
-		btnCrearCliente.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnCrearCliente.setBounds(400, 587, 147, 44);
+		btnCrearCliente.setFont(new Font("Arial Black", Font.PLAIN, 16));
+		btnCrearCliente.setBounds(400, 587, 190, 44);
+		btnCrearCliente.setFocusable(false);
 		FondoCrear.add(btnCrearCliente);
 		btnCrearCliente.addActionListener(new ActionListener() {
 			@Override
@@ -1759,7 +1782,7 @@ public class Restaurante extends JFrame {
 				// Insertar valores en base de datos
 				try {
 					// Conexion con base de datos
-					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 
 					//  crear un statement con parametros de query
 					String query = "INSERT INTO clientes (Nombre, Apellidos, Teléfono, Dirección) VALUES (?, ?, ?, ?)";
@@ -1793,8 +1816,9 @@ public class Restaurante extends JFrame {
 		});
 
 
-		JButton backCC = new JButton("Back");
-		backCC.setBounds(10, 11, 80, 29);
+		JButton backCC = new JButton(new ImageIcon("BotonRetroceder.png"));
+		backCC.setFocusable(false);
+		backCC.setBounds(10, 11, 35, 33);
 		backCC.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -1810,21 +1834,6 @@ public class Restaurante extends JFrame {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		//------pantalla edicion de cliente------
 		EditarTabla.setLayout(null);
 
@@ -1834,46 +1843,41 @@ public class Restaurante extends JFrame {
 		editarTablaCliente.setLayout(null);
 		EditarTabla.add(editarTablaCliente);
 
+		String[] columnNamesEditar = {"Nombre", "Apellidos", "Teléfono", "Dirección"};
+		DefaultTableModel tableModelEditar = new DefaultTableModel(columnNamesEditar, 0);
+		JTable tablaEditar = new JTable(tableModelEditar);
 
-		JTable tablaClientes = new JTable();
-		tablaClientes.setModel(new DefaultTableModel(
-				new Object[][]{
-						{"Cliente #5", "Editar"},
-						{"Cliente #4", "Editar"},
-						{"Cliente #3", "Editar"},
-						{"Cliente #2", "Editar"},
-						{"Cliente #1", "Editar"},
-				},
-				new String[]{
-						"Historia", "Direccion"
-				}
-		));
-		tablaClientes.setBounds(181, 257, 606, 80);
-		editarTablaCliente.add(tablaClientes);
+		tablaEditar.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		JScrollPane scrollPaneEditar = new JScrollPane(tablaEditar);
+		scrollPaneEditar.setBounds(131, 257, 606, 300);
+		editarTablaCliente.add(scrollPaneEditar);
+
+		JComboBox<String> comboBoxEditar = new JComboBox<>();
+		comboBoxEditar.setBounds(757, 257, 140, 30);
+		editarTablaCliente.add(comboBoxEditar);
+
 
 		JPanel panelEditar = new JPanel();
 		panelEditar.setBackground(Color.GRAY);
-		panelEditar.setBounds(181, 215, 606, 42);
+		panelEditar.setBounds(131, 215, 606, 42);
 		editarTablaCliente.add(panelEditar);
 		panelEditar.setLayout(null);
 
 		JLabel clienteAEditar = new JLabel("Cliente a Editar");
-		clienteAEditar.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		clienteAEditar.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		clienteAEditar.setBounds(225, 11, 182, 20);
 		panelEditar.add(clienteAEditar);
 
-		JLabel consultar_clientes = new JLabel("Consultar Clientes");
-		consultar_clientes.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		consultar_clientes.setBounds(417, 137, 181, 50);
+		JLabel consultar_clientes = new JLabel("Editar Clientes");
+		consultar_clientes.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		consultar_clientes.setBounds(370, 137, 210, 50);
 		editarTablaCliente.add(consultar_clientes);
 
 
-
-
 		JButton btnEdit1 = new JButton("Editar Cliente");
-
-		btnEdit1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnEdit1.setBounds(400, 587, 147, 44);
+        btnEdit1.setFocusable(false);
+		btnEdit1.setBounds(757, 297, 140, 30);
 		btnEdit1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -1889,8 +1893,9 @@ public class Restaurante extends JFrame {
 		editarTablaCliente.add(btnEdit1);
 
 
-		JButton backET = new JButton("Back");
-		backET.setBounds(10, 11, 80, 29);
+		JButton backET = new JButton(new ImageIcon("BotonRetroceder.png"));
+		backET.setFocusable(false);
+		backET.setBounds(10, 11, 35, 33);
 		backET.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -1913,9 +1918,9 @@ public class Restaurante extends JFrame {
 		editarCliente.setLayout(null);
 		EditarClientes.add(editarCliente);
 
-		JLabel lblClienteNum = new JLabel("Cliente #5");
-		lblClienteNum.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblClienteNum.setBounds(428, 89, 311, 50);
+		JLabel lblClienteNum = new JLabel("Actualizar Informacion");
+		lblClienteNum.setFont(new Font("Arial Black", Font.PLAIN, 30));
+		lblClienteNum.setBounds(320, 89, 390, 50);
 		editarCliente.add(lblClienteNum);
 
 		JPanel paneleditar2 = new JPanel();
@@ -1924,7 +1929,7 @@ public class Restaurante extends JFrame {
 		paneleditar2.setLayout(null);
 
 		JLabel lblNameEdit = new JLabel("Nombre");
-		lblNameEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNameEdit.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		lblNameEdit.setBounds(10, 11, 121, 14);
 		paneleditar2.add(lblNameEdit);
 
@@ -1949,27 +1954,29 @@ public class Restaurante extends JFrame {
 		paneleditar2.add(textoEdit4);
 
 		JLabel apellidoEdit = new JLabel("Apellidos");
-		apellidoEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		apellidoEdit.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		apellidoEdit.setBounds(10, 104, 121, 14);
 		paneleditar2.add(apellidoEdit);
 
 		JLabel telefonoEdit = new JLabel("Telefono");
-		telefonoEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		telefonoEdit.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		telefonoEdit.setBounds(10, 213, 121, 14);
 		paneleditar2.add(telefonoEdit);
 
 		JLabel direccionEdit = new JLabel("Direccion");
-		direccionEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		direccionEdit.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		direccionEdit.setBounds(10, 312, 121, 14);
 		paneleditar2.add(direccionEdit);
 
 		JButton btnEditarCliente = new JButton("Editar Cliente");
-		btnEditarCliente.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnEditarCliente.setBounds(444, 587, 147, 44);
+		btnEditarCliente.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnEditarCliente.setBounds(395, 582, 190, 44);
+		btnEditarCliente.setFocusable(false);
 		editarCliente.add(btnEditarCliente);
 
-		JButton backEC = new JButton("Back");
-		backEC.setBounds(10, 11, 80, 29);
+		JButton backEC = new JButton(new ImageIcon("BotonRetroceder.png"));
+		backEC.setFocusable(false);
+		backEC.setBounds(10, 11, 35, 33);
 		backEC.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -1990,45 +1997,46 @@ public class Restaurante extends JFrame {
 		consultarClientes.setLayout(null);
 		ConsultaClientes.add(consultarClientes);
 
-		JTable tablaConsulta = new JTable();
-		tablaConsulta.setModel(new DefaultTableModel(
-				new Object[][]{
-						{"Usuario #5", "Consultar"},
-						{"Usuario #4", "Consultar"},
-						{"Usuario #3", "Consultar"},
-						{"Usuario #2", "Consultar"},
-						{"Usuario #1", "Consultar"},
-				},
-				new String[]{
-						"Historia", "Direccion"
-				}
-		));
-		tablaConsulta.setBounds(181, 257, 606, 80);
-		consultarClientes.add(tablaConsulta);
+		String[] columnNamesConsulta = {"Nombre", "Apellidos", "Teléfono", "Dirección"};
+		DefaultTableModel tableModelConsulta = new DefaultTableModel(columnNamesConsulta, 0);
+		JTable tablaConsulta = new JTable(tableModelConsulta);
+
+		tablaConsulta.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		JScrollPane scrollPaneConsulta = new JScrollPane(tablaConsulta);
+		scrollPaneConsulta.setBounds(131, 257, 606, 300);
+		consultarClientes.add(scrollPaneConsulta);
+
+		JComboBox<String> comboBoxConsulta = new JComboBox<>();
+		comboBoxConsulta.setBounds(757, 257, 140, 30);
+		consultarClientes.add(comboBoxConsulta);
+
+		JButton btnConsultaTabla = new JButton("Consultar Cliente");
+		btnConsultaTabla.setFocusable(false);
+		btnConsultaTabla.setBounds(757, 297, 140, 30);
+		consultarClientes.add(btnConsultaTabla);
+
 
 		JPanel panelConsulta2 = new JPanel();
 		panelConsulta2.setBackground(Color.GRAY);
-		panelConsulta2.setBounds(181, 215, 606, 42);
+		panelConsulta2.setBounds(131, 215, 606, 42);
 		consultarClientes.add(panelConsulta2);
 		panelConsulta2.setLayout(null);
 
-		JLabel historial = new JLabel("Historial");
-		historial.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		historial.setBounds(86, 11, 115, 20);
+		JLabel historial = new JLabel("Cliente a Consultar");
+		historial.setFont(new Font("Arial Black", Font.PLAIN, 16));
+		historial.setBounds(210, 11, 190, 20);
 		panelConsulta2.add(historial);
 
-		JLabel lbldireccion = new JLabel("Direccion");
-		lbldireccion.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lbldireccion.setBounds(426, 11, 115, 20);
-		panelConsulta2.add(lbldireccion);
 
 		JLabel clientes = new JLabel("Consultar Clientes");
-		clientes.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		clientes.setBounds(417, 137, 181, 50);
+		clientes.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		clientes.setBounds(350, 137, 220, 50);
 		consultarClientes.add(clientes);
 
-		JButton backConsulta = new JButton("Back");
-		backConsulta.setBounds(10, 11, 80, 29);
+		JButton backConsulta = new JButton(new ImageIcon("BotonRetroceder.png"));
+		backConsulta.setFocusable(false);
+		backConsulta.setBounds(10, 11, 35, 33);
 		backConsulta.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -2042,9 +2050,6 @@ public class Restaurante extends JFrame {
 
 
 		//----pantalla eliminar clientes----
-
-
-
 
 		EliminarClientes.setLayout(null);
 
@@ -2084,12 +2089,13 @@ public class Restaurante extends JFrame {
 		panelsito.add(lblTitulo);
 
 		JLabel lblEliminar = new JLabel("Eliminar Clientes");
-		lblEliminar.setFont(new Font("Arial Black", Font.PLAIN, 16));
-		lblEliminar.setBounds(417, 137, 181, 50);
+		lblEliminar.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		lblEliminar.setBounds(370, 137, 210, 50);
 		eliminarClientes.add(lblEliminar);
 
-		JButton backEliminar = new JButton("Back");
-		backEliminar.setBounds(10, 11, 80, 29);
+		JButton backEliminar = new JButton(new ImageIcon("BotonRetroceder.png"));
+		backEliminar.setFocusable(false);
+		backEliminar.setBounds(10, 11, 35, 33);
 		backEliminar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -2105,7 +2111,7 @@ public class Restaurante extends JFrame {
 
 			String url = "jdbc:mysql://localhost:3306/clientes";
 			String username = "root";
-			String password = "root";
+			String password = "";
 			Connection connection = DriverManager.getConnection(url, username, password);
 
 			Statement statement = connection.createStatement();
@@ -2150,7 +2156,7 @@ public class Restaurante extends JFrame {
 
 					String url = "jdbc:mysql://localhost:3306/clientes";
 					String username = "root";
-					String password = "root";
+					String password = "";
 					Connection connection = DriverManager.getConnection(url, username, password);
 
 					Statement statement = connection.createStatement();

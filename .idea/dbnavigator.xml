@@ -60,9 +60,9 @@
           <database value="mysql" />
           <tns-folder value="" />
           <tns-profile value="" />
-          <type value="USER_PASSWORD" />
+          <type value="USER" />
           <user value="root" />
-          <deprecated-pwd value="cm9vdA==" />
+          <deprecated-pwd value="" />
         </database>
         <properties>
           <auto-commit value="false" />
