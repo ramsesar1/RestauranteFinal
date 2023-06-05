@@ -1834,7 +1834,15 @@ public class Restaurante extends JFrame {
 
 
 
+
+
+
+
+
+
 		//------pantalla edicion de cliente------
+
+
 		EditarTabla.setLayout(null);
 
 		JPanel editarTablaCliente = new JPanel();
@@ -1843,41 +1851,40 @@ public class Restaurante extends JFrame {
 		editarTablaCliente.setLayout(null);
 		EditarTabla.add(editarTablaCliente);
 
-		String[] columnNamesEditar = {"Nombre", "Apellidos", "Teléfono", "Dirección"};
-		DefaultTableModel tableModelEditar = new DefaultTableModel(columnNamesEditar, 0);
-		JTable tablaEditar = new JTable(tableModelEditar);
-
-		tablaEditar.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-		JScrollPane scrollPaneEditar = new JScrollPane(tablaEditar);
-		scrollPaneEditar.setBounds(131, 257, 606, 300);
-		editarTablaCliente.add(scrollPaneEditar);
-
-		JComboBox<String> comboBoxEditar = new JComboBox<>();
-		comboBoxEditar.setBounds(757, 257, 140, 30);
-		editarTablaCliente.add(comboBoxEditar);
-
+		JTable tablaClientes = new JTable();
+		DefaultTableModel tableModel = new DefaultTableModel(
+				new Object[][]{},
+				new String[]{
+						"Historia", "Direccion"
+				}
+		);
+		tablaClientes.setModel(tableModel);
+		tablaClientes.setBounds(181, 257, 606, 80);
+		editarTablaCliente.add(tablaClientes);
 
 		JPanel panelEditar = new JPanel();
 		panelEditar.setBackground(Color.GRAY);
-		panelEditar.setBounds(131, 215, 606, 42);
+		panelEditar.setBounds(181, 215, 606, 42);
 		editarTablaCliente.add(panelEditar);
 		panelEditar.setLayout(null);
 
 		JLabel clienteAEditar = new JLabel("Cliente a Editar");
-		clienteAEditar.setFont(new Font("Arial Black", Font.PLAIN, 16));
+		clienteAEditar.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		clienteAEditar.setBounds(225, 11, 182, 20);
 		panelEditar.add(clienteAEditar);
 
-		JLabel consultar_clientes = new JLabel("Editar Clientes");
-		consultar_clientes.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		consultar_clientes.setBounds(370, 137, 210, 50);
+		JLabel consultar_clientes = new JLabel("Consultar Clientes");
+		consultar_clientes.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		consultar_clientes.setBounds(417, 137, 181, 50);
 		editarTablaCliente.add(consultar_clientes);
 
+		JComboBox<String> comboBox2 = new JComboBox<>();
+		comboBox2.setBounds(800, 215, 156, 29);
+		editarTablaCliente.add(comboBox2);
 
 		JButton btnEdit1 = new JButton("Editar Cliente");
-        btnEdit1.setFocusable(false);
-		btnEdit1.setBounds(757, 297, 140, 30);
+		btnEdit1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnEdit1.setBounds(400, 587, 147, 44);
 		btnEdit1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -1887,15 +1894,10 @@ public class Restaurante extends JFrame {
 				revalidate();
 			}
 		});
-
-
-
 		editarTablaCliente.add(btnEdit1);
 
-
 		JButton backET = new JButton(new ImageIcon("BotonRetroceder.png"));
-		backET.setFocusable(false);
-		backET.setBounds(10, 11, 35, 33);
+		backET.setBounds(10, 11, 80, 29);
 		backET.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -1906,6 +1908,46 @@ public class Restaurante extends JFrame {
 			}
 		});
 		editarTablaCliente.add(backET);
+
+		try {
+			// Conectar a base de datos
+			String url = "jdbc:mysql://localhost:3306/clientes";
+			String username = "root";
+			String password = "root";
+			Connection connection = DriverManager.getConnection(url, username, password);
+
+			Statement statement = connection.createStatement();
+
+			String query = "SELECT Nombre, Apellidos, Teléfono, Dirección FROM clientes";
+			ResultSet resultSet = statement.executeQuery(query);
+
+			while (resultSet.next()) {
+				String nombre = resultSet.getString("Nombre");
+				String apellidos = resultSet.getString("Apellidos");
+				String telefono = resultSet.getString("Teléfono");
+				String direccion = resultSet.getString("Dirección");
+
+				// añadir fila
+				Object[] rowData = {nombre, apellidos, telefono, direccion};
+				tableModel.addRow(rowData);
+
+				// valor combinado para el combobox
+				String nameAndLastname = nombre + " " + apellidos;
+
+				// añade valores al combobox
+				comboBox2.addItem(nameAndLastname);
+			}
+
+			// cierra set, statement y conexion
+			statement.close();
+			resultSet.close();
+			connection.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
+
+
 
 		//-----pantalla seleccion editar cliente-----
 		EditarClientes.setLayout(null);
@@ -1918,9 +1960,9 @@ public class Restaurante extends JFrame {
 		editarCliente.setLayout(null);
 		EditarClientes.add(editarCliente);
 
-		JLabel lblClienteNum = new JLabel("Actualizar Informacion");
-		lblClienteNum.setFont(new Font("Arial Black", Font.PLAIN, 30));
-		lblClienteNum.setBounds(320, 89, 390, 50);
+		JLabel lblClienteNum = new JLabel("Cliente #5");
+		lblClienteNum.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblClienteNum.setBounds(428, 89, 311, 50);
 		editarCliente.add(lblClienteNum);
 
 		JPanel paneleditar2 = new JPanel();
@@ -1929,7 +1971,7 @@ public class Restaurante extends JFrame {
 		paneleditar2.setLayout(null);
 
 		JLabel lblNameEdit = new JLabel("Nombre");
-		lblNameEdit.setFont(new Font("Arial Black", Font.PLAIN, 16));
+		lblNameEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNameEdit.setBounds(10, 11, 121, 14);
 		paneleditar2.add(lblNameEdit);
 
@@ -1954,29 +1996,91 @@ public class Restaurante extends JFrame {
 		paneleditar2.add(textoEdit4);
 
 		JLabel apellidoEdit = new JLabel("Apellidos");
-		apellidoEdit.setFont(new Font("Arial Black", Font.PLAIN, 16));
+		apellidoEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		apellidoEdit.setBounds(10, 104, 121, 14);
 		paneleditar2.add(apellidoEdit);
 
 		JLabel telefonoEdit = new JLabel("Telefono");
-		telefonoEdit.setFont(new Font("Arial Black", Font.PLAIN, 16));
+		telefonoEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		telefonoEdit.setBounds(10, 213, 121, 14);
 		paneleditar2.add(telefonoEdit);
 
 		JLabel direccionEdit = new JLabel("Direccion");
-		direccionEdit.setFont(new Font("Arial Black", Font.PLAIN, 16));
+		direccionEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		direccionEdit.setBounds(10, 312, 121, 14);
 		paneleditar2.add(direccionEdit);
 
 		JButton btnEditarCliente = new JButton("Editar Cliente");
-		btnEditarCliente.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		btnEditarCliente.setBounds(395, 582, 190, 44);
-		btnEditarCliente.setFocusable(false);
+		btnEditarCliente.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnEditarCliente.setBounds(444, 587, 147, 44);
 		editarCliente.add(btnEditarCliente);
 
+
+
+		editarCliente.add(btnEditarCliente);
+
+		btnEditarCliente.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String selectedClient = (String) comboBox2.getSelectedItem();
+				String[] nameAndLastname = selectedClient.split(" ");
+				String nombre = textoEdit1.getText();
+				String apellidos = textoEdit2.getText();
+				String telefono = textoEdit3.getText();
+				String direccion = textoEdit4.getText();
+
+				try {
+					// Connect to the database
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+
+					// Create a statement with query parameters
+					String query = "UPDATE clientes SET Nombre = ?, Apellidos = ?, Teléfono = ?, Dirección = ? WHERE Nombre = ? AND Apellidos = ?";
+					PreparedStatement statement = connection.prepareStatement(query);
+
+					// Set the parameters for the values
+					statement.setString(1, nombre);
+					statement.setString(2, apellidos);
+					statement.setString(3, telefono);
+					statement.setString(4, direccion);
+					statement.setString(5, nameAndLastname[0]);
+					statement.setString(6, nameAndLastname[1]);
+
+					// Execute the query
+					int rowsAffected = statement.executeUpdate();
+
+					if (rowsAffected > 0) {
+						System.out.println("Fila actualizada");
+						// Clear the JTextFields after updating
+						textoEdit1.setText("");
+						textoEdit2.setText("");
+						textoEdit3.setText("");
+						textoEdit4.setText("");
+					}
+
+					// Close the statement and connection
+					statement.close();
+					connection.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
+
+// ...
+
+
+
+
+
+
+
+
+
+
+
+
 		JButton backEC = new JButton(new ImageIcon("BotonRetroceder.png"));
-		backEC.setFocusable(false);
-		backEC.setBounds(10, 11, 35, 33);
+		backEC.setBounds(10, 11, 80, 29);
 		backEC.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -1987,6 +2091,33 @@ public class Restaurante extends JFrame {
 			}
 		});
 		editarCliente.add(backEC);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		//-----pantalla consulta de clientes-----
 		ConsultaClientes.setLayout(null);
@@ -2049,6 +2180,7 @@ public class Restaurante extends JFrame {
 		consultarClientes.add(backConsulta);
 
 
+
 		//----pantalla eliminar clientes----
 
 		EliminarClientes.setLayout(null);
@@ -2060,8 +2192,8 @@ public class Restaurante extends JFrame {
 		EliminarClientes.add(eliminarClientes);
 
 		String[] columnNames = {"Nombre", "Apellidos", "Teléfono", "Dirección"};
-		DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
-		JTable tablaEliminar = new JTable(tableModel);
+		DefaultTableModel tableModel1 = new DefaultTableModel(columnNames, 0);
+		JTable tablaEliminar = new JTable(tableModel1);
 
 		tablaEliminar.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
@@ -2127,7 +2259,7 @@ public class Restaurante extends JFrame {
 
 
 				Object[] rowData = {nombre, apellidos, telefono, direccion};
-				tableModel.addRow(rowData);
+				tableModel1.addRow(rowData);
 
 				String nameAndLastname = nombre + " " + apellidos;
 
@@ -2166,12 +2298,12 @@ public class Restaurante extends JFrame {
 					statement.executeUpdate(deleteQuery);
 
 					// eliminar fila seleccionada del jtable
-					int rowCount = tableModel.getRowCount();
+					int rowCount = tableModel1.getRowCount();
 					for (int i = 0; i < rowCount; i++) {
-						String tableNombre = (String) tableModel.getValueAt(i, 0);
-						String tableApellidos = (String) tableModel.getValueAt(i, 1);
+						String tableNombre = (String) tableModel1.getValueAt(i, 0);
+						String tableApellidos = (String) tableModel1.getValueAt(i, 1);
 						if (tableNombre.equals(nombre) && tableApellidos.equals(apellidos)) {
-							tableModel.removeRow(i);
+							tableModel1.removeRow(i);
 							break;
 						}
 					}
