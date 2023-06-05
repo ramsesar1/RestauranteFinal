@@ -53,6 +53,7 @@ public class Restaurante extends JFrame {
 		JPanel EditarClientes = new JPanel();
 		JPanel EditarTabla = new JPanel();
 		JPanel CrearClientes = new JPanel();
+		JPanel InfoCliente = new JPanel();
 
 
 		//platillos
@@ -1832,14 +1833,6 @@ public class Restaurante extends JFrame {
 
 
 
-
-
-
-
-
-
-
-
 		//------pantalla edicion de cliente------
 
 
@@ -1851,40 +1844,38 @@ public class Restaurante extends JFrame {
 		editarTablaCliente.setLayout(null);
 		EditarTabla.add(editarTablaCliente);
 
-		JTable tablaClientes = new JTable();
-		DefaultTableModel tableModel = new DefaultTableModel(
-				new Object[][]{},
-				new String[]{
-						"Historia", "Direccion"
-				}
-		);
-		tablaClientes.setModel(tableModel);
-		tablaClientes.setBounds(181, 257, 606, 80);
-		editarTablaCliente.add(tablaClientes);
+		String[] columnNamesEdicion = {"Nombre", "Apellidos", "Teléfono", "Dirección"};
+		DefaultTableModel tableModelEdicion = new DefaultTableModel(columnNamesEdicion, 0);
+		JTable tablaEdicion = new JTable(tableModelEdicion);
+
+		tablaEdicion.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		JScrollPane scrollPaneEdicion = new JScrollPane(tablaEdicion);
+		scrollPaneEdicion.setBounds(131, 257, 606, 300);
+		editarTablaCliente.add(scrollPaneEdicion);
 
 		JPanel panelEditar = new JPanel();
 		panelEditar.setBackground(Color.GRAY);
-		panelEditar.setBounds(181, 215, 606, 42);
+		panelEditar.setBounds(131, 215, 606, 42);
 		editarTablaCliente.add(panelEditar);
 		panelEditar.setLayout(null);
 
 		JLabel clienteAEditar = new JLabel("Cliente a Editar");
-		clienteAEditar.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		clienteAEditar.setBounds(225, 11, 182, 20);
+		clienteAEditar.setFont(new Font("Arial Black", Font.PLAIN, 16));
+		clienteAEditar.setBounds(220, 11, 182, 20);
 		panelEditar.add(clienteAEditar);
 
 		JLabel consultar_clientes = new JLabel("Consultar Clientes");
-		consultar_clientes.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		consultar_clientes.setBounds(417, 137, 181, 50);
+		consultar_clientes.setFont(new Font("Arial Black", Font.PLAIN, 30));
+		consultar_clientes.setBounds(300, 137, 350, 50);
 		editarTablaCliente.add(consultar_clientes);
 
 		JComboBox<String> comboBox2 = new JComboBox<>();
-		comboBox2.setBounds(800, 215, 156, 29);
+		comboBox2.setBounds(760, 245, 156, 29);
 		editarTablaCliente.add(comboBox2);
 
 		JButton btnEdit1 = new JButton("Editar Cliente");
-		btnEdit1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnEdit1.setBounds(400, 587, 147, 44);
+		btnEdit1.setBounds(760, 295, 156, 30);
 		btnEdit1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -1897,7 +1888,7 @@ public class Restaurante extends JFrame {
 		editarTablaCliente.add(btnEdit1);
 
 		JButton backET = new JButton(new ImageIcon("BotonRetroceder.png"));
-		backET.setBounds(10, 11, 80, 29);
+		backET.setBounds(10, 11, 35, 33);
 		backET.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -1913,7 +1904,7 @@ public class Restaurante extends JFrame {
 			// Conectar a base de datos
 			String url = "jdbc:mysql://localhost:3306/clientes";
 			String username = "root";
-			String password = "root";
+			String password = "";
 			Connection connection = DriverManager.getConnection(url, username, password);
 
 			Statement statement = connection.createStatement();
@@ -1929,7 +1920,7 @@ public class Restaurante extends JFrame {
 
 				// añadir fila
 				Object[] rowData = {nombre, apellidos, telefono, direccion};
-				tableModel.addRow(rowData);
+				tableModelEdicion.addRow(rowData);
 
 				// valor combinado para el combobox
 				String nameAndLastname = nombre + " " + apellidos;
@@ -1960,9 +1951,9 @@ public class Restaurante extends JFrame {
 		editarCliente.setLayout(null);
 		EditarClientes.add(editarCliente);
 
-		JLabel lblClienteNum = new JLabel("Cliente #5");
-		lblClienteNum.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblClienteNum.setBounds(428, 89, 311, 50);
+		JLabel lblClienteNum = new JLabel("Editar Informacion");
+		lblClienteNum.setFont(new Font("Arial Black", Font.PLAIN, 30));
+		lblClienteNum.setBounds(428, 89, 351, 50);
 		editarCliente.add(lblClienteNum);
 
 		JPanel paneleditar2 = new JPanel();
@@ -1971,7 +1962,7 @@ public class Restaurante extends JFrame {
 		paneleditar2.setLayout(null);
 
 		JLabel lblNameEdit = new JLabel("Nombre");
-		lblNameEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNameEdit.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		lblNameEdit.setBounds(10, 11, 121, 14);
 		paneleditar2.add(lblNameEdit);
 
@@ -1996,22 +1987,22 @@ public class Restaurante extends JFrame {
 		paneleditar2.add(textoEdit4);
 
 		JLabel apellidoEdit = new JLabel("Apellidos");
-		apellidoEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		apellidoEdit.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		apellidoEdit.setBounds(10, 104, 121, 14);
 		paneleditar2.add(apellidoEdit);
 
 		JLabel telefonoEdit = new JLabel("Telefono");
-		telefonoEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		telefonoEdit.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		telefonoEdit.setBounds(10, 213, 121, 14);
 		paneleditar2.add(telefonoEdit);
 
 		JLabel direccionEdit = new JLabel("Direccion");
-		direccionEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		direccionEdit.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		direccionEdit.setBounds(10, 312, 121, 14);
 		paneleditar2.add(direccionEdit);
 
 		JButton btnEditarCliente = new JButton("Editar Cliente");
-		btnEditarCliente.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnEditarCliente.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		btnEditarCliente.setBounds(444, 587, 147, 44);
 		editarCliente.add(btnEditarCliente);
 
@@ -2068,19 +2059,8 @@ public class Restaurante extends JFrame {
 
 // ...
 
-
-
-
-
-
-
-
-
-
-
-
 		JButton backEC = new JButton(new ImageIcon("BotonRetroceder.png"));
-		backEC.setBounds(10, 11, 80, 29);
+		backEC.setBounds(10, 11, 35, 33);
 		backEC.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -2091,31 +2071,6 @@ public class Restaurante extends JFrame {
 			}
 		});
 		editarCliente.add(backEC);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2145,6 +2100,15 @@ public class Restaurante extends JFrame {
 		JButton btnConsultaTabla = new JButton("Consultar Cliente");
 		btnConsultaTabla.setFocusable(false);
 		btnConsultaTabla.setBounds(757, 297, 140, 30);
+		btnConsultaTabla.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(ConsultaClientes);
+				add(InfoCliente);
+				repaint();
+				revalidate();
+			}
+		});
 		consultarClientes.add(btnConsultaTabla);
 
 
@@ -2179,6 +2143,50 @@ public class Restaurante extends JFrame {
 		});
 		consultarClientes.add(backConsulta);
 
+
+		//-------Informacion de Cliente--------
+
+		InfoCliente.setLayout(null);
+
+		JPanel infoCliente = new JPanel();
+		infoCliente.setBounds(0,0,977,681);
+		infoCliente.setBackground(new Color(255, 128, 0));
+		infoCliente.setLayout(null);
+		InfoCliente.add(infoCliente);
+
+		JLabel infoTitulo = new JLabel("Informacion del Cliente");
+		infoTitulo.setBounds(270,70,400,50);
+		infoTitulo.setFont(new Font("Arial Black", Font.PLAIN, 30));
+		infoCliente.add(infoTitulo);
+
+		JPanel sobreFondoInfo = new JPanel();
+		sobreFondoInfo.setBounds(150,120,620,470);
+		sobreFondoInfo.setLayout(null);
+		infoCliente.add(sobreFondoInfo);
+
+		String[] columnNamesInfo = {"Nombre", "Apellidos", "Teléfono", "Dirección"};
+		DefaultTableModel tableModelInfo = new DefaultTableModel(columnNamesInfo, 0);
+		JTable tablaInfo = new JTable(tableModelInfo);
+
+		tablaInfo.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		JScrollPane scrollPaneInfo = new JScrollPane(tablaInfo);
+		scrollPaneInfo.setBounds(0, 20, 620, 230);
+		sobreFondoInfo.add(scrollPaneInfo);
+
+		JButton backInfoConsulta = new JButton(new ImageIcon("BotonRetroceder.png"));
+		backInfoConsulta.setFocusable(false);
+		backInfoConsulta.setBounds(10, 11, 35, 33);
+		backInfoConsulta.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(InfoCliente);
+				add(ConsultaClientes);
+				repaint();
+				revalidate();
+			}
+		});
+		infoCliente.add(backInfoConsulta);
 
 
 		//----pantalla eliminar clientes----
@@ -2321,7 +2329,6 @@ public class Restaurante extends JFrame {
 				}
 			}
 		});
-
 
 
 	}}
