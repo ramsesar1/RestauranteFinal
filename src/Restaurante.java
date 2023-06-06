@@ -1772,50 +1772,54 @@ public class Restaurante extends JFrame {
 		btnCrearCliente.setBounds(400, 587, 190, 44);
 		btnCrearCliente.setFocusable(false);
 		FondoCrear.add(btnCrearCliente);
+
+		FondoCrear.add(btnCrearCliente);
 		btnCrearCliente.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String nombre = nametxt.getText();
-				String apellidos = apellidotxt.getText();
-				String telefono = celtxt.getText();
-				String direccion = direcciontxt.getText();
+				int option = JOptionPane.showConfirmDialog(null, "¿Desea crear un nuevo cliente?", "Confirmar", JOptionPane.OK_CANCEL_OPTION);
+				if (option == JOptionPane.OK_OPTION) {
+					String nombre = nametxt.getText();
+					String apellidos = apellidotxt.getText();
+					String telefono = celtxt.getText();
+					String direccion = direcciontxt.getText();
 
-				// Insertar valores en base de datos
-				try {
-					// Conexion con base de datos
-					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
+					// Insertar valores en base de datos
+					try {
+						// Conexion con base de datos
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 
-					//  crear un statement con parametros de query
-					String query = "INSERT INTO clientes (Nombre, Apellidos, Teléfono, Dirección) VALUES (?, ?, ?, ?)";
-					PreparedStatement statement = connection.prepareStatement(query);
+						//  crear un statement con parametros de query
+						String query = "INSERT INTO clientes (Nombre, Apellidos, Teléfono, Dirección) VALUES (?, ?, ?, ?)";
+						PreparedStatement statement = connection.prepareStatement(query);
 
-					// crear los parametros para los valores
-					statement.setString(1, nombre);
-					statement.setString(2, apellidos);
-					statement.setString(3, telefono);
-					statement.setString(4, direccion);
+						// crear los parametros para los valores
+						statement.setString(1, nombre);
+						statement.setString(2, apellidos);
+						statement.setString(3, telefono);
+						statement.setString(4, direccion);
 
-					//Ejecturas el query
-					int rowsAffected = statement.executeUpdate();
+						//Ejecturas el query
+						int rowsAffected = statement.executeUpdate();
 
-					if (rowsAffected > 0) {
-						System.out.println("Fila insertada");
-						// limpiar los jtextfields despues de añadir nuevo
-						nametxt.setText("");
-						apellidotxt.setText("");
-						celtxt.setText("");
-						direcciontxt.setText("");
+						if (rowsAffected > 0) {
+							System.out.println("Fila insertada");
+							// limpiar los jtextfields despues de añadir nuevo
+							nametxt.setText("");
+							apellidotxt.setText("");
+							celtxt.setText("");
+							direcciontxt.setText("");
+						}
+
+						// Cierra statement y conexion
+						statement.close();
+						connection.close();
+					} catch (SQLException ex) {
+						ex.printStackTrace();
 					}
-
-					// Cierra statement y conexion
-					statement.close();
-					connection.close();
-				} catch (SQLException ex) {
-					ex.printStackTrace();
 				}
 			}
 		});
-
 
 		JButton backCC = new JButton(new ImageIcon("BotonRetroceder.png"));
 		backCC.setFocusable(false);
@@ -1865,7 +1869,7 @@ public class Restaurante extends JFrame {
 		clienteAEditar.setBounds(220, 11, 182, 20);
 		panelEditar.add(clienteAEditar);
 
-		JLabel consultar_clientes = new JLabel("Consultar Clientes");
+		JLabel consultar_clientes = new JLabel("Editar Clientes");
 		consultar_clientes.setFont(new Font("Arial Black", Font.PLAIN, 30));
 		consultar_clientes.setBounds(300, 137, 350, 50);
 		editarTablaCliente.add(consultar_clientes);
@@ -2013,46 +2017,44 @@ public class Restaurante extends JFrame {
 		btnEditarCliente.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String selectedClient = (String) comboBox2.getSelectedItem();
-				String[] nameAndLastname = selectedClient.split(" ");
-				String nombre = textoEdit1.getText();
-				String apellidos = textoEdit2.getText();
-				String telefono = textoEdit3.getText();
-				String direccion = textoEdit4.getText();
+				int option = JOptionPane.showConfirmDialog(null, "¿Desea editar la información del cliente?", "Confirmar", JOptionPane.OK_CANCEL_OPTION);
+				if (option == JOptionPane.OK_OPTION) {
+					String selectedClient = (String) comboBox2.getSelectedItem();
+					String[] nameAndLastname = selectedClient.split(" ");
+					String nombre = textoEdit1.getText();
+					String apellidos = textoEdit2.getText();
+					String telefono = textoEdit3.getText();
+					String direccion = textoEdit4.getText();
 
-				try {
-					// Connect to the database
-					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+					try {
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
 
-					// Create a statement with query parameters
-					String query = "UPDATE clientes SET Nombre = ?, Apellidos = ?, Teléfono = ?, Dirección = ? WHERE Nombre = ? AND Apellidos = ?";
-					PreparedStatement statement = connection.prepareStatement(query);
+						String query = "UPDATE clientes SET Nombre = ?, Apellidos = ?, Teléfono = ?, Dirección = ? WHERE Nombre = ? AND Apellidos = ?";
+						PreparedStatement statement = connection.prepareStatement(query);
 
-					// Set the parameters for the values
-					statement.setString(1, nombre);
-					statement.setString(2, apellidos);
-					statement.setString(3, telefono);
-					statement.setString(4, direccion);
-					statement.setString(5, nameAndLastname[0]);
-					statement.setString(6, nameAndLastname[1]);
+						statement.setString(1, nombre);
+						statement.setString(2, apellidos);
+						statement.setString(3, telefono);
+						statement.setString(4, direccion);
+						statement.setString(5, nameAndLastname[0]);
+						statement.setString(6, nameAndLastname[1]);
 
-					// Execute the query
-					int rowsAffected = statement.executeUpdate();
+						int rowsAffected = statement.executeUpdate();
 
-					if (rowsAffected > 0) {
-						System.out.println("Fila actualizada");
-						// Clear the JTextFields after updating
-						textoEdit1.setText("");
-						textoEdit2.setText("");
-						textoEdit3.setText("");
-						textoEdit4.setText("");
+						if (rowsAffected > 0) {
+							System.out.println("Fila actualizada");
+							textoEdit1.setText("");
+							textoEdit2.setText("");
+							textoEdit3.setText("");
+							textoEdit4.setText("");
+						}
+
+						// Close the statement and connection
+						statement.close();
+						connection.close();
+					} catch (SQLException ex) {
+						ex.printStackTrace();
 					}
-
-					// Close the statement and connection
-					statement.close();
-					connection.close();
-				} catch (SQLException ex) {
-					ex.printStackTrace();
 				}
 			}
 		});
@@ -2071,6 +2073,18 @@ public class Restaurante extends JFrame {
 			}
 		});
 		editarCliente.add(backEC);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2093,13 +2107,54 @@ public class Restaurante extends JFrame {
 		scrollPaneConsulta.setBounds(131, 257, 606, 300);
 		consultarClientes.add(scrollPaneConsulta);
 
-		JComboBox<String> comboBoxConsulta = new JComboBox<>();
+		DefaultComboBoxModel<String> comboBoxModelConsulta = new DefaultComboBoxModel<>();
+		JComboBox<String> comboBoxConsulta = new JComboBox<>(comboBoxModelConsulta);
 		comboBoxConsulta.setBounds(757, 257, 140, 30);
 		consultarClientes.add(comboBoxConsulta);
 
 		JButton btnConsultaTabla = new JButton("Consultar Cliente");
 		btnConsultaTabla.setFocusable(false);
-		btnConsultaTabla.setBounds(757, 297, 140, 30);
+		btnConsultaTabla.setBounds(757, 297, 160, 30);
+
+		JButton btnConsultaDireccion = new JButton("Consultar Dirección");
+		btnConsultaDireccion.setFocusable(false);
+		btnConsultaDireccion.setBounds(757, 337, 160, 30);
+
+		consultarClientes.add(btnConsultaDireccion);
+
+		try {
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+
+			Statement statement = connection.createStatement();
+
+			// EJecutar query fetch
+			String queryConsulta = "SELECT * FROM clientes";
+			ResultSet resultSetConsulta = statement.executeQuery(queryConsulta);
+
+			tableModelConsulta.setRowCount(0);
+
+			comboBoxModelConsulta.removeAllElements();
+
+			while (resultSetConsulta.next()) {
+				String nombre = resultSetConsulta.getString("Nombre");
+				String apellidos = resultSetConsulta.getString("Apellidos");
+				String telefono = resultSetConsulta.getString("Teléfono");
+				String direccion = resultSetConsulta.getString("Dirección");
+
+				Object[] rowData = {nombre, apellidos, telefono, direccion};
+
+				tableModelConsulta.addRow(rowData);
+
+				comboBoxModelConsulta.addElement(nombre + " " + apellidos);
+			}
+
+			resultSetConsulta.close();
+			statement.close();
+			connection.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
 		btnConsultaTabla.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -2111,6 +2166,17 @@ public class Restaurante extends JFrame {
 		});
 		consultarClientes.add(btnConsultaTabla);
 
+		btnConsultaDireccion.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// Clear existing columns from the table model
+				tableModelConsulta.setColumnIdentifiers(new String[]{"Nombre", "Apellidos", "Dirección"});
+
+				// Repaint the table to reflect the column changes
+				tablaConsulta.repaint();
+			}
+		});
+		consultarClientes.add(btnConsultaDireccion);
 
 		JPanel panelConsulta2 = new JPanel();
 		panelConsulta2.setBackground(Color.GRAY);
@@ -2118,11 +2184,10 @@ public class Restaurante extends JFrame {
 		consultarClientes.add(panelConsulta2);
 		panelConsulta2.setLayout(null);
 
-		JLabel historial = new JLabel("Cliente a Consultar");
-		historial.setFont(new Font("Arial Black", Font.PLAIN, 16));
-		historial.setBounds(210, 11, 190, 20);
-		panelConsulta2.add(historial);
-
+		JLabel historiallbl = new JLabel("Cliente a Consultar");
+		historiallbl.setFont(new Font("Arial Black", Font.PLAIN, 16));
+		historiallbl.setBounds(210, 11, 190, 20);
+		panelConsulta2.add(historiallbl);
 
 		JLabel clientes = new JLabel("Consultar Clientes");
 		clientes.setFont(new Font("Arial Black", Font.PLAIN, 20));
@@ -2144,7 +2209,21 @@ public class Restaurante extends JFrame {
 		consultarClientes.add(backConsulta);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 		//-------Informacion de Cliente--------
+//-------Informacion de Cliente--------
 
 		InfoCliente.setLayout(null);
 
@@ -2164,7 +2243,7 @@ public class Restaurante extends JFrame {
 		sobreFondoInfo.setLayout(null);
 		infoCliente.add(sobreFondoInfo);
 
-		String[] columnNamesInfo = {"Nombre", "Apellidos", "Teléfono", "Dirección"};
+		String[] columnNamesInfo = {"Historial", "Orden"};
 		DefaultTableModel tableModelInfo = new DefaultTableModel(columnNamesInfo, 0);
 		JTable tablaInfo = new JTable(tableModelInfo);
 
@@ -2173,6 +2252,35 @@ public class Restaurante extends JFrame {
 		JScrollPane scrollPaneInfo = new JScrollPane(tablaInfo);
 		scrollPaneInfo.setBounds(0, 20, 620, 230);
 		sobreFondoInfo.add(scrollPaneInfo);
+
+		try {
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+
+			Statement statement = connection.createStatement();
+
+			String queryInfo = "SELECT * FROM historial";
+			ResultSet resultSetInfo = statement.executeQuery(queryInfo);
+
+			tableModelInfo.setRowCount(0);
+
+			while (resultSetInfo.next()) {
+				String historial = resultSetInfo.getString("Historial");
+				String orden = resultSetInfo.getString("Orden");
+
+				Object[] rowData = {historial, orden};
+
+				tableModelInfo.addRow(rowData);
+			}
+
+			resultSetInfo.close();
+			statement.close();
+			connection.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
+// ...
+
 
 		JButton backInfoConsulta = new JButton(new ImageIcon("BotonRetroceder.png"));
 		backInfoConsulta.setFocusable(false);
@@ -2187,6 +2295,52 @@ public class Restaurante extends JFrame {
 			}
 		});
 		infoCliente.add(backInfoConsulta);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 		//----pantalla eliminar clientes----
@@ -2291,44 +2445,43 @@ public class Restaurante extends JFrame {
 				String nombre = nameAndLastname[0];
 				String apellidos = nameAndLastname[1];
 
-				try {
-					// Conectar
+				int option = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el cliente seleccionado?", "Confirmar", JOptionPane.OK_CANCEL_OPTION);
+				if (option == JOptionPane.OK_OPTION) {
+					try {
+						String url = "jdbc:mysql://localhost:3306/clientes";
+						String username = "root";
+						String password = "";
+						Connection connection = DriverManager.getConnection(url, username, password);
 
-					String url = "jdbc:mysql://localhost:3306/clientes";
-					String username = "root";
-					String password = "";
-					Connection connection = DriverManager.getConnection(url, username, password);
+						Statement statement = connection.createStatement();
 
-					Statement statement = connection.createStatement();
+						String deleteQuery = "DELETE FROM clientes WHERE Nombre='" + nombre + "' AND Apellidos='" + apellidos + "'";
+						statement.executeUpdate(deleteQuery);
+						System.out.println("Linea elminada");
 
-					// ELIMINAr fila de la base ded atos
-					String deleteQuery = "DELETE FROM clientes WHERE Nombre='" + nombre + "' AND Apellidos='" + apellidos + "'";
-					statement.executeUpdate(deleteQuery);
-
-					// eliminar fila seleccionada del jtable
-					int rowCount = tableModel1.getRowCount();
-					for (int i = 0; i < rowCount; i++) {
-						String tableNombre = (String) tableModel1.getValueAt(i, 0);
-						String tableApellidos = (String) tableModel1.getValueAt(i, 1);
-						if (tableNombre.equals(nombre) && tableApellidos.equals(apellidos)) {
-							tableModel1.removeRow(i);
-							break;
+						int rowCount = tableModel1.getRowCount();
+						for (int i = 0; i < rowCount; i++) {
+							String tableNombre = (String) tableModel1.getValueAt(i, 0);
+							String tableApellidos = (String) tableModel1.getValueAt(i, 1);
+							if (tableNombre.equals(nombre) && tableApellidos.equals(apellidos)) {
+								tableModel1.removeRow(i);
+								break;
+							}
 						}
+
+						comboBox1.removeItem(selectedClient);
+
+						comboBox1.setSelectedIndex(-1);
+
+						statement.close();
+						connection.close();
+					} catch (SQLException ex) {
+						ex.printStackTrace();
 					}
-
-					// Eliminar seleccionado del combobox
-					comboBox1.removeItem(selectedClient);
-
-					// Limpiar seleccion del combobox
-					comboBox1.setSelectedIndex(-1);
-
-					statement.close();
-					connection.close();
-				} catch (SQLException ex) {
-					ex.printStackTrace();
 				}
 			}
 		});
+
 
 
 	}}

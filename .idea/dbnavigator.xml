@@ -21,11 +21,15 @@
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
+      <object connection-id="ec73f568-2569-4fdf-96af-18699f4295cd" object-ref="schemas/clientes/tables/historial" />
       <object connection-id="ec73f568-2569-4fdf-96af-18699f4295cd" object-ref="schemas/clientes/tables/clientes" />
+      <object connection-id="ec73f568-2569-4fdf-96af-18699f4295cd" object-ref="schemas/clientes/tables/direcciones" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="ec73f568-2569-4fdf-96af-18699f4295cd" dataset="clientes.clientes" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="ec73f568-2569-4fdf-96af-18699f4295cd" dataset="clientes.direcciones" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="ec73f568-2569-4fdf-96af-18699f4295cd" dataset="clientes.historial" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
