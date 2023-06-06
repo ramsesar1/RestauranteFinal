@@ -4,8 +4,14 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
-
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.NumberFormatter;
+import javax.swing.text.PlainDocument;
+import javax.swing.JFormattedTextField;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.ActionEvent;
 import java.sql.*;
 
@@ -1733,18 +1739,120 @@ public class Restaurante extends JFrame {
 		panelCrearCliente.add(name);
 
 		JTextField nametxt = new JTextField();
-		nametxt.setBounds(10, 36, 454, 27);
-		panelCrearCliente.add(nametxt);
 		nametxt.setColumns(10);
+		nametxt.setBounds(10, 36, 454, 27);
+		nametxt.setDocument(new PlainDocument() {
+		    @Override
+		    public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+		        if (str == null)
+		            return;
+
+		        for (char c : str.toCharArray()) {
+		            if (!Character.isLetter(c)) {
+		                return; // Ignora la inserción de caracteres no alfabéticos
+		            }
+		        }
+
+		        super.insertString(offset, str, attr);
+		    }
+		});
+		nametxt.addKeyListener(new KeyListener() {
+		    @Override
+		    public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if (!Character.isLetter(c)) {
+		            e.consume(); // Ignora la entrada de caracteres no alfabéticos
+		        }
+		    }
+
+		    @Override
+		    public void keyPressed(KeyEvent e) {
+		        // No se requiere ninguna acción en este método
+		    }
+
+		    @Override
+		    public void keyReleased(KeyEvent e) {
+		        // No se requiere ninguna acción en este método
+		    }
+		});
+		panelCrearCliente.add(nametxt);
 
 		JTextField apellidotxt = new JTextField();
 		apellidotxt.setColumns(10);
 		apellidotxt.setBounds(10, 129, 454, 27);
+		apellidotxt.setDocument(new PlainDocument() {
+		    @Override
+		    public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+		        if (str == null)
+		            return;
+
+		        for (char c : str.toCharArray()) {
+		            if (!Character.isLetter(c)) {
+		                return; // Ignora la inserción de caracteres no alfabéticos
+		            }
+		        }
+
+		        super.insertString(offset, str, attr);
+		    }
+		});
+		apellidotxt.addKeyListener(new KeyListener() {
+		    @Override
+		    public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if (!Character.isLetter(c)) {
+		            e.consume(); // Ignora la entrada de caracteres no alfabéticos
+		        }
+		    }
+
+		    @Override
+		    public void keyPressed(KeyEvent e) {
+		        // No se requiere ninguna acción en este método
+		    }
+
+		    @Override
+		    public void keyReleased(KeyEvent e) {
+		        // No se requiere ninguna acción en este método
+		    }
+		});
 		panelCrearCliente.add(apellidotxt);
 
 		JTextField celtxt = new JTextField();
 		celtxt.setColumns(10);
 		celtxt.setBounds(10, 238, 276, 27);
+		celtxt.setDocument(new PlainDocument() {
+		    @Override
+		    public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+		        if (str == null)
+		            return;
+
+		        for (char c : str.toCharArray()) {
+		            if (!Character.isDigit(c)) {
+		                return; // Ignora la inserción de caracteres no numéricos
+		            }
+		        }
+
+		        super.insertString(offset, str, attr);
+		    }
+		});
+		celtxt.addKeyListener(new KeyListener() {
+		    @Override
+		    public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if (!Character.isDigit(c)) {
+		            e.consume(); // Ignora la entrada de caracteres no numéricos
+		        }
+		    }
+
+		    @Override
+		    public void keyPressed(KeyEvent e) {
+		        // No se requiere ninguna acción en este método
+		    }
+
+		    @Override
+		    public void keyReleased(KeyEvent e) {
+		        // No se requiere ninguna acción en este método
+		    }
+		});
 		panelCrearCliente.add(celtxt);
 
 		JTextField direcciontxt = new JTextField();
@@ -1967,18 +2075,120 @@ public class Restaurante extends JFrame {
 		paneleditar2.add(lblNameEdit);
 
 		JTextField textoEdit1 = new JTextField();
-		textoEdit1.setBounds(10, 36, 454, 27);
-		paneleditar2.add(textoEdit1);
 		textoEdit1.setColumns(10);
+		textoEdit1.setBounds(10, 36, 454, 27);
+		textoEdit1.setDocument(new PlainDocument() {
+		    @Override
+		    public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+		        if (str == null)
+		            return;
+
+		        for (char c : str.toCharArray()) {
+		            if (!Character.isLetter(c)) {
+		                return; // Ignorar la inserción de caracteres no alfabéticos
+		            }
+		        }
+
+		        super.insertString(offset, str, attr);
+		    }
+		});
+		textoEdit1.addKeyListener(new KeyListener() {
+		    @Override
+		    public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if (!Character.isLetter(c)) {
+		            e.consume(); // Ignorar la entrada de caracteres no alfabéticos
+		        }
+		    }
+
+		    @Override
+		    public void keyPressed(KeyEvent e) {
+		        // No se requiere ninguna acción en este método
+		    }
+
+		    @Override
+		    public void keyReleased(KeyEvent e) {
+		        // No se requiere ninguna acción en este método
+		    }
+		});
+		paneleditar2.add(textoEdit1);
 
 		JTextField textoEdit2 = new JTextField();
 		textoEdit2.setColumns(10);
 		textoEdit2.setBounds(10, 129, 454, 27);
+		textoEdit2.setDocument(new PlainDocument() {
+		    @Override
+		    public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+		        if (str == null)
+		            return;
+
+		        for (char c : str.toCharArray()) {
+		            if (!Character.isLetter(c)) {
+		                return; // Ignorar la inserción de caracteres no alfabéticos
+		            }
+		        }
+
+		        super.insertString(offset, str, attr);
+		    }
+		});
+		textoEdit2.addKeyListener(new KeyListener() {
+		    @Override
+		    public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if (!Character.isLetter(c)) {
+		            e.consume(); // Ignorar la entrada de caracteres no alfabéticos
+		        }
+		    }
+
+		    @Override
+		    public void keyPressed(KeyEvent e) {
+		        // No se requiere ninguna acción en este método
+		    }
+
+		    @Override
+		    public void keyReleased(KeyEvent e) {
+		        // No se requiere ninguna acción en este método
+		    }
+		});
 		paneleditar2.add(textoEdit2);
+
 
 		JTextField textoEdit3 = new JTextField();
 		textoEdit3.setColumns(10);
 		textoEdit3.setBounds(10, 238, 276, 27);
+		textoEdit3.setDocument(new PlainDocument() {
+    @Override
+    public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+        if (str == null)
+            return;
+
+        try {
+            Integer.parseInt(str);
+            super.insertString(offset, str, attr);
+        } catch (NumberFormatException e) {
+            // Ignorar la inserción de caracteres no numéricos
+        }
+    }
+});
+	textoEdit3.addKeyListener(new KeyListener() {
+	    @Override
+	    public void keyTyped(KeyEvent e) {
+	        char c = e.getKeyChar();
+	        if (!Character.isDigit(c)) {
+	            e.consume();
+	        }
+	    }
+	
+	    @Override
+	    public void keyPressed(KeyEvent e) {
+	        // No se requiere ninguna acción en este método
+	    }
+	
+	    @Override
+	    public void keyReleased(KeyEvent e) {
+	        // No se requiere ninguna acción en este método
+			    }
+		});
 		paneleditar2.add(textoEdit3);
 
 		JTextField textoEdit4 = new JTextField();
