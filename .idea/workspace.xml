@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff60951b-c24a-434f-81e4-0182c2341fee" name="Changes" comment="formato a la seccion de clientes actualizada">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_5_2023_2_09_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_5_2023_2_09_AM__Changes_.xml" afterDir="false" />
+    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="Se añaden base de datos en consultar, el consultar solo direccion y nombre de usuario, y option pane de confirmacion en todas las funciones">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_5_2023_6_01_PM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_5_2023_6_01_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2023_2_24_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2023_2_24_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2023_8_20_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2023_8_20_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RestauranteFinal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RestauranteFinal.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante.java" afterDir="false" />
@@ -21,7 +27,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2QMTKrLeF5SJJKRcr1LRsghIyFW" />
+  <component name="ProjectId" id="2QoBJCHRVxP8u9rlTrYjBafCgIH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,107 +37,28 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Gamer/Desktop/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/soypr/Documents/mysql/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33.jar&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.20574713&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Gamer\Documents\GitHub\RestauranteFinal" />
-      <recent name="C:\Users\soypr\eclipse-workspace\RestauranteFinal\src" />
-    </key>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ff60951b-c24a-434f-81e4-0182c2341fee" name="Changes" comment="" />
-      <created>1685162390414</created>
+      <changelist id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="" />
+      <created>1686009980795</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1685162390414</updated>
+      <updated>1686009980795</updated>
     </task>
-    <task id="LOCAL-00001" summary="Se empieza a añadir las ventanas como clases separadas, se juntaran luego, pero primero se añade el mockup">
-      <created>1685247662050</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1685247662050</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Se añaden mas ventanas, aun pendientes de juntar">
-      <created>1685247961971</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1685247961971</updated>
-    </task>
-    <task id="LOCAL-00003" summary="se añaden los paneles de platillos a la clase restaurante">
-      <created>1685419311953</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1685419311953</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Se añade funcionalidad a Login, boton de platillos, consulta de platillos y retroceso de estos">
-      <created>1685427096932</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1685427096932</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Todos los botones de back y enfrente">
-      <created>1685432286776</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1685432286776</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Se agrega la base de datos, y se puede crear nuevos clientes">
-      <created>1685874517901</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1685874517901</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Se agrega la base de datos a la eliminacion de clientes, aun no se pueden borrar">
-      <created>1685922812880</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1685922812880</updated>
-    </task>
-    <task id="LOCAL-00008" summary="formato a la seccion de clientes actualizada">
-      <created>1685947261503</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1685947261503</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Se empieza a añadir las ventanas como clases separadas, se juntaran luego, pero primero se añade el mockup" />
-    <MESSAGE value="Se añaden mas ventanas, aun pendientes de juntar" />
-    <MESSAGE value="se añaden los paneles de platillos a la clase restaurante" />
-    <MESSAGE value="Se añade funcionalidad a Login, boton de platillos, consulta de platillos y retroceso de estos" />
-    <MESSAGE value="Todos los botones de back y enfrente" />
-    <MESSAGE value="Se agrega la base de datos, y se puede crear nuevos clientes" />
-    <MESSAGE value="Se agrega la base de datos a la eliminacion de clientes, aun no se pueden borrar" />
-    <MESSAGE value="formato a la seccion de clientes actualizada" />
-    <option name="LAST_COMMIT_MESSAGE" value="formato a la seccion de clientes actualizada" />
+    <MESSAGE value="Se añaden base de datos en consultar, el consultar solo direccion y nombre de usuario, y option pane de confirmacion en todas las funciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se añaden base de datos en consultar, el consultar solo direccion y nombre de usuario, y option pane de confirmacion en todas las funciones" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/RestauranteFinal$Restaurante.ic" NAME="Restaurante Coverage Results" MODIFIED="1685939229711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
