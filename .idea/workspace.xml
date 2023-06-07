@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="Se agrega la opcion de editar inventario y que al ser editado se muestre el cambio en la Jtable">
+    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="Se conecta a tabla inventario en base de dato clientes, y se permite agregar o eliminar inventario">
+      <change afterPath="$PROJECT_DIR$/menuclientes().png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tituloR (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tituloRpeque.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_5_2023_6_01_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_5_2023_6_01_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_6_2023_3_02_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_6_2023_3_02_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RestauranteFinal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RestauranteFinal.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,28 +65,20 @@
       <option name="project" value="LOCAL" />
       <updated>1686098278544</updated>
     </task>
-    <task id="LOCAL-00003" summary="Se agrega la opcion de editar inventario y que al ser editado se muestre el cambio en la Jtable">
-      <created>1686108421095</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1686108421095</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Se añaden base de datos en consultar, el consultar solo direccion y nombre de usuario, y option pane de confirmacion en todas las funciones" />
     <MESSAGE value="Se conecta a tabla inventario en base de dato clientes, y se permite agregar o eliminar inventario" />
-    <MESSAGE value="Se agrega la opcion de editar inventario y que al ser editado se muestre el cambio en la Jtable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se agrega la opcion de editar inventario y que al ser editado se muestre el cambio en la Jtable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se conecta a tabla inventario en base de dato clientes, y se permite agregar o eliminar inventario" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Restaurante.java</url>
-          <line>3142</line>
+          <line>3097</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

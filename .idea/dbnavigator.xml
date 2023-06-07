@@ -21,9 +21,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
-      <object connection-id="ec73f568-2569-4fdf-96af-18699f4295cd" object-ref="schemas/clientes/tables/historial" />
       <object connection-id="ec73f568-2569-4fdf-96af-18699f4295cd" object-ref="schemas/clientes/tables/clientes" />
-      <object connection-id="ec73f568-2569-4fdf-96af-18699f4295cd" object-ref="schemas/clientes/tables/direcciones" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">

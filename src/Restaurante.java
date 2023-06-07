@@ -129,18 +129,16 @@ public class Restaurante extends JFrame {
 		login.add(menufondito);
 
 		JLabel logotipo = new JLabel(new ImageIcon("iconochido.gif"));
-		logotipo.setBounds(390,0,120,150);
+		logotipo.setBounds(410,0,120,150);
 		menufondito.add(logotipo);
 
-		JLabel nombreLogo = new JLabel("RamSausage");
-		nombreLogo.setFont((new Font("Roboto", Font.ITALIC, 40)));
-		nombreLogo.setForeground(Color.decode("#AB0F0A"));
-		nombreLogo.setBounds(350,145,350,60);
+		JLabel nombreLogo = new JLabel(new ImageIcon("tituloR (1).png"));
+		nombreLogo.setBounds(298,70,350,233);
 		menufondito.add(nombreLogo);
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
-		panel_1.setBounds(273, 205, 391, 313);
+		panel_1.setBounds(273, 250, 391, 313);
 		menufondito.add(panel_1);
 		panel_1.setLayout(null);
 
@@ -156,17 +154,17 @@ public class Restaurante extends JFrame {
 		panel_1.add(contras);
 
 		JLabel lblNewLabel = new JLabel("Usuario");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		lblNewLabel.setBounds(30, 26, 149, 28);
 		panel_1.add(lblNewLabel);
 
 		lblContrasea = new JLabel("Contraseña");
-		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblContrasea.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		lblContrasea.setBounds(30, 142, 149, 28);
 		panel_1.add(lblContrasea);
 
 		JButton btnNewButton = new JButton("Login");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				remove(login);
@@ -180,7 +178,7 @@ public class Restaurante extends JFrame {
 		panel_1.add(btnNewButton);
 
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnCancelar.setFont(new Font("Arial Black", Font.PLAIN, 18));
 		btnCancelar.setBackground(new Color(255, 255, 255));
 		btnCancelar.setBounds(226, 236, 130, 45);
 		panel_1.add(btnCancelar);
@@ -206,7 +204,8 @@ public class Restaurante extends JFrame {
 		menufondito2.add(panelmenu);
 
 		JButton btnplatillos = new JButton("Platillos\r\n");
-		btnplatillos.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnplatillos.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		btnplatillos.setFocusable(false);
 		btnplatillos.setBackground(new Color(255, 128, 0));
 		btnplatillos.setBounds(53, 22, 279, 234);
 		panelmenu.add(btnplatillos);
@@ -223,7 +222,8 @@ public class Restaurante extends JFrame {
 
 
 		JButton btnNewButtonclientes = new JButton("Clientes\r\n");
-		btnNewButtonclientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButtonclientes.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		btnNewButtonclientes.setFocusable(false);
 		btnNewButtonclientes.setBackground(new Color(255, 128, 0));
 		btnNewButtonclientes.setBounds(53, 279, 279, 234);
 		panelmenu.add(btnNewButtonclientes);
@@ -241,8 +241,9 @@ public class Restaurante extends JFrame {
 
 
 		JButton btnentrarinventario = new JButton("Inventario\r\n");
-		btnentrarinventario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnentrarinventario.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnentrarinventario.setBackground(new Color(255, 128, 0));
+		btnentrarinventario.setFocusable(false);
 		btnentrarinventario.setBounds(364, 279, 279, 234);
 		panelmenu.add(btnentrarinventario);
 
@@ -258,8 +259,9 @@ public class Restaurante extends JFrame {
 
 
 		JButton btnNewButtonOrden = new JButton("Ordenes\r\n");
-		btnNewButtonOrden.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButtonOrden.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnNewButtonOrden.setBackground(new Color(255, 128, 0));
+		btnNewButtonOrden.setFocusable(false);
 		btnNewButtonOrden.setBounds(364, 22, 279, 234);
 		panelmenu.add(btnNewButtonOrden);
 
@@ -274,16 +276,11 @@ public class Restaurante extends JFrame {
 		});
 
 
-
-
 		JButton btnNewButton_2 = new JButton("Ordenes\r\n");
-		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton_2.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnNewButton_2.setBackground(new Color(255, 128, 0));
 		btnNewButton_2.setBounds(364, 22, 279, 234);
 		panelmenu.add(btnNewButton_2);
-
-
-
 
 
 
@@ -1674,17 +1671,6 @@ public class Restaurante extends JFrame {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 		//----Eliminar inventario------
 
 
@@ -2070,6 +2056,10 @@ public class Restaurante extends JFrame {
 		clienteIcon.setOpaque(true);
 		panelClientes.add(clienteIcon);
 
+		JLabel menuClientesLogo = new JLabel(new ImageIcon("menuclientes().png"));
+		menuClientesLogo.setBounds(300,50,350,233);
+		clienteIcon.add(menuClientesLogo);
+
 
 		JButton btnConsultar = new JButton("Consultar");
 		btnConsultar.setFont(new Font("Arial Black", Font.PLAIN, 20));
@@ -2161,8 +2151,8 @@ public class Restaurante extends JFrame {
 		CrearClientes.setLayout(null);
 
 		JLabel crearCliente = new JLabel("Crear Cliente");
-		crearCliente.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		crearCliente.setBounds(400, 89, 311, 50);
+		crearCliente.setFont(new Font("Arial Black", Font.PLAIN, 30));
+		crearCliente.setBounds(380, 89, 311, 50);
 		CrearClientes.add(crearCliente);
 
 		JPanel FondoCrear = new JPanel();
@@ -2322,7 +2312,7 @@ public class Restaurante extends JFrame {
 
 		JButton btnCrearCliente = new JButton("Crear Cliente");
 		btnCrearCliente.setFont(new Font("Arial Black", Font.PLAIN, 16));
-		btnCrearCliente.setBounds(400, 587, 190, 44);
+		btnCrearCliente.setBounds(380, 580, 190, 44);
 		btnCrearCliente.setFocusable(false);
 		FondoCrear.add(btnCrearCliente);
 
@@ -2777,19 +2767,6 @@ public class Restaurante extends JFrame {
 		editarCliente.add(backEC);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 		//-----pantalla consulta de clientes-----
 		ConsultaClientes.setLayout(null);
 
@@ -2825,7 +2802,7 @@ public class Restaurante extends JFrame {
 		consultarClientes.add(btnConsultaDireccion);
 
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 
 			Statement statement = connection.createStatement();
 
@@ -2892,8 +2869,8 @@ public class Restaurante extends JFrame {
 		panelConsulta2.add(historiallbl);
 
 		JLabel clientes = new JLabel("Consultar Clientes");
-		clientes.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		clientes.setBounds(350, 137, 220, 50);
+		clientes.setFont(new Font("Arial Black", Font.PLAIN, 30));
+		clientes.setBounds(280, 137, 320, 50);
 		consultarClientes.add(clientes);
 
 		JButton backConsulta = new JButton(new ImageIcon("BotonRetroceder.png"));
@@ -2909,19 +2886,6 @@ public class Restaurante extends JFrame {
 			}
 		});
 		consultarClientes.add(backConsulta);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 		//-------Informacion de Cliente--------
@@ -2956,7 +2920,7 @@ public class Restaurante extends JFrame {
 		sobreFondoInfo.add(scrollPaneInfo);
 
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 
 			Statement statement = connection.createStatement();
 
@@ -2998,52 +2962,6 @@ public class Restaurante extends JFrame {
 		infoCliente.add(backInfoConsulta);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		//----pantalla eliminar clientes----
 
 		EliminarClientes.setLayout(null);
@@ -3076,8 +2994,8 @@ public class Restaurante extends JFrame {
 		panelsito.add(lblTitulo);
 
 		JLabel lblEliminar = new JLabel("Eliminar Clientes");
-		lblEliminar.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		lblEliminar.setBounds(370, 137, 210, 50);
+		lblEliminar.setFont(new Font("Arial Black", Font.PLAIN, 30));
+		lblEliminar.setBounds(280, 137, 350, 50);
 		eliminarClientes.add(lblEliminar);
 
 		JButton backEliminar = new JButton(new ImageIcon("BotonRetroceder.png"));
