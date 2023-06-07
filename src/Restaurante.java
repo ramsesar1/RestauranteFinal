@@ -1061,42 +1061,41 @@ public class Restaurante extends JFrame {
 		consultarOrdenes1.setLayout(null);
 		ConsultarOrden.add(consultarOrdenes1);
 
-		JTable tablaConsultaOrden = new JTable();
-		tablaConsultaOrden.setModel(new DefaultTableModel(
-				new Object[][]{
-						{"Orden #5", "Consultar"},
-						{"Orden #4", "Consultar"},
-						{"Orden #3", "Consultar"},
-						{"Orden #2", "Consultar"},
-						{"Orden #1", "Consultar"},
-				},
-				new String[]{
-						"Ver", "Costo"
-				}
-		));
-		tablaConsultaOrden.setBounds(181, 257, 606, 80);
-		consultarOrdenes1.add(tablaConsultaOrden);
+		String[] columnNamesConsultaOrd = {"Ordenes"};
+		DefaultTableModel tableModelConsultaOrd = new DefaultTableModel(columnNamesConsultaOrd, 0);
+		JTable tablaConsultaOrd = new JTable(tableModelConsultaOrd);
 
+		tablaConsultaOrd.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		JScrollPane scrollPaneConsultaOrd = new JScrollPane(tablaConsultaOrd);
+		scrollPaneConsultaOrd.setBounds(131, 257, 606, 300);
+		consultarOrdenes1.add(scrollPaneConsultaOrd);
+
+		DefaultComboBoxModel<String> comboBoxModelConsultaOrd = new DefaultComboBoxModel<>();
+		JComboBox<String> comboBoxConsultaOrd = new JComboBox<>(comboBoxModelConsultaOrd);
+		comboBoxConsultaOrd.setBounds(757, 257, 140, 30);
+		consultarOrdenes1.add(comboBoxConsultaOrd);
+
+		JButton btnConsultaTablaOrd = new JButton("Consultar Orden");
+		btnConsultaTablaOrd.setFocusable(false);
+		btnConsultaTablaOrd.setBounds(757, 297, 160, 30);
+		consultarOrdenes1.add(btnConsultaTablaOrd);
+		
 		JPanel panelConsultaOrd2 = new JPanel();
-		panelConsultaOrd2 .setBackground(Color.GRAY);
-		panelConsultaOrd2 .setBounds(181, 215, 606, 42);
-		consultarOrdenes1.add(panelConsultaOrd2 );
-		panelConsultaOrd2 .setLayout(null);
+		panelConsultaOrd2.setBackground(Color.GRAY);
+		panelConsultaOrd2.setBounds(131, 215, 606, 42);
+		consultarOrdenes1.add(panelConsultaOrd2);
+		panelConsultaOrd2.setLayout(null);
 
-		JLabel Ver = new JLabel("Ver");
-		Ver.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		Ver.setBounds(86, 11, 115, 20);
-		panelConsultaOrd2.add(Ver);
+		JLabel tituloConsult = new JLabel("Orden a Consultar");
+		tituloConsult.setFont(new Font("Arial Black", Font.PLAIN, 16));
+		tituloConsult.setBounds(210, 11, 190, 20);
+		panelConsultaOrd2.add(tituloConsult);
 
-		JLabel Costo = new JLabel("Costo");
-		Costo.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		Costo.setBounds(426, 11, 115, 20);
-		panelConsultaOrd2.add(Costo);
-
-		JLabel orders = new JLabel("Consultar Ordenes");
-		orders .setFont(new Font("Tahoma", Font.PLAIN, 16));
-		orders .setBounds(417, 137, 181, 50);
-		consultarOrdenes1.add(orders );
+		JLabel Ordenestitulo = new JLabel("Consultar Ordenes");
+		Ordenestitulo .setFont(new Font("Arial Black", Font.PLAIN, 20));
+		Ordenestitulo .setBounds(350, 137, 220, 50);
+		consultarOrdenes1.add(Ordenestitulo );
 
 		JButton backConsultaOrder = new JButton("Back");
 		backConsultaOrder.setBounds(10, 11, 80, 29);
