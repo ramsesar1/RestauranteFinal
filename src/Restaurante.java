@@ -23,6 +23,12 @@ public class Restaurante extends JFrame {
 	private JPasswordField contras;
 	private JLabel lblContrasea;
 
+	private Timer updateTimer;
+
+
+
+
+
 	/**
 	 * Launch the application.
 	 */
@@ -39,6 +45,20 @@ public class Restaurante extends JFrame {
 		});
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	/**
 	 * Create the frame.
 	 */
@@ -49,6 +69,8 @@ public class Restaurante extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		//JPanel de ventanas definidos
+
+
 
 		JPanel Inicio = new JPanel();
 
@@ -2007,6 +2029,13 @@ public class Restaurante extends JFrame {
 
 
 
+
+
+
+
+
+
+
 		//--------------------------------------------clientes----------------------------------------------------------
 		//-----pantalla clientes principal-----
 
@@ -2159,38 +2188,38 @@ public class Restaurante extends JFrame {
 		nametxt.setColumns(10);
 		nametxt.setBounds(10, 36, 454, 27);
 		nametxt.setDocument(new PlainDocument() {
-		    @Override
-		    public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
-		        if (str == null)
-		            return;
+			@Override
+			public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+				if (str == null)
+					return;
 
-		        for (char c : str.toCharArray()) {
-		            if (!Character.isLetter(c)) {
-		                return; // Ignora la inserción de caracteres no alfabéticos
-		            }
-		        }
+				for (char c : str.toCharArray()) {
+					if (!Character.isLetter(c)) {
+						return; // Ignora la inserción de caracteres no alfabéticos
+					}
+				}
 
-		        super.insertString(offset, str, attr);
-		    }
+				super.insertString(offset, str, attr);
+			}
 		});
 		nametxt.addKeyListener(new KeyListener() {
-		    @Override
-		    public void keyTyped(KeyEvent e) {
-		        char c = e.getKeyChar();
-		        if (!Character.isLetter(c)) {
-		            e.consume(); // Ignora la entrada de caracteres no alfabéticos
-		        }
-		    }
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!Character.isLetter(c)) {
+					e.consume(); // Ignora la entrada de caracteres no alfabéticos
+				}
+			}
 
-		    @Override
-		    public void keyPressed(KeyEvent e) {
-		        // No se requiere ninguna acción en este método
-		    }
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// No se requiere ninguna acción en este método
+			}
 
-		    @Override
-		    public void keyReleased(KeyEvent e) {
-		        // No se requiere ninguna acción en este método
-		    }
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// No se requiere ninguna acción en este método
+			}
 		});
 		panelCrearCliente.add(nametxt);
 
@@ -2198,38 +2227,38 @@ public class Restaurante extends JFrame {
 		apellidotxt.setColumns(10);
 		apellidotxt.setBounds(10, 129, 454, 27);
 		apellidotxt.setDocument(new PlainDocument() {
-		    @Override
-		    public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
-		        if (str == null)
-		            return;
+			@Override
+			public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+				if (str == null)
+					return;
 
-		        for (char c : str.toCharArray()) {
-		            if (!Character.isLetter(c)) {
-		                return; // Ignora la inserción de caracteres no alfabéticos
-		            }
-		        }
+				for (char c : str.toCharArray()) {
+					if (!Character.isLetter(c)) {
+						return; // Ignora la inserción de caracteres no alfabéticos
+					}
+				}
 
-		        super.insertString(offset, str, attr);
-		    }
+				super.insertString(offset, str, attr);
+			}
 		});
 		apellidotxt.addKeyListener(new KeyListener() {
-		    @Override
-		    public void keyTyped(KeyEvent e) {
-		        char c = e.getKeyChar();
-		        if (!Character.isLetter(c)) {
-		            e.consume(); // Ignora la entrada de caracteres no alfabéticos
-		        }
-		    }
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!Character.isLetter(c)) {
+					e.consume(); // Ignora la entrada de caracteres no alfabéticos
+				}
+			}
 
-		    @Override
-		    public void keyPressed(KeyEvent e) {
-		        // No se requiere ninguna acción en este método
-		    }
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// No se requiere ninguna acción en este método
+			}
 
-		    @Override
-		    public void keyReleased(KeyEvent e) {
-		        // No se requiere ninguna acción en este método
-		    }
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// No se requiere ninguna acción en este método
+			}
 		});
 		panelCrearCliente.add(apellidotxt);
 
@@ -2237,38 +2266,38 @@ public class Restaurante extends JFrame {
 		celtxt.setColumns(10);
 		celtxt.setBounds(10, 238, 276, 27);
 		celtxt.setDocument(new PlainDocument() {
-		    @Override
-		    public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
-		        if (str == null)
-		            return;
+			@Override
+			public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+				if (str == null)
+					return;
 
-		        for (char c : str.toCharArray()) {
-		            if (!Character.isDigit(c)) {
-		                return; // Ignora la inserción de caracteres no numéricos
-		            }
-		        }
+				for (char c : str.toCharArray()) {
+					if (!Character.isDigit(c)) {
+						return; // Ignora la inserción de caracteres no numéricos
+					}
+				}
 
-		        super.insertString(offset, str, attr);
-		    }
+				super.insertString(offset, str, attr);
+			}
 		});
 		celtxt.addKeyListener(new KeyListener() {
-		    @Override
-		    public void keyTyped(KeyEvent e) {
-		        char c = e.getKeyChar();
-		        if (!Character.isDigit(c)) {
-		            e.consume(); // Ignora la entrada de caracteres no numéricos
-		        }
-		    }
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!Character.isDigit(c)) {
+					e.consume(); // Ignora la entrada de caracteres no numéricos
+				}
+			}
 
-		    @Override
-		    public void keyPressed(KeyEvent e) {
-		        // No se requiere ninguna acción en este método
-		    }
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// No se requiere ninguna acción en este método
+			}
 
-		    @Override
-		    public void keyReleased(KeyEvent e) {
-		        // No se requiere ninguna acción en este método
-		    }
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// No se requiere ninguna acción en este método
+			}
 		});
 		panelCrearCliente.add(celtxt);
 
@@ -2371,6 +2400,9 @@ public class Restaurante extends JFrame {
 			}
 		});
 		FondoCrear.add(backCC);
+
+
+
 
 
 
@@ -2513,38 +2545,38 @@ public class Restaurante extends JFrame {
 		textoEdit1.setColumns(10);
 		textoEdit1.setBounds(10, 36, 454, 27);
 		textoEdit1.setDocument(new PlainDocument() {
-		    @Override
-		    public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
-		        if (str == null)
-		            return;
+			@Override
+			public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+				if (str == null)
+					return;
 
-		        for (char c : str.toCharArray()) {
-		            if (!Character.isLetter(c)) {
-		                return; // Ignorar la inserción de caracteres no alfabéticos
-		            }
-		        }
+				for (char c : str.toCharArray()) {
+					if (!Character.isLetter(c)) {
+						return; // Ignorar la inserción de caracteres no alfabéticos
+					}
+				}
 
-		        super.insertString(offset, str, attr);
-		    }
+				super.insertString(offset, str, attr);
+			}
 		});
 		textoEdit1.addKeyListener(new KeyListener() {
-		    @Override
-		    public void keyTyped(KeyEvent e) {
-		        char c = e.getKeyChar();
-		        if (!Character.isLetter(c)) {
-		            e.consume(); // Ignorar la entrada de caracteres no alfabéticos
-		        }
-		    }
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!Character.isLetter(c)) {
+					e.consume(); // Ignorar la entrada de caracteres no alfabéticos
+				}
+			}
 
-		    @Override
-		    public void keyPressed(KeyEvent e) {
-		        // No se requiere ninguna acción en este método
-		    }
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// No se requiere ninguna acción en este método
+			}
 
-		    @Override
-		    public void keyReleased(KeyEvent e) {
-		        // No se requiere ninguna acción en este método
-		    }
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// No se requiere ninguna acción en este método
+			}
 		});
 		paneleditar2.add(textoEdit1);
 
@@ -2552,38 +2584,38 @@ public class Restaurante extends JFrame {
 		textoEdit2.setColumns(10);
 		textoEdit2.setBounds(10, 129, 454, 27);
 		textoEdit2.setDocument(new PlainDocument() {
-		    @Override
-		    public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
-		        if (str == null)
-		            return;
+			@Override
+			public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+				if (str == null)
+					return;
 
-		        for (char c : str.toCharArray()) {
-		            if (!Character.isLetter(c)) {
-		                return; // Ignorar la inserción de caracteres no alfabéticos
-		            }
-		        }
+				for (char c : str.toCharArray()) {
+					if (!Character.isLetter(c)) {
+						return; // Ignorar la inserción de caracteres no alfabéticos
+					}
+				}
 
-		        super.insertString(offset, str, attr);
-		    }
+				super.insertString(offset, str, attr);
+			}
 		});
 		textoEdit2.addKeyListener(new KeyListener() {
-		    @Override
-		    public void keyTyped(KeyEvent e) {
-		        char c = e.getKeyChar();
-		        if (!Character.isLetter(c)) {
-		            e.consume(); // Ignorar la entrada de caracteres no alfabéticos
-		        }
-		    }
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!Character.isLetter(c)) {
+					e.consume(); // Ignorar la entrada de caracteres no alfabéticos
+				}
+			}
 
-		    @Override
-		    public void keyPressed(KeyEvent e) {
-		        // No se requiere ninguna acción en este método
-		    }
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// No se requiere ninguna acción en este método
+			}
 
-		    @Override
-		    public void keyReleased(KeyEvent e) {
-		        // No se requiere ninguna acción en este método
-		    }
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// No se requiere ninguna acción en este método
+			}
 		});
 		paneleditar2.add(textoEdit2);
 
@@ -2592,37 +2624,37 @@ public class Restaurante extends JFrame {
 		textoEdit3.setColumns(10);
 		textoEdit3.setBounds(10, 238, 276, 27);
 		textoEdit3.setDocument(new PlainDocument() {
-    @Override
-    public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
-        if (str == null)
-            return;
+			@Override
+			public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+				if (str == null)
+					return;
 
-        try {
-            Integer.parseInt(str);
-            super.insertString(offset, str, attr);
-        } catch (NumberFormatException e) {
-            // Ignorar la inserción de caracteres no numéricos
-        }
-    }
-});
-	textoEdit3.addKeyListener(new KeyListener() {
-	    @Override
-	    public void keyTyped(KeyEvent e) {
-	        char c = e.getKeyChar();
-	        if (!Character.isDigit(c)) {
-	            e.consume();
-	        }
-	    }
-	
-	    @Override
-	    public void keyPressed(KeyEvent e) {
-	        // No se requiere ninguna acción en este método
-	    }
-	
-	    @Override
-	    public void keyReleased(KeyEvent e) {
-	        // No se requiere ninguna acción en este método
-			    }
+				try {
+					Integer.parseInt(str);
+					super.insertString(offset, str, attr);
+				} catch (NumberFormatException e) {
+					// Ignorar la inserción de caracteres no numéricos
+				}
+			}
+		});
+		textoEdit3.addKeyListener(new KeyListener() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!Character.isDigit(c)) {
+					e.consume();
+				}
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// No se requiere ninguna acción en este método
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// No se requiere ninguna acción en este método
+			}
 		});
 		paneleditar2.add(textoEdit3);
 
@@ -2691,6 +2723,30 @@ public class Restaurante extends JFrame {
 							textoEdit2.setText("");
 							textoEdit3.setText("");
 							textoEdit4.setText("");
+
+							// Update the table model if a row is selected
+							int selectedRow = tablaEdicion.getSelectedRow();
+							if (selectedRow >= 0) {
+								tableModelEdicion.setValueAt(nombre, selectedRow, 0);
+								tableModelEdicion.setValueAt(apellidos, selectedRow, 1);
+								tableModelEdicion.setValueAt(telefono, selectedRow, 2);
+								tableModelEdicion.setValueAt(direccion, selectedRow, 3);
+							}
+
+							// Update the JTable data from the database
+							tableModelEdicion.setRowCount(0);
+							statement = connection.prepareStatement("SELECT Nombre, Apellidos, Teléfono, Dirección FROM clientes");
+							ResultSet resultSet = statement.executeQuery();
+
+							while (resultSet.next()) {
+								String updatedNombre = resultSet.getString("Nombre");
+								String updatedApellidos = resultSet.getString("Apellidos");
+								String updatedTelefono = resultSet.getString("Teléfono");
+								String updatedDireccion = resultSet.getString("Dirección");
+
+								Object[] rowData = {updatedNombre, updatedApellidos, updatedTelefono, updatedDireccion};
+								tableModelEdicion.addRow(rowData);
+							}
 						}
 
 						// Close the statement and connection
@@ -2702,6 +2758,9 @@ public class Restaurante extends JFrame {
 				}
 			}
 		});
+
+
+
 
 // ...
 
@@ -3136,4 +3195,118 @@ public class Restaurante extends JFrame {
 
 
 
-	}}
+
+		updateTimer = new Timer(5000, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// Call the updateComponents method to update the components
+				updateComponents(tableModel1, tableModelInfo, tableModelEdicion, tableModelConsulta, comboBox1);
+			}
+		});
+
+// Start the timer
+		updateTimer.start();
+
+
+
+
+	}
+
+
+	public void updateComponents(DefaultTableModel tableModel1, DefaultTableModel tableModelInfo, DefaultTableModel tableModelEdicion, DefaultTableModel tableModelConsulta, JComboBox<String> comboBox1) {
+		try {
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+
+			// actualiza ptabla  1
+			Statement statement1 = connection.createStatement();
+			String query1 = "SELECT Nombre, Apellidos, Teléfono, Dirección FROM clientes";
+			ResultSet resultSet1 = statement1.executeQuery(query1);
+			tableModel1.setRowCount(0);
+
+			// limpia combobox para que no se empiece a duplicar
+			DefaultComboBoxModel<String> comboBoxModel = (DefaultComboBoxModel<String>) comboBox1.getModel();
+			comboBoxModel.removeAllElements();
+
+			while (resultSet1.next()) {
+				String nombre = resultSet1.getString("Nombre");
+				String apellidos = resultSet1.getString("Apellidos");
+				String telefono = resultSet1.getString("Teléfono");
+				String direccion = resultSet1.getString("Dirección");
+
+				Object[] rowData = {nombre, apellidos, telefono, direccion};
+				tableModel1.addRow(rowData);
+
+				String nameAndLastname = nombre + " " + apellidos;
+				comboBox1.addItem(nameAndLastname);
+			}
+
+			resultSet1.close();
+			statement1.close();
+
+			// actualiza tabla informacion
+			Statement statement2 = connection.createStatement();
+			String query2 = "SELECT * FROM historial";
+			ResultSet resultSet2 = statement2.executeQuery(query2);
+			tableModelInfo.setRowCount(0);
+
+			while (resultSet2.next()) {
+				String historial = resultSet2.getString("Historial");
+				String orden = resultSet2.getString("Orden");
+
+				Object[] rowData = {historial, orden};
+				tableModelInfo.addRow(rowData);
+			}
+
+			resultSet2.close();
+			statement2.close();
+
+			// actualiza tabla edicion
+			Statement statement3 = connection.createStatement();
+			String query3 = "SELECT Nombre, Apellidos, Teléfono, Dirección FROM clientes";
+			ResultSet resultSet3 = statement3.executeQuery(query3);
+			tableModelEdicion.setRowCount(0);
+
+			while (resultSet3.next()) {
+				String nombre = resultSet3.getString("Nombre");
+				String apellidos = resultSet3.getString("Apellidos");
+				String telefono = resultSet3.getString("Teléfono");
+				String direccion = resultSet3.getString("Dirección");
+
+				Object[] rowData = {nombre, apellidos, telefono, direccion};
+				tableModelEdicion.addRow(rowData);
+			}
+
+			resultSet3.close();
+			statement3.close();
+
+			//  actualiza tabla consulta
+			Statement statementConsulta = connection.createStatement();
+			String queryConsulta = "SELECT * FROM clientes";
+			ResultSet resultSetConsulta = statementConsulta.executeQuery(queryConsulta);
+			tableModelConsulta.setRowCount(0);
+
+			while (resultSetConsulta.next()) {
+				String nombre = resultSetConsulta.getString("Nombre");
+				String apellidos = resultSetConsulta.getString("Apellidos");
+				String telefono = resultSetConsulta.getString("Teléfono");
+				String direccion = resultSetConsulta.getString("Dirección");
+
+				Object[] rowData = {nombre, apellidos, telefono, direccion};
+				tableModelConsulta.addRow(rowData);
+			}
+
+			resultSetConsulta.close();
+			statementConsulta.close();
+
+			connection.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+	}
+
+
+
+
+
+
+}
