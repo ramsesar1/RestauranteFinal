@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="Se añaden base de datos en consultar, el consultar solo direccion y nombre de usuario, y option pane de confirmacion en todas las funciones">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_5_2023_6_01_PM_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_5_2023_6_01_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2023_2_24_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2023_2_24_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2023_8_20_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_29_2023_8_20_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="Se conecta a tabla inventario en base de dato clientes, y se permite agregar o eliminar inventario">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RestauranteFinal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RestauranteFinal.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,11 +44,38 @@
       <option name="presentableId" value="Default" />
       <updated>1686009980795</updated>
     </task>
+    <task id="LOCAL-00001" summary="Se añaden base de datos en consultar, el consultar solo direccion y nombre de usuario, y option pane de confirmacion en todas las funciones">
+      <created>1686023660495</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686023660495</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Se conecta a tabla inventario en base de dato clientes, y se permite agregar o eliminar inventario">
+      <created>1686098278544</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686098278544</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Se añaden base de datos en consultar, el consultar solo direccion y nombre de usuario, y option pane de confirmacion en todas las funciones" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se añaden base de datos en consultar, el consultar solo direccion y nombre de usuario, y option pane de confirmacion en todas las funciones" />
+    <MESSAGE value="Se conecta a tabla inventario en base de dato clientes, y se permite agregar o eliminar inventario" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se conecta a tabla inventario en base de dato clientes, y se permite agregar o eliminar inventario" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Restaurante.java</url>
+          <line>3097</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RestauranteFinal$Restaurante.ic" NAME="Restaurante Coverage Results" MODIFIED="1685939229711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
