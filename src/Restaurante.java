@@ -1342,6 +1342,17 @@ public class Restaurante extends JFrame {
 		});
 
 
+
+
+
+
+
+
+
+
+
+
+
 		//----Editar inventario-----
 
 
@@ -1356,70 +1367,278 @@ public class Restaurante extends JFrame {
 		Editarinvlbl.setBounds(388, -16, 214, 115);
 		EditarINv.add(Editarinvlbl);
 
-		JPanel editarinv2 = new JPanel();
-		editarinv2.setBackground(new Color(255, 218, 168));
-		editarinv2.setBounds(10, 204, 941, 427);
-		EditarINv.add(editarinv2);
-		editarinv2.setLayout(null);
+		JPanel Articuledipan = new JPanel();
+		Articuledipan.setBackground(new Color(255, 218, 168));
+		Articuledipan.setBounds(76, 203, 679, 381);
+		EditarINv.add(Articuledipan);
 
-		JLabel muestralbl1 = new JLabel("Articulo #5\r\n");
-		muestralbl1.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		muestralbl1.setBounds(55, 11, 145, 31);
-		editarinv2.add(muestralbl1);
+		DefaultTableModel tableModel = new DefaultTableModel(
+				new Object[]{"Nombre","Unidad","Color","Cantidad"	}, 0);
 
-		JLabel muestralbl2 = new JLabel("Articulo #4\r\n\r\n");
-		muestralbl2.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		muestralbl2.setBounds(55, 63, 145, 31);
-		editarinv2.add(muestralbl2);
+		JTable tablaeditarart = new JTable(tableModel);
 
-		JLabel muestralbl3 = new JLabel("Articulo #2\r\n\r\n");
-		muestralbl3.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		muestralbl3.setBounds(55, 171, 145, 31);
-		editarinv2.add(muestralbl3);
+		JScrollPane scrollPaneediart = new JScrollPane(tablaeditarart);
 
-		JLabel muestralbl4 = new JLabel("Articulo #3\r\n");
-		muestralbl4.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		muestralbl4.setBounds(55, 118, 145, 31);
-		editarinv2.add(muestralbl4);
+		Articuledipan.setLayout(new BorderLayout());
+		Articuledipan.add(scrollPaneediart, BorderLayout.CENTER);
 
-		JLabel muestralbl5 = new JLabel("Articulo #1\r\n");
-		muestralbl5.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		muestralbl5.setBounds(55, 225, 145, 31);
-		editarinv2.add(muestralbl5);
 
-		JButton editar1btn = new JButton("Editar");
-		editar1btn.setBounds(732, 19, 128, 23);
-		editarinv2.add(editar1btn);
 
-		JButton editarbtn = new JButton("Editar");
-		editarbtn.setBounds(732, 71, 128, 23);
-		editarinv2.add(editarbtn);
 
-		JButton editar2btn = new JButton("Editar");
-		editar2btn.setBounds(732, 126, 128, 23);
-		editarinv2.add(editar2btn);
+		JPanel panel_1EDI = new JPanel();
+		panel_1EDI.setBounds(76, 155, 679, 48);
+		EditarINv.add(panel_1EDI);
+		panel_1EDI.setLayout(null);
 
-		JButton editar3btn = new JButton("Editar");
-		editar3btn.setBounds(732, 179, 128, 23);
-		editarinv2.add(editar3btn);
+		JLabel Ediartlbl2 = new JLabel("Articulo a Editar");
+		Ediartlbl2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Ediartlbl2.setBounds(262, 0, 210, 43);
+		panel_1EDI.add(Ediartlbl2);
 
-		JButton editar4btn = new JButton("Editar");
-		editar4btn.setBounds(732, 233, 128, 23);
-		editarinv2.add(editar4btn);
+		JButton btneditarart = new JButton("Editar2\r\n");
+		btneditarart.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btneditarart.setBounds(798, 224, 136, 48);
+		EditarINv.add(btneditarart);
 
-		JPanel Editarinv3pnl = new JPanel();
-		Editarinv3pnl.setBounds(10, 156, 941, 48);
-		EditarINv.add(Editarinv3pnl);
-		Editarinv3pnl.setLayout(null);
-
-		JLabel Articuloaeditarlbl = new JLabel("Articulo a Editar");
-		Articuloaeditarlbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Articuloaeditarlbl.setBounds(395, 0, 210, 43);
-		Editarinv3pnl.add(Articuloaeditarlbl);
+		JComboBox editarartbox = new JComboBox();
+		editarartbox.setBounds(798, 155, 136, 48);
+		EditarINv.add(editarartbox);
 
 		JButton btnbackeditarinv = new JButton("Back");
 		btnbackeditarinv.setBounds(10, 11, 80, 29);
 		EditarINv.add(btnbackeditarinv);
+
+		JPanel editingPanel = new JPanel();
+		editingPanel.setBackground(new Color(255, 128, 0));
+		editingPanel.setBounds(0, 0, 961, 642);
+		editingPanel.setLayout(null);
+
+
+
+
+		JLabel lblnombrearticulonuevoinv2 = new JLabel("Nombre del articulo:");
+		lblnombrearticulonuevoinv2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblnombrearticulonuevoinv2.setBounds(358, 23, 250, 43);
+		editingPanel.add(lblnombrearticulonuevoinv2);
+
+		JTextField textField3 = new JTextField();
+		textField3.setBounds(358, 62, 238, 33);
+		editingPanel.add(textField3);
+		textField3.setColumns(10);
+
+
+		JLabel unidadartbox4 = new JLabel("Tipo de unidad:");
+		unidadartbox4.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		unidadartbox4.setBounds(358, 100, 250, 43);
+		editingPanel.add(unidadartbox4);
+
+
+		JComboBox<String> comboBoxunidad2 = new JComboBox<>();
+		comboBoxunidad2.setBounds(358, 143, 238, 30);
+		editingPanel.add(comboBoxunidad2);
+
+		comboBoxunidad2.addItem("kg");
+		comboBoxunidad2.addItem("L");
+		comboBoxunidad2.addItem("4L");
+		comboBoxunidad2.addItem("2L");
+
+
+
+		JLabel colorwidgetbox2 = new JLabel("Color del widget:");
+		colorwidgetbox2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		colorwidgetbox2.setBounds(358, 182, 250, 43);
+		editingPanel.add(colorwidgetbox2);
+
+		JComboBox<String> comboboxcolor2 = new JComboBox<>();
+		comboboxcolor2.setBounds(358, 221, 238, 30);
+		editingPanel.add(comboboxcolor2);
+
+		comboboxcolor2.addItem("Blanco");
+		comboboxcolor2.addItem("Amarillo");
+		comboboxcolor2.addItem("Azul");
+		comboboxcolor2.addItem("Verde");
+		comboboxcolor2.addItem("Rojo");
+		comboboxcolor2.addItem("Beige");
+		comboboxcolor2.addItem("Morado");
+
+		JLabel cantidaddelarticulo2 = new JLabel("Cantidad de articulo:");
+		cantidaddelarticulo2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		cantidaddelarticulo2.setBounds(358, 272, 250, 43);
+		editingPanel.add(cantidaddelarticulo2);
+
+		JTextField textField_21 = new JTextField();
+		textField_21.setColumns(10);
+		textField_21.setBounds(358, 315, 238, 33);
+		editingPanel.add(textField_21);
+
+		JButton editararticulobtn = new JButton("Editar");
+		editararticulobtn.setBackground(new Color(255, 128, 64));
+		editararticulobtn.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		editararticulobtn.setBounds(411, 419, 124, 43);
+		editingPanel.add(editararticulobtn);
+
+
+
+
+
+
+		editararticulobtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (editarartbox.getSelectedIndex() != -1) {
+					String selectedArticulo = (String) editarartbox.getSelectedItem();
+					String nombre = selectedArticulo;
+
+					int option = JOptionPane.showConfirmDialog(null, "¿Desea editar el artículo seleccionado?", "Confirmar", JOptionPane.OK_CANCEL_OPTION);
+					if (option == JOptionPane.OK_OPTION) {
+						try {
+							Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
+
+							String nuevoNombre = textField3.getText();
+							String nuevaUnidad = (String) comboBoxunidad2.getSelectedItem();
+							String nuevoColor = (String) comboboxcolor2.getSelectedItem();
+							String nuevaCantidad = textField_21.getText();
+
+							String query = "UPDATE inventario SET Nombre=?, Unidad=?, Color=?, Cantidad=? WHERE Nombre=?";
+							PreparedStatement statement = connection.prepareStatement(query);
+							statement.setString(1, nuevoNombre);
+							statement.setString(2, nuevaUnidad);
+							statement.setString(3, nuevoColor);
+							statement.setString(4, nuevaCantidad);
+							statement.setString(5, nombre);
+							statement.executeUpdate();
+
+							statement.close();
+							connection.close();
+
+							tableModel.setRowCount(0);
+
+							connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
+							statement = connection.prepareStatement("SELECT Nombre, Unidad, Color, Cantidad FROM inventario");
+							ResultSet resultSet = statement.executeQuery();
+
+							while (resultSet.next()) {
+								String updatedNombre = resultSet.getString("Nombre");
+								String unidad = resultSet.getString("Unidad");
+								String color = resultSet.getString("Color");
+								String cantidad = resultSet.getString("Cantidad");
+
+								Object[] rowData = {updatedNombre, unidad, color, cantidad};
+								tableModel.addRow(rowData);
+							}
+
+							statement.close();
+							connection.close();
+						} catch (SQLException ex) {
+							ex.printStackTrace();
+						}
+
+						int selectedRow = tablaeditarart.getSelectedRow();
+
+						editarartbox.removeItem(selectedArticulo);
+						editarartbox.setSelectedIndex(-1);
+
+						if (selectedRow != -1) {
+							tablaeditarart.setValueAt(textField3.getText(), selectedRow, 0);
+							tablaeditarart.setValueAt(comboBoxunidad2.getSelectedItem(), selectedRow, 1);
+							tablaeditarart.setValueAt(comboboxcolor2.getSelectedItem(), selectedRow, 2);
+							tablaeditarart.setValueAt(textField_21.getText(), selectedRow, 3);
+						}
+					}
+				}
+			}
+		});
+
+
+		JButton backButton = new JButton("Back");
+		backButton.setBounds(10, 11, 80, 29);
+		editingPanel.add(backButton);
+		btneditarart.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(EditarINv);
+				add(editingPanel);
+
+				repaint();
+				revalidate();
+
+			}
+		});
+
+		backButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(editingPanel);
+				add(EditarINv);
+
+				repaint();
+				revalidate();
+
+			}
+		});
+
+
+
+
+
+
+
+
+		//Combobox
+		try {
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
+
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT Nombre, Unidad, Color, Cantidad FROM inventario");
+
+			while (resultSet.next()) {
+				String nombre = resultSet.getString("Nombre");
+				editarartbox.addItem(nombre);
+			}
+
+			statement.close();
+			connection.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
+
+
+		//tabla
+
+		try {
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
+
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT Nombre, Unidad, Color, Cantidad FROM inventario");
+
+			while (resultSet.next()) {
+				String nombre = resultSet.getString("Nombre");
+				String unidad = resultSet.getString("Unidad");
+				String color = resultSet.getString("Color");
+				String cantidad = resultSet.getString("Cantidad");
+
+				Object[] rowData = {nombre, unidad, color, cantidad};
+				tableModel.addRow(rowData);
+			}
+
+			statement.close();
+			connection.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
+
+
+
+
+
+
+
+
+
+
+
 		btnbackeditarinv.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -1429,6 +1648,13 @@ public class Restaurante extends JFrame {
 				revalidate();
 			}
 		});
+
+
+
+
+
+
+
 
 
 
@@ -1525,7 +1751,6 @@ public class Restaurante extends JFrame {
 						}
 					}
 
-					// Remove the selected item from the JComboBox
 					eliminarartbox.removeItem(selectedArticulo);
 					eliminarartbox.setSelectedIndex(-1);
 				}
@@ -1549,7 +1774,6 @@ public class Restaurante extends JFrame {
 				eliminarartbox.addItem(nombre);
 			}
 
-			// Close the statement and connection
 			statement.close();
 			connection.close();
 		} catch (SQLException ex) {
@@ -1561,14 +1785,11 @@ public class Restaurante extends JFrame {
 //tabla
 
 		try {
-			// Connect to the database
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 
-			// Create a statement for retrieving data from the "historial" table
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("SELECT Nombre, Unidad, Color, Cantidad FROM inventario");
 
-			// Add rows to the table model
 			while (resultSet.next()) {
 				String nombre = resultSet.getString("Nombre");
 				String unidad = resultSet.getString("Unidad");
@@ -1579,26 +1800,11 @@ public class Restaurante extends JFrame {
 				modelo.addRow(rowData);
 			}
 
-			// Close the statement and connection
 			statement.close();
 			connection.close();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2301,6 +2507,8 @@ public class Restaurante extends JFrame {
 		lblNameEdit.setBounds(10, 11, 121, 14);
 		paneleditar2.add(lblNameEdit);
 
+
+
 		JTextField textoEdit1 = new JTextField();
 		textoEdit1.setColumns(10);
 		textoEdit1.setBounds(10, 36, 454, 27);
@@ -2422,6 +2630,9 @@ public class Restaurante extends JFrame {
 		textoEdit4.setColumns(10);
 		textoEdit4.setBounds(10, 337, 454, 27);
 		paneleditar2.add(textoEdit4);
+
+
+
 
 		JLabel apellidoEdit = new JLabel("Apellidos");
 		apellidoEdit.setFont(new Font("Arial Black", Font.PLAIN, 16));
