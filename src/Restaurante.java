@@ -1149,6 +1149,18 @@ public class Restaurante extends JFrame {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 		//--------------------------------------------inventario--------------------------------------------------------
 
 
@@ -1419,6 +1431,13 @@ public class Restaurante extends JFrame {
 		});
 
 
+
+
+
+
+
+
+
 		//----Eliminar inventario------
 
 
@@ -1428,6 +1447,32 @@ public class Restaurante extends JFrame {
 		EliminarINv.setLayout(null);
 
 
+
+
+		JPanel panel2eliminv = new JPanel();
+		panel2eliminv.setBounds(76, 155, 679, 48);
+		EliminarINv.add(panel2eliminv);
+		panel2eliminv.setLayout(null);
+
+		JLabel lblarticuloinv = new JLabel("Articulo a Eliminar");
+		lblarticuloinv.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblarticuloinv.setBounds(239, 0, 210, 43);
+		panel2eliminv.add(lblarticuloinv);
+
+		JComboBox eliminarartbox = new JComboBox();
+		eliminarartbox.setBounds(802, 155, 136, 48);
+		EliminarINv.add(eliminarartbox);
+
+		JButton btneliminarart = new JButton("Eliminar\r\n");
+		btneliminarart.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btneliminarart.setBounds(802, 224, 136, 48);
+		EliminarINv.add(btneliminarart);
+
+
+
+
+
+
 		JLabel Eliminarinvlbl = new JLabel("Eliminar Inventario\r\n");
 		Eliminarinvlbl.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		Eliminarinvlbl.setBounds(388, -16, 252, 115);
@@ -1435,64 +1480,126 @@ public class Restaurante extends JFrame {
 
 		JPanel eliminarinvpnl2 = new JPanel();
 		eliminarinvpnl2.setBackground(new Color(255, 218, 168));
-		eliminarinvpnl2.setBounds(10, 204, 941, 427);
+		eliminarinvpnl2.setBounds(76, 203, 679, 381);
 		EliminarINv.add(eliminarinvpnl2);
 		eliminarinvpnl2.setLayout(null);
 
-		JLabel articulo5lbl = new JLabel("Articulo #5\r\n");
-		articulo5lbl.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		articulo5lbl.setBounds(55, 11, 145, 31);
-		eliminarinvpnl2.add(articulo5lbl);
+		DefaultTableModel modelo = new DefaultTableModel(
+				new Object[]{"Nombre", "Unidad", "Color", "Cantidad"}, 0);
+		JTable table = new JTable(modelo);
 
-		JLabel articulo4lbl = new JLabel("Articulo #4\r\n\r\n");
-		articulo4lbl.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		articulo4lbl.setBounds(55, 63, 145, 31);
-		eliminarinvpnl2.add(articulo4lbl);
+		JScrollPane scrollpaneelminv = new JScrollPane(table);
+		scrollpaneelminv.setBounds(0, 0, eliminarinvpnl2.getWidth(), eliminarinvpnl2.getHeight());
+		eliminarinvpnl2.add(scrollpaneelminv);
 
-		JLabel articulo3lbl = new JLabel("Articulo #2\r\n\r\n");
-		articulo3lbl.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		articulo3lbl.setBounds(55, 171, 145, 31);
-		eliminarinvpnl2.add(articulo3lbl);
 
-		JLabel articulo2lbl = new JLabel("Articulo #3\r\n");
-		articulo2lbl.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		articulo2lbl.setBounds(55, 118, 145, 31);
-		eliminarinvpnl2.add(articulo2lbl);
 
-		JLabel articulo1lbl = new JLabel("Articulo #1\r\n");
-		articulo1lbl.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		articulo1lbl.setBounds(55, 225, 145, 31);
-		eliminarinvpnl2.add(articulo1lbl);
+		btneliminarart.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String selectedArticulo = (String) eliminarartbox.getSelectedItem();
+				String nombre = selectedArticulo;
 
-		JButton btnNewButton1 = new JButton("Eliminar");
-		btnNewButton1.setBounds(732, 19, 128, 23);
-		eliminarinvpnl2.add(btnNewButton1);
+				int option = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el artículo seleccionado?", "Confirmar", JOptionPane.OK_CANCEL_OPTION);
+				if (option == JOptionPane.OK_OPTION) {
+					try {
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 
-		JButton btnNewButton_1 = new JButton("Eliminar");
-		btnNewButton_1.setBounds(732, 71, 128, 23);
-		eliminarinvpnl2.add(btnNewButton_1);
+						String query = "DELETE FROM inventario WHERE Nombre = ?";
+						PreparedStatement statement = connection.prepareStatement(query);
+						statement.setString(1, nombre);
+						statement.executeUpdate();
 
-		JButton eliminarjbutonninv = new JButton("Eliminar");
-		eliminarjbutonninv.setBounds(732, 126, 128, 23);
-		eliminarinvpnl2.add(eliminarjbutonninv);
+						statement.close();
+						connection.close();
+					} catch (SQLException ex) {
+						ex.printStackTrace();
+					}
 
-		JButton btnNewButton_3 = new JButton("Eliminar");
-		btnNewButton_3.setBounds(732, 179, 128, 23);
-		eliminarinvpnl2.add(btnNewButton_3);
+					int rowCount = modelo.getRowCount();
+					for (int i = 0; i < rowCount; i++) {
+						String tableNombre = (String) modelo.getValueAt(i, 0);
+						if (tableNombre.equals(nombre)) {
+							modelo.removeRow(i);
+							break;
+						}
+					}
 
-		JButton btnNewButton_4 = new JButton("Eliminar");
-		btnNewButton_4.setBounds(732, 233, 128, 23);
-		eliminarinvpnl2.add(btnNewButton_4);
+					// Remove the selected item from the JComboBox
+					eliminarartbox.removeItem(selectedArticulo);
+					eliminarartbox.setSelectedIndex(-1);
+				}
+			}
+		});
 
-		JPanel panel2eliminv = new JPanel();
-		panel2eliminv.setBounds(10, 156, 941, 48);
-		EliminarINv.add(panel2eliminv);
-		panel2eliminv.setLayout(null);
 
-		JLabel lblarticuloinv = new JLabel("Articulo a Eliminar");
-		lblarticuloinv.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblarticuloinv.setBounds(395, 0, 210, 43);
-		panel2eliminv.add(lblarticuloinv);
+
+		EliminarINv.add(eliminarartbox);
+
+		//combobox
+
+		try {
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
+
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT Nombre, Unidad, Color, Cantidad FROM inventario");
+
+			while (resultSet.next()) {
+				String nombre = resultSet.getString("Nombre");
+				eliminarartbox.addItem(nombre);
+			}
+
+			// Close the statement and connection
+			statement.close();
+			connection.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
+
+
+//tabla
+
+		try {
+			// Connect to the database
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
+
+			// Create a statement for retrieving data from the "historial" table
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT Nombre, Unidad, Color, Cantidad FROM inventario");
+
+			// Add rows to the table model
+			while (resultSet.next()) {
+				String nombre = resultSet.getString("Nombre");
+				String unidad = resultSet.getString("Unidad");
+				String color = resultSet.getString("Color");
+				String cantidad = resultSet.getString("Cantidad");
+
+				Object[] rowData = {nombre, unidad, color, cantidad};
+				modelo.addRow(rowData);
+			}
+
+			// Close the statement and connection
+			statement.close();
+			connection.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 		JButton btnbackeliminarinventario = new JButton("Back");
@@ -1510,7 +1617,15 @@ public class Restaurante extends JFrame {
 		});
 
 
+
+
+
+
+
+
+
 		//----Añadir al inventario ------
+
 
 
 		NuevoArticulo.setBackground(new Color(255, 128, 0));
@@ -1535,33 +1650,50 @@ public class Restaurante extends JFrame {
 		lblnombrearticulonuevoinv.setBounds(358, 23, 250, 43);
 		panel2.add(lblnombrearticulonuevoinv);
 
-		textField = new JTextField();
+		JTextField textField = new JTextField();
 		textField.setBounds(358, 62, 238, 33);
 		panel2.add(textField);
 		textField.setColumns(10);
 
-		JLabel lblNewLabel_1_1 = new JLabel("Tipo de unidad:");
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1.setBounds(358, 106, 250, 43);
-		panel2.add(lblNewLabel_1_1);
 
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(358, 143, 238, 30);
-		panel2.add(comboBox);
+		JLabel unidadartbox = new JLabel("Tipo de unidad:");
+		unidadartbox.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		unidadartbox.setBounds(358, 100, 250, 43);
+		panel2.add(unidadartbox);
 
-		JLabel lblNewLabel_1_1_1 = new JLabel("Color del widget:");
-		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1_1.setBounds(358, 184, 250, 43);
-		panel2.add(lblNewLabel_1_1_1);
 
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(358, 221, 238, 30);
-		panel2.add(comboBox_1);
+		JComboBox<String> comboBoxunidad = new JComboBox<>();
+		comboBoxunidad.setBounds(358, 143, 238, 30);
+		panel2.add(comboBoxunidad);
 
-		JLabel lblNewLabel_1_2 = new JLabel("Cantidad:");
-		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_2.setBounds(358, 276, 250, 43);
-		panel2.add(lblNewLabel_1_2);
+		comboBoxunidad.addItem("kg");
+		comboBoxunidad.addItem("L");
+		comboBoxunidad.addItem("4L");
+		comboBoxunidad.addItem("2L");
+
+
+
+		JLabel colorwidgetbox = new JLabel("Color del widget:");
+		colorwidgetbox.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		colorwidgetbox.setBounds(358, 182, 250, 43);
+		panel2.add(colorwidgetbox);
+
+		JComboBox<String> comboboxcolor = new JComboBox<>();
+		comboboxcolor.setBounds(358, 221, 238, 30);
+		panel2.add(comboboxcolor);
+
+		comboboxcolor.addItem("Blanco");
+		comboboxcolor.addItem("Amarillo");
+		comboboxcolor.addItem("Azul");
+		comboboxcolor.addItem("Verde");
+		comboboxcolor.addItem("Rojo");
+		comboboxcolor.addItem("Beige");
+		comboboxcolor.addItem("Morado");
+
+		JLabel cantidaddelarticulo = new JLabel("Cantidad de articulo:");
+		cantidaddelarticulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		cantidaddelarticulo.setBounds(358, 272, 250, 43);
+		panel2.add(cantidaddelarticulo);
 
 		JTextField textField_1 = new JTextField();
 		textField_1.setColumns(10);
@@ -1573,6 +1705,62 @@ public class Restaurante extends JFrame {
 		Creararticulobtn.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		Creararticulobtn.setBounds(411, 419, 124, 43);
 		panel2.add(Creararticulobtn);
+
+		Creararticulobtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int confirmResult = JOptionPane.showConfirmDialog(null, "¿Está seguro de crear un nuevo artículo en el inventario?", "Confirmación", JOptionPane.YES_NO_OPTION);
+				if (confirmResult == JOptionPane.YES_OPTION) {
+					String nombre = textField.getText();
+					String unidad = (String) comboBoxunidad.getSelectedItem();
+					String color = (String) comboboxcolor.getSelectedItem();
+					String cantidad = textField_1.getText();
+
+					if (nombre.isEmpty() || unidad.isEmpty() || color.isEmpty() || cantidad.isEmpty()) {
+						JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.", "Campos incompletos", JOptionPane.ERROR_MESSAGE);
+						return;
+					}
+
+					try {
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+
+						String query = "INSERT INTO inventario (Nombre, Unidad, Color, Cantidad) VALUES (?, ?, ?, ?)";
+						PreparedStatement statement = connection.prepareStatement(query);
+
+						statement.setString(1, nombre);
+						statement.setString(2, unidad);
+						statement.setString(3, color);
+						statement.setString(4, cantidad);
+
+						int rowsAffected = statement.executeUpdate();
+
+						if (rowsAffected > 0) {
+							System.out.println("New row added to the inventory");
+							textField.setText("");
+							comboBoxunidad.setSelectedIndex(0);
+							comboboxcolor.setSelectedIndex(0);
+							textField_1.setText("");
+						}
+
+						statement.close();
+						connection.close();
+					} catch (SQLException ex) {
+						ex.printStackTrace();
+					}
+				} else {
+					textField.setText("");
+					comboBoxunidad.setSelectedIndex(0);
+					comboboxcolor.setSelectedIndex(0);
+					textField_1.setText("");
+				}
+			}
+		});
+
+
+
+
+
+
 
 		JButton btnbackcreararticuloinv = new JButton("Back");
 		btnbackcreararticuloinv.setBounds(10, 11, 80, 29);
@@ -1587,6 +1775,29 @@ public class Restaurante extends JFrame {
 				revalidate();
 			}
 		});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1892,42 +2103,54 @@ public class Restaurante extends JFrame {
 					String telefono = celtxt.getText();
 					String direccion = direcciontxt.getText();
 
+					// Validate if any text field is empty
+					if (nombre.isEmpty() || apellidos.isEmpty() || telefono.isEmpty() || direccion.isEmpty()) {
+						JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.", "Campos incompletos", JOptionPane.ERROR_MESSAGE);
+						return;
+					}
+
 					// Insertar valores en base de datos
 					try {
 						// Conexion con base de datos
 						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 
-						//  crear un statement con parametros de query
+						// Crear un statement con parametros de query
 						String query = "INSERT INTO clientes (Nombre, Apellidos, Teléfono, Dirección) VALUES (?, ?, ?, ?)";
 						PreparedStatement statement = connection.prepareStatement(query);
 
-						// crear los parametros para los valores
+						// Crear los parametros para los valores
 						statement.setString(1, nombre);
 						statement.setString(2, apellidos);
 						statement.setString(3, telefono);
 						statement.setString(4, direccion);
 
-						//Ejecturas el query
+						// Ejecutar el query
 						int rowsAffected = statement.executeUpdate();
 
 						if (rowsAffected > 0) {
 							System.out.println("Fila insertada");
-							// limpiar los jtextfields despues de añadir nuevo
+							// Limpiar los JTextFields despues de añadir nuevo
 							nametxt.setText("");
 							apellidotxt.setText("");
 							celtxt.setText("");
 							direcciontxt.setText("");
 						}
 
-						// Cierra statement y conexion
+						// Cerrar statement y conexion
 						statement.close();
 						connection.close();
 					} catch (SQLException ex) {
 						ex.printStackTrace();
 					}
+				} else {
+					nametxt.setText("");
+					apellidotxt.setText("");
+					celtxt.setText("");
+					direcciontxt.setText("");
 				}
 			}
 		});
+
 
 		JButton backCC = new JButton(new ImageIcon("BotonRetroceder.png"));
 		backCC.setFocusable(false);
@@ -2489,7 +2712,6 @@ public class Restaurante extends JFrame {
 			ex.printStackTrace();
 		}
 
-// ...
 
 
 		JButton backInfoConsulta = new JButton(new ImageIcon("BotonRetroceder.png"));
@@ -2563,15 +2785,7 @@ public class Restaurante extends JFrame {
 		eliminarClientes.setLayout(null);
 		EliminarClientes.add(eliminarClientes);
 
-		String[] columnNames = {"Nombre", "Apellidos", "Teléfono", "Dirección"};
-		DefaultTableModel tableModel1 = new DefaultTableModel(columnNames, 0);
-		JTable tablaEliminar = new JTable(tableModel1);
 
-		tablaEliminar.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-		JScrollPane scrollPane = new JScrollPane(tablaEliminar);
-		scrollPane.setBounds(131, 257, 606, 300);
-		eliminarClientes.add(scrollPane);
 
 		JComboBox<String> comboBox1 = new JComboBox<>();
 		comboBox1.setBounds(757, 257, 140, 30);
@@ -2611,6 +2825,19 @@ public class Restaurante extends JFrame {
 		});
 		eliminarClientes.add(backEliminar);
 
+
+		String[] columnNames = {"Nombre", "Apellidos", "Teléfono", "Dirección"};
+		DefaultTableModel tableModel1 = new DefaultTableModel(columnNames, 0);
+		JTable tablaEliminar = new JTable(tableModel1);
+
+		tablaEliminar.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		JScrollPane scrollPane = new JScrollPane(tablaEliminar);
+		scrollPane.setBounds(131, 257, 606, 300);
+		eliminarClientes.add(scrollPane);
+
+
+
 		try {
 
 			String url = "jdbc:mysql://localhost:3306/clientes";
@@ -2646,6 +2873,10 @@ public class Restaurante extends JFrame {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
+
+
+
+
 
 		eliminarcliente.addActionListener(new ActionListener() {
 			@Override
