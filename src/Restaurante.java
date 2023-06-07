@@ -1748,8 +1748,8 @@ public class Restaurante extends JFrame {
 		            return;
 
 		        for (char c : str.toCharArray()) {
-		            if (!Character.isLetter(c)) {
-		                return; // Ignora la inserción de caracteres no alfabéticos
+		            if (!Character.isLetter(c) && c != ' ') {
+		                return; // Ignorar la inserción de caracteres no alfabéticos ni espacios
 		            }
 		        }
 
@@ -1760,8 +1760,8 @@ public class Restaurante extends JFrame {
 		    @Override
 		    public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
-		        if (!Character.isLetter(c)) {
-		            e.consume(); // Ignora la entrada de caracteres no alfabéticos
+		        if (!Character.isLetter(c) && c != ' ') {
+		            e.consume(); // Ignorar la entrada de caracteres no alfabéticos ni espacios
 		        }
 		    }
 
@@ -1787,8 +1787,8 @@ public class Restaurante extends JFrame {
 		            return;
 
 		        for (char c : str.toCharArray()) {
-		            if (!Character.isLetter(c)) {
-		                return; // Ignora la inserción de caracteres no alfabéticos
+		            if (!Character.isLetter(c) && c != ' ') {
+		                return; // Ignorar la inserción de caracteres no alfabéticos ni espacios
 		            }
 		        }
 
@@ -1799,8 +1799,8 @@ public class Restaurante extends JFrame {
 		    @Override
 		    public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
-		        if (!Character.isLetter(c)) {
-		            e.consume(); // Ignora la entrada de caracteres no alfabéticos
+		        if (!Character.isLetter(c) && c != ' ') {
+		            e.consume(); // Ignorar la entrada de caracteres no alfabéticos ni espacios
 		        }
 		    }
 
@@ -2078,6 +2078,7 @@ public class Restaurante extends JFrame {
 		lblNameEdit.setBounds(10, 11, 121, 14);
 		paneleditar2.add(lblNameEdit);
 
+
 		JTextField textoEdit1 = new JTextField();
 		textoEdit1.setColumns(10);
 		textoEdit1.setBounds(10, 36, 454, 27);
@@ -2086,13 +2087,13 @@ public class Restaurante extends JFrame {
 		    public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
 		        if (str == null)
 		            return;
-
+		
 		        for (char c : str.toCharArray()) {
-		            if (!Character.isLetter(c)) {
-		                return; // Ignorar la inserción de caracteres no alfabéticos
+		            if (!Character.isLetter(c) && c != ' ') {
+		                return; // Ignorar la inserción de caracteres no alfabéticos ni espacios
 		            }
 		        }
-
+		
 		        super.insertString(offset, str, attr);
 		    }
 		});
@@ -2100,22 +2101,23 @@ public class Restaurante extends JFrame {
 		    @Override
 		    public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
-		        if (!Character.isLetter(c)) {
-		            e.consume(); // Ignorar la entrada de caracteres no alfabéticos
+		        if (!Character.isLetter(c) && c != ' ') {
+		            e.consume(); // Ignorar la entrada de caracteres no alfabéticos ni espacios
 		        }
 		    }
-
+		
 		    @Override
 		    public void keyPressed(KeyEvent e) {
 		        // No se requiere ninguna acción en este método
 		    }
-
+		
 		    @Override
 		    public void keyReleased(KeyEvent e) {
 		        // No se requiere ninguna acción en este método
 		    }
 		});
 		paneleditar2.add(textoEdit1);
+
 
 		JTextField textoEdit2 = new JTextField();
 		textoEdit2.setColumns(10);
@@ -2125,13 +2127,13 @@ public class Restaurante extends JFrame {
 		    public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
 		        if (str == null)
 		            return;
-
+		
 		        for (char c : str.toCharArray()) {
-		            if (!Character.isLetter(c)) {
-		                return; // Ignorar la inserción de caracteres no alfabéticos
+		            if (!Character.isLetter(c) && c != ' ') {
+		                return; // Ignorar la inserción de caracteres no alfabéticos ni espacios
 		            }
 		        }
-
+		
 		        super.insertString(offset, str, attr);
 		    }
 		});
@@ -2139,16 +2141,16 @@ public class Restaurante extends JFrame {
 		    @Override
 		    public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
-		        if (!Character.isLetter(c)) {
-		            e.consume(); // Ignorar la entrada de caracteres no alfabéticos
+		        if (!Character.isLetter(c) && c != ' ') {
+		            e.consume(); // Ignorar la entrada de caracteres no alfabéticos ni espacios
 		        }
 		    }
-
+		
 		    @Override
 		    public void keyPressed(KeyEvent e) {
 		        // No se requiere ninguna acción en este método
 		    }
-
+		
 		    @Override
 		    public void keyReleased(KeyEvent e) {
 		        // No se requiere ninguna acción en este método
