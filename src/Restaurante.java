@@ -96,10 +96,9 @@ public class Restaurante extends JFrame {
 		//Ordenes
 		JPanel Ordenes= new JPanel();
 		JPanel ConsultarOrden = new JPanel();
-		JPanel EditarOrden = new JPanel();
 		JPanel CrearOrden = new JPanel();
 		JPanel EliminarOrden= new JPanel();
-		JPanel EditarTablaOrd = new JPanel();
+		JPanel EditarOrden = new JPanel();
 
 
 
@@ -879,7 +878,7 @@ public class Restaurante extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				remove(Ordenes);
-				add(EditarTablaOrd);
+				add( EditarOrden);
 				repaint();
 				revalidate();
 
@@ -978,73 +977,63 @@ public class Restaurante extends JFrame {
 		FondoCrearorden.add(backCCord);
 
 		//------pantalla edicion de Orden------
-		EditarTablaOrd.setLayout(null);
+		 EditarOrden.setLayout(null);
 
-		JPanel editarTablaOrden = new JPanel();
-		editarTablaOrden.setBounds(0, 0, 977, 681);
-		editarTablaOrden.setBackground(new Color(255, 128, 0));
-		editarTablaOrden.setLayout(null);
-		EditarTablaOrd.add(editarTablaOrden);
+		JPanel EditarOrdenes = new JPanel();
+		EditarOrdenes.setBounds(0, 0, 977, 681);
+		EditarOrdenes.setBackground(new Color(255, 128, 0));
+		EditarOrdenes.setLayout(null);
+		 EditarOrden.add(EditarOrdenes);
 
+		String[] columnNamesEditarOrd = {"Ordenes"};
+		DefaultTableModel tableModelEditarOrd = new DefaultTableModel(columnNamesEditarOrd, 0);
+		JTable tablaEditarOrd = new JTable(tableModelEditarOrd);
 
-		JTable tablaOrdenes = new JTable();
-		tablaOrdenes.setModel(new DefaultTableModel(
-				new Object[][]{
-						{"Orden #5", "Editar"},
-						{"Orden  #4", "Editar"},
-						{"Orden  #3", "Editar"},
-						{"Orden  #2", "Editar"},
-						{"Orden  #1", "Editar"},
-				},
-				new String[]{
-						"Orden", "ver"
-				}
-		));
-		tablaOrdenes.setBounds(181, 257, 606, 80);
-		editarTablaOrden.add(tablaOrdenes);
+		tablaEditarOrd.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-		JPanel panelEditarOrd = new JPanel();
-		panelEditarOrd.setBackground(Color.GRAY);
-		panelEditarOrd.setBounds(181, 215, 606, 42);
-		editarTablaOrden.add(panelEditarOrd);
-		panelEditarOrd.setLayout(null);
+		JScrollPane scrollPaneEditarOrd = new JScrollPane(tablaEditarOrd);
+		scrollPaneEditarOrd.setBounds(131, 257, 606, 300);
+		EditarOrdenes.add(scrollPaneEditarOrd);
 
-		JLabel OrdenAEditar = new JLabel("Orden a Editar");
-		OrdenAEditar.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		OrdenAEditar.setBounds(225, 11, 182, 20);
-		panelEditarOrd.add(OrdenAEditar);
+		DefaultComboBoxModel<String> comboBoxModelEditarOrd = new DefaultComboBoxModel<>();
+		JComboBox<String> comboBoxEditarOrd = new JComboBox<>(comboBoxModelEditarOrd);
+		comboBoxEditarOrd.setBounds(757, 257, 140, 30);
+		EditarOrdenes.add(comboBoxEditarOrd);
 
-		JLabel editar_ordenes = new JLabel("Editar Ordenes");
-		editar_ordenes.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		editar_ordenes.setBounds(400, 137, 181, 50);
-		editarTablaOrden.add(editar_ordenes);
+		JButton btnEditarTablaOrd = new JButton("Editar Orden");
+		btnEditarTablaOrd.setFocusable(false);
+		btnEditarTablaOrd.setBounds(757, 297, 160, 30);
+		EditarOrdenes.add(btnEditarTablaOrd);
+		
+		JPanel panelEditarOrd2 = new JPanel();
+		panelEditarOrd2.setBackground(Color.GRAY);
+		panelEditarOrd2.setBounds(131, 215, 606, 42);
+		EditarOrdenes.add(panelEditarOrd2);
+		panelEditarOrd2.setLayout(null);
 
-		JButton btnEdit = new JButton("Editar Orden");
-		btnEdit.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnEdit.setBounds(400, 587, 147, 44);
-		btnEdit.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				remove(EditarTabla);
-				add(EditarClientes);
-				repaint();
-				revalidate();
-			}
-		});
-		editarTablaOrden.add(btnEdit);
+		JLabel tituloEditOrd = new JLabel("Orden a Editar");
+		tituloEditOrd .setFont(new Font("Arial Black", Font.PLAIN, 16));
+		tituloEditOrd .setBounds(210, 11, 190, 20);
+		panelEditarOrd2.add(tituloEditOrd );
+
+		JLabel Editartitulo = new JLabel("Editar Ordenes");
+		Editartitulo .setFont(new Font("Arial Black", Font.PLAIN, 20));
+		Editartitulo .setBounds(350, 137, 220, 50);
+		EditarOrdenes.add(Editartitulo );
+		
 
 		JButton backETOrd = new JButton("Back");
 		backETOrd.setBounds(10, 11, 80, 29);
 		backETOrd.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				remove(EditarTablaOrd);
+				remove( EditarOrden);
 				add(Ordenes);
 				repaint();
 				revalidate();
 			}
 		});
-		editarTablaOrden.add(backETOrd);
+		EditarOrdenes.add(backETOrd);
 
 
 
@@ -1117,37 +1106,42 @@ public class Restaurante extends JFrame {
 		eliminarOrders.setLayout(null);
 		EliminarOrden.add(eliminarOrders);
 
-		JTable tablaEliminarOrder = new JTable();
-		tablaEliminarOrder.setModel(new DefaultTableModel(
-				new Object[][]{
-						{"Orden #5", "Eliminar"},
-						{"Orden #4", "Eliminar"},
-						{"Orden #3", "Eliminar"},
-						{"Orden #2", "Eliminar"},
-						{"Orden #1", "Eliminar"},
-				},
-				new String[]{
-						"Ver", "Eliminar"
-				}
-		));
-		tablaEliminarOrder.setBounds(181, 257, 606, 80);
-		eliminarOrders.add(tablaEliminarOrder);
+		String[] columnNamesEliminarOrd = {"Ordenes"};
+		DefaultTableModel tableModelEliminarOrd = new DefaultTableModel(columnNamesEliminarOrd, 0);
+		JTable tablaEliminarOrd = new JTable(tableModelEliminarOrd);
 
-		JPanel panellOrd = new JPanel();
-		panellOrd.setBackground(Color.GRAY);
-		panellOrd.setBounds(181, 215, 606, 42);
-		panellOrd.setLayout(null);
-		eliminarOrders.add(panellOrd);
+		tablaEliminarOrd.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-		JLabel lblTituloOrd = new JLabel("Orden a Eliminar");
-		lblTituloOrd.setFont(new Font("Arial Black", Font.PLAIN, 16));
-		lblTituloOrd.setBounds(225, 11, 182, 20);
-		panellOrd.add(lblTituloOrd);
+		JScrollPane scrollPaneEliminarOrd = new JScrollPane(tablaEliminarOrd);
+		scrollPaneEliminarOrd.setBounds(131, 257, 606, 300);
+		eliminarOrders.add(scrollPaneEliminarOrd);
 
-		JLabel lblEliminarOrd = new JLabel("Eliminar Ordenes");
-		lblEliminarOrd .setFont(new Font("Arial Black", Font.PLAIN, 16));
-		lblEliminarOrd .setBounds(417, 137, 181, 50);
-		eliminarOrders.add(lblEliminarOrd);
+		DefaultComboBoxModel<String> comboBoxModelEliminarOrd = new DefaultComboBoxModel<>();
+		JComboBox<String> comboBoxEliminarOrd = new JComboBox<>(comboBoxModelEliminarOrd );
+		comboBoxEliminarOrd.setBounds(757, 257, 140, 30);
+		eliminarOrders.add(comboBoxEliminarOrd);
+
+		JButton btnEliminarTablaOrd = new JButton("Eliminar Orden");
+		btnEliminarTablaOrd.setFocusable(false);
+		btnEliminarTablaOrd.setBounds(757, 297, 160, 30);
+		eliminarOrders.add(btnEliminarTablaOrd);
+		
+		JPanel panelEliminarOrd2 = new JPanel();
+		panelEliminarOrd2.setBackground(Color.GRAY);
+		panelEliminarOrd2.setBounds(131, 215, 606, 42);
+		eliminarOrders.add(panelEliminarOrd2);
+		panelEliminarOrd2.setLayout(null);
+
+		JLabel tituloDeleteOrd = new JLabel("Orden a Eliminar");
+		tituloDeleteOrd.setFont(new Font("Arial Black", Font.PLAIN, 16));
+		tituloDeleteOrd.setBounds(210, 11, 190, 20);
+		panelEliminarOrd2.add(tituloDeleteOrd);
+
+		JLabel Deletestitulo = new JLabel("Eliminar Ordenes");
+		Deletestitulo .setFont(new Font("Arial Black", Font.PLAIN, 20));
+		Deletestitulo .setBounds(350, 137, 220, 50);
+		eliminarOrders.add(Deletestitulo );
+		
 
 		JButton backEliminarOrdenn = new JButton("Back");
 		backEliminarOrdenn.setBounds(10, 11, 80, 29);
