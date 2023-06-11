@@ -99,7 +99,7 @@ public class Restaurante extends JFrame {
 		JPanel CrearOrden = new JPanel();
 		JPanel EliminarOrden= new JPanel();
 		JPanel EditarOrden = new JPanel();
-
+        JPanel PanelEditarOrden = new JPanel();
 
 
 		//inventarios
@@ -940,7 +940,7 @@ public class Restaurante extends JFrame {
 
 		JLabel crearOrdenes = new JLabel("Crear Ordenes");
 		crearOrdenes.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		crearOrdenes.setBounds(400, 89, 311, 50);
+		crearOrdenes.setBounds(400, 65, 311, 50);
 		CrearOrden.add( crearOrdenes);
 
 		JPanel FondoCrearorden = new JPanel();
@@ -951,17 +951,11 @@ public class Restaurante extends JFrame {
 
 
 		JPanel panelCrearOrden = new JPanel();
-		panelCrearOrden .setBounds(180, 150, 610, 426);
-
-		FondoCrearorden .add(panelCrearOrden);
+		panelCrearOrden.setBounds(100, 100, 750, 426);
+		FondoCrearorden.add(panelCrearOrden);
 		panelCrearOrden.setLayout(null);
 
 
-
-		JButton botonCrearOrden = new JButton("Crear Orden");
-		botonCrearOrden .setFont(new Font("Tahoma", Font.PLAIN, 16));
-		botonCrearOrden .setBounds(400, 587, 147, 44);
-		FondoCrearorden.add(botonCrearOrden );
 
 		JButton backCCord = new JButton("Back");
 		backCCord.setBounds(10, 11, 80, 29);
@@ -1004,6 +998,18 @@ public class Restaurante extends JFrame {
 		btnEditarTablaOrd.setFocusable(false);
 		btnEditarTablaOrd.setBounds(757, 297, 160, 30);
 		EditarOrdenes.add(btnEditarTablaOrd);
+		btnEditarTablaOrd.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			remove(EditarOrden);
+			add(PanelEditarOrden);
+			repaint();
+			revalidate();
+		}
+	});
+		EditarOrdenes.add(btnEditarTablaOrd);
+
+
 		
 		JPanel panelEditarOrd2 = new JPanel();
 		panelEditarOrd2.setBackground(Color.GRAY);
@@ -1035,7 +1041,41 @@ public class Restaurante extends JFrame {
 		});
 		EditarOrdenes.add(backETOrd);
 
+		//-----panel editar Ordenes-----
+		PanelEditarOrden.setLayout(null);
+		
+		JPanel EditOrdenes1 = new JPanel();
+		EditOrdenes1.setBounds(0, 0, 977, 681);
+		EditOrdenes1.setBackground(new Color(255, 128, 0));
+		EditOrdenes1.setLayout(null);
+		PanelEditarOrden.add(EditOrdenes1);
+		
+		JPanel EditOrdenes2 = new JPanel();
+		EditOrdenes2.setBounds(100, 100, 750, 426);
+		EditOrdenes1.add(EditOrdenes2);
+		EditOrdenes2.setLayout(null);
+		
 
+		JLabel OrdenesEdiTitulo = new JLabel("Editar Orden");
+		OrdenesEdiTitulo.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		OrdenesEdiTitulo.setBounds(380, 55, 220, 50);
+		EditOrdenes1.add(OrdenesEdiTitulo);
+		
+		JButton backEditOrd = new JButton("Back");
+		backEditOrd .setBounds(10, 11, 80, 29);
+		backEditOrd .addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove( PanelEditarOrden);
+				add(EditarOrden);
+				repaint();
+				revalidate();
+			}
+		});
+		EditOrdenes1.add(backEditOrd);
+		
+		
+		
 
 
 		//-----pantalla consulta de Ordenes-----
