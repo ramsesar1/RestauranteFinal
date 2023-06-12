@@ -3,12 +3,9 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
-import javax.swing.text.NumberFormatter;
 import javax.swing.text.PlainDocument;
-import javax.swing.JFormattedTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -19,7 +16,7 @@ import java.sql.*;
 public class Restaurante extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField textfieldedicantidadingr;
 	private JPasswordField contras;
 	private JLabel lblContrasea;
 
@@ -142,10 +139,10 @@ public class Restaurante extends JFrame {
 		panel_1.setLayout(null);
 
 
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(30, 57, 328, 45);
-		panel_1.add(textField);
+		textfieldedicantidadingr = new JTextField();
+		textfieldedicantidadingr.setColumns(10);
+		textfieldedicantidadingr.setBounds(30, 57, 328, 45);
+		panel_1.add(textfieldedicantidadingr);
 
 		contras = new JPasswordField();
 		contras.setColumns(10);
@@ -486,139 +483,74 @@ public class Restaurante extends JFrame {
 			}
 		});
 
-		//----Editar Platillos-----
 
 
-		EditarPlat.setBackground(new Color(255, 128, 64));
-		EditarPlat.setBounds(0, 0, 961, 642);
-		//	contentPane.add(EditarPlat);
-		EditarPlat.setLayout(null);
 
-		JPanel paneledplat = new JPanel();
-		paneledplat.setBackground(new Color(255, 218, 168));
-		paneledplat.setBounds(10, 59, 930, 572);
-		EditarPlat.add(paneledplat);
-		paneledplat.setLayout(null);
 
-		JTextField NombrePlatEdField = new JTextField();
-		NombrePlatEdField.setColumns(10);
-		NombrePlatEdField.setBounds(23, 73, 372, 33);
-		paneledplat.add(NombrePlatEdField);
 
-		JTextField PrecioEdPlat = new JTextField();
-		PrecioEdPlat.setColumns(10);
-		PrecioEdPlat.setBounds(23, 479, 372, 33);
-		paneledplat.add(PrecioEdPlat);
 
-		JTextArea Descripcionarea = new JTextArea();
-		Descripcionarea.setBounds(23, 266, 372, 147);
-		paneledplat.add(Descripcionarea);
 
-		JComboBox ingredientebox = new JComboBox();
-		ingredientebox.setBounds(23, 163, 372, 33);
-		paneledplat.add(ingredientebox);
 
-		JLabel lblnombreplateditar = new JLabel("Nombre del Platillo:");
-		lblnombreplateditar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblnombreplateditar.setBounds(23, 43, 242, 19);
-		paneledplat.add(lblnombreplateditar);
 
-		JLabel lblIngredientes = new JLabel("Ingredientes:\r\n");
-		lblIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblIngredientes.setBounds(23, 117, 265, 37);
-		paneledplat.add(lblIngredientes);
 
-		JLabel lblDescripcin = new JLabel("Descripción:");
-		lblDescripcin.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblDescripcin.setBounds(23, 222, 331, 33);
-		paneledplat.add(lblDescripcin);
-
-		JLabel lblPrecio = new JLabel("Precio:");
-		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPrecio.setBounds(23, 435, 293, 33);
-		paneledplat.add(lblPrecio);
-
-		JButton btnEditarPlat = new JButton("Editar\r\n");
-		btnEditarPlat.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnEditarPlat.setBackground(new Color(254, 211, 122));
-		btnEditarPlat.setBounds(404, 526, 150, 43);
-		paneledplat.add(btnEditarPlat);
-
-		JButton btnAdjuntarImagen = new JButton("Adjuntar Imagen\r\n");
-		btnAdjuntarImagen.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnAdjuntarImagen.setBackground(new Color(254, 211, 122));
-		btnAdjuntarImagen.setBounds(704, 444, 211, 43);
-		paneledplat.add(btnAdjuntarImagen);
-
-		JLabel EditarPLatillotitulo = new JLabel("Editar Platillo\r\n");
-		EditarPLatillotitulo.setFont(new Font("Tahoma", Font.PLAIN, 27));
-		EditarPLatillotitulo.setBounds(390, 11, 234, 38);
-		EditarPlat.add(EditarPLatillotitulo);
-
-		JButton btnbackeditarplatillos = new JButton("Back");
-		btnbackeditarplatillos.setBounds(10, 11, 80, 29);
-		EditarPlat.add(btnbackeditarplatillos);
-
-		btnbackeditarplatillos.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				remove(EditarPlat);
-				add(Platillos);
-				repaint();
-				revalidate();
-			}
-		});
 
 
 		//----Crear Platillos-----
+
+
+
+
 
 		Crearplat.setBackground(new Color(255, 128, 0));
 		Crearplat.setBounds(0, 0, 961, 642);
 		//	contentPane.add(Crearplat);
 		Crearplat.setLayout(null);
 
+
+
 		JPanel panelcrearplat = new JPanel();
 		panelcrearplat.setBackground(new Color(255, 218, 168));
-		panelcrearplat.setBounds(10, 59, 930, 572);
+		panelcrearplat.setBounds(10, 45, 930, 580);
 		Crearplat.add(panelcrearplat);
 		panelcrearplat.setLayout(null);
 
+
 		JTextField NombrePlatCrearField = new JTextField();
 		NombrePlatCrearField.setColumns(10);
-		NombrePlatCrearField.setBounds(23, 73, 372, 33);
+		NombrePlatCrearField.setBounds(23, 41, 372, 33);
 		panelcrearplat.add(NombrePlatCrearField);
 
 		JTextField PreciocrearPlat = new JTextField();
 		PreciocrearPlat.setColumns(10);
-		PreciocrearPlat.setBounds(23, 479, 372, 33);
+		PreciocrearPlat.setBounds(23, 495, 372, 33);
 		panelcrearplat.add(PreciocrearPlat);
 
 		JTextArea Descripcionareacrear = new JTextArea();
-		Descripcionareacrear.setBounds(23, 266, 372, 147);
+		Descripcionareacrear.setBounds(23, 359, 372, 101);
 		panelcrearplat.add(Descripcionareacrear);
 
 		JComboBox ingredienteboxcrear = new JComboBox();
-		ingredienteboxcrear.setBounds(23, 163, 372, 33);
+		ingredienteboxcrear.setBounds(23, 108, 372, 33);
 		panelcrearplat.add(ingredienteboxcrear);
 
 		JLabel nombreplatcrearlaberl = new JLabel("Nombre del Platillo:");
 		nombreplatcrearlaberl.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		nombreplatcrearlaberl.setBounds(23, 43, 242, 19);
+		nombreplatcrearlaberl.setBounds(23, 11, 242, 19);
 		panelcrearplat.add(nombreplatcrearlaberl);
 
-		JLabel comboingredcrear = new JLabel("Ingredientes:\r\n");
+		JLabel comboingredcrear = new JLabel("Ingredientes y unidad\r\n:\r\n");
 		comboingredcrear.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		comboingredcrear.setBounds(23, 117, 265, 37);
+		comboingredcrear.setBounds(23, 74, 265, 37);
 		panelcrearplat.add(comboingredcrear);
 
 		JLabel Descripcioncrearplatlabel = new JLabel("Descripción:");
 		Descripcioncrearplatlabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Descripcioncrearplatlabel.setBounds(23, 222, 331, 33);
+		Descripcioncrearplatlabel.setBounds(23, 315, 331, 33);
 		panelcrearplat.add(Descripcioncrearplatlabel);
 
 		JLabel lblPreciocrearplat = new JLabel("Precio:");
 		lblPreciocrearplat.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPreciocrearplat.setBounds(23, 435, 293, 33);
+		lblPreciocrearplat.setBounds(23, 460, 293, 33);
 		panelcrearplat.add(lblPreciocrearplat);
 
 		JButton btnCrearPlat = new JButton("Crear");
@@ -626,6 +558,43 @@ public class Restaurante extends JFrame {
 		btnCrearPlat.setBackground(new Color(254, 211, 122));
 		btnCrearPlat.setBounds(404, 526, 150, 43);
 		panelcrearplat.add(btnCrearPlat);
+
+		JButton btnadjuntarimagen = new JButton("Adjuntar Imagen\r\n");
+		btnadjuntarimagen.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnadjuntarimagen.setBackground(new Color(254, 211, 122));
+		btnadjuntarimagen.setBounds(704, 444, 211, 43);
+		panelcrearplat.add(btnadjuntarimagen);
+
+		JTextField cantidadingrediente2 = new JTextField();
+		cantidadingrediente2.setColumns(10);
+		cantidadingrediente2.setBounds(23, 177, 372, 33);
+		panelcrearplat.add(cantidadingrediente2);
+
+		JLabel Cantidadinglbl = new JLabel("Cantidad del ingrediente\r\n");
+		Cantidadinglbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Cantidadinglbl.setBounds(23, 147, 242, 33);
+		panelcrearplat.add(Cantidadinglbl);
+
+		JButton btnAadirIngrediente = new JButton("Añadir ingrediente\r\n");
+		btnAadirIngrediente.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnAadirIngrediente.setBackground(new Color(254, 211, 122));
+		btnAadirIngrediente.setBounds(23, 224, 211, 43);
+		panelcrearplat.add(btnAadirIngrediente);
+
+
+
+
+		JButton btncrearplat2 = new JButton("Crear");
+		btncrearplat2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btncrearplat2.setBackground(new Color(254, 211, 122));
+		btncrearplat2.setBounds(404, 526, 150, 43);
+		panelcrearplat.add(btncrearplat2);
+
+
+
+
+
+
 
 		JButton btnAdjuntarImagen2 = new JButton("Adjuntar Imagen\r\n");
 		btnAdjuntarImagen2.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -639,9 +608,154 @@ public class Restaurante extends JFrame {
 		Crearplat.add(Crearplatlbl);
 
 
+		btnCrearPlat.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String tableName = NombrePlatCrearField.getText();
+
+				String precio = PreciocrearPlat.getText().isEmpty() ? null : PreciocrearPlat.getText();
+				String[] ingredienteData = ingredienteboxcrear.getSelectedItem().toString().split(" - ");
+				String ingrediente = ingredienteData[0];
+				String unidad = ingredienteData[1];
+				String cantidad = cantidadingrediente2.getText().isEmpty() ? null : cantidadingrediente2.getText();
+
+				String url = "jdbc:mysql://localhost:3306/platillos";
+				String username = "root";
+				String password = "root";
+
+				try (Connection connection = DriverManager.getConnection(url, username, password)) {
+					Statement statement = connection.createStatement();
+
+					String createTableQuery = "CREATE TABLE IF NOT EXISTS " + tableName + " (Precio FLOAT, Ingrediente VARCHAR(50), Unidad VARCHAR(50), Cantidad FLOAT)";
+					statement.executeUpdate(createTableQuery);
+
+					String insertDataQuery = "INSERT INTO " + tableName + " (Precio, Ingrediente, Unidad, Cantidad) VALUES (?, ?, ?, ?)";
+					PreparedStatement preparedStatement = connection.prepareStatement(insertDataQuery);
+					if (precio == null) {
+						preparedStatement.setNull(1, Types.FLOAT);
+					} else {
+						preparedStatement.setFloat(1, Float.parseFloat(precio));
+					}
+					preparedStatement.setString(2, ingrediente);
+					preparedStatement.setString(3, unidad);
+					if (cantidad == null) {
+						preparedStatement.setNull(4, Types.FLOAT);
+					} else {
+						preparedStatement.setFloat(4, Float.parseFloat(cantidad));
+					}
+					preparedStatement.executeUpdate();
+
+					System.out.println("Data inserted successfully!");
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
+
+
+		btnAadirIngrediente.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String tableName = NombrePlatCrearField.getText();
+
+				String[] ingredienteData = ingredienteboxcrear.getSelectedItem().toString().split(" - ");
+				String ingrediente = ingredienteData[0];
+				String unidad = ingredienteData[1];
+				String cantidad = cantidadingrediente2.getText();
+				String precio = PreciocrearPlat.getText();
+
+				if (!ingredientExists(tableName, ingrediente)) {
+					String url = "jdbc:mysql://localhost:3306/platillos";
+					String username = "your-username";
+					String password = "your-password";
+
+					try (Connection connection = DriverManager.getConnection(url, username, password)) {
+						Statement statement = connection.createStatement();
+
+						String insertDataQuery = "INSERT INTO " + tableName + " (Precio, Ingrediente, Unidad, Cantidad) VALUES (?, ?, ?, ?)";
+						PreparedStatement preparedStatement = connection.prepareStatement(insertDataQuery);
+
+						// Check and handle empty values
+						if (precio == null || precio.isEmpty()) {
+							preparedStatement.setNull(1, Types.FLOAT);
+						} else {
+							preparedStatement.setFloat(1, Float.parseFloat(precio));
+						}
+						preparedStatement.setString(2, ingrediente);
+						preparedStatement.setString(3, unidad);
+						if (cantidad == null || cantidad.isEmpty()) {
+							preparedStatement.setNull(4, Types.FLOAT);
+						} else {
+							preparedStatement.setFloat(4, Float.parseFloat(cantidad));
+						}
+
+						preparedStatement.executeUpdate();
+
+						JOptionPane.showMessageDialog(null, "Ingrediente añadido correctamente");
+					} catch (SQLException ex) {
+						ex.printStackTrace();
+					}
+				} else {
+					JOptionPane.showMessageDialog(null, "Ingrediente ya existe en el platillo");
+				}
+			}
+		});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		JButton btnbackcrearplatillos = new JButton("Back");
 		btnbackcrearplatillos.setBounds(10, 11, 80, 29);
 		Crearplat.add(btnbackcrearplatillos);
+
+
+		String url2 = "jdbc:mysql://localhost:3306/clientes";
+		String username2 = "your-username";
+		String password2 = "your-password";
+
+		try (Connection connection = DriverManager.getConnection(url2, username2, password2)) {
+			Statement statement = connection.createStatement();
+
+			String query = "SELECT Nombre, Unidad FROM inventario";
+			ResultSet resultSet = statement.executeQuery(query);
+
+			// Iterate through the result set and add the "Nombre" and "Unidad" values to the JComboBox
+			while (resultSet.next()) {
+				String nombre = resultSet.getString("Nombre");
+				String unidad = resultSet.getString("Unidad");
+				String displayValue = nombre + " - " + unidad;
+				ingredienteboxcrear.addItem(displayValue);
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
+
+
+
+
+
+
+
+
 
 		btnbackcrearplatillos.addActionListener(new ActionListener() {
 			@Override
@@ -652,6 +766,341 @@ public class Restaurante extends JFrame {
 				revalidate();
 			}
 		});
+
+
+
+
+
+
+
+
+
+
+
+
+
+		//----Editar Platillos-----
+
+
+		EditarPlat.setBackground(new Color(255, 128, 64));
+		EditarPlat.setBounds(0, 0, 961, 642);
+		//	contentPane.add(EditarPlat);
+		EditarPlat.setLayout(null);
+
+
+
+
+		JPanel paneledplat = new JPanel();
+		paneledplat.setBackground(new Color(255, 218, 168));
+		paneledplat.setBounds(10, 59, 930, 572);
+		EditarPlat.add(paneledplat);
+		paneledplat.setLayout(null);
+
+
+		JTextField NombrePlatEdField = new JTextField();
+		NombrePlatEdField.setColumns(10);
+		NombrePlatEdField.setBounds(23, 112, 372, 33);
+		paneledplat.add(NombrePlatEdField);
+
+		JTextField PrecioEdPlat = new JTextField();
+		PrecioEdPlat.setColumns(10);
+		PrecioEdPlat.setBounds(23, 504, 372, 33);
+		paneledplat.add(PrecioEdPlat);
+
+		JTextArea Descripcionareaediplat = new JTextArea();
+		Descripcionareaediplat.setBounds(23, 374, 372, 101);
+		paneledplat.add(Descripcionareaediplat);
+
+		JComboBox ingredientebox = new JComboBox();
+		ingredientebox.setBounds(23, 179, 372, 33);
+		paneledplat.add(ingredientebox);
+
+		JLabel nombreplatedilbl = new JLabel("Nombre del Platillo:");
+		nombreplatedilbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		nombreplatedilbl.setBounds(23, 92, 242, 19);
+		paneledplat.add(nombreplatedilbl);
+
+		JLabel lblIngredientes = new JLabel("Ingredientes del platillo:\r\n");
+		lblIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblIngredientes.setBounds(23, 145, 265, 37);
+		paneledplat.add(lblIngredientes);
+
+		JLabel lblDescripcin = new JLabel("Descripción:");
+		lblDescripcin.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblDescripcin.setBounds(23, 341, 331, 33);
+		paneledplat.add(lblDescripcin);
+
+		JLabel lblPrecio = new JLabel("Precio:");
+		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblPrecio.setBounds(23, 470, 293, 33);
+		paneledplat.add(lblPrecio);
+
+		JButton btnEditarPlat = new JButton("Editar\r\n");
+		btnEditarPlat.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEditarPlat.setBackground(new Color(254, 211, 122));
+		btnEditarPlat.setBounds(404, 536, 150, 33);
+		paneledplat.add(btnEditarPlat);
+
+		JButton btnAdjuntarImagen = new JButton("Adjuntar Imagen\r\n");
+		btnAdjuntarImagen.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnAdjuntarImagen.setBackground(new Color(254, 211, 122));
+		btnAdjuntarImagen.setBounds(553, 391, 211, 43);
+		paneledplat.add(btnAdjuntarImagen);
+
+		JComboBox Platilloaeditarbox = new JComboBox();
+		Platilloaeditarbox.setBounds(23, 48, 372, 33);
+		paneledplat.add(Platilloaeditarbox);
+
+		JLabel seleccionediplat = new JLabel("Escoja platillo a editar\r\n");
+		seleccionediplat.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		seleccionediplat.setBounds(23, 18, 242, 33);
+		paneledplat.add(seleccionediplat);
+
+		JButton btnEliminarIngredienteedi = new JButton("Eliminar ingrediente\r\n");
+		btnEliminarIngredienteedi.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEliminarIngredienteedi.setBackground(new Color(254, 211, 122));
+		btnEliminarIngredienteedi.setBounds(23, 219, 211, 43);
+		paneledplat.add(btnEliminarIngredienteedi);
+
+		JComboBox ingredientebox_1 = new JComboBox();
+		ingredientebox_1.setBounds(475, 179, 372, 33);
+		paneledplat.add(ingredientebox_1);
+
+		JButton btnediAadirIngrediente = new JButton("Añadir ingrediente\r\n");
+		btnediAadirIngrediente.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnediAadirIngrediente.setBackground(new Color(254, 211, 122));
+		btnediAadirIngrediente.setBounds(475, 281, 211, 43);
+		paneledplat.add(btnediAadirIngrediente);
+
+		JLabel comoingreeditarplat = new JLabel("Ingredientes y unidad\r\n:\r\n");
+		comoingreeditarplat.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		comoingreeditarplat.setBounds(475, 145, 265, 37);
+		paneledplat.add(comoingreeditarplat);
+
+		textfieldedicantidadingr = new JTextField();
+		textfieldedicantidadingr.setColumns(10);
+		textfieldedicantidadingr.setBounds(475, 244, 372, 33);
+		paneledplat.add(textfieldedicantidadingr);
+
+		JLabel Cantidadingreedilbl = new JLabel("Cantidad del ingrediente\r\n");
+		Cantidadingreedilbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Cantidadingreedilbl.setBounds(475, 210, 242, 33);
+		paneledplat.add(Cantidadingreedilbl);
+
+		JLabel editarplatlbl = new JLabel("Editar Platillo\r\n");
+		editarplatlbl.setFont(new Font("Tahoma", Font.PLAIN, 27));
+		editarplatlbl.setBounds(390, 11, 234, 38);
+		EditarPlat.add(editarplatlbl);
+
+		JButton btnbackeditarplatillos = new JButton("Back");
+		btnbackeditarplatillos.setBounds(10, 11, 80, 29);
+		EditarPlat.add(btnbackeditarplatillos);
+
+
+		Platilloaeditarbox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/clientes", "username", "password");
+
+					Statement statement = connection.createStatement();
+
+					String selectedTable = (String) Platilloaeditarbox.getSelectedItem();
+
+					ResultSet resultSet = statement.executeQuery("SELECT Nombre, Unidad FROM inventario");
+
+					ingredientebox_1.removeAllItems();
+
+					while (resultSet.next()) {
+						String nombre = resultSet.getString("Nombre");
+						String unidad = resultSet.getString("Unidad");
+						String combinedValue = nombre + " - " + unidad;
+						ingredientebox_1.addItem(combinedValue);
+					}
+
+					resultSet.close();
+					statement.close();
+					connection.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
+
+
+
+
+
+		try {
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "username", "password");
+
+			Statement statement = connection.createStatement();
+
+			ResultSet resultSet = statement.executeQuery("SHOW TABLES");
+
+			Platilloaeditarbox.removeAllItems();
+
+			while (resultSet.next()) {
+				String tableName = resultSet.getString(1);
+				Platilloaeditarbox.addItem(tableName);
+			}
+
+			resultSet.close();
+			statement.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+
+
+		Platilloaeditarbox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "username", "password");
+
+					Statement statement = connection.createStatement();
+
+					String selectedTable = (String) Platilloaeditarbox.getSelectedItem();
+
+					ResultSet resultSet = statement.executeQuery("SELECT Ingrediente, Unidad, Cantidad FROM " + selectedTable);
+
+					ingredientebox.removeAllItems();
+
+					while (resultSet.next()) {
+						String ingrediente = resultSet.getString("Ingrediente");
+						String unidad = resultSet.getString("Unidad");
+						String cantidad = resultSet.getString("Cantidad");
+						String combinedValue = ingrediente + " - " + unidad + " - " + cantidad;
+						ingredientebox.addItem(combinedValue);
+					}
+
+					resultSet.close();
+					statement.close();
+					connection.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+
+		});
+
+
+
+
+		btnediAadirIngrediente.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "root", "root");
+
+					String selectedTable = (String) Platilloaeditarbox.getSelectedItem();
+
+					String selectedIngredient_1 = (String) ingredientebox_1.getSelectedItem();
+					String[] ingredientParts_1 = selectedIngredient_1.split(" - ");
+					String nombre_1 = ingredientParts_1[0];
+					String unidad_1 = ingredientParts_1[1];
+
+					String cantidad = textfieldedicantidadingr.getText();
+
+					String query = "INSERT INTO " + selectedTable + "(Ingrediente, Unidad, Cantidad) VALUES (?, ?, ?)";
+					PreparedStatement statement = connection.prepareStatement(query);
+					statement.setString(1, nombre_1);
+					statement.setString(2, unidad_1);
+					statement.setString(3, cantidad);
+
+					statement.executeUpdate();
+
+					statement.close();
+					connection.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
+
+
+
+
+
+
+
+
+
+
+
+
+
+		btnbackeditarplatillos.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(EditarPlat);
+				add(Platillos);
+				repaint();
+				revalidate();
+			}
+		});
+
+
+
+
+
+		btnEditarPlat.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "root", "root");
+
+					String selectedTable = (String) Platilloaeditarbox.getSelectedItem();
+
+					String newTableName = NombrePlatEdField.getText();
+
+					if (!newTableName.isEmpty()) {
+						selectedTable = newTableName;
+					}
+
+					String selectedIngredient_1 = (String) ingredientebox_1.getSelectedItem();
+					String[] ingredientParts_1 = selectedIngredient_1.split(" - ");
+					String nombre_1 = ingredientParts_1[0];
+					String unidad_1 = ingredientParts_1[1];
+
+					String cantidad = textfieldedicantidadingr.getText();
+
+					String query = "INSERT INTO " + selectedTable + "(Ingrediente, Unidad, Cantidad) VALUES (?, ?, ?)";
+					PreparedStatement statement = connection.prepareStatement(query);
+					statement.setString(1, nombre_1);
+					statement.setString(2, unidad_1);
+					statement.setString(3, cantidad);
+
+					statement.executeUpdate();
+
+					statement.close();
+					connection.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 		//----Platillos ingredientes-----
@@ -817,6 +1266,28 @@ public class Restaurante extends JFrame {
 		Platillos.add(platilloIcon);
 		repaint();
 		revalidate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 		//--------------------------------------------ordenes-----------------------------------------------------------
@@ -1320,12 +1791,26 @@ public class Restaurante extends JFrame {
 		revalidate();
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		//----Consultar inventario-----
 
-		ConsultaInv.setBackground(new Color(255, 128, 0));
-		//	contentPane.add(ConsultaInv);
-		ConsultaInv.setLayout(null);
 
+		ConsultaInv.setBackground(new Color(255, 128, 0));
+// contentPane.add(ConsultaInv);
+		ConsultaInv.setLayout(null);
 
 		JLabel consultarInventario = new JLabel("Consultar Inventario");
 		consultarInventario.setFont(new Font("Tahoma", Font.PLAIN, 26));
@@ -1373,15 +1858,70 @@ public class Restaurante extends JFrame {
 		cantidadeninvlbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		paneldetablainventario.add(cantidadeninvlbl);
 
+		JTable consultainvtable = new JTable();
+		DefaultTableModel tableModel = new DefaultTableModel();
+		tableModel.addColumn("Nombre");
+		tableModel.addColumn("Unidad");
+		tableModel.addColumn("Cantidad");
+		consultainvtable.setModel(tableModel);
+
+		JScrollPane scrollPane = new JScrollPane(consultainvtable);
+		scrollPane.setBounds(34, 312, 892, 257);
+		ConsultaInv.add(scrollPane);
+
 		JPanel panel_4 = new JPanel();
 		panel_4.setBackground(new Color(255, 218, 168));
 		panel_4.setBounds(34, 312, 892, 257);
 		ConsultaInv.add(panel_4);
 
 
-		JButton btnbackinvconsultar = new JButton("Back");
+
+		try {
+			String url = "jdbc:mysql://localhost:3306/clientes";
+			String username = "your-username";
+			String password = "your-password";
+			Connection connection = DriverManager.getConnection(url, username, password);
+
+			Statement statement = connection.createStatement();
+			String query = "SELECT Nombre, Unidad, Cantidad FROM inventario";
+			ResultSet resultSet = statement.executeQuery(query);
+
+			while (resultSet.next()) {
+				String nombre = resultSet.getString("Nombre");
+				String unidad = resultSet.getString("Unidad");
+				int cantidad = resultSet.getInt("Cantidad");
+				tableModel.addRow(new Object[]{nombre, unidad, cantidad});
+			}
+
+			resultSet.close();
+			statement.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+
+
+
+
+				JButton btnbackinvconsultar = new JButton("Back");
 		btnbackinvconsultar.setBounds(10, 11, 80, 29);
 		ConsultaInv.add(btnbackinvconsultar);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		btnbackinvconsultar.addActionListener(new ActionListener() {
 			@Override
@@ -1392,6 +1932,10 @@ public class Restaurante extends JFrame {
 				revalidate();
 			}
 		});
+
+
+
+
 
 
 
@@ -1424,10 +1968,10 @@ public class Restaurante extends JFrame {
 		Articuledipan.setBounds(76, 203, 679, 381);
 		EditarINv.add(Articuledipan);
 
-		DefaultTableModel tableModel = new DefaultTableModel(
+		DefaultTableModel tablamodelinvconsulta = new DefaultTableModel(
 				new Object[]{"Nombre","Unidad","Color","Cantidad"	}, 0);
 
-		JTable tablaeditarart = new JTable(tableModel);
+		JTable tablaeditarart = new JTable(tablamodelinvconsulta);
 
 		JScrollPane scrollPaneediart = new JScrollPane(tablaeditarart);
 
@@ -1563,7 +2107,7 @@ public class Restaurante extends JFrame {
 							statement.close();
 							connection.close();
 
-							tableModel.setRowCount(0);
+							tablamodelinvconsulta.setRowCount(0);
 
 							connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 							statement = connection.prepareStatement("SELECT Nombre, Unidad, Color, Cantidad FROM inventario");
@@ -1576,7 +2120,7 @@ public class Restaurante extends JFrame {
 								String cantidad = resultSet.getString("Cantidad");
 
 								Object[] rowData = {updatedNombre, unidad, color, cantidad};
-								tableModel.addRow(rowData);
+								tablamodelinvconsulta.addRow(rowData);
 							}
 
 							statement.close();
@@ -1671,7 +2215,7 @@ public class Restaurante extends JFrame {
 				String cantidad = resultSet.getString("Cantidad");
 
 				Object[] rowData = {nombre, unidad, color, cantidad};
-				tableModel.addRow(rowData);
+				tablamodelinvconsulta.addRow(rowData);
 			}
 
 			statement.close();
@@ -3053,9 +3597,9 @@ public class Restaurante extends JFrame {
 
 		tablaEliminar.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-		JScrollPane scrollPane = new JScrollPane(tablaEliminar);
-		scrollPane.setBounds(131, 257, 606, 300);
-		eliminarClientes.add(scrollPane);
+		JScrollPane scrollpanetablainvconsulta = new JScrollPane(tablaEliminar);
+		scrollpanetablainvconsulta.setBounds(131, 257, 606, 300);
+		eliminarClientes.add(scrollpanetablainvconsulta);
 
 
 
@@ -3150,12 +3694,10 @@ public class Restaurante extends JFrame {
 		updateTimer = new Timer(5000, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// Call the updateComponents method to update the components
 				updateComponents(tableModel1, tableModelInfo, tableModelEdicion, tableModelConsulta, comboBox1);
 			}
 		});
 
-// Start the timer
 		updateTimer.start();
 
 
@@ -3177,6 +3719,8 @@ public class Restaurante extends JFrame {
 			// limpia combobox para que no se empiece a duplicar
 			DefaultComboBoxModel<String> comboBoxModel = (DefaultComboBoxModel<String>) comboBox1.getModel();
 			comboBoxModel.removeAllElements();
+
+
 
 			while (resultSet1.next()) {
 				String nombre = resultSet1.getString("Nombre");
@@ -3254,10 +3798,31 @@ public class Restaurante extends JFrame {
 			ex.printStackTrace();
 		}
 	}
+	private boolean ingredientExists(String tableName, String ingredient) {
+		String url = "jdbc:mysql://localhost:3306/platillos";
+		String username = "your-username";
+		String password = "your-password";
 
+		try (Connection connection = DriverManager.getConnection(url, username, password)) {
+			// Create a SQL statement
+			Statement statement = connection.createStatement();
 
+			// Check if the ingredient exists in the table
+			String checkIngredientQuery = "SELECT COUNT(*) FROM " + tableName + " WHERE Ingrediente = ?";
+			PreparedStatement preparedStatement = connection.prepareStatement(checkIngredientQuery);
+			preparedStatement.setString(1, ingredient);
+			ResultSet resultSet = preparedStatement.executeQuery();
 
+			if (resultSet.next()) {
+				int count = resultSet.getInt(1);
+				return count > 0;
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			// Handle the exception as needed
+		}
 
-
+		return false;
+	}
 
 }
