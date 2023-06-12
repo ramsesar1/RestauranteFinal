@@ -8,7 +8,7 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.NumberFormatter;
 import javax.swing.text.PlainDocument;
-import javax.swing.JFormattedTextField;
+
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -954,6 +954,183 @@ public class Restaurante extends JFrame {
 		panelCrearOrden.setBounds(100, 100, 750, 426);
 		FondoCrearorden.add(panelCrearOrden);
 		panelCrearOrden.setLayout(null);
+		
+		JButton ContadorSushi = new JButton("+");
+		ContadorSushi.setBounds(71, 150, 41, 23);
+		panelCrearOrden.add(ContadorSushi);
+		
+		JButton DescontadorSushi = new JButton("-");
+		DescontadorSushi.setBounds(152, 150, 41, 23);
+		panelCrearOrden.add(DescontadorSushi);
+		
+		JButton ContadorLasagna = new JButton("+");
+		ContadorLasagna.setBounds(198, 330, 41, 23);
+		panelCrearOrden.add(ContadorLasagna);
+		
+		JButton DescontadorLasagna = new JButton("-");
+		DescontadorLasagna.setBounds(276, 330, 41, 23);
+		panelCrearOrden.add(DescontadorLasagna);
+		
+		JButton ContadorBurguer = new JButton("+");
+		ContadorBurguer.setBounds(313, 150, 41, 23);
+		panelCrearOrden.add(ContadorBurguer);
+		
+		JButton DescontadorBurguer = new JButton("-");
+		DescontadorBurguer.setBounds(396, 150, 41, 23);
+		panelCrearOrden.add(DescontadorBurguer);
+		
+		JButton DescontadorBoneless = new JButton("-");
+		DescontadorBoneless.setBounds(526, 330, 41, 23);
+		panelCrearOrden.add(DescontadorBoneless);
+		
+		JButton ContadorBoneless = new JButton("+");
+		ContadorBoneless.setBounds(444, 330, 41, 23);
+		panelCrearOrden.add(ContadorBoneless);
+		
+		JButton ContadorPizza = new JButton("+");
+		 ContadorPizza.setBounds(544, 150, 41, 23);
+		 panelCrearOrden.add( ContadorPizza);
+		
+		JButton DescontadorPizza = new JButton("-");
+		DescontadorPizza.setBounds(627, 150, 41, 23);
+		panelCrearOrden.add(DescontadorPizza);
+		
+		JLabel SushiCont = new JLabel("0");
+		SushiCont.setForeground(Color.BLACK);
+		SushiCont.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		SushiCont.setBounds(127, 141, 22, 33);
+		panelCrearOrden.add(SushiCont);
+		
+		JLabel LasagnaCont = new JLabel("0");
+		LasagnaCont.setForeground(Color.BLACK);
+		LasagnaCont .setFont(new Font("Tahoma", Font.PLAIN, 20));
+		LasagnaCont .setBounds(255, 321, 22, 33);
+		panelCrearOrden.add(LasagnaCont);
+		
+		JLabel BonelessCont = new JLabel("0");
+		BonelessCont.setForeground(Color.BLACK);
+		BonelessCont.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		BonelessCont.setBounds(505, 321, 22, 33);
+		panelCrearOrden.add(BonelessCont);
+		
+		JLabel PizzaCont = new JLabel("0");
+		PizzaCont.setForeground(Color.BLACK);
+		PizzaCont.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		PizzaCont.setBounds(605, 141, 22, 33);
+		panelCrearOrden.add(PizzaCont);
+		
+		JLabel BurguerCont = new JLabel("0");
+		BurguerCont.setForeground(Color.BLACK);
+		BurguerCont.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		BurguerCont.setBounds(374, 141, 22, 33);
+		panelCrearOrden.add(BurguerCont);
+		
+		JLabel TotalPrecio = new JLabel("Total: $0");
+		TotalPrecio.setForeground(Color.BLACK);
+		TotalPrecio.setFont(new Font("Comic Sans MS", Font.BOLD, 26));
+		TotalPrecio.setBounds(10, 383, 138, 43);
+		panelCrearOrden.add(TotalPrecio);
+		
+		JLabel TotalPlatillos = new JLabel("Total de platillos:0");
+		TotalPlatillos.setForeground(Color.BLACK);
+		TotalPlatillos.setFont(new Font("Comic Sans MS", Font.BOLD, 26));
+		TotalPlatillos.setBounds(242, 383, 269, 43);
+		panelCrearOrden.add(TotalPlatillos);
+		
+		JButton CrearOrdenn = new JButton("Crear Orden");
+		CrearOrdenn.setForeground(new Color(0, 0, 0));
+		CrearOrdenn.setFont(new Font("Century", Font.BOLD, 11));
+		CrearOrdenn.setBounds(616, 383, 113, 32);
+		panelCrearOrden.add(CrearOrdenn);
+		
+		JLabel SushiIcon = new JLabel("");
+		SushiIcon.setIcon(new ImageIcon("Sushi.png"));
+		SushiIcon.setBounds(66, 46, 127, 73);
+		panelCrearOrden.add(SushiIcon);
+		
+		JLabel HamburguesaIcon = new JLabel("");
+		HamburguesaIcon.setIcon(new ImageIcon("Hamburguesa.png"));
+		HamburguesaIcon.setBounds(313, 46, 113, 73);
+		panelCrearOrden.add(HamburguesaIcon);
+		
+		JLabel PizzaIcon = new JLabel("");
+		PizzaIcon.setIcon(new ImageIcon("Pizza.png"));
+		PizzaIcon.setBounds(537, 56, 142, 67);
+		panelCrearOrden.add(PizzaIcon);
+		
+		JLabel LasagnaIcon = new JLabel("");
+		LasagnaIcon.setIcon(new ImageIcon("Lasaña.png"));
+		LasagnaIcon.setBounds(191, 236, 138, 65);
+		panelCrearOrden.add(LasagnaIcon);
+		
+		JLabel BonelessIcon = new JLabel("");
+		BonelessIcon.setIcon(new ImageIcon("Boneless.png"));
+		BonelessIcon.setBounds(459, 236, 108, 71);
+		panelCrearOrden.add(BonelessIcon);
+		
+		JLabel SushiLabel = new JLabel("Sushi empanizado");
+		SushiLabel.setForeground(Color.BLACK);
+		SushiLabel.setBackground(Color.BLACK);
+		SushiLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		SushiLabel.setBounds(46, 21, 173, 23);
+		panelCrearOrden.add(SushiLabel);
+		
+		JLabel HamburguesaLabel = new JLabel("Hamburguesa");
+		HamburguesaLabel.setForeground(Color.BLACK);
+		HamburguesaLabel.setBackground(Color.BLACK);
+		HamburguesaLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		HamburguesaLabel.setBounds(312, 21, 127, 23);
+		panelCrearOrden.add(HamburguesaLabel);
+		
+		JLabel PizzaLabel = new JLabel("Pizza Pepperoni");
+		PizzaLabel.setForeground(Color.BLACK);
+		PizzaLabel.setBackground(Color.BLACK);
+		PizzaLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		PizzaLabel.setBounds(537, 22, 142, 23);
+		panelCrearOrden.add(PizzaLabel);
+		
+		JLabel LasañaLabel = new JLabel("Lasaña");
+		LasañaLabel.setForeground(Color.BLACK);
+		LasañaLabel .setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		LasañaLabel .setBounds(223, 207, 68, 23);
+		panelCrearOrden.add(LasañaLabel);
+		
+		JLabel BonelessLabel = new JLabel("Boneless");
+		BonelessLabel.setForeground(Color.BLACK);
+		BonelessLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		BonelessLabel.setBounds(469, 207, 78, 23);
+		panelCrearOrden.add(BonelessLabel);
+		
+		JLabel PrecioSushi = new JLabel("$135");
+		PrecioSushi.setForeground(Color.BLACK);
+		PrecioSushi .setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
+		PrecioSushi.setBounds(71, 125, 59, 14);
+		panelCrearOrden.add(PrecioSushi);
+		
+		JLabel PrecioBurguer = new JLabel("$120");
+		PrecioBurguer.setForeground(Color.BLACK);
+		PrecioBurguer.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
+		PrecioBurguer.setBounds(313, 125, 59, 14);
+		panelCrearOrden.add(PrecioBurguer);
+		
+		JLabel PrecioPizza = new JLabel("$120");
+		PrecioPizza.setForeground(Color.BLACK);
+		PrecioPizza.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
+		PrecioPizza.setBounds(544, 125, 59, 14);
+		panelCrearOrden.add(PrecioPizza);
+		
+		JLabel PrecioLasagna = new JLabel("$165");
+		PrecioLasagna.setForeground(Color.BLACK);
+		PrecioLasagna.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
+		PrecioLasagna.setBounds(191, 305, 59, 14);
+		panelCrearOrden.add(PrecioLasagna);
+		
+		JLabel PrecioBoneless = new JLabel("$120");
+		PrecioBoneless.setForeground(Color.BLACK);
+		PrecioBoneless.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
+		PrecioBoneless.setBounds(444, 305, 59, 14);
+		panelCrearOrden.add(PrecioBoneless);
+
 
 
 
