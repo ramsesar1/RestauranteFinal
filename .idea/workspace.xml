@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="Se conecta a tabla inventario en base de dato clientes, y se permite agregar o eliminar inventario">
-      <change afterPath="$PROJECT_DIR$/menuclientes().png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tituloR (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tituloRpeque.png" afterDir="false" />
+    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="Las jtable de clientes se actualizan solas, si la base de datos se modifica estas tambien">
       <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_5_2023_6_01_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_5_2023_6_01_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_6_2023_3_02_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_6_2023_3_02_AM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_3_2023_8_28_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_3_2023_8_28_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RestauranteFinal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RestauranteFinal.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante.java" afterDir="false" />
@@ -78,7 +75,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Restaurante.java</url>
-          <line>3097</line>
+          <line>3619</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
