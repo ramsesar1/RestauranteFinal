@@ -1703,6 +1703,182 @@ public class Restaurante extends JFrame {
 		EditOrdenes1.add(EditOrdenes2);
 		EditOrdenes2.setLayout(null);
 		
+		JButton ContadorSushiEdit = new JButton("+");
+		ContadorSushiEdit.setBounds(71, 150, 41, 23);
+		EditOrdenes2 .add(ContadorSushiEdit);
+		
+		JButton DescontadorSushiEdit = new JButton("-");
+		DescontadorSushiEdit.setBounds(152, 150, 41, 23);
+		EditOrdenes2 .add(DescontadorSushiEdit);
+		
+		JButton ContadorLasagnaEdit = new JButton("+");
+		ContadorLasagnaEdit.setBounds(198, 330, 41, 23);
+		EditOrdenes2 .add(ContadorLasagnaEdit);
+		
+		JButton DescontadorLasagnaEdit = new JButton("-");
+		DescontadorLasagnaEdit.setBounds(276, 330, 41, 23);
+		EditOrdenes2 .add(DescontadorLasagnaEdit);
+		
+		JButton ContadorBurguerEdit = new JButton("+");
+		ContadorBurguerEdit.setBounds(313, 150, 41, 23);
+		EditOrdenes2 .add(ContadorBurguerEdit);
+		
+		JButton DescontadorBurguerEdit = new JButton("-");
+		DescontadorBurguerEdit.setBounds(396, 150, 41, 23);
+		EditOrdenes2 .add(DescontadorBurguerEdit);
+		
+		JButton DescontadorBonelessEdit = new JButton("-");
+		DescontadorBonelessEdit.setBounds(526, 330, 41, 23);
+		EditOrdenes2 .add(DescontadorBonelessEdit);
+		
+		JButton ContadorBonelessEdit = new JButton("+");
+		ContadorBonelessEdit.setBounds(444, 330, 41, 23);
+		EditOrdenes2 .add(ContadorBonelessEdit);
+		
+		JButton ContadorPizzaEdit = new JButton("+");
+		 ContadorPizzaEdit.setBounds(544, 150, 41, 23);
+		 EditOrdenes2 .add( ContadorPizzaEdit);
+		
+		JButton DescontadorPizzaEdit = new JButton("-");
+		DescontadorPizzaEdit.setBounds(627, 150, 41, 23);
+		EditOrdenes2 .add(DescontadorPizzaEdit);
+		
+		JLabel SushiContEdit = new JLabel("0");
+		SushiContEdit.setForeground(Color.BLACK);
+		SushiContEdit.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		SushiContEdit.setBounds(127, 141, 22, 33);
+		EditOrdenes2 .add(SushiContEdit);
+		
+		JLabel LasagnaContEdit = new JLabel("0");
+		LasagnaContEdit.setForeground(Color.BLACK);
+		LasagnaContEdit .setFont(new Font("Tahoma", Font.PLAIN, 20));
+		LasagnaContEdit .setBounds(255, 321, 22, 33);
+		EditOrdenes2 .add(LasagnaContEdit);
+		
+		JLabel BonelessContEdit = new JLabel("0");
+		BonelessContEdit.setForeground(Color.BLACK);
+		BonelessContEdit.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		BonelessContEdit.setBounds(505, 321, 22, 33);
+		EditOrdenes2 .add(BonelessContEdit);
+		
+		JLabel PizzaContEdit = new JLabel("0");
+		PizzaContEdit.setForeground(Color.BLACK);
+		PizzaContEdit.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		PizzaContEdit.setBounds(605, 141, 22, 33);
+		EditOrdenes2 .add(PizzaContEdit);
+		
+		JLabel BurguerContEdit = new JLabel("0");
+		BurguerContEdit.setForeground(Color.BLACK);
+		BurguerContEdit.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		BurguerContEdit.setBounds(374, 141, 22, 33);
+		EditOrdenes2 .add(BurguerContEdit);
+		
+		JLabel TotalPrecioEdit = new JLabel("Total: $0");
+		TotalPrecioEdit.setForeground(Color.BLACK);
+		TotalPrecioEdit.setFont(new Font("Comic Sans MS", Font.BOLD, 26));
+		TotalPrecioEdit.setBounds(10, 383, 138, 43);
+		EditOrdenes2 .add(TotalPrecioEdit);
+		
+		JLabel TotalPlatillosEdit = new JLabel("Total de platillos:0");
+		TotalPlatillosEdit.setForeground(Color.BLACK);
+		TotalPlatillosEdit.setFont(new Font("Comic Sans MS", Font.BOLD, 26));
+		TotalPlatillosEdit.setBounds(242, 383, 269, 43);
+		EditOrdenes2 .add(TotalPlatillosEdit);
+		
+		JButton CrearOrdennEdit = new JButton("Editar Orden");
+		CrearOrdennEdit.setForeground(new Color(0, 0, 0));
+		CrearOrdennEdit.setFont(new Font("Century", Font.BOLD, 11));
+		CrearOrdennEdit.setBounds(616, 383, 113, 32);
+		EditOrdenes2 .add(CrearOrdennEdit);
+		
+		JLabel SushiIconEdit = new JLabel("");
+		SushiIconEdit.setIcon(new ImageIcon("Sushi.png"));
+		SushiIconEdit.setBounds(66, 46, 127, 73);
+		EditOrdenes2 .add(SushiIconEdit);
+		
+		JLabel HamburguesaIconEdit = new JLabel("");
+		HamburguesaIconEdit.setIcon(new ImageIcon("Hamburguesa.png"));
+		HamburguesaIconEdit.setBounds(313, 46, 113, 73);
+		EditOrdenes2 .add(HamburguesaIconEdit);
+		
+		JLabel PizzaIconEdit = new JLabel("");
+		PizzaIconEdit.setIcon(new ImageIcon("Pizza.png"));
+		PizzaIconEdit.setBounds(537, 56, 142, 67);
+		EditOrdenes2 .add(PizzaIconEdit);
+		
+		JLabel LasagnaIconEdit = new JLabel("");
+		LasagnaIconEdit.setIcon(new ImageIcon("Lasaña.png"));
+		LasagnaIconEdit.setBounds(191, 236, 138, 65);
+		EditOrdenes2 .add(LasagnaIconEdit);
+		
+		JLabel BonelessIconEdit = new JLabel("");
+		BonelessIconEdit.setIcon(new ImageIcon("Boneless.png"));
+		BonelessIconEdit.setBounds(459, 236, 108, 71);
+		EditOrdenes2 .add(BonelessIconEdit);
+		
+		JLabel SushiLabelEdit = new JLabel("Sushi empanizado");
+		SushiLabelEdit.setForeground(Color.BLACK);
+		SushiLabelEdit.setBackground(Color.BLACK);
+		SushiLabelEdit.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		SushiLabelEdit.setBounds(46, 21, 173, 23);
+		EditOrdenes2 .add(SushiLabelEdit);
+		
+		JLabel HamburguesaLabelEdit = new JLabel("Hamburguesa");
+		HamburguesaLabelEdit.setForeground(Color.BLACK);
+		HamburguesaLabelEdit.setBackground(Color.BLACK);
+		HamburguesaLabelEdit.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		HamburguesaLabelEdit.setBounds(312, 21, 127, 23);
+		EditOrdenes2 .add(HamburguesaLabelEdit);
+		
+		JLabel PizzaLabelEdit = new JLabel("Pizza Pepperoni");
+		PizzaLabelEdit.setForeground(Color.BLACK);
+		PizzaLabelEdit.setBackground(Color.BLACK);
+		PizzaLabelEdit.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		PizzaLabelEdit.setBounds(537, 22, 142, 23);
+		EditOrdenes2 .add(PizzaLabelEdit);
+		
+		JLabel LasañaLabelEdit = new JLabel("Lasaña");
+		LasañaLabelEdit.setForeground(Color.BLACK);
+		LasañaLabelEdit .setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		LasañaLabelEdit .setBounds(223, 207, 68, 23);
+		EditOrdenes2 .add(LasañaLabelEdit);
+		
+		JLabel BonelessLabelEdit = new JLabel("Boneless");
+		BonelessLabelEdit.setForeground(Color.BLACK);
+		BonelessLabelEdit.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		BonelessLabelEdit.setBounds(469, 207, 78, 23);
+		EditOrdenes2 .add(BonelessLabelEdit);
+		
+		JLabel PrecioSushiEdit = new JLabel("$135");
+		PrecioSushiEdit.setForeground(Color.BLACK);
+		PrecioSushiEdit .setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
+		PrecioSushiEdit.setBounds(71, 125, 59, 14);
+		EditOrdenes2 .add(PrecioSushiEdit);
+		
+		JLabel PrecioBurguerEdit = new JLabel("$120");
+		PrecioBurguerEdit.setForeground(Color.BLACK);
+		PrecioBurguerEdit.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
+		PrecioBurguerEdit.setBounds(313, 125, 59, 14);
+		EditOrdenes2 .add(PrecioBurguerEdit);
+		
+		JLabel PrecioPizzaEdit = new JLabel("$120");
+		PrecioPizzaEdit.setForeground(Color.BLACK);
+		PrecioPizzaEdit.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
+		PrecioPizzaEdit.setBounds(544, 125, 59, 14);
+		EditOrdenes2 .add(PrecioPizzaEdit);
+		
+		JLabel PrecioLasagnaEdit = new JLabel("$165");
+		PrecioLasagnaEdit.setForeground(Color.BLACK);
+		PrecioLasagnaEdit.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
+		PrecioLasagnaEdit.setBounds(191, 305, 59, 14);
+		EditOrdenes2 .add(PrecioLasagnaEdit);
+		
+		JLabel PrecioBonelessEdit = new JLabel("$120");
+		PrecioBonelessEdit.setForeground(Color.BLACK);
+		PrecioBonelessEdit.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
+		PrecioBonelessEdit.setBounds(444, 305, 59, 14);
+		EditOrdenes2 .add(PrecioBonelessEdit);
+		
 
 		JLabel OrdenesEdiTitulo = new JLabel("Editar Orden");
 		OrdenesEdiTitulo.setFont(new Font("Arial Black", Font.PLAIN, 20));
