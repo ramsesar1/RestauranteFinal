@@ -806,7 +806,6 @@ public class Restaurante extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String tableName = NombrePlatCrearField.getText();
-
 				String precio = PreciocrearPlat.getText().isEmpty() ? null : PreciocrearPlat.getText();
 				String[] ingredienteData = ingredienteboxcrear.getSelectedItem().toString().split(" - ");
 				String ingrediente = ingredienteData[0];
@@ -814,39 +813,52 @@ public class Restaurante extends JFrame {
 				String cantidad = cantidadingrediente2.getText().isEmpty() ? null : cantidadingrediente2.getText();
 				String descripcion = Descripcionareacrear.getText();
 
-				String url = "jdbc:mysql://localhost:3306/platillos";
-				String username = "root";
-				String password = "root";
+				if (cantidadingrediente2.getText().isEmpty() || PreciocrearPlat.getText().isEmpty() || Descripcionareacrear.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Please fill in all the required fields");
+				} else {
+					String url = "jdbc:mysql://localhost:3306/platillos";
+					String username = "root";
+					String password = "root";
 
-				try (Connection connection = DriverManager.getConnection(url, username, password)) {
-					Statement statement = connection.createStatement();
+					try (Connection connection = DriverManager.getConnection(url, username, password)) {
+						DatabaseMetaData metaData = connection.getMetaData();
+						ResultSet resultSet = metaData.getTables(null, null, tableName, null);
 
-					String createTableQuery = "CREATE TABLE IF NOT EXISTS " + tableName + " (Precio FLOAT, Ingrediente VARCHAR(50), Unidad VARCHAR(50), Cantidad FLOAT, Descripcion VARCHAR(255))";
-					statement.executeUpdate(createTableQuery);
+						if (resultSet.next()) {
+							JOptionPane.showMessageDialog(null, "Para editar platillo, vaya a la sección de editar");
+						} else {
+							Statement statement = connection.createStatement();
 
-					String insertDataQuery = "INSERT INTO " + tableName + " (Precio, Ingrediente, Unidad, Cantidad, Descripcion) VALUES (?, ?, ?, ?, ?)";
-					PreparedStatement preparedStatement = connection.prepareStatement(insertDataQuery);
-					if (precio == null) {
-						preparedStatement.setNull(1, Types.FLOAT);
-					} else {
-						preparedStatement.setFloat(1, Float.parseFloat(precio));
+							String createTableQuery = "CREATE TABLE IF NOT EXISTS " + tableName + " (Precio FLOAT, Ingrediente VARCHAR(50), Unidad VARCHAR(50), Cantidad FLOAT, Descripcion VARCHAR(255))";
+							statement.executeUpdate(createTableQuery);
+
+							String insertDataQuery = "INSERT INTO " + tableName + " (Precio, Ingrediente, Unidad, Cantidad, Descripcion) VALUES (?, ?, ?, ?, ?)";
+							PreparedStatement preparedStatement = connection.prepareStatement(insertDataQuery);
+							if (precio == null) {
+								preparedStatement.setNull(1, Types.FLOAT);
+							} else {
+								preparedStatement.setFloat(1, Float.parseFloat(precio));
+							}
+							preparedStatement.setString(2, ingrediente);
+							preparedStatement.setString(3, unidad);
+							if (cantidad == null) {
+								preparedStatement.setNull(4, Types.FLOAT);
+							} else {
+								preparedStatement.setFloat(4, Float.parseFloat(cantidad));
+							}
+							preparedStatement.setString(5, descripcion);
+							preparedStatement.executeUpdate();
+
+							System.out.println("Data inserted successfully!");
+						}
+					} catch (SQLException ex) {
+						ex.printStackTrace();
 					}
-					preparedStatement.setString(2, ingrediente);
-					preparedStatement.setString(3, unidad);
-					if (cantidad == null) {
-						preparedStatement.setNull(4, Types.FLOAT);
-					} else {
-						preparedStatement.setFloat(4, Float.parseFloat(cantidad));
-					}
-					preparedStatement.setString(5, descripcion);
-					preparedStatement.executeUpdate();
-
-					System.out.println("Data inserted successfully!");
-				} catch (SQLException ex) {
-					ex.printStackTrace();
 				}
 			}
 		});
+
+
 
 
 		btnAadirIngrediente.addActionListener(new ActionListener() {
@@ -1159,6 +1171,70 @@ public class Restaurante extends JFrame {
 
 
 
+
+
+
+		Platilloaeditarbox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					String selectedTable = (String) Platilloaeditarbox.getSelectedItem();
+					if (selectedTable != null && !selectedTable.isEmpty()) {
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "username", "password");
+						Statement statement = connection.createStatement();
+
+						ResultSet resultSet = statement.executeQuery("SELECT Ingrediente, Unidad, Cantidad, Precio, Descripcion FROM " + selectedTable);
+
+						ingredientebox.removeAllItems();
+
+						if (resultSet.next()) {
+							String ingrediente = resultSet.getString("Ingrediente");
+							String unidad = resultSet.getString("Unidad");
+							String cantidad = resultSet.getString("Cantidad");
+							String combinedValue = ingrediente + " - " + unidad + " - " + cantidad;
+							ingredientebox.addItem(combinedValue);
+
+							PrecioEdPlat.setText(resultSet.getString("Precio"));
+							Descripcionareaediplat.setText(resultSet.getString("Descripcion"));
+						}
+
+						resultSet.close();
+						statement.close();
+						connection.close();
+					}
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
+
+		Timer timer2 = new Timer(30000, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "root", "root");
+					Statement statement = connection.createStatement();
+
+					ResultSet resultSet = statement.executeQuery("SHOW TABLES");
+
+					Platilloaeditarbox.removeAllItems();
+
+					while (resultSet.next()) {
+						String tableName = resultSet.getString(1);
+						Platilloaeditarbox.addItem(tableName);
+					}
+
+					resultSet.close();
+					statement.close();
+					connection.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
+
+		timer2.start();
+
 		try {
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "username", "password");
 
@@ -1179,44 +1255,41 @@ public class Restaurante extends JFrame {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-
-
-		Platilloaeditarbox.addActionListener(new ActionListener() {
+		Timer ingredientUpdateTimer = new Timer(30000, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "username", "password");
-
-					Statement statement = connection.createStatement();
-
 					String selectedTable = (String) Platilloaeditarbox.getSelectedItem();
+					if (selectedTable != null && !selectedTable.isEmpty()) {
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "username", "password");
+						Statement statement = connection.createStatement();
 
-					ResultSet resultSet = statement.executeQuery("SELECT Ingrediente, Unidad, Cantidad, Precio, Descripcion FROM " + selectedTable);
+						ResultSet resultSet = statement.executeQuery("SELECT Ingrediente, Unidad, Cantidad, Precio, Descripcion FROM " + selectedTable);
 
-					ingredientebox.removeAllItems();
+						ingredientebox.removeAllItems();
 
-					if (resultSet.next()) {
-						String ingrediente = resultSet.getString("Ingrediente");
-						String unidad = resultSet.getString("Unidad");
-						String cantidad = resultSet.getString("Cantidad");
-						String combinedValue = ingrediente + " - " + unidad + " - " + cantidad;
-						ingredientebox.addItem(combinedValue);
+						while (resultSet.next()) {
+							String ingrediente = resultSet.getString("Ingrediente");
+							String unidad = resultSet.getString("Unidad");
+							String cantidad = resultSet.getString("Cantidad");
+							String combinedValue = ingrediente + " - " + unidad + " - " + cantidad;
+							ingredientebox.addItem(combinedValue);
 
-						PrecioEdPlat.setText(resultSet.getString("Precio"));
-						Descripcionareaediplat.setText(resultSet.getString("Descripcion"));
+							PrecioEdPlat.setText(resultSet.getString("Precio"));
+							Descripcionareaediplat.setText(resultSet.getString("Descripcion"));
+						}
+
+						resultSet.close();
+						statement.close();
+						connection.close();
 					}
-
-					resultSet.close();
-					statement.close();
-					connection.close();
 				} catch (SQLException ex) {
 					ex.printStackTrace();
 				}
 			}
 		});
 
-
+		ingredientUpdateTimer.start();
 
 
 
@@ -1375,6 +1448,7 @@ public class Restaurante extends JFrame {
 
 
 
+
 		//----Platillos ingredientes-----
 
 
@@ -1407,21 +1481,16 @@ public class Restaurante extends JFrame {
 		panelcrearingre.add(panellista);
 		panellista.setLayout(null);
 
-		JLabel Detallesingrelbl = new JLabel("Detalles de Ingredientes");
+		JLabel Detallesingrelbl = new JLabel("Platillos con el ingrediente");
 		Detallesingrelbl.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		Detallesingrelbl.setBounds(57, 11, 357, 61);
+		Detallesingrelbl.setBounds(37, 11, 390, 61);
 		panellista.add(Detallesingrelbl);
 
-		JLabel Tipoingredientelbl = new JLabel("Ingrediente: Queso amarillo");
+		JLabel Tipoingredientelbl = new JLabel("Platillos: ");
 		Tipoingredientelbl.setFont(new Font("Tahoma", Font.PLAIN, 21));
-		Tipoingredientelbl.setBounds(61, 111, 317, 61);
+		Tipoingredientelbl.setBounds(1, 111, 450, 450);
 		panellista.add(Tipoingredientelbl);
 
-		JTextArea txtrDescripcinQuesoImitacin = new JTextArea();
-		txtrDescripcinQuesoImitacin.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		txtrDescripcinQuesoImitacin.setText("Descripción: Queso imitación tipo chedar en rebanadas,\r\n usado para hamburguesas.");
-		txtrDescripcinQuesoImitacin.setBounds(66, 228, 312, 249);
-		panellista.add(txtrDescripcinQuesoImitacin);
 
 		JPanel panelconsultadeingredientes = new JPanel();
 		panelconsultadeingredientes.setBackground(new Color(255, 128, 0));
@@ -1456,6 +1525,65 @@ public class Restaurante extends JFrame {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
+
+
+
+		ingredientTable.setRowSelectionAllowed(false);
+		ingredientTable.setColumnSelectionAllowed(false);
+
+		ingredientTable.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int rowIndex = ingredientTable.rowAtPoint(e.getPoint());
+
+				if (rowIndex != -1) {
+					String ingredientName = ingredientTable.getValueAt(rowIndex, 0).toString();
+					StringBuilder matchingTables = new StringBuilder();
+
+					try {
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "root");
+						Statement statement = connection.createStatement();
+						ResultSet resultSet = statement.executeQuery("SHOW TABLES");
+
+						while (resultSet.next()) {
+							String tableName = resultSet.getString(1);
+							Statement innerStatement = connection.createStatement();
+							ResultSet tableData = innerStatement.executeQuery("SELECT * FROM " + tableName);
+
+							while (tableData.next()) {
+								String ingredient = tableData.getString("Ingrediente");
+
+								if (ingredient.equals(ingredientName)) {
+									matchingTables.append(tableName).append(", ");
+									break;
+								}
+							}
+
+							tableData.close();
+							innerStatement.close();
+						}
+
+						resultSet.close();
+						statement.close();
+						connection.close();
+					} catch (SQLException ex) {
+						ex.printStackTrace();
+					}
+
+					String tablesText = matchingTables.toString();
+					if (!tablesText.isEmpty()) {
+						tablesText = tablesText.substring(0, tablesText.length() - 2);
+					} else {
+						tablesText = "No hay platillos \n" +
+								"con el ingrediente.";
+					}
+
+					Tipoingredientelbl.setText("Platillos: " + tablesText);
+				}
+			}
+		});
+
+
 
 
 
