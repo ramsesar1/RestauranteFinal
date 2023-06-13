@@ -32,23 +32,13 @@ public class Restaurante extends JFrame {
 				try {
 					Restaurante frame = new Restaurante();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -197,11 +187,19 @@ public class Restaurante extends JFrame {
 		panelmenu.setOpaque(false);
 		menufondito2.add(panelmenu);
 
+		JLabel logotipoInicio = new JLabel(new ImageIcon("iconochido.gif"));
+		logotipoInicio.setBounds(300,0,120,150);
+		panelmenu.add(logotipoInicio);
+
+		JLabel nombreLogoInicio = new JLabel(new ImageIcon("tituloR (1).png"));
+		nombreLogoInicio.setBounds(178,90,350,233);
+		panelmenu.add(nombreLogoInicio);
+
 		JButton btnplatillos = new JButton("Platillos\r\n");
 		btnplatillos.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnplatillos.setFocusable(false);
 		btnplatillos.setBackground(new Color(255, 128, 0));
-		btnplatillos.setBounds(53, 22, 279, 234);
+		btnplatillos.setBounds(53, 300, 279, 100);
 		panelmenu.add(btnplatillos);
 
 		btnplatillos.addActionListener(new ActionListener() {
@@ -219,7 +217,7 @@ public class Restaurante extends JFrame {
 		btnNewButtonclientes.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnNewButtonclientes.setFocusable(false);
 		btnNewButtonclientes.setBackground(new Color(255, 128, 0));
-		btnNewButtonclientes.setBounds(53, 279, 279, 234);
+		btnNewButtonclientes.setBounds(53, 420, 279, 100);
 		panelmenu.add(btnNewButtonclientes);
 
 		btnNewButtonclientes.addActionListener(new ActionListener() {
@@ -238,7 +236,7 @@ public class Restaurante extends JFrame {
 		btnentrarinventario.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnentrarinventario.setBackground(new Color(255, 128, 0));
 		btnentrarinventario.setFocusable(false);
-		btnentrarinventario.setBounds(364, 279, 279, 234);
+		btnentrarinventario.setBounds(364, 420, 279, 100);
 		panelmenu.add(btnentrarinventario);
 
 		btnentrarinventario.addActionListener(new ActionListener() {
@@ -256,7 +254,7 @@ public class Restaurante extends JFrame {
 		btnNewButtonOrden.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnNewButtonOrden.setBackground(new Color(255, 128, 0));
 		btnNewButtonOrden.setFocusable(false);
-		btnNewButtonOrden.setBounds(364, 22, 279, 234);
+		btnNewButtonOrden.setBounds(364, 300, 279, 100);
 		panelmenu.add(btnNewButtonOrden);
 
 		btnNewButtonOrden.addActionListener(new ActionListener() {
@@ -269,12 +267,6 @@ public class Restaurante extends JFrame {
 			}
 		});
 
-
-		JButton btnNewButton_2 = new JButton("Ordenes\r\n");
-		btnNewButton_2.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		btnNewButton_2.setBackground(new Color(255, 128, 0));
-		btnNewButton_2.setBounds(364, 22, 279, 234);
-		panelmenu.add(btnNewButton_2);
 
 
 
@@ -2365,7 +2357,7 @@ public class Restaurante extends JFrame {
 		});
 		consultarOrdenes1.add(backConsultaOrder);
 		//----panel consultar Ordenes----
-		
+
 		PanelConsultaOrden.setLayout(null);
 
 		JPanel infoOrdenes = new JPanel();
@@ -2373,27 +2365,27 @@ public class Restaurante extends JFrame {
 		infoOrdenes.setBackground(new Color(255, 128, 0));
 		infoOrdenes.setLayout(null);
 		PanelConsultaOrden.add(infoOrdenes);
-			
+
 		JLabel infoTituloOrden = new JLabel("Informacion de la orden");
 		infoTituloOrden.setBounds(270,70,400,50);
 		infoTituloOrden.setFont(new Font("Arial Black", Font.PLAIN, 30));
 		infoOrdenes.add(infoTituloOrden);
-			
+
 		JPanel FondoInfoOrden2 = new JPanel();
 		FondoInfoOrden2.setBounds(150,120,620,470);
 		FondoInfoOrden2.setLayout(null);
 		infoOrdenes.add(FondoInfoOrden2);
-			
+
 		String[] columnNamesInfoOrden = {"Platillo", "Cantidad"};
 		DefaultTableModel tableModelInfoOrden = new DefaultTableModel(columnNamesInfoOrden, 0);
 		JTable tablaInfoOrden = new JTable(tableModelInfoOrden);
-			
+
 		tablaInfoOrden.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-			
+
 		JScrollPane scrollPaneInfoOrden = new JScrollPane(tablaInfoOrden);
 		scrollPaneInfoOrden.setBounds(0, 20, 620, 230);
 		FondoInfoOrden2.add(scrollPaneInfoOrden);
-		
+
 		JButton backConsultaInfoOrder = new JButton("Back");
 		backConsultaInfoOrder.setBounds(10, 11, 80, 29);
 		backConsultaInfoOrder.addActionListener(new ActionListener() {
@@ -2406,10 +2398,10 @@ public class Restaurante extends JFrame {
 			}
 		});
 		infoOrdenes.add(backConsultaInfoOrder);
-		
-		
-		
-		
+
+
+
+
 
 		//----pantalla eliminar Ordenes----
 		EliminarOrden.setLayout(null);
@@ -3436,7 +3428,7 @@ public class Restaurante extends JFrame {
 		panelMini.setLayout(null);
 		panelMini.setBackground(Color.WHITE);
 		panelMini.setOpaque(false);
-		panelMini.setBounds(60, 241, 827, 347);
+		panelMini.setBounds(20, 241, 900, 347);
 		panelClientes.add(panelMini);
 
 		JLabel clienteIcon = new JLabel(new ImageIcon("clientelogo2.jpeg"));
@@ -3446,7 +3438,7 @@ public class Restaurante extends JFrame {
 		panelClientes.add(clienteIcon);
 
 		JLabel menuClientesLogo = new JLabel(new ImageIcon("menuclientes().png"));
-		menuClientesLogo.setBounds(300,50,350,233);
+		menuClientesLogo.setBounds(300,0,350,233);
 		clienteIcon.add(menuClientesLogo);
 
 
@@ -3454,7 +3446,7 @@ public class Restaurante extends JFrame {
 		btnConsultar.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnConsultar.setBackground(new Color(255, 128, 0));
 		btnConsultar.setFocusable(false);
-		btnConsultar.setBounds(112, 95, 217, 60);
+		btnConsultar.setBounds(0, 280, 217, 60);
 		btnConsultar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -3471,7 +3463,7 @@ public class Restaurante extends JFrame {
 		btnEditarClientes.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnEditarClientes.setBackground(new Color(255, 128, 0));
 		btnEditarClientes.setFocusable(false);
-		btnEditarClientes.setBounds(112, 198, 217, 60);
+		btnEditarClientes.setBounds(230, 280, 217, 60);
 		btnEditarClientes.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -3488,7 +3480,7 @@ public class Restaurante extends JFrame {
 		btnEliminar.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnEliminar.setBackground(new Color(255, 128, 0));
 		btnEliminar.setFocusable(false);
-		btnEliminar.setBounds(490, 198, 217, 60);
+		btnEliminar.setBounds(460, 280, 217, 60);
 		btnEliminar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -3505,7 +3497,7 @@ public class Restaurante extends JFrame {
 		btnCrearClientes.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnCrearClientes.setBackground(new Color(255, 128, 0));
 		btnCrearClientes.setFocusable(false);
-		btnCrearClientes.setBounds(490, 95, 217, 60);
+		btnCrearClientes.setBounds(690, 280, 207, 60);
 		panelMini.add(btnCrearClientes);
 
 		btnCrearClientes.addActionListener(new ActionListener() {
@@ -3535,6 +3527,50 @@ public class Restaurante extends JFrame {
 		});
 		clienteIcon.add(backClientes);
 
+		String[] columnNamesFuera = {"Nombre", "Apellidos", "Teléfono", "Dirección"};
+		DefaultTableModel tableModelFuera = new DefaultTableModel(columnNamesFuera, 0);
+		JTable tablaFuera = new JTable(tableModelFuera);
+
+		tablaFuera.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		JScrollPane scrollPaneFuera = new JScrollPane(tablaFuera);
+		scrollPaneFuera.setBounds(171, 207, 606, 300);
+		clienteIcon.add(scrollPaneFuera);
+
+		try {
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
+
+			Statement statement = connection.createStatement();
+
+			// EJecutar query fetch
+			String queryConsulta = "SELECT * FROM clientes";
+			ResultSet resultSetConsulta = statement.executeQuery(queryConsulta);
+
+			tableModelFuera.setRowCount(0);
+
+
+
+			while (resultSetConsulta.next()) {
+				String nombre = resultSetConsulta.getString("Nombre");
+				String apellidos = resultSetConsulta.getString("Apellidos");
+				String telefono = resultSetConsulta.getString("Teléfono");
+				String direccion = resultSetConsulta.getString("Dirección");
+
+				Object[] rowData = {nombre, apellidos, telefono, direccion};
+
+				tableModelFuera.addRow(rowData);
+
+
+			}
+
+			resultSetConsulta.close();
+			statement.close();
+			connection.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
+
 
 		//-----pantalla creacion clientes-----
 		CrearClientes.setLayout(null);
@@ -3552,7 +3588,7 @@ public class Restaurante extends JFrame {
 
 
 		JPanel panelCrearCliente = new JPanel();
-		panelCrearCliente.setBounds(180, 150, 610, 426);
+		panelCrearCliente.setBounds(180, 150, 610, 406);
 
 		FondoCrear.add(panelCrearCliente);
 		panelCrearCliente.setLayout(null);
@@ -3642,7 +3678,7 @@ public class Restaurante extends JFrame {
 
 		JTextField celtxt = new JTextField();
 		celtxt.setColumns(10);
-		celtxt.setBounds(10, 238, 276, 27);
+		celtxt.setBounds(10, 238, 454, 27);
 		celtxt.setDocument(new PlainDocument() {
 			@Override
 			public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
