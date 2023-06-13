@@ -90,6 +90,7 @@ public class Restaurante extends JFrame {
 		//Ordenes
 		JPanel Ordenes= new JPanel();
 		JPanel ConsultarOrden = new JPanel();
+		JPanel PanelConsultaOrden = new JPanel();
 		JPanel CrearOrden = new JPanel();
 		JPanel EliminarOrden= new JPanel();
 		JPanel EditarOrden = new JPanel();
@@ -2112,6 +2113,16 @@ public class Restaurante extends JFrame {
 		btnConsultaTablaOrd.setFocusable(false);
 		btnConsultaTablaOrd.setBounds(757, 297, 160, 30);
 		consultarOrdenes1.add(btnConsultaTablaOrd);
+		btnConsultaTablaOrd.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(ConsultarOrden);
+				add(PanelConsultaOrden);
+				repaint();
+				revalidate();
+			}
+		});
+		consultarOrdenes1.add(btnConsultaTablaOrd);
 
 		JPanel panelConsultaOrd2 = new JPanel();
 		panelConsultaOrd2.setBackground(Color.GRAY);
@@ -2141,7 +2152,52 @@ public class Restaurante extends JFrame {
 			}
 		});
 		consultarOrdenes1.add(backConsultaOrder);
+		//----panel consultar Ordenes----
+		
+		PanelConsultaOrden.setLayout(null);
 
+		JPanel infoOrdenes = new JPanel();
+		infoOrdenes.setBounds(0,0,977,681);
+		infoOrdenes.setBackground(new Color(255, 128, 0));
+		infoOrdenes.setLayout(null);
+		PanelConsultaOrden.add(infoOrdenes);
+			
+		JLabel infoTituloOrden = new JLabel("Informacion de la orden");
+		infoTituloOrden.setBounds(270,70,400,50);
+		infoTituloOrden.setFont(new Font("Arial Black", Font.PLAIN, 30));
+		infoOrdenes.add(infoTituloOrden);
+			
+		JPanel FondoInfoOrden2 = new JPanel();
+		FondoInfoOrden2.setBounds(150,120,620,470);
+		FondoInfoOrden2.setLayout(null);
+		infoOrdenes.add(FondoInfoOrden2);
+			
+		String[] columnNamesInfoOrden = {"Platillo", "Cantidad"};
+		DefaultTableModel tableModelInfoOrden = new DefaultTableModel(columnNamesInfoOrden, 0);
+		JTable tablaInfoOrden = new JTable(tableModelInfoOrden);
+			
+		tablaInfoOrden.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+			
+		JScrollPane scrollPaneInfoOrden = new JScrollPane(tablaInfoOrden);
+		scrollPaneInfoOrden.setBounds(0, 20, 620, 230);
+		FondoInfoOrden2.add(scrollPaneInfoOrden);
+		
+		JButton backConsultaInfoOrder = new JButton("Back");
+		backConsultaInfoOrder.setBounds(10, 11, 80, 29);
+		backConsultaInfoOrder.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove( PanelConsultaOrden);
+				add(ConsultarOrden);
+				repaint();
+				revalidate();
+			}
+		});
+		infoOrdenes.add(backConsultaInfoOrder);
+		
+		
+		
+		
 
 		//----pantalla eliminar Ordenes----
 		EliminarOrden.setLayout(null);
