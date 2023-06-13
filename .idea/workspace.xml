@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="Aun faltan validaciones, se añade la funcion para crear platillos, seleccionar los ingredientes que usa, editar platillo, y añadir ingredientes a platillo existente">
+    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="Se actualizan los combobox en clientes edicion y consulta, estos se actualizan constantemente, y se hacen validaciones en editar platillo, y la eliminacion de platillos por completo">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_5_2023_2_09_AM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_5_2023_2_09_AM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante.java" afterDir="false" />
     </list>
@@ -12,6 +14,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,21 +74,30 @@
       <option name="project" value="LOCAL" />
       <updated>1686539059179</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Se actualizan los combobox en clientes edicion y consulta, estos se actualizan constantemente, y se hacen validaciones en editar platillo, y la eliminacion de platillos por completo">
+      <created>1686563971019</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1686563971019</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Se añaden base de datos en consultar, el consultar solo direccion y nombre de usuario, y option pane de confirmacion en todas las funciones" />
     <MESSAGE value="Se conecta a tabla inventario en base de dato clientes, y se permite agregar o eliminar inventario" />
     <MESSAGE value="Aun faltan validaciones, se añade la funcion para crear platillos, seleccionar los ingredientes que usa, editar platillo, y añadir ingredientes a platillo existente" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aun faltan validaciones, se añade la funcion para crear platillos, seleccionar los ingredientes que usa, editar platillo, y añadir ingredientes a platillo existente" />
+    <MESSAGE value="Se actualizan los combobox en clientes edicion y consulta, estos se actualizan constantemente" />
+    <MESSAGE value="Se actualizan los combobox en clientes edicion y consulta, estos se actualizan constantemente, y se hacen validaciones en editar platillo, y la eliminacion de platillos por completo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se actualizan los combobox en clientes edicion y consulta, estos se actualizan constantemente, y se hacen validaciones en editar platillo, y la eliminacion de platillos por completo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Restaurante.java</url>
-          <line>3727</line>
+          <line>4197</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
