@@ -282,13 +282,15 @@ public class Restaurante extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
 		panel.setBounds(61, 241, 827, 347);
+		panel.setOpaque(false);
 		Platillos.add(panel);
 		panel.setLayout(null);
 
 		JButton btnconsultar = new JButton("Consultar");
 		btnconsultar.setBackground(new Color(255, 128, 0));
-		btnconsultar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnconsultar.setBounds(61, 94, 217, 60);
+		btnconsultar.setFocusable(false);
+		btnconsultar.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		btnconsultar.setBounds(183, 94, 217, 60);
 		panel.add(btnconsultar);
 
 		btnconsultar.addActionListener(new ActionListener() {
@@ -302,9 +304,10 @@ public class Restaurante extends JFrame {
 		});
 
 		JButton btnEditar = new JButton("Editar");
-		btnEditar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEditar.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnEditar.setBackground(new Color(255, 128, 0));
-		btnEditar.setBounds(307, 94, 217, 60);
+		btnEditar.setFocusable(false);
+		btnEditar.setBounds(430, 94, 217, 60);
 		panel.add(btnEditar);
 
 		btnEditar.addActionListener(new ActionListener() {
@@ -319,9 +322,10 @@ public class Restaurante extends JFrame {
 
 
 		JButton btnIngredientes = new JButton("Ingredientes");
-		btnIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnIngredientes.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnIngredientes.setBackground(new Color(255, 128, 0));
 		btnIngredientes.setBounds(183, 197, 217, 60);
+		btnIngredientes.setFocusable(false);
 		panel.add(btnIngredientes);
 
 		btnIngredientes.addActionListener(new ActionListener() {
@@ -334,26 +338,12 @@ public class Restaurante extends JFrame {
 			}
 		});
 
-		JButton btneliminar = new JButton("Eliminar");
-		btneliminar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btneliminar.setBackground(new Color(255, 128, 0));
-		btneliminar.setBounds(439, 197, 217, 60);
-		panel.add(btneliminar);
-
-		btneliminar.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				remove(Platillos);
-				add(ElimPlatillos);
-				repaint();
-				revalidate();
-			}
-		});
 
 		JButton btnCrear = new JButton("Crear");
-		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCrear.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnCrear.setBackground(new Color(255, 128, 0));
-		btnCrear.setBounds(548, 94, 217, 60);
+		btnCrear.setFocusable(false);
+		btnCrear.setBounds(430, 197, 217, 60);
 		panel.add(btnCrear);
 
 		btnCrear.addActionListener(new ActionListener() {
@@ -366,9 +356,8 @@ public class Restaurante extends JFrame {
 			}
 		});
 
-		JLabel lblplatillos = new JLabel("Platillos\r\n");
-		lblplatillos.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		lblplatillos.setBounds(421, 11, 186, 41);
+		JLabel lblplatillos = new JLabel(new ImageIcon("menuplatillos (1).png"));
+		lblplatillos.setBounds(301, 51, 350, 233);
 		Platillos.add(lblplatillos);
 
 		JButton backplatillos = new JButton(new ImageIcon("BotonRetroceder.png"));
@@ -392,14 +381,15 @@ public class Restaurante extends JFrame {
 
 
 // ----Consultar platillos-----
+
 		ConsultaPlatillos.setBackground(new Color(255, 128, 0));
 		ConsultaPlatillos.setLayout(null);
 
 		DefaultListModel<String> model = new DefaultListModel<>();
 
 		JLabel lblconsultaplatillos = new JLabel("Consultar Platillos");
-		lblconsultaplatillos.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		lblconsultaplatillos.setBounds(360, 11, 254, 52);
+		lblconsultaplatillos.setFont(new Font("Arial Black", Font.PLAIN, 26));
+		lblconsultaplatillos.setBounds(360, 11, 300, 52);
 		ConsultaPlatillos.add(lblconsultaplatillos);
 
 		JPanel panelplati = new JPanel();
@@ -414,22 +404,22 @@ public class Restaurante extends JFrame {
 		panelplati_1.setLayout(null);
 
 		JLabel lblNewLabel_2 = new JLabel("Detalles del platillo\r\n");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		lblNewLabel_2.setBounds(111, 11, 225, 61);
+		lblNewLabel_2.setFont(new Font("Arial Black", Font.PLAIN, 26));
+		lblNewLabel_2.setBounds(111, 11, 300, 61);
 		panelplati_1.add(lblNewLabel_2);
 
 		JLabel lblNewLabel_2_1 = new JLabel("Platillo: \r\n");
-		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 21));
-		lblNewLabel_2_1.setBounds(93, 111, 264, 61);
+		lblNewLabel_2_1.setFont(new Font("Arial Black", Font.PLAIN, 21));
+		lblNewLabel_2_1.setBounds(22, 111, 264, 61);
 		panelplati_1.add(lblNewLabel_2_1);
 
 		JLabel lblNewLabel_2_1_2 = new JLabel("Precio: ");
-		lblNewLabel_2_1_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_2_1_2.setBounds(150, 389, 132, 61);
+		lblNewLabel_2_1_2.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		lblNewLabel_2_1_2.setBounds(22, 389, 132, 61);
 		panelplati_1.add(lblNewLabel_2_1_2);
 
 		JTextArea txtrDescripcinDescubreNuestro = new JTextArea();
-		txtrDescripcinDescubreNuestro.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		txtrDescripcinDescubreNuestro.setFont(new Font("Arial Black", Font.PLAIN, 19));
 		txtrDescripcinDescubreNuestro.setTabSize(10);
 		txtrDescripcinDescubreNuestro.setText("Descripción: ");
 		txtrDescripcinDescubreNuestro.setBounds(22, 201, 399, 177);
@@ -442,8 +432,11 @@ public class Restaurante extends JFrame {
 		panel_3.setLayout(null);
 
 		JButton btnIngredientes2 = new JButton("Ingredientes");
-		btnIngredientes2.setFont(new Font("Tahoma", Font.PLAIN, 35));
-		btnIngredientes2.setBounds(10, 11, 311, 48);
+		btnIngredientes2.setFont(new Font("Arial Black", Font.PLAIN, 35));
+		btnIngredientes2.setBackground(new Color(255, 128, 0));
+		btnIngredientes2.setFocusable(false);
+		btnIngredientes2.setOpaque(true);
+		btnIngredientes2.setBounds(0, 0, 331, 70);
 		panel_3.add(btnIngredientes2);
 
 
@@ -474,12 +467,12 @@ public class Restaurante extends JFrame {
 
 
 		JLabel lblNewLabel_1 = new JLabel("Seleccione platillo");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_1.setBounds(100, 5, 213, 36);
+		lblNewLabel_1.setFont(new Font("Arial Black", Font.PLAIN, 16));
+		lblNewLabel_1.setBounds(100, 5, 300, 36);
 		panelplati.add(lblNewLabel_1);
 
-		JButton btnbackconsultaplat = new JButton("Back");
-		btnbackconsultaplat.setBounds(10, 11, 80, 29);
+		JButton btnbackconsultaplat = new JButton(new ImageIcon("BotonRetroceder.png"));
+		btnbackconsultaplat.setBounds(10, 11, 35, 33);
 		ConsultaPlatillos.add(btnbackconsultaplat);
 
 		btnbackconsultaplat.addActionListener(new ActionListener() {
@@ -590,14 +583,6 @@ public class Restaurante extends JFrame {
 
 
 
-
-
-
-
-
-
-
-
 		consultaplattable.addMouseListener(tableRowMouseListener);
 
 		Timer timer = new Timer(5000, new ActionListener() {
@@ -683,10 +668,6 @@ public class Restaurante extends JFrame {
 
 		//----Crear Platillos-----
 
-
-
-
-
 		Crearplat.setBackground(new Color(255, 128, 0));
 		Crearplat.setBounds(0, 0, 961, 642);
 		//	contentPane.add(Crearplat);
@@ -720,33 +701,33 @@ public class Restaurante extends JFrame {
 		panelcrearplat.add(ingredienteboxcrear);
 
 		JLabel nombreplatcrearlaberl = new JLabel("Nombre del Platillo:");
-		nombreplatcrearlaberl.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		nombreplatcrearlaberl.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		nombreplatcrearlaberl.setBounds(23, 11, 242, 19);
 		panelcrearplat.add(nombreplatcrearlaberl);
 
 		JLabel comboingredcrear = new JLabel("Ingredientes y unidad\r\n:\r\n");
-		comboingredcrear.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		comboingredcrear.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		comboingredcrear.setBounds(23, 74, 265, 37);
 		panelcrearplat.add(comboingredcrear);
 
 		JLabel Descripcioncrearplatlabel = new JLabel("Descripción:");
-		Descripcioncrearplatlabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Descripcioncrearplatlabel.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		Descripcioncrearplatlabel.setBounds(23, 315, 331, 33);
 		panelcrearplat.add(Descripcioncrearplatlabel);
 
 		JLabel lblPreciocrearplat = new JLabel("Precio:");
-		lblPreciocrearplat.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblPreciocrearplat.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		lblPreciocrearplat.setBounds(23, 460, 293, 33);
 		panelcrearplat.add(lblPreciocrearplat);
 
 		JButton btnCrearPlat = new JButton("Crear");
-		btnCrearPlat.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCrearPlat.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnCrearPlat.setBackground(new Color(254, 211, 122));
-		btnCrearPlat.setBounds(404, 526, 150, 43);
+		btnCrearPlat.setBounds(434, 526, 150, 43);
 		panelcrearplat.add(btnCrearPlat);
 
 		JButton btnadjuntarimagen = new JButton("Adjuntar Imagen\r\n");
-		btnadjuntarimagen.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnadjuntarimagen.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		btnadjuntarimagen.setBackground(new Color(254, 211, 122));
 		btnadjuntarimagen.setBounds(704, 444, 211, 43);
 		panelcrearplat.add(btnadjuntarimagen);
@@ -757,39 +738,32 @@ public class Restaurante extends JFrame {
 		panelcrearplat.add(cantidadingrediente2);
 
 		JLabel Cantidadinglbl = new JLabel("Cantidad del ingrediente\r\n");
-		Cantidadinglbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Cantidadinglbl.setBounds(23, 147, 242, 33);
+		Cantidadinglbl.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		Cantidadinglbl.setBounds(23, 147, 300, 33);
 		panelcrearplat.add(Cantidadinglbl);
 
 		JButton btnAadirIngrediente = new JButton("Añadir ingrediente\r\n");
-		btnAadirIngrediente.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnAadirIngrediente.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		btnAadirIngrediente.setBackground(new Color(254, 211, 122));
 		btnAadirIngrediente.setBounds(23, 224, 211, 43);
 		panelcrearplat.add(btnAadirIngrediente);
 
 
-
-
 		JButton btncrearplat2 = new JButton("Crear");
-		btncrearplat2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btncrearplat2.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btncrearplat2.setBackground(new Color(254, 211, 122));
-		btncrearplat2.setBounds(404, 526, 150, 43);
+		btncrearplat2.setBounds(434, 526, 150, 43);
 		panelcrearplat.add(btncrearplat2);
 
 
-
-
-
-
-
 		JButton btnAdjuntarImagen2 = new JButton("Adjuntar Imagen\r\n");
-		btnAdjuntarImagen2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnAdjuntarImagen2.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		btnAdjuntarImagen2.setBackground(new Color(254, 211, 122));
 		btnAdjuntarImagen2.setBounds(704, 444, 211, 43);
 		panelcrearplat.add(btnAdjuntarImagen2);
 
 		JLabel Crearplatlbl = new JLabel("Crear Platillo");
-		Crearplatlbl.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		Crearplatlbl.setFont(new Font("Arial Black", Font.PLAIN, 26));
 		Crearplatlbl.setBounds(387, 0, 227, 40);
 		Crearplat.add(Crearplatlbl);
 
@@ -905,25 +879,8 @@ public class Restaurante extends JFrame {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		JButton btnbackcrearplatillos = new JButton("Back");
-		btnbackcrearplatillos.setBounds(10, 11, 80, 29);
+		JButton btnbackcrearplatillos = new JButton(new ImageIcon("BotonRetroceder.png"));
+		btnbackcrearplatillos.setBounds(10, 11, 35, 33);
 		Crearplat.add(btnbackcrearplatillos);
 
 
@@ -949,13 +906,6 @@ public class Restaurante extends JFrame {
 
 
 
-
-
-
-
-
-
-
 		btnbackcrearplatillos.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -965,16 +915,6 @@ public class Restaurante extends JFrame {
 				revalidate();
 			}
 		});
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1015,33 +955,33 @@ public class Restaurante extends JFrame {
 		paneledplat.add(ingredientebox);
 
 		JLabel nombreplatedilbl = new JLabel("Nombre del Platillo:");
-		nombreplatedilbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		nombreplatedilbl.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		nombreplatedilbl.setBounds(23, 92, 242, 19);
 		paneledplat.add(nombreplatedilbl);
 
 		JLabel lblIngredientes = new JLabel("Ingredientes del platillo:\r\n");
-		lblIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblIngredientes.setBounds(23, 145, 265, 37);
+		lblIngredientes.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		lblIngredientes.setBounds(23, 145, 300, 37);
 		paneledplat.add(lblIngredientes);
 
 		JLabel lblDescripcin = new JLabel("Descripción:");
-		lblDescripcin.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblDescripcin.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		lblDescripcin.setBounds(23, 341, 331, 33);
 		paneledplat.add(lblDescripcin);
 
 		JLabel lblPrecio = new JLabel("Precio:");
-		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblPrecio.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		lblPrecio.setBounds(23, 470, 293, 33);
 		paneledplat.add(lblPrecio);
 
 		JButton btnEditarPlat = new JButton("Editar\r\n");
-		btnEditarPlat.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEditarPlat.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnEditarPlat.setBackground(new Color(254, 211, 122));
 		btnEditarPlat.setBounds(404, 536, 150, 33);
 		paneledplat.add(btnEditarPlat);
 
 		JButton btnAdjuntarImagen = new JButton("Adjuntar Imagen\r\n");
-		btnAdjuntarImagen.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnAdjuntarImagen.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		btnAdjuntarImagen.setBackground(new Color(254, 211, 122));
 		btnAdjuntarImagen.setBounds(553, 391, 211, 43);
 		paneledplat.add(btnAdjuntarImagen);
@@ -1051,54 +991,54 @@ public class Restaurante extends JFrame {
 		paneledplat.add(Platilloaeditarbox);
 
 		JLabel seleccionediplat = new JLabel("Escoja platillo a editar\r\n");
-		seleccionediplat.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		seleccionediplat.setBounds(23, 18, 242, 33);
+		seleccionediplat.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		seleccionediplat.setBounds(23, 18, 300, 33);
 		paneledplat.add(seleccionediplat);
 
 		JButton btnEliminarIngredienteedi = new JButton("Eliminar ingrediente\r\n");
-		btnEliminarIngredienteedi.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEliminarIngredienteedi.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		btnEliminarIngredienteedi.setBackground(new Color(254, 211, 122));
-		btnEliminarIngredienteedi.setBounds(23, 219, 230, 43);
+		btnEliminarIngredienteedi.setBounds(23, 249, 230, 43);
 		paneledplat.add(btnEliminarIngredienteedi);
 
 		JComboBox ingredientebox_1 = new JComboBox();
-		ingredientebox_1.setBounds(475, 179, 372, 33);
+		ingredientebox_1.setBounds(475, 149, 372, 33);
 		paneledplat.add(ingredientebox_1);
 
 		JButton btnediAadirIngrediente = new JButton("Añadir ingrediente\r\n");
-		btnediAadirIngrediente.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnediAadirIngrediente.setFont(new Font("Arial Black", Font.PLAIN, 16));
 		btnediAadirIngrediente.setBackground(new Color(254, 211, 122));
 		btnediAadirIngrediente.setBounds(475, 281, 211, 43);
 		paneledplat.add(btnediAadirIngrediente);
 
 		JLabel comoingreeditarplat = new JLabel("Ingredientes y unidad\r\n:\r\n");
-		comoingreeditarplat.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		comoingreeditarplat.setBounds(475, 145, 265, 37);
+		comoingreeditarplat.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		comoingreeditarplat.setBounds(475, 105, 265, 37);
 		paneledplat.add(comoingreeditarplat);
 
 		textfieldedicantidadingr = new JTextField();
 		textfieldedicantidadingr.setColumns(10);
-		textfieldedicantidadingr.setBounds(475, 244, 372, 33);
+		textfieldedicantidadingr.setBounds(475, 224, 372, 33);
 		paneledplat.add(textfieldedicantidadingr);
 
 		JLabel Cantidadingreedilbl = new JLabel("Cantidad del ingrediente\r\n");
-		Cantidadingreedilbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Cantidadingreedilbl.setBounds(475, 210, 242, 33);
+		Cantidadingreedilbl.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		Cantidadingreedilbl.setBounds(475, 190, 300, 33);
 		paneledplat.add(Cantidadingreedilbl);
 
 		JLabel editarplatlbl = new JLabel("Editar Platillo\r\n");
-		editarplatlbl.setFont(new Font("Tahoma", Font.PLAIN, 27));
+		editarplatlbl.setFont(new Font("Arial Black", Font.PLAIN, 27));
 		editarplatlbl.setBounds(390, 11, 234, 38);
 		EditarPlat.add(editarplatlbl);
 
 		JButton btnEliminarPlatillo = new JButton("Eliminar platillo");
-		btnEliminarPlatillo.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEliminarPlatillo.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnEliminarPlatillo.setBackground(new Color(254, 211, 122));
 		btnEliminarPlatillo.setBounds(475, 48, 211, 33);
 		paneledplat.add(btnEliminarPlatillo);
 
-		JButton btnbackeditarplatillos = new JButton("Back");
-		btnbackeditarplatillos.setBounds(10, 11, 80, 29);
+		JButton btnbackeditarplatillos = new JButton(new ImageIcon("BotonRetroceder.png"));
+		btnbackeditarplatillos.setBounds(10, 11, 35, 33);
 		EditarPlat.add(btnbackeditarplatillos);
 
 
@@ -1158,11 +1098,6 @@ public class Restaurante extends JFrame {
 				}
 			}
 		});
-
-
-
-
-
 
 
 
@@ -1348,13 +1283,6 @@ public class Restaurante extends JFrame {
 
 
 
-
-
-
-
-
-
-
 		btnbackeditarplatillos.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -1432,15 +1360,6 @@ public class Restaurante extends JFrame {
 
 
 
-
-
-
-
-
-
-
-
-
 		//----Platillos ingredientes-----
 
 
@@ -1457,7 +1376,7 @@ public class Restaurante extends JFrame {
 
 
 		JLabel lblingredientes = new JLabel("Ingredientes");
-		lblingredientes.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		lblingredientes.setFont(new Font("Arial Black", Font.PLAIN, 26));
 		lblingredientes.setBounds(403, 0, 316, 52);
 		Platillosconingre.add(lblingredientes);
 
@@ -1474,13 +1393,13 @@ public class Restaurante extends JFrame {
 		panellista.setLayout(null);
 
 		JLabel Detallesingrelbl = new JLabel("Platillos con el ingrediente");
-		Detallesingrelbl.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		Detallesingrelbl.setBounds(37, 11, 390, 61);
+		Detallesingrelbl.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		Detallesingrelbl.setBounds(50, 11, 390, 61);
 		panellista.add(Detallesingrelbl);
 
 		JLabel Tipoingredientelbl = new JLabel("Platillos: ");
-		Tipoingredientelbl.setFont(new Font("Tahoma", Font.PLAIN, 21));
-		Tipoingredientelbl.setBounds(1, 111, 450, 450);
+		Tipoingredientelbl.setFont(new Font("Arial Black", Font.PLAIN, 19));
+		Tipoingredientelbl.setBounds(20, 90, 450, 450);
 		panellista.add(Tipoingredientelbl);
 
 
@@ -1594,8 +1513,8 @@ public class Restaurante extends JFrame {
 		lblPlatillosconingre.setBounds(72, 5, 213, 36);
 		panelcrearingre.add(lblPlatillosconingre);
 
-		JButton btnbackingredientes = new JButton("Back");
-		btnbackingredientes.setBounds(10, 11, 80, 29);
+		JButton btnbackingredientes = new JButton(new ImageIcon("BotonRetroceder.png"));
+		btnbackingredientes.setBounds(10, 11, 35, 33);
 		Platillosconingre.add(btnbackingredientes);
 
 		btnbackingredientes.addActionListener(new ActionListener() {
@@ -1658,25 +1577,6 @@ public class Restaurante extends JFrame {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		//--------------------------------------------ordenes-----------------------------------------------------------
 
 		Ordenes.setLayout(null);
@@ -1698,6 +1598,8 @@ public class Restaurante extends JFrame {
 		panelMenuOrdenes .setBounds(60, 241, 827, 347);
 		panelOrdenes.add(panelMenuOrdenes );
 
+
+
 		JPanel panelMiniOrden = new JPanel();
 		panelMiniOrden.setLayout(null);
 		panelMiniOrden.setBackground(Color.WHITE);
@@ -1711,9 +1613,12 @@ public class Restaurante extends JFrame {
 		IconOrden.setOpaque(true);
 		panelOrdenes.add(IconOrden);
 
+		JLabel logoOrdenes = new JLabel(new ImageIcon("menuordenes.png"));
+		logoOrdenes.setBounds(300,30,350,233);
+		IconOrden.add(logoOrdenes);
 
 		JButton btnConsultarorden = new JButton("Consultar");
-		btnConsultarorden.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnConsultarorden.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnConsultarorden.setBackground(new Color(255, 128, 0));
 		btnConsultarorden.setBounds(112, 95, 217, 60);
 		btnConsultarorden.addActionListener(new ActionListener() {
@@ -1729,7 +1634,7 @@ public class Restaurante extends JFrame {
 		panelMiniOrden.add( btnConsultarorden);
 
 		JButton btnEditarOrdenes = new JButton("Editar");
-		btnEditarOrdenes.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEditarOrdenes.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnEditarOrdenes.setBackground(new Color(255, 128, 0));
 		btnEditarOrdenes.setBounds(112, 198, 217, 60);
 		btnEditarOrdenes.addActionListener(new ActionListener() {
@@ -1745,7 +1650,7 @@ public class Restaurante extends JFrame {
 		panelMiniOrden.add(btnEditarOrdenes);
 
 		JButton btnEliminarOrden = new JButton("Eliminar");
-		btnEliminarOrden.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEliminarOrden.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnEliminarOrden.setBackground(new Color(255, 128, 0));
 		btnEliminarOrden.setBounds(490, 198, 217, 60);
 		btnEliminarOrden.addActionListener(new ActionListener() {
@@ -1761,7 +1666,7 @@ public class Restaurante extends JFrame {
 		panelMiniOrden.add(btnEliminarOrden);
 
 		JButton btnCrearOrden = new JButton("Crear");
-		btnCrearOrden.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCrearOrden.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnCrearOrden.setBackground(new Color(255, 128, 0));
 		btnCrearOrden.setBounds(490, 95, 217, 60);
 		panelMiniOrden.add(btnCrearOrden);
@@ -1777,8 +1682,8 @@ public class Restaurante extends JFrame {
 			}
 		});
 
-		JButton backOrdenes = new JButton("Back");
-		backOrdenes.setBounds(10, 11, 80, 29);
+		JButton backOrdenes = new JButton(new ImageIcon("BotonRetroceder.png"));
+		backOrdenes.setBounds(10, 11, 35, 33);
 		backOrdenes.repaint();
 		backOrdenes.revalidate();
 		backOrdenes.addActionListener(new ActionListener() {
@@ -1797,8 +1702,8 @@ public class Restaurante extends JFrame {
 		CrearOrden.setLayout(null);
 
 		JLabel crearOrdenes = new JLabel("Crear Ordenes");
-		crearOrdenes.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		crearOrdenes.setBounds(400, 65, 311, 50);
+		crearOrdenes.setFont(new Font("Arial Black", Font.PLAIN, 30));
+		crearOrdenes.setBounds(350, 40, 351, 50);
 		CrearOrden.add( crearOrdenes);
 
 		JPanel FondoCrearorden = new JPanel();
@@ -1885,13 +1790,13 @@ public class Restaurante extends JFrame {
 
 		JLabel TotalPrecio = new JLabel("Total: $0");
 		TotalPrecio.setForeground(Color.BLACK);
-		TotalPrecio.setFont(new Font("Comic Sans MS", Font.BOLD, 26));
+		TotalPrecio.setFont(new Font("Arial Black", Font.BOLD, 26));
 		TotalPrecio.setBounds(10, 383, 138, 43);
 		panelCrearOrden.add(TotalPrecio);
 
 		JLabel TotalPlatillos = new JLabel("Total de platillos:0");
 		TotalPlatillos.setForeground(Color.BLACK);
-		TotalPlatillos.setFont(new Font("Comic Sans MS", Font.BOLD, 26));
+		TotalPlatillos.setFont(new Font("Arial Black", Font.BOLD, 20));
 		TotalPlatillos.setBounds(242, 383, 269, 43);
 		panelCrearOrden.add(TotalPlatillos);
 
@@ -1992,8 +1897,8 @@ public class Restaurante extends JFrame {
 
 
 
-		JButton backCCord = new JButton("Back");
-		backCCord.setBounds(10, 11, 80, 29);
+		JButton backCCord = new JButton(new ImageIcon("BotonRetroceder.png"));
+		backCCord.setBounds(10, 11, 35, 33);
 		backCCord.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -2698,22 +2603,9 @@ public class Restaurante extends JFrame {
 
 
 
-
-
 		JButton btnbackinvconsultar = new JButton("Back");
 		btnbackinvconsultar.setBounds(10, 11, 80, 29);
 		ConsultaInv.add(btnbackinvconsultar);
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2728,19 +2620,6 @@ public class Restaurante extends JFrame {
 				revalidate();
 			}
 		});
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2804,15 +2683,6 @@ public class Restaurante extends JFrame {
 		editingPanel.setBackground(new Color(255, 128, 0));
 		editingPanel.setBounds(0, 0, 961, 642);
 		editingPanel.setLayout(null);
-
-
-
-
-
-
-
-
-
 
 
 		JLabel lblnombrearticulonuevoinv2 = new JLabel("Nombre del articulo:");
