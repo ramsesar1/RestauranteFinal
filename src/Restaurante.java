@@ -454,6 +454,8 @@ public class Restaurante extends JFrame {
 		btnIngredientes2.setBounds(10, 11, 311, 48);
 		panel_3.add(btnIngredientes2);
 
+
+
 		String[] nombrecolumns = {"Platillo"};
 		Object[][] data = {
 
@@ -540,10 +542,98 @@ public class Restaurante extends JFrame {
 				}
 			}
 		};
-// Add the custom MouseListener to the JTable
+
+		btnIngredientes2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int selectedRowIndex = consultaplattable.getSelectedRow();
+
+				if (selectedRowIndex != -1) {
+					String tableName = tablemodelconsultaplat.getValueAt(selectedRowIndex, 0).toString();
+
+					try {
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "root");
+						Statement statement = connection.createStatement();
+						ResultSet resultSet = statement.executeQuery("SELECT * FROM " + tableName);
+
+						StringBuilder ingredientesBuilder = new StringBuilder();
+						while (resultSet.next()) {
+							String ingredientes = resultSet.getString("Ingrediente");
+							ingredientesBuilder.append(ingredientes).append("\n");
+						}
+						String allIngredientes = ingredientesBuilder.toString().trim();
+
+						JFrame ingredientsFrame = new JFrame("Ingredientes del Platillo");
+						ingredientsFrame.setSize(400, 300);
+						ingredientsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+						ingredientsFrame.setLayout(new BorderLayout());
+
+						JTextArea textArea = new JTextArea(allIngredientes);
+						textArea.setFont(new Font("Tahoma", Font.PLAIN, 16));
+						textArea.setEditable(false);
+						JScrollPane scrollPane = new JScrollPane(textArea);
+						ingredientsFrame.add(scrollPane, BorderLayout.CENTER);
+
+						JButton btnClose = new JButton("Close");
+						btnClose.addActionListener(new ActionListener() {
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								ingredientsFrame.setVisible(false);
+								ingredientsFrame.dispose();
+							}
+						});
+						ingredientsFrame.add(btnClose, BorderLayout.SOUTH);
+
+						ingredientsFrame.setVisible(true);
+
+						resultSet.close();
+						statement.close();
+						connection.close();
+					} catch (SQLException ex) {
+						ex.printStackTrace();
+					}
+				}
+			}
+		});
+
+
+
+
+
+
+
+
+
+
+
 		consultaplattable.addMouseListener(tableRowMouseListener);
 
+		Timer timer = new Timer(5000, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
 
+				tablemodelconsultaplat.setRowCount(0);
+
+				try {
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "root");
+					Statement statement = connection.createStatement();
+					ResultSet tableResultSet = statement.executeQuery("SHOW TABLES");
+
+					while (tableResultSet.next()) {
+						String tableName = tableResultSet.getString(1);
+						tablemodelconsultaplat.addRow(new Object[]{tableName});
+					}
+
+					tableResultSet.close();
+					statement.close();
+					connection.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
+
+		timer.start();
 
 
 
@@ -843,7 +933,6 @@ public class Restaurante extends JFrame {
 			String query = "SELECT Nombre, Unidad FROM inventario";
 			ResultSet resultSet = statement.executeQuery(query);
 
-			// Iterate through the result set and add the "Nombre" and "Unidad" values to the JComboBox
 			while (resultSet.next()) {
 				String nombre = resultSet.getString("Nombre");
 				String unidad = resultSet.getString("Unidad");
@@ -1334,56 +1423,51 @@ public class Restaurante extends JFrame {
 		txtrDescripcinQuesoImitacin.setBounds(66, 228, 312, 249);
 		panellista.add(txtrDescripcinQuesoImitacin);
 
-		JPanel panel_10 = new JPanel();
-		panel_10.setBackground(new Color(255, 128, 0));
-		panel_10.setBounds(35, 40, 288, 519);
-		panelcrearingre.add(panel_10);
-		panel_10.setLayout(null);
+		JPanel panelconsultadeingredientes = new JPanel();
+		panelconsultadeingredientes.setBackground(new Color(255, 128, 0));
+		panelconsultadeingredientes.setBounds(35, 40, 288, 519);
+		panelcrearingre.add(panelconsultadeingredientes);
+		panelconsultadeingredientes.setLayout(null);
 
-		JButton Ingredienteprueba2 = new JButton("Queso amarillo\r\n");
-		Ingredienteprueba2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Ingredienteprueba2.setBounds(10, 11, 268, 53);
-		panel_10.add(Ingredienteprueba2);
+		JTable ingredientTable = new JTable();
+		ingredientTable.setModel(new DefaultTableModel());
 
-		JButton Ingredienteprueba1 = new JButton("Queso mozarella");
-		Ingredienteprueba1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Ingredienteprueba1.setBounds(10, 75, 268, 53);
-		panel_10.add(Ingredienteprueba1);
+		JScrollPane ingredientScrollPane = new JScrollPane(ingredientTable);
+		ingredientScrollPane.setBounds(0, 0, panelconsultadeingredientes.getWidth(), panelconsultadeingredientes.getHeight());
+		panelconsultadeingredientes.add(ingredientScrollPane);
 
-		JButton btnNewButton_1_2 = new JButton("Hamburguesa\r\n");
-		btnNewButton_1_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton_1_2.setBounds(10, 75, 268, 53);
-		panel_10.add(btnNewButton_1_2);
+		try {
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT Nombre FROM inventario");
 
-		JButton Ingredienteprueba4 = new JButton("Salsa de tomate");
-		Ingredienteprueba4.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Ingredienteprueba4.setBounds(10, 203, 268, 53);
-		panel_10.add(Ingredienteprueba4);
+			DefaultTableModel ingredientTableModel = new DefaultTableModel();
+			ingredientTableModel.addColumn("Nombre");
+			ingredientTable.setModel(ingredientTableModel);
 
-		JButton Ingredienteprueba3 = new JButton("Tomate");
-		Ingredienteprueba3.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Ingredienteprueba3.setBounds(10, 139, 268, 53);
-		panel_10.add(Ingredienteprueba3);
+			while (resultSet.next()) {
+				String nombre = resultSet.getString("Nombre");
+				ingredientTableModel.addRow(new Object[]{nombre});
+			}
 
-		JButton Ingredienteprueba6 = new JButton("Camarones");
-		Ingredienteprueba6.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Ingredienteprueba6.setBounds(10, 331, 268, 53);
-		panel_10.add(Ingredienteprueba6);
+			resultSet.close();
+			statement.close();
+			connection.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
 
-		JButton Ingredienteprueba5 = new JButton("Pepperoni");
-		Ingredienteprueba5.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Ingredienteprueba5.setBounds(10, 267, 268, 53);
-		panel_10.add(Ingredienteprueba5);
 
-		JButton Ingredienteprueba7 = new JButton("Arroz");
-		Ingredienteprueba7.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Ingredienteprueba7.setBounds(10, 395, 268, 53);
-		panel_10.add(Ingredienteprueba7);
 
-		JButton Ingredienteprueba8 = new JButton("Harina de trigo");
-		Ingredienteprueba8.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Ingredienteprueba8.setBounds(10, 459, 268, 53);
-		panel_10.add(Ingredienteprueba8);
+
+
+
+
+
+
+
+
+
 
 		JLabel lblPlatillosconingre = new JLabel("Platillos con el ingrediente");
 		lblPlatillosconingre.setFont(new Font("Tahoma", Font.PLAIN, 18));

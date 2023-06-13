@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="Se actualizan los combobox en clientes edicion y consulta, estos se actualizan constantemente, y se hacen validaciones en editar platillo, y la eliminacion de platillos por completo">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_5_2023_2_09_AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_5_2023_2_09_AM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="Combobox y tablas de inventario siempre estan actualizadas, al seleccionar un platillo a editar los campos se llenan, al picar consultar el platillo muestra la informacion correcta, se crea la columna descripcion y que esta sea editable tambien">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante.java" afterDir="false" />
     </list>
@@ -81,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686563971019</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Combobox y tablas de inventario siempre estan actualizadas, al seleccionar un platillo a editar los campos se llenan, al picar consultar el platillo muestra la informacion correcta, se crea la columna descripcion y que esta sea editable tambien">
+      <created>1686625122898</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686625122898</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -90,14 +95,15 @@
     <MESSAGE value="Aun faltan validaciones, se añade la funcion para crear platillos, seleccionar los ingredientes que usa, editar platillo, y añadir ingredientes a platillo existente" />
     <MESSAGE value="Se actualizan los combobox en clientes edicion y consulta, estos se actualizan constantemente" />
     <MESSAGE value="Se actualizan los combobox en clientes edicion y consulta, estos se actualizan constantemente, y se hacen validaciones en editar platillo, y la eliminacion de platillos por completo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se actualizan los combobox en clientes edicion y consulta, estos se actualizan constantemente, y se hacen validaciones en editar platillo, y la eliminacion de platillos por completo" />
+    <MESSAGE value="Combobox y tablas de inventario siempre estan actualizadas, al seleccionar un platillo a editar los campos se llenan, al picar consultar el platillo muestra la informacion correcta, se crea la columna descripcion y que esta sea editable tambien" />
+    <option name="LAST_COMMIT_MESSAGE" value="Combobox y tablas de inventario siempre estan actualizadas, al seleccionar un platillo a editar los campos se llenan, al picar consultar el platillo muestra la informacion correcta, se crea la columna descripcion y que esta sea editable tambien" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Restaurante.java</url>
-          <line>4197</line>
+          <line>4309</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
