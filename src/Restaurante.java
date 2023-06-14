@@ -2486,15 +2486,15 @@ public class Restaurante extends JFrame {
 		ConsultaInv.setLayout(null);
 
 		JLabel consultarInventario = new JLabel("Consultar Inventario");
-		consultarInventario.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		consultarInventario.setFont(new Font("Arial Black", Font.PLAIN, 24));
 		consultarInventario.setBackground(new Color(128, 128, 0));
 		consultarInventario.setForeground(new Color(0, 0, 0));
-		consultarInventario.setBounds(331, 23, 243, 58);
+		consultarInventario.setBounds(331, 23, 300, 58);
 		ConsultaInv.add(consultarInventario);
 
 		JLabel lblArticulosporacabar = new JLabel("Articulos por agotarse\r\n");
 		lblArticulosporacabar.setForeground(new Color(255, 255, 255));
-		lblArticulosporacabar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblArticulosporacabar.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		lblArticulosporacabar.setBounds(354, 74, 279, 29);
 		ConsultaInv.add(lblArticulosporacabar);
 
@@ -2515,20 +2515,24 @@ public class Restaurante extends JFrame {
 		ConsultaInv.add(widget4);
 
 		JPanel paneldetablainventario = new JPanel();
-		paneldetablainventario.setBounds(34, 277, 892, 36);
+		paneldetablainventario.setBounds(34, 277, 892, 35);
+		paneldetablainventario.setBackground(Color.gray);
+		paneldetablainventario.setLayout(null);
 		ConsultaInv.add(paneldetablainventario);
-		paneldetablainventario.setLayout(new GridLayout(0, 3, 0, 0));
 
 		JLabel articulodeinventario = new JLabel("Articulo");
-		articulodeinventario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		articulodeinventario.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		articulodeinventario.setBounds(110,-5,100,50);
 		paneldetablainventario.add(articulodeinventario);
 
 		JLabel tipodeunidadlbl = new JLabel("Unidad");
-		tipodeunidadlbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		tipodeunidadlbl.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		tipodeunidadlbl.setBounds(400,-5,100,50);
 		paneldetablainventario.add(tipodeunidadlbl);
 
 		JLabel cantidadeninvlbl = new JLabel("Cantidad");
-		cantidadeninvlbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		cantidadeninvlbl.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		cantidadeninvlbl.setBounds(695,-5,100,50);
 		paneldetablainventario.add(cantidadeninvlbl);
 
 
@@ -2576,12 +2580,9 @@ public class Restaurante extends JFrame {
 
 
 
-		JButton btnbackinvconsultar = new JButton("Back");
-		btnbackinvconsultar.setBounds(10, 11, 80, 29);
+		JButton btnbackinvconsultar = new JButton(new ImageIcon("BotonRetroceder.png"));
+		btnbackinvconsultar.setBounds(10, 11, 35, 33);
 		ConsultaInv.add(btnbackinvconsultar);
-
-
-
 
 
 		btnbackinvconsultar.addActionListener(new ActionListener() {
@@ -2607,8 +2608,8 @@ public class Restaurante extends JFrame {
 
 
 		JLabel Editarinvlbl = new JLabel("Editar Inventario\r\n");
-		Editarinvlbl.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		Editarinvlbl.setBounds(388, -16, 214, 115);
+		Editarinvlbl.setFont(new Font("Arial Black", Font.PLAIN, 30));
+		Editarinvlbl.setBounds(300, 40, 350, 115);
 		EditarINv.add(Editarinvlbl);
 
 		JPanel Articuledipan = new JPanel();
@@ -2622,62 +2623,77 @@ public class Restaurante extends JFrame {
 		JTable tablaeditarart = new JTable(tablamodelinvconsulta);
 
 		JScrollPane scrollPaneediart = new JScrollPane(tablaeditarart);
-
 		Articuledipan.setLayout(new BorderLayout());
 		Articuledipan.add(scrollPaneediart, BorderLayout.CENTER);
 
 
-
-
 		JPanel panel_1EDI = new JPanel();
 		panel_1EDI.setBounds(76, 155, 679, 48);
+		panel_1EDI.setBackground(Color.gray);
 		EditarINv.add(panel_1EDI);
 		panel_1EDI.setLayout(null);
 
 		JLabel Ediartlbl2 = new JLabel("Articulo a Editar");
-		Ediartlbl2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Ediartlbl2.setBounds(262, 0, 210, 43);
+		Ediartlbl2.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		Ediartlbl2.setBounds(262, 0, 250, 43);
 		panel_1EDI.add(Ediartlbl2);
 
-		JButton btneditarart = new JButton("Editar2\r\n");
-		btneditarart.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btneditarart.setBounds(798, 224, 136, 48);
+		JButton btneditarart = new JButton("Editar");
+		btneditarart.setBounds(770, 224, 166, 30);
 		EditarINv.add(btneditarart);
 
 		JComboBox editarartbox = new JComboBox();
-		editarartbox.setBounds(798, 155, 136, 48);
+		editarartbox.setBounds(770, 170, 160, 30);
 		EditarINv.add(editarartbox);
 
-		JButton btnbackeditarinv = new JButton("Back");
-		btnbackeditarinv.setBounds(10, 11, 80, 29);
+		JButton btnbackeditarinv = new JButton(new ImageIcon("BotonRetroceder.png"));
+		btnbackeditarinv.setBounds(10, 11, 35, 33);
 		EditarINv.add(btnbackeditarinv);
+
+		//-----Edicion--------
 
 		JPanel editingPanel = new JPanel();
 		editingPanel.setBackground(new Color(255, 128, 0));
 		editingPanel.setBounds(0, 0, 961, 642);
 		editingPanel.setLayout(null);
 
+		JLabel tituloEditardentro = new JLabel("Editar Articulo");
+		tituloEditardentro.setBounds(380,50,300,50);
+		tituloEditardentro.setFont(new Font("Arial Black", Font.PLAIN, 30));
+		editingPanel.add(tituloEditardentro);
+
+		JPanel panel2 = new JPanel();
+		panel2.setBackground(new Color(255, 218, 168));
+		panel2.setBounds(10, 104, 932, 473);
+		NuevoArticulo.add(panel2);
+		panel2.setLayout(null);
+
+		JPanel editarInventario2 = new JPanel();
+		editarInventario2.setBackground(new Color(255, 218, 168));
+		editarInventario2.setBounds(10, 104, 932, 473);
+		editarInventario2.setLayout(null);
+		editingPanel.add(editarInventario2);
 
 		JLabel lblnombrearticulonuevoinv2 = new JLabel("Nombre del articulo:");
-		lblnombrearticulonuevoinv2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblnombrearticulonuevoinv2.setBounds(358, 23, 250, 43);
-		editingPanel.add(lblnombrearticulonuevoinv2);
+		lblnombrearticulonuevoinv2.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		lblnombrearticulonuevoinv2.setBounds(358, 23, 300, 43);
+		editarInventario2.add(lblnombrearticulonuevoinv2);
 
 		JTextField textField3 = new JTextField();
 		textField3.setBounds(358, 62, 238, 33);
-		editingPanel.add(textField3);
+		editarInventario2.add(textField3);
 		textField3.setColumns(10);
 
 
 		JLabel unidadartbox4 = new JLabel("Tipo de unidad:");
-		unidadartbox4.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		unidadartbox4.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		unidadartbox4.setBounds(358, 100, 250, 43);
-		editingPanel.add(unidadartbox4);
+		editarInventario2.add(unidadartbox4);
 
 
 		JComboBox<String> comboBoxunidad2 = new JComboBox<>();
 		comboBoxunidad2.setBounds(358, 143, 238, 30);
-		editingPanel.add(comboBoxunidad2);
+		editarInventario2.add(comboBoxunidad2);
 
 		comboBoxunidad2.addItem("kg");
 		comboBoxunidad2.addItem("L");
@@ -2687,13 +2703,13 @@ public class Restaurante extends JFrame {
 
 
 		JLabel colorwidgetbox2 = new JLabel("Color del widget:");
-		colorwidgetbox2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		colorwidgetbox2.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		colorwidgetbox2.setBounds(358, 182, 250, 43);
-		editingPanel.add(colorwidgetbox2);
+		editarInventario2.add(colorwidgetbox2);
 
 		JComboBox<String> comboboxcolor2 = new JComboBox<>();
 		comboboxcolor2.setBounds(358, 221, 238, 30);
-		editingPanel.add(comboboxcolor2);
+		editarInventario2.add(comboboxcolor2);
 
 		comboboxcolor2.addItem("Blanco");
 		comboboxcolor2.addItem("Amarillo");
@@ -2704,20 +2720,20 @@ public class Restaurante extends JFrame {
 		comboboxcolor2.addItem("Morado");
 
 		JLabel cantidaddelarticulo2 = new JLabel("Cantidad de articulo:");
-		cantidaddelarticulo2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		cantidaddelarticulo2.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		cantidaddelarticulo2.setBounds(358, 272, 250, 43);
-		editingPanel.add(cantidaddelarticulo2);
+		editarInventario2.add(cantidaddelarticulo2);
 
 		JTextField textField_21 = new JTextField();
 		textField_21.setColumns(10);
 		textField_21.setBounds(358, 315, 238, 33);
-		editingPanel.add(textField_21);
+		editarInventario2.add(textField_21);
 
 		JButton editararticulobtn = new JButton("Editar");
 		editararticulobtn.setBackground(new Color(255, 128, 64));
-		editararticulobtn.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		editararticulobtn.setFont(new Font("Arial Black", Font.PLAIN, 18));
 		editararticulobtn.setBounds(411, 419, 124, 43);
-		editingPanel.add(editararticulobtn);
+		editarInventario2.add(editararticulobtn);
 
 
 
@@ -2789,8 +2805,8 @@ public class Restaurante extends JFrame {
 		});
 
 
-		JButton backButton = new JButton("Back");
-		backButton.setBounds(10, 11, 80, 29);
+		JButton backButton = new JButton(new ImageIcon("BotonRetroceder.png"));
+		backButton.setBounds(10, 11, 35, 33);
 		editingPanel.add(backButton);
 		btneditarart.addActionListener(new ActionListener() {
 			@Override
@@ -2887,35 +2903,29 @@ public class Restaurante extends JFrame {
 		EliminarINv.setLayout(null);
 
 
-
-
 		JPanel panel2eliminv = new JPanel();
 		panel2eliminv.setBounds(76, 155, 679, 48);
+		panel2eliminv.setBackground(Color.gray);
 		EliminarINv.add(panel2eliminv);
 		panel2eliminv.setLayout(null);
 
 		JLabel lblarticuloinv = new JLabel("Articulo a Eliminar");
-		lblarticuloinv.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblarticuloinv.setBounds(239, 0, 210, 43);
+		lblarticuloinv.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		lblarticuloinv.setBounds(260, 5, 210, 43);
 		panel2eliminv.add(lblarticuloinv);
 
 		JComboBox eliminarartbox = new JComboBox();
-		eliminarartbox.setBounds(802, 155, 136, 48);
+		eliminarartbox.setBounds(770, 175, 160, 30);
 		EliminarINv.add(eliminarartbox);
 
 		JButton btneliminarart = new JButton("Eliminar\r\n");
-		btneliminarart.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btneliminarart.setBounds(802, 224, 136, 48);
+		btneliminarart.setBounds(770, 224, 160, 30);
 		EliminarINv.add(btneliminarart);
 
 
-
-
-
-
 		JLabel Eliminarinvlbl = new JLabel("Eliminar Inventario\r\n");
-		Eliminarinvlbl.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		Eliminarinvlbl.setBounds(388, -16, 252, 115);
+		Eliminarinvlbl.setFont(new Font("Arial Black", Font.PLAIN, 30));
+		Eliminarinvlbl.setBounds(290, 40, 350, 115);
 		EliminarINv.add(Eliminarinvlbl);
 
 		JPanel eliminarinvpnl2 = new JPanel();
@@ -3022,8 +3032,8 @@ public class Restaurante extends JFrame {
 
 
 
-		JButton btnbackeliminarinventario = new JButton("Back");
-		btnbackeliminarinventario.setBounds(10, 11, 80, 29);
+		JButton btnbackeliminarinventario = new JButton(new ImageIcon("BotonRetroceder.png"));
+		btnbackeliminarinventario.setBounds(10, 11, 35, 33);
 		EliminarINv.add(btnbackeliminarinventario);
 
 		btnbackeliminarinventario.addActionListener(new ActionListener() {
@@ -3050,18 +3060,18 @@ public class Restaurante extends JFrame {
 
 
 		JLabel lblnuevoarticulo = new JLabel("Nuevo Articulo\r\n");
-		lblnuevoarticulo.setFont(new Font("Tahoma", Font.PLAIN, 27));
-		lblnuevoarticulo.setBounds(393, 11, 311, 48);
+		lblnuevoarticulo.setFont(new Font("Arial Black", Font.PLAIN, 30));
+		lblnuevoarticulo.setBounds(370, 25, 311, 48);
 		NuevoArticulo.add(lblnuevoarticulo);
 
-		JPanel panel2 = new JPanel();
-		panel2.setBackground(new Color(255, 218, 168));
-		panel2.setBounds(10, 104, 941, 473);
-		NuevoArticulo.add(panel2);
-		panel2.setLayout(null);
+		JPanel panelInventarioCrear = new JPanel();
+		panelInventarioCrear.setBackground(new Color(255, 218, 168));
+		panelInventarioCrear.setBounds(10, 104, 932, 473);
+		NuevoArticulo.add(panelInventarioCrear);
+		panelInventarioCrear.setLayout(null);
 
 		JLabel lblnombrearticulonuevoinv = new JLabel("Nombre del articulo:");
-		lblnombrearticulonuevoinv.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblnombrearticulonuevoinv.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		lblnombrearticulonuevoinv.setBounds(358, 23, 250, 43);
 		panel2.add(lblnombrearticulonuevoinv);
 
@@ -3072,7 +3082,7 @@ public class Restaurante extends JFrame {
 
 
 		JLabel unidadartbox = new JLabel("Tipo de unidad:");
-		unidadartbox.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		unidadartbox.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		unidadartbox.setBounds(358, 100, 250, 43);
 		panel2.add(unidadartbox);
 
@@ -3087,9 +3097,8 @@ public class Restaurante extends JFrame {
 		comboBoxunidad.addItem("2L");
 
 
-
 		JLabel colorwidgetbox = new JLabel("Color del widget:");
-		colorwidgetbox.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		colorwidgetbox.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		colorwidgetbox.setBounds(358, 182, 250, 43);
 		panel2.add(colorwidgetbox);
 
@@ -3106,8 +3115,8 @@ public class Restaurante extends JFrame {
 		comboboxcolor.addItem("Morado");
 
 		JLabel cantidaddelarticulo = new JLabel("Cantidad de articulo:");
-		cantidaddelarticulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		cantidaddelarticulo.setBounds(358, 272, 250, 43);
+		cantidaddelarticulo.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		cantidaddelarticulo.setBounds(358, 272, 350, 43);
 		panel2.add(cantidaddelarticulo);
 
 		JTextField textField_1 = new JTextField();
@@ -3117,8 +3126,8 @@ public class Restaurante extends JFrame {
 
 		JButton Creararticulobtn = new JButton("Crear");
 		Creararticulobtn.setBackground(new Color(255, 128, 64));
-		Creararticulobtn.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Creararticulobtn.setBounds(411, 419, 124, 43);
+		Creararticulobtn.setFont(new Font("Arial Black", Font.PLAIN, 16));
+		Creararticulobtn.setBounds(405, 419, 124, 43);
 		panel2.add(Creararticulobtn);
 
 		Creararticulobtn.addActionListener(new ActionListener() {
@@ -3173,10 +3182,8 @@ public class Restaurante extends JFrame {
 
 
 
-
-
-		JButton btnbackcreararticuloinv = new JButton("Back");
-		btnbackcreararticuloinv.setBounds(10, 11, 80, 29);
+		JButton btnbackcreararticuloinv = new JButton(new ImageIcon("BotonRetroceder.png"));
+		btnbackcreararticuloinv.setBounds(10, 11, 35, 33);
 		NuevoArticulo.add(btnbackcreararticuloinv);
 
 		btnbackcreararticuloinv.addActionListener(new ActionListener() {
