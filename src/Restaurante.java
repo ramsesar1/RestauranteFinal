@@ -415,7 +415,7 @@ public class Restaurante extends JFrame {
 
 		JLabel lblNewLabel_2_1_2 = new JLabel("Precio: ");
 		lblNewLabel_2_1_2.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		lblNewLabel_2_1_2.setBounds(22, 389, 132, 61);
+		lblNewLabel_2_1_2.setBounds(22, 389, 400, 61);
 		panelplati_1.add(lblNewLabel_2_1_2);
 
 		JTextArea txtrDescripcinDescubreNuestro = new JTextArea();
@@ -1497,17 +1497,6 @@ public class Restaurante extends JFrame {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 		JLabel lblPlatillosconingre = new JLabel("Platillos con el ingrediente");
 		lblPlatillosconingre.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblPlatillosconingre.setBounds(72, 5, 213, 36);
@@ -1619,6 +1608,7 @@ public class Restaurante extends JFrame {
 
 		JButton btnConsultarorden = new JButton("Consultar");
 		btnConsultarorden.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		btnConsultarorden.setFocusable(false);
 		btnConsultarorden.setBackground(new Color(255, 128, 0));
 		btnConsultarorden.setBounds(112, 95, 217, 60);
 		btnConsultarorden.addActionListener(new ActionListener() {
@@ -1636,6 +1626,7 @@ public class Restaurante extends JFrame {
 		JButton btnEditarOrdenes = new JButton("Editar");
 		btnEditarOrdenes.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnEditarOrdenes.setBackground(new Color(255, 128, 0));
+		btnEditarOrdenes.setFocusable(false);
 		btnEditarOrdenes.setBounds(112, 198, 217, 60);
 		btnEditarOrdenes.addActionListener(new ActionListener() {
 			@Override
@@ -1652,6 +1643,7 @@ public class Restaurante extends JFrame {
 		JButton btnEliminarOrden = new JButton("Eliminar");
 		btnEliminarOrden.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnEliminarOrden.setBackground(new Color(255, 128, 0));
+		btnEliminarOrden.setFocusable(false);
 		btnEliminarOrden.setBounds(490, 198, 217, 60);
 		btnEliminarOrden.addActionListener(new ActionListener() {
 			@Override
@@ -1668,6 +1660,7 @@ public class Restaurante extends JFrame {
 		JButton btnCrearOrden = new JButton("Crear");
 		btnCrearOrden.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnCrearOrden.setBackground(new Color(255, 128, 0));
+		btnCrearOrden.setFocusable(false);
 		btnCrearOrden.setBounds(490, 95, 217, 60);
 		panelMiniOrden.add(btnCrearOrden);
 
@@ -1911,6 +1904,7 @@ public class Restaurante extends JFrame {
 		FondoCrearorden.add(backCCord);
 
 		//------pantalla edicion de Orden------
+
 		EditarOrden.setLayout(null);
 
 		JPanel EditarOrdenes = new JPanel();
@@ -1931,7 +1925,7 @@ public class Restaurante extends JFrame {
 
 		DefaultComboBoxModel<String> comboBoxModelEditarOrd = new DefaultComboBoxModel<>();
 		JComboBox<String> comboBoxEditarOrd = new JComboBox<>(comboBoxModelEditarOrd);
-		comboBoxEditarOrd.setBounds(757, 257, 140, 30);
+		comboBoxEditarOrd.setBounds(757, 257, 160, 30);
 		EditarOrdenes.add(comboBoxEditarOrd);
 
 		JButton btnEditarTablaOrd = new JButton("Editar Orden");
@@ -1959,17 +1953,17 @@ public class Restaurante extends JFrame {
 
 		JLabel tituloEditOrd = new JLabel("Orden a Editar");
 		tituloEditOrd .setFont(new Font("Arial Black", Font.PLAIN, 16));
-		tituloEditOrd .setBounds(210, 11, 190, 20);
+		tituloEditOrd .setBounds(250, 11, 190, 20);
 		panelEditarOrd2.add(tituloEditOrd );
 
 		JLabel Editartitulo = new JLabel("Editar Ordenes");
-		Editartitulo .setFont(new Font("Arial Black", Font.PLAIN, 20));
-		Editartitulo .setBounds(350, 137, 220, 50);
+		Editartitulo .setFont(new Font("Arial Black", Font.PLAIN, 30));
+		Editartitulo .setBounds(330, 137, 300, 50);
 		EditarOrdenes.add(Editartitulo );
 
 
-		JButton backETOrd = new JButton("Back");
-		backETOrd.setBounds(10, 11, 80, 29);
+		JButton backETOrd = new JButton(new ImageIcon("BotonRetroceder.png"));
+		backETOrd.setBounds(10, 11, 35, 33);
 		backETOrd.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -2067,13 +2061,13 @@ public class Restaurante extends JFrame {
 
 		JLabel TotalPrecioEdit = new JLabel("Total: $0");
 		TotalPrecioEdit.setForeground(Color.BLACK);
-		TotalPrecioEdit.setFont(new Font("Comic Sans MS", Font.BOLD, 26));
+		TotalPrecioEdit.setFont(new Font("Arial Black", Font.BOLD, 24));
 		TotalPrecioEdit.setBounds(10, 383, 138, 43);
 		EditOrdenes2 .add(TotalPrecioEdit);
 
 		JLabel TotalPlatillosEdit = new JLabel("Total de platillos:0");
 		TotalPlatillosEdit.setForeground(Color.BLACK);
-		TotalPlatillosEdit.setFont(new Font("Comic Sans MS", Font.BOLD, 26));
+		TotalPlatillosEdit.setFont(new Font("Arial Black", Font.BOLD, 21));
 		TotalPlatillosEdit.setBounds(242, 383, 269, 43);
 		EditOrdenes2 .add(TotalPlatillosEdit);
 
@@ -2173,12 +2167,12 @@ public class Restaurante extends JFrame {
 
 
 		JLabel OrdenesEdiTitulo = new JLabel("Editar Orden");
-		OrdenesEdiTitulo.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		OrdenesEdiTitulo.setBounds(380, 55, 220, 50);
+		OrdenesEdiTitulo.setFont(new Font("Arial Black", Font.PLAIN, 30));
+		OrdenesEdiTitulo.setBounds(350, 55, 300, 50);
 		EditOrdenes1.add(OrdenesEdiTitulo);
 
-		JButton backEditOrd = new JButton("Back");
-		backEditOrd .setBounds(10, 11, 80, 29);
+		JButton backEditOrd = new JButton(new ImageIcon("BotonRetroceder.png"));
+		backEditOrd .setBounds(10, 11, 35, 33);
 		backEditOrd .addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -2215,7 +2209,7 @@ public class Restaurante extends JFrame {
 
 		DefaultComboBoxModel<String> comboBoxModelConsultaOrd = new DefaultComboBoxModel<>();
 		JComboBox<String> comboBoxConsultaOrd = new JComboBox<>(comboBoxModelConsultaOrd);
-		comboBoxConsultaOrd.setBounds(757, 257, 140, 30);
+		comboBoxConsultaOrd.setBounds(757, 257, 160, 30);
 		consultarOrdenes1.add(comboBoxConsultaOrd);
 
 		JButton btnConsultaTablaOrd = new JButton("Consultar Orden");
@@ -2241,16 +2235,16 @@ public class Restaurante extends JFrame {
 
 		JLabel tituloConsult = new JLabel("Orden a Consultar");
 		tituloConsult.setFont(new Font("Arial Black", Font.PLAIN, 16));
-		tituloConsult.setBounds(210, 11, 190, 20);
+		tituloConsult.setBounds(230, 11, 190, 20);
 		panelConsultaOrd2.add(tituloConsult);
 
 		JLabel Ordenestitulo = new JLabel("Consultar Ordenes");
-		Ordenestitulo .setFont(new Font("Arial Black", Font.PLAIN, 20));
-		Ordenestitulo .setBounds(350, 137, 220, 50);
+		Ordenestitulo .setFont(new Font("Arial Black", Font.PLAIN, 30));
+		Ordenestitulo .setBounds(300, 137, 350, 50);
 		consultarOrdenes1.add(Ordenestitulo );
 
-		JButton backConsultaOrder = new JButton("Back");
-		backConsultaOrder.setBounds(10, 11, 80, 29);
+		JButton backConsultaOrder = new JButton(new ImageIcon("BotonRetroceder.png"));
+		backConsultaOrder.setBounds(10, 11, 35, 33);
 		backConsultaOrder.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -2261,6 +2255,7 @@ public class Restaurante extends JFrame {
 			}
 		});
 		consultarOrdenes1.add(backConsultaOrder);
+
 		//----panel consultar Ordenes----
 
 		PanelConsultaOrden.setLayout(null);
@@ -2271,7 +2266,7 @@ public class Restaurante extends JFrame {
 		infoOrdenes.setLayout(null);
 		PanelConsultaOrden.add(infoOrdenes);
 
-		JLabel infoTituloOrden = new JLabel("Informacion de la orden");
+		JLabel infoTituloOrden = new JLabel("Informacion de la Orden");
 		infoTituloOrden.setBounds(270,70,400,50);
 		infoTituloOrden.setFont(new Font("Arial Black", Font.PLAIN, 30));
 		infoOrdenes.add(infoTituloOrden);
@@ -2291,8 +2286,8 @@ public class Restaurante extends JFrame {
 		scrollPaneInfoOrden.setBounds(0, 20, 620, 230);
 		FondoInfoOrden2.add(scrollPaneInfoOrden);
 
-		JButton backConsultaInfoOrder = new JButton("Back");
-		backConsultaInfoOrder.setBounds(10, 11, 80, 29);
+		JButton backConsultaInfoOrder = new JButton(new ImageIcon("BotonRetroceder.png"));
+		backConsultaInfoOrder.setBounds(10, 11, 35, 33);
 		backConsultaInfoOrder.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -2329,7 +2324,7 @@ public class Restaurante extends JFrame {
 
 		DefaultComboBoxModel<String> comboBoxModelEliminarOrd = new DefaultComboBoxModel<>();
 		JComboBox<String> comboBoxEliminarOrd = new JComboBox<>(comboBoxModelEliminarOrd );
-		comboBoxEliminarOrd.setBounds(757, 257, 140, 30);
+		comboBoxEliminarOrd.setBounds(757, 257, 160, 30);
 		eliminarOrders.add(comboBoxEliminarOrd);
 
 		JButton btnEliminarTablaOrd = new JButton("Eliminar Orden");
@@ -2345,17 +2340,17 @@ public class Restaurante extends JFrame {
 
 		JLabel tituloDeleteOrd = new JLabel("Orden a Eliminar");
 		tituloDeleteOrd.setFont(new Font("Arial Black", Font.PLAIN, 16));
-		tituloDeleteOrd.setBounds(210, 11, 190, 20);
+		tituloDeleteOrd.setBounds(230, 11, 190, 20);
 		panelEliminarOrd2.add(tituloDeleteOrd);
 
 		JLabel Deletestitulo = new JLabel("Eliminar Ordenes");
-		Deletestitulo .setFont(new Font("Arial Black", Font.PLAIN, 20));
-		Deletestitulo .setBounds(350, 137, 220, 50);
+		Deletestitulo .setFont(new Font("Arial Black", Font.PLAIN, 30));
+		Deletestitulo .setBounds(300, 137, 300, 50);
 		eliminarOrders.add(Deletestitulo );
 
 
-		JButton backEliminarOrdenn = new JButton("Back");
-		backEliminarOrdenn.setBounds(10, 11, 80, 29);
+		JButton backEliminarOrdenn = new JButton(new ImageIcon("BotonRetroceder.png"));
+		backEliminarOrdenn.setBounds(10, 11, 35, 33);
 		backEliminarOrdenn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -2372,19 +2367,9 @@ public class Restaurante extends JFrame {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 		//--------------------------------------------inventario--------------------------------------------------------
+
+
 
 
 		//-----Menu inventario------
@@ -2395,11 +2380,12 @@ public class Restaurante extends JFrame {
 		JPanel Panelinventario = new JPanel();
 		Panelinventario.setLayout(null);
 		Panelinventario.setBackground(Color.WHITE);
+		Panelinventario.setOpaque(false);
 		Panelinventario.setBounds(59, 241, 827, 347);
 		Inventario.add(Panelinventario);
 
 		JButton Consultarinventario = new JButton("Consultar");
-		Consultarinventario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Consultarinventario.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		Consultarinventario.setBackground(new Color(255, 128, 0));
 		Consultarinventario.setBounds(112, 95, 217, 60);
 		Panelinventario.add(Consultarinventario);
@@ -2415,7 +2401,7 @@ public class Restaurante extends JFrame {
 		});
 
 		JButton EditarInventario = new JButton("Editar");
-		EditarInventario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		EditarInventario.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		EditarInventario.setBackground(new Color(255, 128, 0));
 		EditarInventario.setBounds(112, 198, 217, 60);
 		Panelinventario.add(EditarInventario);
@@ -2431,7 +2417,7 @@ public class Restaurante extends JFrame {
 		});
 
 		JButton EliminarInventario = new JButton("Eliminar");
-		EliminarInventario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		EliminarInventario.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		EliminarInventario.setBackground(new Color(255, 128, 0));
 		EliminarInventario.setBounds(490, 198, 217, 60);
 		Panelinventario.add(EliminarInventario);
@@ -2447,7 +2433,7 @@ public class Restaurante extends JFrame {
 		});
 
 		JButton CrearInventario = new JButton("Crear");
-		CrearInventario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		CrearInventario.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		CrearInventario.setBackground(new Color(255, 128, 0));
 		CrearInventario.setBounds(490, 95, 217, 60);
 		Panelinventario.add(CrearInventario);
@@ -2463,14 +2449,13 @@ public class Restaurante extends JFrame {
 		});
 
 
-		JLabel TituloInventario = new JLabel("Inventario");
-		TituloInventario.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		TituloInventario.setBounds(405, -16, 218, 76);
+		JLabel TituloInventario = new JLabel(new ImageIcon("menuinventario.png"));
+		TituloInventario.setBounds(300, 20, 350, 233);
 		Inventario.add(TituloInventario);
 
 
-		JButton btnbackinventario = new JButton("Back");
-		btnbackinventario.setBounds(10, 11, 80, 29);
+		JButton btnbackinventario = new JButton(new ImageIcon("BotonRetroceder.png"));
+		btnbackinventario.setBounds(10, 11, 35, 33);
 		Inventario.add(btnbackinventario);
 		btnbackinventario.addActionListener(new ActionListener() {
 			@Override
@@ -2489,18 +2474,6 @@ public class Restaurante extends JFrame {
 		Inventario.add(InventarioIcon);
 		repaint();
 		revalidate();
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2748,9 +2721,6 @@ public class Restaurante extends JFrame {
 
 
 
-
-
-
 		editararticulobtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -2848,11 +2818,6 @@ public class Restaurante extends JFrame {
 
 
 
-
-
-
-
-
 		//Combobox
 		try {
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
@@ -2896,15 +2861,6 @@ public class Restaurante extends JFrame {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3084,12 +3040,7 @@ public class Restaurante extends JFrame {
 
 
 
-
-
-
-
 		//----Añadir al inventario ------
-
 
 
 		NuevoArticulo.setBackground(new Color(255, 128, 0));
@@ -3224,8 +3175,6 @@ public class Restaurante extends JFrame {
 
 
 
-
-
 		JButton btnbackcreararticuloinv = new JButton("Back");
 		btnbackcreararticuloinv.setBounds(10, 11, 80, 29);
 		NuevoArticulo.add(btnbackcreararticuloinv);
@@ -3239,35 +3188,6 @@ public class Restaurante extends JFrame {
 				revalidate();
 			}
 		});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3688,10 +3608,7 @@ public class Restaurante extends JFrame {
 
 
 
-
-
 		//------pantalla edicion de cliente------
-
 
 		EditarTabla.setLayout(null);
 
@@ -4365,8 +4282,6 @@ public class Restaurante extends JFrame {
 
 
 
-
-
 		eliminarcliente.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -4435,12 +4350,7 @@ public class Restaurante extends JFrame {
 
 
 
-
-
-
 	}
-
-
 
 
 
@@ -4655,20 +4565,6 @@ public class Restaurante extends JFrame {
 			ex.printStackTrace();
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
