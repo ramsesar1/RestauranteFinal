@@ -98,8 +98,26 @@
       <option name="project" value="LOCAL" />
       <updated>1686735241088</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="ultima validacion, si el inventario se acaba no se peude crear orden a no ser que se remueva el platillo">
+      <created>1686766048763</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1686766048763</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Se añaden base de datos en consultar, el consultar solo direccion y nombre de usuario, y option pane de confirmacion en todas las funciones" />
@@ -111,6 +129,17 @@
     <MESSAGE value="Penultima validacion del crearorden lista, permite el crear la tabla de orden y reducir inventario, y ademas que si se pide mas 1 item se reduce acorde a cuantos se pidieron" />
     <MESSAGE value="ultima validacion, si el inventario se acaba no se peude crear orden a no ser que se remueva el platillo" />
     <option name="LAST_COMMIT_MESSAGE" value="ultima validacion, si el inventario se acaba no se peude crear orden a no ser que se remueva el platillo" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Restaurante.java</url>
+          <line>2379</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RestauranteFinal$Restaurante.ic" NAME="Restaurante Coverage Results" MODIFIED="1685939229711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
