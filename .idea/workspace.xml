@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="Menu Ordenes actualizado jijija">
+    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="Los combobox dentro de editar platillo, crear platillo son actualizados constantemente, validaciones para que no se puedan crear platillos sin que la informacion este llenada, y al editar la descripcion esta reemplaza la primera linea">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante.java" afterDir="false" />
     </list>
