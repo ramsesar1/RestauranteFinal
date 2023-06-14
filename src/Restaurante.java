@@ -2066,6 +2066,8 @@ public class Restaurante extends JFrame {
 					ex.printStackTrace();
 				}
 
+				boolean enoughIngredients = true;
+
 				try {
 					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
 					Statement statement = connection.createStatement();
@@ -2075,14 +2077,29 @@ public class Restaurante extends JFrame {
 						String ingrediente = entry.getKey();
 						float cantidad = entry.getValue();
 
-						String updateQuery = "UPDATE " + tableName + " SET Cantidad = Cantidad - " + cantidad + " WHERE Nombre = '" + ingrediente + "'";
-						statement.executeUpdate(updateQuery);
+						String selectQuery = "SELECT Cantidad FROM " + tableName + " WHERE Nombre = '" + ingrediente + "'";
+						ResultSet resultSet = statement.executeQuery(selectQuery);
+
+						if (resultSet.next()) {
+							float availableCantidad = resultSet.getFloat("Cantidad");
+							if (availableCantidad < cantidad) {
+								enoughIngredients = false;
+								break;
+							}
+						}
+
+						resultSet.close();
 					}
 
 					statement.close();
 					connection.close();
 				} catch (SQLException ex) {
 					ex.printStackTrace();
+				}
+
+				if (!enoughIngredients) {
+					JOptionPane.showMessageDialog(null, "No hay ingredientes suficientes", "Error", JOptionPane.ERROR_MESSAGE);
+					return; // Stop further execution of the actionPerformed method
 				}
 
 				int confirmation = JOptionPane.showConfirmDialog(null, "¿Está seguro de realizar esta orden?", "Confirmación", JOptionPane.YES_NO_OPTION);
