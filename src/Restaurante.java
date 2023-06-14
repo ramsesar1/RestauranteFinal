@@ -2036,10 +2036,10 @@ public class Restaurante extends JFrame {
 
 		CrearOrdenn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// : Obten el platillo seleccionado
 				String selectedPlatillo = platillosenordentable.getValueAt(0, 0).toString();
 
-				//JALA ingredientes
+				int quantity = tablemodeltablaorden.getRowCount();
+
 				Map<String, Float> ingredientesCantidadMap = new HashMap<>();
 
 				try {
@@ -2053,6 +2053,9 @@ public class Restaurante extends JFrame {
 					while (resultSet.next()) {
 						String ingrediente = resultSet.getString("Ingrediente");
 						float cantidad = resultSet.getFloat("Cantidad");
+
+						cantidad *= quantity;
+
 						ingredientesCantidadMap.put(ingrediente, cantidad);
 					}
 
@@ -2063,7 +2066,6 @@ public class Restaurante extends JFrame {
 					ex.printStackTrace();
 				}
 
-				// SActualiza columan en inventario
 				try {
 					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
 					Statement statement = connection.createStatement();
@@ -2082,9 +2084,105 @@ public class Restaurante extends JFrame {
 				} catch (SQLException ex) {
 					ex.printStackTrace();
 				}
+
+				int confirmation = JOptionPane.showConfirmDialog(null, "¿Está seguro de realizar esta orden?", "Confirmación", JOptionPane.YES_NO_OPTION);
+
+				if (confirmation == JOptionPane.YES_OPTION) {
+					String selectedCliente = clienteaelegirbox.getSelectedItem().toString();
+					String selectedDireccion = "";
+
+					try {
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+						Statement statement = connection.createStatement();
+
+						String query = "SELECT Dirección FROM clientes WHERE Nombre = '" + selectedCliente + "'";
+						ResultSet resultSet = statement.executeQuery(query);
+
+						if (resultSet.next()) {
+							selectedDireccion = resultSet.getObject("Dirección").toString();
+						}
+
+						resultSet.close();
+						statement.close();
+						connection.close();
+					} catch (SQLException ex) {
+						ex.printStackTrace();
+					}
+
+					DefaultTableModel platillosTableModel = (DefaultTableModel) platillosenordentable.getModel();
+					double total = 0.0;
+
+					StringBuilder platillosBuilder = new StringBuilder();
+					StringBuilder precioBuilder = new StringBuilder();
+
+					for (int i = 0; i < platillosTableModel.getRowCount(); i++) {
+						String platillo = platillosTableModel.getValueAt(i, 0).toString();
+						String precio = platillosTableModel.getValueAt(i, 1).toString();
+
+						platillosBuilder.append(platillo);
+						precioBuilder.append(precio);
+
+						if (i < platillosTableModel.getRowCount() - 1) {
+							platillosBuilder.append(", ");
+							precioBuilder.append(", ");
+						}
+
+						total += Double.parseDouble(precio);
+					}
+
+					int orderId = 1;
+					try {
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
+						Statement statement = connection.createStatement();
+
+						String tableName = "ordenes";
+						String query = "SELECT MAX(ID) FROM " + tableName;
+						ResultSet resultSet = statement.executeQuery(query);
+
+						if (resultSet.next()) {
+							orderId = resultSet.getInt(1) + 1;
+						}
+
+						resultSet.close();
+						statement.close();
+						connection.close();
+					} catch (SQLException ex) {
+						ex.printStackTrace();
+					}
+
+					String tableName = orderId + "_" + selectedCliente.replace(" ", "_");
+
+					try {
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
+						Statement statement = connection.createStatement();
+
+						String createTableQuery = "CREATE TABLE IF NOT EXISTS ordenes " +
+								"(ID INT AUTO_INCREMENT, Nombre VARCHAR(255), Direccion VARCHAR(255), Platillos VARCHAR(255), Precio VARCHAR(255), Total DOUBLE, PRIMARY KEY (ID))";
+						statement.executeUpdate(createTableQuery);
+
+						// Insert the data
+						String insertQuery = "INSERT INTO " + tableName + "(Nombre, Direccion, Platillos, Precio, Total) " +
+								"VALUES ('" + selectedCliente + "', '" + selectedDireccion + "', '" + platillosBuilder.toString() + "', '" +
+								precioBuilder.toString() + "', " + total + ")";
+						statement.executeUpdate(insertQuery);
+
+						statement.close();
+						connection.close();
+
+						JOptionPane.showMessageDialog(null, "Orden creada", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+					} catch (SQLException ex) {
+						ex.printStackTrace();
+					}
+
+					platillosTableModel.setRowCount(0);
+
+					platilloaelegirlbox.setSelectedIndex(-1);
+					platilloaremoverbox.setSelectedIndex(-1);
+					platilloaremoverbox.removeAllItems();
+					Totalporcompralbl.setText("Total: 0");
+				}
 			}
 		});
-
 
 
 
