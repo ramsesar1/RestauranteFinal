@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="ultima validacion, si el inventario se acaba no se peude crear orden a no ser que se remueva el platillo">
+    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="push de respaldo,">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante.java" afterDir="false" />
     </list>
@@ -105,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686766048763</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="push de respaldo,">
+      <created>1686783965241</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1686783965241</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,14 +135,15 @@
     <MESSAGE value="Mas validaciones, para combobox de platillos, y que al crear una orden se reste del inventario el material usado" />
     <MESSAGE value="Penultima validacion del crearorden lista, permite el crear la tabla de orden y reducir inventario, y ademas que si se pide mas 1 item se reduce acorde a cuantos se pidieron" />
     <MESSAGE value="ultima validacion, si el inventario se acaba no se peude crear orden a no ser que se remueva el platillo" />
-    <option name="LAST_COMMIT_MESSAGE" value="ultima validacion, si el inventario se acaba no se peude crear orden a no ser que se remueva el platillo" />
+    <MESSAGE value="push de respaldo," />
+    <option name="LAST_COMMIT_MESSAGE" value="push de respaldo," />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Restaurante.java</url>
-          <line>2379</line>
+          <line>2411</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

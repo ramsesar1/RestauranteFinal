@@ -15,7 +15,7 @@ import java.util.Map;
 public class Restaurante extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textfieldedicantidadingr;
+	private JTextField textfieldusername;
 	private JPasswordField contras;
 	private JLabel lblContrasea;
 
@@ -29,6 +29,8 @@ public class Restaurante extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		migrateTables();
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -129,10 +131,10 @@ public class Restaurante extends JFrame {
 		panel_1.setLayout(null);
 
 
-		textfieldedicantidadingr = new JTextField();
-		textfieldedicantidadingr.setColumns(10);
-		textfieldedicantidadingr.setBounds(30, 57, 328, 45);
-		panel_1.add(textfieldedicantidadingr);
+		textfieldusername = new JTextField();
+		textfieldusername.setColumns(10);
+		textfieldusername.setBounds(30, 57, 328, 45);
+		panel_1.add(textfieldusername);
 
 		contras = new JPasswordField();
 		contras.setColumns(10);
@@ -149,9 +151,9 @@ public class Restaurante extends JFrame {
 		lblContrasea.setBounds(30, 142, 149, 28);
 		panel_1.add(lblContrasea);
 
-		JButton btnNewButton = new JButton("Login");
-		btnNewButton.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnparalogin = new JButton("Login");
+		btnparalogin.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		btnparalogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				remove(login);
 				add(Inicio);
@@ -159,15 +161,19 @@ public class Restaurante extends JFrame {
 				revalidate();
 			}
 		});
-		btnNewButton.setBackground(new Color(255, 255, 255));
-		btnNewButton.setBounds(30, 236, 110, 45);
-		panel_1.add(btnNewButton);
+
+
+		btnparalogin.setBackground(new Color(255, 255, 255));
+		btnparalogin.setBounds(30, 236, 110, 45);
+		panel_1.add(btnparalogin);
 
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Arial Black", Font.PLAIN, 18));
 		btnCancelar.setBackground(new Color(255, 255, 255));
 		btnCancelar.setBounds(226, 236, 130, 45);
 		panel_1.add(btnCancelar);
+
+
 
 
 		//--------------------------------------panel menu inicio----------------------------------------------------
@@ -1049,10 +1055,10 @@ public class Restaurante extends JFrame {
 		comoingreeditarplat.setBounds(475, 105, 265, 37);
 		paneledplat.add(comoingreeditarplat);
 
-		textfieldedicantidadingr = new JTextField();
-		textfieldedicantidadingr.setColumns(10);
-		textfieldedicantidadingr.setBounds(475, 224, 372, 33);
-		paneledplat.add(textfieldedicantidadingr);
+		textfieldusername = new JTextField();
+		textfieldusername.setColumns(10);
+		textfieldusername.setBounds(475, 224, 372, 33);
+		paneledplat.add(textfieldusername);
 
 		JLabel Cantidadingreedilbl = new JLabel("Cantidad del ingrediente\r\n");
 		Cantidadingreedilbl.setFont(new Font("Arial Black", Font.PLAIN, 20));
@@ -1266,7 +1272,7 @@ public class Restaurante extends JFrame {
 					String nombre_1 = ingredientParts_1[0];
 					String unidad_1 = ingredientParts_1[1];
 
-					String cantidad = textfieldedicantidadingr.getText();
+					String cantidad = textfieldusername.getText();
 
 					String query = "INSERT INTO " + selectedTable + "(Ingrediente, Unidad, Cantidad) VALUES (?, ?, ?)";
 					PreparedStatement statement = connection.prepareStatement(query);
@@ -2034,6 +2040,9 @@ public class Restaurante extends JFrame {
 
 
 
+
+
+
 		CrearOrdenn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String selectedPlatillo = platillosenordentable.getValueAt(0, 0).toString();
@@ -2191,6 +2200,9 @@ public class Restaurante extends JFrame {
 
 
 
+
+
+
 		JButton backCCord = new JButton(new ImageIcon("BotonRetroceder.png"));
 		backCCord.setBounds(10, 11, 35, 33);
 		backCCord.addActionListener(new ActionListener() {
@@ -2206,6 +2218,29 @@ public class Restaurante extends JFrame {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		//------pantalla edicion de Orden------
 
 		EditarOrden.setLayout(null);
@@ -2216,7 +2251,7 @@ public class Restaurante extends JFrame {
 		EditarOrdenes.setLayout(null);
 		EditarOrden.add(EditarOrdenes);
 
-		String[] columnNamesEditarOrd = {"Ordenes"};
+		String[] columnNamesEditarOrd = {"ID","Nombre","Platillos","Total"};
 		DefaultTableModel tableModelEditarOrd = new DefaultTableModel(columnNamesEditarOrd, 0);
 		JTable tablaEditarOrd = new JTable(tableModelEditarOrd);
 
@@ -2233,7 +2268,7 @@ public class Restaurante extends JFrame {
 
 		JButton btnEditarTablaOrd = new JButton("Editar Orden");
 		btnEditarTablaOrd.setFocusable(false);
-		btnEditarTablaOrd.setBounds(757, 297, 160, 30);
+		btnEditarTablaOrd.setBounds(350, 383, 113, 32);
 		EditarOrdenes.add(btnEditarTablaOrd);
 		btnEditarTablaOrd.addActionListener(new ActionListener() {
 			@Override
@@ -2278,6 +2313,85 @@ public class Restaurante extends JFrame {
 		});
 		EditarOrdenes.add(backETOrd);
 
+
+//tabla conecta base de datos
+			try {
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
+			Statement statement = connection.createStatement();
+
+			String selectQuery = "SELECT ID, Nombre, Platillos, Total FROM historialbueno";
+			ResultSet resultSet = statement.executeQuery(selectQuery);
+
+			// Clear the existing data in the table model
+			tableModelEditarOrd.setRowCount(0);
+
+			// Iterate over the result set and add rows to the table model
+			while (resultSet.next()) {
+				int id = resultSet.getInt("ID");
+				String nombre = resultSet.getString("Nombre");
+				String platillos = resultSet.getString("Platillos");
+				double total = resultSet.getDouble("Total");
+
+				Object[] rowData = {id, nombre, platillos, total};
+				tableModelEditarOrd.addRow(rowData);
+			}
+
+			resultSet.close();
+			statement.close();
+			connection.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
+//conecta el combobox con la base de datos
+		// Remove the existing items from the comboBoxModelEditarOrd
+		comboBoxModelEditarOrd.removeAllElements();
+
+// Retrieve data from the "historialbueno" table
+		try {
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
+			Statement statement = connection.createStatement();
+
+			String selectQuery = "SELECT ID, Nombre FROM historialbueno";
+			ResultSet resultSet = statement.executeQuery(selectQuery);
+
+			// Iterate over the result set and add ID and Nombre to the comboBoxModelEditarOrd
+			while (resultSet.next()) {
+				int id = resultSet.getInt("ID");
+				String nombre = resultSet.getString("Nombre");
+
+				String item = id + " - " + nombre;
+				comboBoxModelEditarOrd.addElement(item);
+			}
+
+			resultSet.close();
+			statement.close();
+			connection.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		//-----panel editar Ordenes-----
 		PanelEditarOrden.setLayout(null);
 
@@ -2292,87 +2406,7 @@ public class Restaurante extends JFrame {
 		EditOrdenes1.add(EditOrdenes2);
 		EditOrdenes2.setLayout(null);
 
-		JButton ContadorSushiEdit = new JButton("+");
-		ContadorSushiEdit.setBounds(71, 150, 41, 23);
-		EditOrdenes2 .add(ContadorSushiEdit);
 
-		JButton DescontadorSushiEdit = new JButton("-");
-		DescontadorSushiEdit.setBounds(152, 150, 41, 23);
-		EditOrdenes2 .add(DescontadorSushiEdit);
-
-		JButton ContadorLasagnaEdit = new JButton("+");
-		ContadorLasagnaEdit.setBounds(198, 330, 41, 23);
-		EditOrdenes2 .add(ContadorLasagnaEdit);
-
-		JButton DescontadorLasagnaEdit = new JButton("-");
-		DescontadorLasagnaEdit.setBounds(276, 330, 41, 23);
-		EditOrdenes2 .add(DescontadorLasagnaEdit);
-
-		JButton ContadorBurguerEdit = new JButton("+");
-		ContadorBurguerEdit.setBounds(313, 150, 41, 23);
-		EditOrdenes2 .add(ContadorBurguerEdit);
-
-		JButton DescontadorBurguerEdit = new JButton("-");
-		DescontadorBurguerEdit.setBounds(396, 150, 41, 23);
-		EditOrdenes2 .add(DescontadorBurguerEdit);
-
-		JButton DescontadorBonelessEdit = new JButton("-");
-		DescontadorBonelessEdit.setBounds(526, 330, 41, 23);
-		EditOrdenes2 .add(DescontadorBonelessEdit);
-
-		JButton ContadorBonelessEdit = new JButton("+");
-		ContadorBonelessEdit.setBounds(444, 330, 41, 23);
-		EditOrdenes2 .add(ContadorBonelessEdit);
-
-		JButton ContadorPizzaEdit = new JButton("+");
-		ContadorPizzaEdit.setBounds(544, 150, 41, 23);
-		EditOrdenes2 .add( ContadorPizzaEdit);
-
-		JButton DescontadorPizzaEdit = new JButton("-");
-		DescontadorPizzaEdit.setBounds(627, 150, 41, 23);
-		EditOrdenes2 .add(DescontadorPizzaEdit);
-
-		JLabel SushiContEdit = new JLabel("0");
-		SushiContEdit.setForeground(Color.BLACK);
-		SushiContEdit.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		SushiContEdit.setBounds(127, 141, 22, 33);
-		EditOrdenes2 .add(SushiContEdit);
-
-		JLabel LasagnaContEdit = new JLabel("0");
-		LasagnaContEdit.setForeground(Color.BLACK);
-		LasagnaContEdit .setFont(new Font("Tahoma", Font.PLAIN, 20));
-		LasagnaContEdit .setBounds(255, 321, 22, 33);
-		EditOrdenes2 .add(LasagnaContEdit);
-
-		JLabel BonelessContEdit = new JLabel("0");
-		BonelessContEdit.setForeground(Color.BLACK);
-		BonelessContEdit.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		BonelessContEdit.setBounds(505, 321, 22, 33);
-		EditOrdenes2 .add(BonelessContEdit);
-
-		JLabel PizzaContEdit = new JLabel("0");
-		PizzaContEdit.setForeground(Color.BLACK);
-		PizzaContEdit.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		PizzaContEdit.setBounds(605, 141, 22, 33);
-		EditOrdenes2 .add(PizzaContEdit);
-
-		JLabel BurguerContEdit = new JLabel("0");
-		BurguerContEdit.setForeground(Color.BLACK);
-		BurguerContEdit.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		BurguerContEdit.setBounds(374, 141, 22, 33);
-		EditOrdenes2 .add(BurguerContEdit);
-
-		JLabel TotalPrecioEdit = new JLabel("Total: $0");
-		TotalPrecioEdit.setForeground(Color.BLACK);
-		TotalPrecioEdit.setFont(new Font("Arial Black", Font.BOLD, 24));
-		TotalPrecioEdit.setBounds(10, 383, 138, 43);
-		EditOrdenes2 .add(TotalPrecioEdit);
-
-		JLabel TotalPlatillosEdit = new JLabel("Total de platillos:0");
-		TotalPlatillosEdit.setForeground(Color.BLACK);
-		TotalPlatillosEdit.setFont(new Font("Arial Black", Font.BOLD, 21));
-		TotalPlatillosEdit.setBounds(242, 383, 269, 43);
-		EditOrdenes2 .add(TotalPlatillosEdit);
 
 		JButton CrearOrdennEdit = new JButton("Editar Orden");
 		CrearOrdennEdit.setForeground(new Color(0, 0, 0));
@@ -2380,93 +2414,7 @@ public class Restaurante extends JFrame {
 		CrearOrdennEdit.setBounds(616, 383, 113, 32);
 		EditOrdenes2 .add(CrearOrdennEdit);
 
-		JLabel SushiIconEdit = new JLabel("");
-		SushiIconEdit.setIcon(new ImageIcon("Sushi.png"));
-		SushiIconEdit.setBounds(66, 46, 127, 73);
-		EditOrdenes2 .add(SushiIconEdit);
 
-		JLabel HamburguesaIconEdit = new JLabel("");
-		HamburguesaIconEdit.setIcon(new ImageIcon("Hamburguesa.png"));
-		HamburguesaIconEdit.setBounds(313, 46, 113, 73);
-		EditOrdenes2 .add(HamburguesaIconEdit);
-
-		JLabel PizzaIconEdit = new JLabel("");
-		PizzaIconEdit.setIcon(new ImageIcon("Pizza.png"));
-		PizzaIconEdit.setBounds(537, 56, 142, 67);
-		EditOrdenes2 .add(PizzaIconEdit);
-
-		JLabel LasagnaIconEdit = new JLabel("");
-		LasagnaIconEdit.setIcon(new ImageIcon("Lasaña.png"));
-		LasagnaIconEdit.setBounds(191, 236, 138, 65);
-		EditOrdenes2 .add(LasagnaIconEdit);
-
-		JLabel BonelessIconEdit = new JLabel("");
-		BonelessIconEdit.setIcon(new ImageIcon("Boneless.png"));
-		BonelessIconEdit.setBounds(459, 236, 108, 71);
-		EditOrdenes2 .add(BonelessIconEdit);
-
-		JLabel SushiLabelEdit = new JLabel("Sushi empanizado");
-		SushiLabelEdit.setForeground(Color.BLACK);
-		SushiLabelEdit.setBackground(Color.BLACK);
-		SushiLabelEdit.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
-		SushiLabelEdit.setBounds(46, 21, 173, 23);
-		EditOrdenes2 .add(SushiLabelEdit);
-
-		JLabel HamburguesaLabelEdit = new JLabel("Hamburguesa");
-		HamburguesaLabelEdit.setForeground(Color.BLACK);
-		HamburguesaLabelEdit.setBackground(Color.BLACK);
-		HamburguesaLabelEdit.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
-		HamburguesaLabelEdit.setBounds(312, 21, 127, 23);
-		EditOrdenes2 .add(HamburguesaLabelEdit);
-
-		JLabel PizzaLabelEdit = new JLabel("Pizza Pepperoni");
-		PizzaLabelEdit.setForeground(Color.BLACK);
-		PizzaLabelEdit.setBackground(Color.BLACK);
-		PizzaLabelEdit.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
-		PizzaLabelEdit.setBounds(537, 22, 142, 23);
-		EditOrdenes2 .add(PizzaLabelEdit);
-
-		JLabel LasañaLabelEdit = new JLabel("Lasaña");
-		LasañaLabelEdit.setForeground(Color.BLACK);
-		LasañaLabelEdit .setFont(new Font("Comic Sans MS", Font.BOLD, 18));
-		LasañaLabelEdit .setBounds(223, 207, 68, 23);
-		EditOrdenes2 .add(LasañaLabelEdit);
-
-		JLabel BonelessLabelEdit = new JLabel("Boneless");
-		BonelessLabelEdit.setForeground(Color.BLACK);
-		BonelessLabelEdit.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
-		BonelessLabelEdit.setBounds(469, 207, 78, 23);
-		EditOrdenes2 .add(BonelessLabelEdit);
-
-		JLabel PrecioSushiEdit = new JLabel("$135");
-		PrecioSushiEdit.setForeground(Color.BLACK);
-		PrecioSushiEdit .setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		PrecioSushiEdit.setBounds(71, 125, 59, 14);
-		EditOrdenes2 .add(PrecioSushiEdit);
-
-		JLabel PrecioBurguerEdit = new JLabel("$120");
-		PrecioBurguerEdit.setForeground(Color.BLACK);
-		PrecioBurguerEdit.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		PrecioBurguerEdit.setBounds(313, 125, 59, 14);
-		EditOrdenes2 .add(PrecioBurguerEdit);
-
-		JLabel PrecioPizzaEdit = new JLabel("$120");
-		PrecioPizzaEdit.setForeground(Color.BLACK);
-		PrecioPizzaEdit.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		PrecioPizzaEdit.setBounds(544, 125, 59, 14);
-		EditOrdenes2 .add(PrecioPizzaEdit);
-
-		JLabel PrecioLasagnaEdit = new JLabel("$165");
-		PrecioLasagnaEdit.setForeground(Color.BLACK);
-		PrecioLasagnaEdit.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		PrecioLasagnaEdit.setBounds(191, 305, 59, 14);
-		EditOrdenes2 .add(PrecioLasagnaEdit);
-
-		JLabel PrecioBonelessEdit = new JLabel("$120");
-		PrecioBonelessEdit.setForeground(Color.BLACK);
-		PrecioBonelessEdit.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		PrecioBonelessEdit.setBounds(444, 305, 59, 14);
-		EditOrdenes2 .add(PrecioBonelessEdit);
 
 
 		JLabel OrdenesEdiTitulo = new JLabel("Editar Orden");
@@ -4916,6 +4864,93 @@ public class Restaurante extends JFrame {
 			ex.printStackTrace();
 		}
 	}
+
+
+	public static void migrateTables() {
+		try {
+			// Connect to the source database
+
+			Connection sourceConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
+			DatabaseMetaData metaData = sourceConnection.getMetaData();
+
+			// Get the list of tables in the source database
+			ResultSet tables = metaData.getTables("ordenes", null, null, new String[]{"TABLE"});
+
+			// Connect to the target database
+			Connection targetConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
+			Statement targetStatement = targetConnection.createStatement();
+
+			// Clear the existing data in the target table
+			targetStatement.executeUpdate("DELETE FROM historialbueno");
+
+			// Get the next auto-increment ID value
+			ResultSet idResult = targetStatement.executeQuery("SELECT MAX(ID) FROM historialbueno");
+			int nextId = 1;
+			if (idResult.next()) {
+				nextId = idResult.getInt(1) + 1;
+			}
+
+			// Iterate over the tables
+			while (tables.next()) {
+				String tableName = tables.getString("TABLE_NAME");
+
+				// Skip the "historialbueno" table
+				if (!tableName.equals("historialbueno")) {
+					// Fetch specific columns from the table
+					String columnNames = "Nombre, Platillos, Total";
+					String selectQuery = "SELECT " + columnNames + " FROM " + tableName;
+					ResultSet resultSet = sourceConnection.createStatement().executeQuery(selectQuery);
+
+					// Insert the fetched data into the target table
+					while (resultSet.next()) {
+						StringBuilder insertQuery = new StringBuilder("INSERT INTO historialbueno (ID, ");
+						StringBuilder values = new StringBuilder("VALUES (");
+						insertQuery.append(columnNames.replace(",", ", ")).append(") ");
+						values.append("'").append(nextId++).append("', ");
+						values.append("'").append(resultSet.getString("Nombre")).append("', ");
+						values.append("'").append(resultSet.getString("Platillos")).append("', ");
+						values.append(resultSet.getDouble("Total")).append(")");
+
+						// Complete the insert query
+						insertQuery.append(values);
+
+						// Execute the insert query
+						targetStatement.executeUpdate(insertQuery.toString());
+					}
+				}
+			}
+
+			// Close connections and statements
+			tables.close();
+			sourceConnection.close();
+			targetStatement.close();
+			targetConnection.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
