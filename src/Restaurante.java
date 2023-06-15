@@ -1744,11 +1744,11 @@ public class Restaurante extends JFrame {
 		IconOrden.add(logoOrdenes);
 
 
-		JButton btnEditarOrdenes = new JButton("Editar");
+		JButton btnEditarOrdenes = new JButton("Eliminar");
 		btnEditarOrdenes.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnEditarOrdenes.setBackground(new Color(255, 128, 0));
 		btnEditarOrdenes.setFocusable(false);
-		btnEditarOrdenes.setBounds(112, 198, 217, 60);
+		btnEditarOrdenes.setBounds(112, 95, 217, 60);
 		btnEditarOrdenes.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -1761,22 +1761,6 @@ public class Restaurante extends JFrame {
 		});
 		panelMiniOrden.add(btnEditarOrdenes);
 
-		JButton btnEliminarOrden = new JButton("Eliminar");
-		btnEliminarOrden.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		btnEliminarOrden.setBackground(new Color(255, 128, 0));
-		btnEliminarOrden.setFocusable(false);
-		btnEliminarOrden.setBounds(490, 198, 217, 60);
-		btnEliminarOrden.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				remove(Ordenes);
-				add(EliminarOrden);
-				repaint();
-				revalidate();
-
-			}
-		});
-		panelMiniOrden.add(btnEliminarOrden);
 
 		JButton btnCrearOrden = new JButton("Crear");
 		btnCrearOrden.setFont(new Font("Arial Black", Font.PLAIN, 20));
@@ -2290,20 +2274,11 @@ public class Restaurante extends JFrame {
 
 
 
-		JButton btnEditarTablaOrd = new JButton("Editar Orden");
+		JButton btnEditarTablaOrd = new JButton("Eliminar Orden");
 		btnEditarTablaOrd.setFocusable(false);
 		btnEditarTablaOrd.setBounds(757, 383, 160, 32);
 		EditarOrdenes.add(btnEditarTablaOrd);
-		btnEditarTablaOrd.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				remove(EditarOrden);
-				add(PanelEditarOrden);
-				repaint();
-				revalidate();
-			}
-		});
-		EditarOrdenes.add(btnEditarTablaOrd);
+
 
 
 
@@ -2366,6 +2341,8 @@ public class Restaurante extends JFrame {
 		}
 
 //conecta el combobox con la base de datos
+
+
 		comboBoxModelEditarOrd.removeAllElements();
 
 		try {
@@ -2390,6 +2367,42 @@ public class Restaurante extends JFrame {
 			ex.printStackTrace();
 		}
 
+		btnEditarTablaOrd.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int selectedIndex = comboBoxEditarOrd.getSelectedIndex();
+				if (selectedIndex != -1) {
+					String selectedItem = comboBoxEditarOrd.getItemAt(selectedIndex);
+					String[] parts = selectedItem.split(" - ");
+					int selectedItemId = Integer.parseInt(parts[0]);
+
+					try {
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
+						String deleteQuery = "DELETE FROM historialbueno WHERE ID=?";
+						PreparedStatement statement = connection.prepareStatement(deleteQuery);
+						statement.setInt(1, selectedItemId);
+
+						int rowsDeleted = statement.executeUpdate();
+						if (rowsDeleted > 0) {
+							System.out.println("Row deleted successfully.");
+						} else {
+							System.out.println("Failed to delete the row.");
+						}
+
+						statement.close();
+						connection.close();
+					} catch (SQLException ex) {
+						ex.printStackTrace();
+					}
+
+					DefaultTableModel model = (DefaultTableModel) tablaEditarOrd.getModel();
+					model.removeRow(selectedIndex);
+				}
+
+				repaint();
+				revalidate();
+			}
+		});
 
 
 
@@ -2406,16 +2419,7 @@ public class Restaurante extends JFrame {
 
 
 
-
-
-
-
-
-
-
-
-
-		//-----panel editar Ordenes-----
+		//---------------parte final-----------------------------------------------------panel editar Ordenes-----
 		PanelEditarOrden.setLayout(null);
 
 		JPanel EditOrdenes1 = new JPanel();
@@ -2467,11 +2471,11 @@ public class Restaurante extends JFrame {
 		Agregarplatilloaordenbtn2.setFont(new Font("Tahoma", Font.BOLD, 17));
 		EditOrdenes2.add(Agregarplatilloaordenbtn2);
 
-		JButton CrearOrdenn2 = new JButton("Editar Orden");
-		CrearOrdenn2.setForeground(new Color(0, 0, 0));
-		CrearOrdenn2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		CrearOrdenn2.setBounds(350, 383, 113, 32);
-		EditOrdenes2.add(CrearOrdenn2);
+		JButton editarOrdenbtn = new JButton("Editar Orden");
+		editarOrdenbtn.setForeground(new Color(0, 0, 0));
+		editarOrdenbtn.setFont(new Font("Tahoma", Font.BOLD, 11));
+		editarOrdenbtn.setBounds(350, 383, 113, 32);
+		EditOrdenes2.add(editarOrdenbtn);
 
 		JButton cancelarordenbtn2 = new JButton("Cancelar orden");
 		cancelarordenbtn2.setForeground(new Color(0, 0, 0));
@@ -2507,66 +2511,6 @@ public class Restaurante extends JFrame {
 
 
 
-
-/*
-		btnEditarTablaOrd.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String selectedRow = (String) comboBoxEditarOrd.getSelectedItem();
-				if (selectedRow != null) {
-					String[] rowParts = selectedRow.split(" - ");
-					int id = Integer.parseInt(rowParts[0]);
-					String nombre = rowParts[1];
-
-					// Retrieve values from the database for the selected row
-					try {
-						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
-						Statement statement = connection.createStatement();
-
-						String selectQuery = "SELECT Nombre, Platillos, Total FROM historialbueno WHERE ID = " + id;
-						ResultSet resultSet = statement.executeQuery(selectQuery);
-
-						if (resultSet.next()) {
-							String nombreDB = resultSet.getString("Nombre");
-							String platillos = resultSet.getString("Platillos");
-							double total = resultSet.getDouble("Total");
-
-							// Update the combobox and labels with the retrieved values
-							clienteaelegirbox2.setSelectedItem(nombreDB);
-
-							// Clear the existing items in the platilloaelegirbox2 combobox
-							platilloaelegirlbox2.removeAllItems();
-
-							// Retrieve the values from the "platillos" table and add them to the combobox
-							String selectPlatillosQuery = "SELECT Nombre FROM platillos";
-							ResultSet platillosResultSet = statement.executeQuery(selectPlatillosQuery);
-							while (platillosResultSet.next()) {
-								String platillo = platillosResultSet.getString("Nombre");
-								platilloaelegirlbox2.addItem(platillo);
-							}
-							platillosResultSet.close();
-
-							platilloaremoverbox2.removeAllItems();
-							platilloaremoverbox2.addItem(platillos);
-							Totalporcompralbl2.setText("Total: " + total);
-						}
-
-						resultSet.close();
-						statement.close();
-						connection.close();
-					} catch (SQLException ex) {
-						ex.printStackTrace();
-					}
-				}
-
-				remove(EditarOrden);
-				add(PanelEditarOrden);
-				repaint();
-				revalidate();
-			}
-		});
-
-*/
 
 
 		//CONECTORES
@@ -2704,15 +2648,6 @@ public class Restaurante extends JFrame {
 			}
 		});
 
-
-
-
-
-
-
-
-
-
 		JButton backEditOrd = new JButton(new ImageIcon("BotonRetroceder.png"));
 		backEditOrd .setBounds(10, 11, 35, 33);
 		backEditOrd .addActionListener(new ActionListener() {
@@ -2726,6 +2661,47 @@ public class Restaurante extends JFrame {
 		});
 		EditOrdenes1.add(backEditOrd);
 
+
+		editarOrdenbtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int selectedRow = platillosenordentable2.getSelectedRow();
+				if (selectedRow != -1) {
+					String selectedCliente = clienteaelegirbox2.getSelectedItem().toString();
+					String selectedPlatillo = platillosenordentable2.getValueAt(selectedRow, 0).toString();
+					double total = Double.parseDouble(Totalporcompralbl2.getText().substring(7));
+
+					try {
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
+						String updateQuery = "UPDATE historialbueno SET Nombre=?, Platillos=?, Total=? WHERE ID=?";
+						PreparedStatement statement = connection.prepareStatement(updateQuery);
+						statement.setString(1, selectedCliente);
+						statement.setString(2, selectedPlatillo);
+						statement.setDouble(3, total);
+						statement.setInt(4, selectedRow + 1); // Assuming ID starts from 1
+
+						int rowsUpdated = statement.executeUpdate();
+						if (rowsUpdated > 0) {
+							System.out.println("Row updated successfully.");
+						} else {
+							System.out.println("Failed to update the row.");
+						}
+
+						statement.close();
+						connection.close();
+					} catch (SQLException ex) {
+						ex.printStackTrace();
+					}
+
+					DefaultTableModel model = (DefaultTableModel) platillosenordentable2.getModel();
+					model.setValueAt(selectedCliente, selectedRow, 1);
+					model.setValueAt(selectedPlatillo, selectedRow, 2);
+					model.setValueAt(total, selectedRow, 3);
+
+					model.fireTableDataChanged();
+					platillosenordentable2.repaint();
+				}
+			}
+		});
 
 
 
@@ -3226,103 +3202,6 @@ public class Restaurante extends JFrame {
 
 
 
-		editararticulobtn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (editarartbox.getSelectedIndex() != -1) {
-					String selectedArticulo = (String) editarartbox.getSelectedItem();
-					String nombre = selectedArticulo;
-
-					int option = JOptionPane.showConfirmDialog(null, "¿Desea editar el artículo seleccionado?", "Confirmar", JOptionPane.OK_CANCEL_OPTION);
-					if (option == JOptionPane.OK_OPTION) {
-						try {
-							Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
-
-							String nuevoNombre = textField3.getText();
-							String nuevaUnidad = (String) comboBoxunidad2.getSelectedItem();
-							String nuevoColor = (String) comboboxcolor2.getSelectedItem();
-							String nuevaCantidad = textField_21.getText();
-
-							String query = "UPDATE inventario SET Nombre=?, Unidad=?, Color=?, Cantidad=? WHERE Nombre=?";
-							PreparedStatement statement = connection.prepareStatement(query);
-							statement.setString(1, nuevoNombre);
-							statement.setString(2, nuevaUnidad);
-							statement.setString(3, nuevoColor);
-							statement.setString(4, nuevaCantidad);
-							statement.setString(5, nombre);
-							statement.executeUpdate();
-
-							statement.close();
-							connection.close();
-
-							tablamodelinvconsulta.setRowCount(0);
-
-							connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
-							statement = connection.prepareStatement("SELECT Nombre, Unidad, Color, Cantidad FROM inventario");
-							ResultSet resultSet = statement.executeQuery();
-
-							while (resultSet.next()) {
-								String updatedNombre = resultSet.getString("Nombre");
-								String unidad = resultSet.getString("Unidad");
-								String color = resultSet.getString("Color");
-								String cantidad = resultSet.getString("Cantidad");
-
-								Object[] rowData = {updatedNombre, unidad, color, cantidad};
-								tablamodelinvconsulta.addRow(rowData);
-							}
-
-							statement.close();
-							connection.close();
-						} catch (SQLException ex) {
-							ex.printStackTrace();
-						}
-
-						int selectedRow = tablaeditarart.getSelectedRow();
-
-						editarartbox.removeItem(selectedArticulo);
-						editarartbox.setSelectedIndex(-1);
-
-						if (selectedRow != -1) {
-							tablaeditarart.setValueAt(textField3.getText(), selectedRow, 0);
-							tablaeditarart.setValueAt(comboBoxunidad2.getSelectedItem(), selectedRow, 1);
-							tablaeditarart.setValueAt(comboboxcolor2.getSelectedItem(), selectedRow, 2);
-							tablaeditarart.setValueAt(textField_21.getText(), selectedRow, 3);
-						}
-					}
-				}
-			}
-		});
-
-
-		JButton backButton = new JButton(new ImageIcon("BotonRetroceder.png"));
-		backButton.setBounds(10, 11, 35, 33);
-		editingPanel.add(backButton);
-		btneditarart.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				remove(EditarINv);
-				add(editingPanel);
-
-				repaint();
-				revalidate();
-
-			}
-		});
-
-		backButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				remove(editingPanel);
-				add(EditarINv);
-
-				repaint();
-				revalidate();
-
-			}
-		});
-
-
-
 		//Combobox
 		try {
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
@@ -3366,6 +3245,96 @@ public class Restaurante extends JFrame {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
+
+		editararticulobtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (editarartbox.getSelectedIndex() != -1) {
+					String selectedArticulo = (String) editarartbox.getSelectedItem();
+					String nombre = selectedArticulo;
+
+					int option = JOptionPane.showConfirmDialog(null, "¿Desea editar el artículo seleccionado?", "Confirmar", JOptionPane.OK_CANCEL_OPTION);
+					if (option == JOptionPane.OK_OPTION) {
+						try {
+							Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
+
+							String nuevoNombre = textField3.getText();
+							String nuevaUnidad = (String) comboBoxunidad2.getSelectedItem();
+							String nuevoColor = (String) comboboxcolor2.getSelectedItem();
+							String nuevaCantidad = textField_21.getText();
+
+							String query = "UPDATE inventario SET Nombre=?, Unidad=?, Color=?, Cantidad=? WHERE Nombre=?";
+							PreparedStatement statement = connection.prepareStatement(query);
+							statement.setString(1, nuevoNombre);
+							statement.setString(2, nuevaUnidad);
+							statement.setString(3, nuevoColor);
+							statement.setString(4, nuevaCantidad);
+							statement.setString(5, nombre);
+							statement.executeUpdate();
+
+							statement.close();
+							connection.close();
+
+							// Find the row index in the table model with the matching Nombre
+							int rowCount = tablamodelinvconsulta.getRowCount();
+							int rowIndex = -1;
+							for (int i = 0; i < rowCount; i++) {
+								String rowNombre = (String) tablamodelinvconsulta.getValueAt(i, 0);
+								if (rowNombre.equals(nombre)) {
+									rowIndex = i;
+									break;
+								}
+							}
+
+							if (rowIndex != -1) {
+								// Remove the row from the table model
+								tablamodelinvconsulta.removeRow(rowIndex);
+
+								// Insert the updated row at the same position
+								Object[] rowData = {nuevoNombre, nuevaUnidad, nuevoColor, nuevaCantidad};
+								tablamodelinvconsulta.insertRow(rowIndex, rowData);
+							}
+
+							// Remove the selected item from the combobox
+							editarartbox.removeItem(selectedArticulo);
+							editarartbox.setSelectedIndex(-1);
+						} catch (SQLException ex) {
+							ex.printStackTrace();
+						}
+					}
+				}
+			}
+		});
+
+
+		JButton backButton = new JButton(new ImageIcon("BotonRetroceder.png"));
+		backButton.setBounds(10, 11, 35, 33);
+		editingPanel.add(backButton);
+		btneditarart.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(EditarINv);
+				add(editingPanel);
+
+				repaint();
+				revalidate();
+
+			}
+		});
+
+		backButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				remove(editingPanel);
+				add(EditarINv);
+
+				repaint();
+				revalidate();
+
+			}
+		});
+
+
 
 
 
@@ -4437,7 +4406,6 @@ public class Restaurante extends JFrame {
 								tableModelEdicion.setValueAt(direccion, selectedRow, 3);
 							}
 
-							// Update the JTable data from the database
 							tableModelEdicion.setRowCount(0);
 							statement = connection.prepareStatement("SELECT Nombre, Apellidos, Teléfono, Dirección FROM clientes");
 							ResultSet resultSet = statement.executeQuery();
@@ -5080,40 +5048,31 @@ public class Restaurante extends JFrame {
 
 	public static void migrateTables() {
 		try {
-			// Connect to the source database
 
 			Connection sourceConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
 			DatabaseMetaData metaData = sourceConnection.getMetaData();
 
-			// Get the list of tables in the source database
 			ResultSet tables = metaData.getTables("ordenes", null, null, new String[]{"TABLE"});
 
-			// Connect to the target database
 			Connection targetConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
 			Statement targetStatement = targetConnection.createStatement();
 
-			// Clear the existing data in the target table
 			targetStatement.executeUpdate("DELETE FROM historialbueno");
 
-			// Get the next auto-increment ID value
 			ResultSet idResult = targetStatement.executeQuery("SELECT MAX(ID) FROM historialbueno");
 			int nextId = 1;
 			if (idResult.next()) {
 				nextId = idResult.getInt(1) + 1;
 			}
 
-			// Iterate over the tables
 			while (tables.next()) {
 				String tableName = tables.getString("TABLE_NAME");
 
-				// Skip the "historialbueno" table
 				if (!tableName.equals("historialbueno")) {
-					// Fetch specific columns from the table
 					String columnNames = "Nombre, Platillos, Total";
 					String selectQuery = "SELECT " + columnNames + " FROM " + tableName;
 					ResultSet resultSet = sourceConnection.createStatement().executeQuery(selectQuery);
 
-					// Insert the fetched data into the target table
 					while (resultSet.next()) {
 						StringBuilder insertQuery = new StringBuilder("INSERT INTO historialbueno (ID, ");
 						StringBuilder values = new StringBuilder("VALUES (");
@@ -5123,16 +5082,13 @@ public class Restaurante extends JFrame {
 						values.append("'").append(resultSet.getString("Platillos")).append("', ");
 						values.append(resultSet.getDouble("Total")).append(")");
 
-						// Complete the insert query
 						insertQuery.append(values);
 
-						// Execute the insert query
 						targetStatement.executeUpdate(insertQuery.toString());
 					}
 				}
 			}
 
-			// Close connections and statements
 			tables.close();
 			sourceConnection.close();
 			targetStatement.close();

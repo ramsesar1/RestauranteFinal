@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="Se puede y requiere hacer login con credenciales dentro de la base de datos">
+    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="Se arregla el problema con el inventario y al editar articulo, este creaba otro">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante.java" afterDir="false" />
     </list>
@@ -126,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686801729401</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="se remueve consultar orden por redundante, y los combobox y jtable de editar orden se llenan de manera debida">
+      <created>1686816072650</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1686816072650</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,7 +159,9 @@
     <MESSAGE value="push de respaldo," />
     <MESSAGE value="se añade metodo para que la tabla de &quot;historialbueno&quot; se actualize cada vez que el codigo corra" />
     <MESSAGE value="Se puede y requiere hacer login con credenciales dentro de la base de datos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se puede y requiere hacer login con credenciales dentro de la base de datos" />
+    <MESSAGE value="se remueve consultar orden por redundante, y los combobox y jtable de editar orden se llenan de manera debida" />
+    <MESSAGE value="Se arregla el problema con el inventario y al editar articulo, este creaba otro" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se arregla el problema con el inventario y al editar articulo, este creaba otro" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RestauranteFinal$Restaurante.ic" NAME="Restaurante Coverage Results" MODIFIED="1685939229711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
