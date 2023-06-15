@@ -16,6 +16,7 @@ public class Restaurante extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textfieldusername;
+	private JTextField nombreusuario;
 	private JPasswordField contras;
 	private JLabel lblContrasea;
 
@@ -131,10 +132,10 @@ public class Restaurante extends JFrame {
 		panel_1.setLayout(null);
 
 
-		textfieldusername = new JTextField();
-		textfieldusername.setColumns(10);
-		textfieldusername.setBounds(30, 57, 328, 45);
-		panel_1.add(textfieldusername);
+		nombreusuario = new JTextField();
+		nombreusuario.setColumns(10);
+		nombreusuario.setBounds(30, 57, 328, 45);
+		panel_1.add(nombreusuario);
 
 		contras = new JPasswordField();
 		contras.setColumns(10);
@@ -155,17 +156,54 @@ public class Restaurante extends JFrame {
 		btnparalogin.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnparalogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				remove(login);
-				add(Inicio);
-				repaint();
-				revalidate();
+				String username = new String(nombreusuario.getText());
+				String password = new String(contras.getPassword());
+
+				// Establish a database connection
+				try {
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/credenciales", "root", "root");
+					String query = "SELECT * FROM iniciosesion LIMIT 1";
+					PreparedStatement preparedStatement = connection.prepareStatement(query);
+					ResultSet resultSet = preparedStatement.executeQuery();
+
+					if (resultSet.next()) {
+						String storedUsername = resultSet.getString("Usuario");
+						String storedPassword = resultSet.getString("Contrasena");
+
+						System.out.println("Entered Username: " + username);
+						System.out.println("Stored Username: " + storedUsername);
+						System.out.println("Entered Password: " + password);
+						System.out.println("Stored Password: " + storedPassword);
+
+						if (username.equals(storedUsername) && password.equals(storedPassword)) {
+							// Login successful
+							remove(login);
+							add(Inicio);
+							repaint();
+							revalidate();
+						} else {
+							// Login failed
+							JOptionPane.showMessageDialog(login, "Usuario incorrecto, ingrese credenciales correctas", "Error", JOptionPane.ERROR_MESSAGE);
+						}
+					} else {
+						// No rows found in the table
+						JOptionPane.showMessageDialog(login, "No se encontraron registros en la tabla", "Error", JOptionPane.ERROR_MESSAGE);
+					}
+
+					resultSet.close();
+					preparedStatement.close();
+					connection.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+					System.out.println("SQLException: " + ex.getMessage());
+				}
 			}
 		});
-
 
 		btnparalogin.setBackground(new Color(255, 255, 255));
 		btnparalogin.setBounds(30, 236, 110, 45);
 		panel_1.add(btnparalogin);
+
 
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Arial Black", Font.PLAIN, 18));

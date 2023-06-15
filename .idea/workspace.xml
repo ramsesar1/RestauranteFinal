@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="push de respaldo,">
+    <list default="true" id="af21f6bf-8a8b-4129-80b5-cb47f863551b" name="Changes" comment="se añade metodo para que la tabla de &quot;historialbueno&quot; se actualize cada vez que el codigo corra">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante.java" afterDir="false" />
     </list>
@@ -112,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686783965241</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="se añade metodo para que la tabla de &quot;historialbueno&quot; se actualize cada vez que el codigo corra">
+      <created>1686796666651</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1686796666651</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,14 +143,15 @@
     <MESSAGE value="Penultima validacion del crearorden lista, permite el crear la tabla de orden y reducir inventario, y ademas que si se pide mas 1 item se reduce acorde a cuantos se pidieron" />
     <MESSAGE value="ultima validacion, si el inventario se acaba no se peude crear orden a no ser que se remueva el platillo" />
     <MESSAGE value="push de respaldo," />
-    <option name="LAST_COMMIT_MESSAGE" value="push de respaldo," />
+    <MESSAGE value="se añade metodo para que la tabla de &quot;historialbueno&quot; se actualize cada vez que el codigo corra" />
+    <option name="LAST_COMMIT_MESSAGE" value="se añade metodo para que la tabla de &quot;historialbueno&quot; se actualize cada vez que el codigo corra" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Restaurante.java</url>
-          <line>2411</line>
+          <line>2451</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
