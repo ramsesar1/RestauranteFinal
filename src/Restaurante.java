@@ -161,7 +161,7 @@ public class Restaurante extends JFrame {
 
 				// Establish a database connection
 				try {
-					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/credenciales", "root", "root");
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/credenciales", "root", "");
 					String query = "SELECT * FROM iniciosesion LIMIT 1";
 					PreparedStatement preparedStatement = connection.prepareStatement(query);
 					ResultSet resultSet = preparedStatement.executeQuery();
@@ -495,7 +495,7 @@ public class Restaurante extends JFrame {
 		DefaultTableModel tablemodelconsultaplat = new DefaultTableModel(data, nombrecolumns);
 
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "root");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "");
 			Statement statement = connection.createStatement();
 			ResultSet tableResultSet = statement.executeQuery("SHOW TABLES");
 
@@ -551,7 +551,7 @@ public class Restaurante extends JFrame {
 					String tableName = tablemodelconsultaplat.getValueAt(rowIndex, 0).toString();
 
 					try {
-						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "root");
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "");
 						Statement statement = connection.createStatement();
 						ResultSet resultSet = statement.executeQuery("SELECT * FROM " + tableName);
 
@@ -583,7 +583,7 @@ public class Restaurante extends JFrame {
 					String tableName = tablemodelconsultaplat.getValueAt(selectedRowIndex, 0).toString();
 
 					try {
-						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "root");
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "");
 						Statement statement = connection.createStatement();
 						ResultSet resultSet = statement.executeQuery("SELECT * FROM " + tableName);
 
@@ -638,7 +638,7 @@ public class Restaurante extends JFrame {
 				tablemodelconsultaplat.setRowCount(0);
 
 				try {
-					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "root");
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "");
 					Statement statement = connection.createStatement();
 					ResultSet tableResultSet = statement.executeQuery("SHOW TABLES");
 
@@ -772,11 +772,6 @@ public class Restaurante extends JFrame {
 		btnCrearPlat.setBounds(434, 526, 150, 43);
 		panelcrearplat.add(btnCrearPlat);
 
-		JButton btnadjuntarimagen = new JButton("Adjuntar Imagen\r\n");
-		btnadjuntarimagen.setFont(new Font("Arial Black", Font.PLAIN, 16));
-		btnadjuntarimagen.setBackground(new Color(254, 211, 122));
-		btnadjuntarimagen.setBounds(704, 444, 211, 43);
-		panelcrearplat.add(btnadjuntarimagen);
 
 		JTextField cantidadingrediente2 = new JTextField();
 		cantidadingrediente2.setColumns(10);
@@ -802,12 +797,6 @@ public class Restaurante extends JFrame {
 		panelcrearplat.add(btncrearplat2);
 
 
-		JButton btnAdjuntarImagen2 = new JButton("Adjuntar Imagen\r\n");
-		btnAdjuntarImagen2.setFont(new Font("Arial Black", Font.PLAIN, 16));
-		btnAdjuntarImagen2.setBackground(new Color(254, 211, 122));
-		btnAdjuntarImagen2.setBounds(704, 444, 211, 43);
-		panelcrearplat.add(btnAdjuntarImagen2);
-
 		JLabel Crearplatlbl = new JLabel("Crear Platillo");
 		Crearplatlbl.setFont(new Font("Arial Black", Font.PLAIN, 26));
 		Crearplatlbl.setBounds(387, 0, 227, 40);
@@ -830,7 +819,7 @@ public class Restaurante extends JFrame {
 				} else {
 					String url = "jdbc:mysql://localhost:3306/platillos";
 					String username = "root";
-					String password = "root";
+					String password = "";
 
 					try (Connection connection = DriverManager.getConnection(url, username, password)) {
 						DatabaseMetaData metaData = connection.getMetaData();
@@ -886,8 +875,8 @@ public class Restaurante extends JFrame {
 
 				if (!ingredientExists(tableName, ingrediente)) {
 					String url = "jdbc:mysql://localhost:3306/platillos";
-					String username = "your-username";
-					String password = "your-password";
+					String username = "root";
+					String password = "";
 
 					try (Connection connection = DriverManager.getConnection(url, username, password)) {
 						Statement statement = connection.createStatement();
@@ -931,8 +920,8 @@ public class Restaurante extends JFrame {
 
 
 		String url2 = "jdbc:mysql://localhost:3306/clientes";
-		String username2 = "your-username";
-		String password2 = "your-password";
+		String username2 = "root";
+		String password2 = "";
 
 		try (Connection connection = DriverManager.getConnection(url2, username2, password2)) {
 			Statement statement = connection.createStatement();
@@ -1057,11 +1046,6 @@ public class Restaurante extends JFrame {
 		btnEditarPlat.setBounds(404, 536, 150, 33);
 		paneledplat.add(btnEditarPlat);
 
-		JButton btnAdjuntarImagen = new JButton("Adjuntar Imagen\r\n");
-		btnAdjuntarImagen.setFont(new Font("Arial Black", Font.PLAIN, 16));
-		btnAdjuntarImagen.setBackground(new Color(254, 211, 122));
-		btnAdjuntarImagen.setBounds(553, 391, 211, 43);
-		paneledplat.add(btnAdjuntarImagen);
 
 		JComboBox Platilloaeditarbox = new JComboBox();
 		Platilloaeditarbox.setBounds(23, 48, 372, 33);
@@ -1126,7 +1110,7 @@ public class Restaurante extends JFrame {
 
 				if (confirm == JOptionPane.YES_OPTION) {
 					try {
-						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "root", "root");
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "root", "");
 
 						String selectedTable = (String) Platilloaeditarbox.getSelectedItem();
 
@@ -1150,7 +1134,7 @@ public class Restaurante extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/clientes", "username", "password");
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/clientes", "root", "");
 
 					Statement statement = connection.createStatement();
 
@@ -1184,7 +1168,7 @@ public class Restaurante extends JFrame {
 				try {
 					String selectedTable = (String) Platilloaeditarbox.getSelectedItem();
 					if (selectedTable != null && !selectedTable.isEmpty()) {
-						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "username", "password");
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "root", "");
 						Statement statement = connection.createStatement();
 
 						ResultSet resultSet = statement.executeQuery("SELECT Ingrediente, Unidad, Cantidad, Precio, Descripcion FROM " + selectedTable);
@@ -1216,7 +1200,7 @@ public class Restaurante extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "root", "root");
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "root", "");
 					Statement statement = connection.createStatement();
 
 					ResultSet resultSet = statement.executeQuery("SHOW TABLES");
@@ -1240,7 +1224,7 @@ public class Restaurante extends JFrame {
 		timer2.start();
 
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "username", "password");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "root", "");
 
 			Statement statement = connection.createStatement();
 
@@ -1265,7 +1249,7 @@ public class Restaurante extends JFrame {
 				try {
 					String selectedTable = (String) Platilloaeditarbox.getSelectedItem();
 					if (selectedTable != null && !selectedTable.isEmpty()) {
-						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "username", "password");
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "root", "");
 						Statement statement = connection.createStatement();
 
 						ResultSet resultSet = statement.executeQuery("SELECT Ingrediente, Unidad, Cantidad, Precio, Descripcion FROM " + selectedTable);
@@ -1301,7 +1285,7 @@ public class Restaurante extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "root", "root");
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "root", "");
 
 					String selectedTable = (String) Platilloaeditarbox.getSelectedItem();
 
@@ -1334,7 +1318,7 @@ public class Restaurante extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "root", "root");
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "root", "");
 
 					String selectedTable = (String) Platilloaeditarbox.getSelectedItem();
 					String selectedIngredient = (String) ingredientebox.getSelectedItem();
@@ -1376,7 +1360,7 @@ public class Restaurante extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "root", "root");
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/platillos", "root", "");
 
 					String selectedTable = (String) Platilloaeditarbox.getSelectedItem();
 					String newTableName = NombrePlatEdField.getText();
@@ -1496,7 +1480,7 @@ public class Restaurante extends JFrame {
 
 
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("SELECT Nombre FROM inventario");
 
@@ -1530,7 +1514,7 @@ public class Restaurante extends JFrame {
 					StringBuilder matchingTables = new StringBuilder();
 
 					try {
-						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "root");
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "");
 						Statement statement = connection.createStatement();
 						ResultSet resultSet = statement.executeQuery("SHOW TABLES");
 
@@ -1577,7 +1561,7 @@ public class Restaurante extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 					Statement statement = connection.createStatement();
 					ResultSet resultSet = statement.executeQuery("SELECT Nombre FROM inventario");
 
@@ -1905,7 +1889,7 @@ public class Restaurante extends JFrame {
 		panelCrearOrden.add(platillosenordentable);
 
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 			Statement statement = connection.createStatement();
 			String query = "SELECT Nombre, Apellidos FROM clientes";
 			ResultSet resultSet = statement.executeQuery(query);
@@ -1926,7 +1910,7 @@ public class Restaurante extends JFrame {
 
 
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "root");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "");
 			Statement statement = connection.createStatement();
 			String query = "SHOW TABLES";
 			ResultSet resultSet = statement.executeQuery(query);
@@ -1955,6 +1939,74 @@ public class Restaurante extends JFrame {
 			ex.printStackTrace();
 		}
 
+		Timer platilloTimer = new Timer(15000, e -> {
+			platilloaelegirlbox.removeAllItems();
+			try {
+				Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "");
+				Statement statement = connection.createStatement();
+				String query = "SHOW TABLES";
+				ResultSet resultSet = statement.executeQuery(query);
+
+				while (resultSet.next()) {
+					String tableName = resultSet.getString(1);
+
+					String price = "";
+					String getPriceQuery = "SELECT Precio FROM " + tableName + " LIMIT 1";
+					Statement getPriceStatement = connection.createStatement();
+					ResultSet getPriceResult = getPriceStatement.executeQuery(getPriceQuery);
+					if (getPriceResult.next()) {
+						price = getPriceResult.getString("Precio");
+					}
+					getPriceResult.close();
+					getPriceStatement.close();
+
+					String itemData = tableName + " - Precio: " + price;
+					platilloaelegirlbox.addItem(itemData);
+				}
+
+				resultSet.close();
+				statement.close();
+				connection.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		});
+
+		platilloTimer.start();
+
+
+
+
+
+
+		Timer clienteTimer = new Timer(15000, e -> {
+			clienteaelegirbox.removeAllItems(); // Clear the combo box
+
+			try {
+				Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
+				Statement statement = connection.createStatement();
+				String query = "SELECT Nombre, Apellidos FROM clientes";
+				ResultSet resultSet = statement.executeQuery(query);
+
+				while (resultSet.next()) {
+					String nombre = resultSet.getString("Nombre");
+					String apellidos = resultSet.getString("Apellidos");
+					String clienteData = nombre + " " + apellidos;
+					clienteaelegirbox.addItem(clienteData);
+				}
+
+				resultSet.close();
+				statement.close();
+				connection.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		});
+
+		clienteTimer.start();
+
+
+
 
 
 		DefaultTableModel tablemodeltablaorden = new DefaultTableModel();
@@ -1975,7 +2027,7 @@ public class Restaurante extends JFrame {
 				double price = 0.0;
 
 				try {
-					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "root");
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "");
 					Statement statement = connection.createStatement();
 					String getPriceQuery = "SELECT Precio FROM " + tableName + " LIMIT 1";
 					ResultSet getPriceResult = statement.executeQuery(getPriceQuery);
@@ -2058,7 +2110,7 @@ public class Restaurante extends JFrame {
 				Map<String, Float> ingredientesCantidadMap = new HashMap<>();
 
 				try {
-					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "root");
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "");
 					Statement statement = connection.createStatement();
 
 					String tableName = selectedPlatillo;
@@ -2082,7 +2134,7 @@ public class Restaurante extends JFrame {
 				}
 
 				try {
-					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 					Statement statement = connection.createStatement();
 
 					String tableName = "inventario";
@@ -2107,7 +2159,7 @@ public class Restaurante extends JFrame {
 					String selectedDireccion = "";
 
 					try {
-						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 						Statement statement = connection.createStatement();
 
 						String query = "SELECT Dirección FROM clientes WHERE Nombre = '" + selectedCliente + "'";
@@ -2147,7 +2199,7 @@ public class Restaurante extends JFrame {
 
 					int orderId = 1;
 					try {
-						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "");
 						Statement statement = connection.createStatement();
 
 						String tableName = "ordenes";
@@ -2168,10 +2220,11 @@ public class Restaurante extends JFrame {
 					String tableName = orderId + "_" + selectedCliente.replace(" ", "_");
 
 					try {
-						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "");
 						Statement statement = connection.createStatement();
 
-						String createTableQuery = "CREATE TABLE IF NOT EXISTS ordenes " +
+						// Create the table
+						String createTableQuery = "CREATE TABLE IF NOT EXISTS " + tableName + " " +
 								"(ID INT AUTO_INCREMENT, Nombre VARCHAR(255), Direccion VARCHAR(255), Platillos VARCHAR(255), Precio VARCHAR(255), Total DOUBLE, PRIMARY KEY (ID))";
 						statement.executeUpdate(createTableQuery);
 
@@ -2198,6 +2251,7 @@ public class Restaurante extends JFrame {
 				}
 			}
 		});
+
 
 
 
@@ -2314,8 +2368,8 @@ public class Restaurante extends JFrame {
 
 
 //tabla conecta base de datos
-			try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
+		try {
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "");
 			Statement statement = connection.createStatement();
 
 			String selectQuery = "SELECT ID, Nombre, Platillos, Total FROM historialbueno";
@@ -2346,7 +2400,7 @@ public class Restaurante extends JFrame {
 		comboBoxModelEditarOrd.removeAllElements();
 
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "");
 			Statement statement = connection.createStatement();
 
 			String selectQuery = "SELECT ID, Nombre FROM historialbueno";
@@ -2372,31 +2426,40 @@ public class Restaurante extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int selectedIndex = comboBoxEditarOrd.getSelectedIndex();
 				if (selectedIndex != -1) {
-					String selectedItem = comboBoxEditarOrd.getItemAt(selectedIndex);
-					String[] parts = selectedItem.split(" - ");
-					int selectedItemId = Integer.parseInt(parts[0]);
 
-					try {
-						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
-						String deleteQuery = "DELETE FROM historialbueno WHERE ID=?";
-						PreparedStatement statement = connection.prepareStatement(deleteQuery);
-						statement.setInt(1, selectedItemId);
+					int confirm = JOptionPane.showConfirmDialog(null, "¿Está seguro de eliminar la orden?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+					if (confirm == JOptionPane.YES_OPTION) {
+						String selectedItem = comboBoxEditarOrd.getItemAt(selectedIndex);
+						String[] parts = selectedItem.split(" - ");
+						int selectedItemId = Integer.parseInt(parts[0]);
 
-						int rowsDeleted = statement.executeUpdate();
-						if (rowsDeleted > 0) {
-							System.out.println("Row deleted successfully.");
-						} else {
-							System.out.println("Failed to delete the row.");
+						try {
+							Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "");
+							String deleteQuery = "DELETE FROM historialbueno WHERE ID=?";
+							PreparedStatement statement = connection.prepareStatement(deleteQuery);
+							statement.setInt(1, selectedItemId);
+
+							int rowsDeleted = statement.executeUpdate();
+							if (rowsDeleted > 0) {
+
+								JOptionPane.showMessageDialog(null, "Orden eliminada correctamente", "Eliminación exitosa", JOptionPane.INFORMATION_MESSAGE);
+								System.out.println("Row deleted successfully.");
+
+								// Remove item from combo box
+								comboBoxEditarOrd.removeItemAt(selectedIndex);
+							} else {
+								System.out.println("Failed to delete the row.");
+							}
+
+							statement.close();
+							connection.close();
+						} catch (SQLException ex) {
+							ex.printStackTrace();
 						}
 
-						statement.close();
-						connection.close();
-					} catch (SQLException ex) {
-						ex.printStackTrace();
+						DefaultTableModel model = (DefaultTableModel) tablaEditarOrd.getModel();
+						model.removeRow(selectedIndex);
 					}
-
-					DefaultTableModel model = (DefaultTableModel) tablaEditarOrd.getModel();
-					model.removeRow(selectedIndex);
 				}
 
 				repaint();
@@ -2517,7 +2580,7 @@ public class Restaurante extends JFrame {
 
 
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 			Statement statement = connection.createStatement();
 			String query = "SELECT Nombre, Apellidos FROM clientes";
 			ResultSet resultSet = statement.executeQuery(query);
@@ -2538,7 +2601,7 @@ public class Restaurante extends JFrame {
 
 
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "root");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "");
 			Statement statement = connection.createStatement();
 			String query = "SHOW TABLES";
 			ResultSet resultSet = statement.executeQuery(query);
@@ -2592,7 +2655,7 @@ public class Restaurante extends JFrame {
 				double price = 0.0;
 
 				try {
-					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "root");
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platillos", "root", "");
 					Statement statement = connection.createStatement();
 					String getPriceQuery = "SELECT Precio FROM " + tableName + " LIMIT 1";
 					ResultSet getPriceResult = statement.executeQuery(getPriceQuery);
@@ -2671,7 +2734,7 @@ public class Restaurante extends JFrame {
 					double total = Double.parseDouble(Totalporcompralbl2.getText().substring(7));
 
 					try {
-						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "");
 						String updateQuery = "UPDATE historialbueno SET Nombre=?, Platillos=?, Total=? WHERE ID=?";
 						PreparedStatement statement = connection.prepareStatement(updateQuery);
 						statement.setString(1, selectedCliente);
@@ -2702,6 +2765,67 @@ public class Restaurante extends JFrame {
 				}
 			}
 		});
+
+		Timer timercomboboxtabla = new Timer(20000, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				try {
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "");
+					Statement statement = connection.createStatement();
+
+					String selectQuery = "SELECT ID, Nombre, Platillos, Total FROM historialbueno";
+					ResultSet resultSet = statement.executeQuery(selectQuery);
+
+					tableModelEditarOrd.setRowCount(0);
+
+					while (resultSet.next()) {
+						int id = resultSet.getInt("ID");
+						String nombre = resultSet.getString("Nombre");
+						String platillos = resultSet.getString("Platillos");
+						double total = resultSet.getDouble("Total");
+
+						Object[] rowData = {id, nombre, platillos, total};
+						tableModelEditarOrd.addRow(rowData);
+					}
+
+					resultSet.close();
+					statement.close();
+					connection.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+
+				// actualiza JComboBox
+				comboBoxModelEditarOrd.removeAllElements();
+
+				try {
+					Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "");
+					Statement statement = connection.createStatement();
+
+					String selectQuery = "SELECT ID, Nombre FROM historialbueno";
+					ResultSet resultSet = statement.executeQuery(selectQuery);
+
+					while (resultSet.next()) {
+						int id = resultSet.getInt("ID");
+						String nombre = resultSet.getString("Nombre");
+
+						String item = id + " - " + nombre;
+						comboBoxModelEditarOrd.addElement(item);
+					}
+
+					resultSet.close();
+					statement.close();
+					connection.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
+
+
+		timercomboboxtabla.start();
+
 
 
 
@@ -3021,8 +3145,8 @@ public class Restaurante extends JFrame {
 
 		try {
 			String url = "jdbc:mysql://localhost:3306/clientes";
-			String username = "your-username";
-			String password = "your-password";
+			String username = "root";
+			String password = "";
 			Connection connection = DriverManager.getConnection(url, username, password);
 
 			Statement statement = connection.createStatement();
@@ -3604,7 +3728,7 @@ public class Restaurante extends JFrame {
 					}
 
 					try {
-						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 
 						String query = "INSERT INTO inventario (Nombre, Unidad, Color, Cantidad) VALUES (?, ?, ?, ?)";
 						PreparedStatement statement = connection.prepareStatement(query);
@@ -3828,6 +3952,36 @@ public class Restaurante extends JFrame {
 			ex.printStackTrace();
 		}
 
+		Timer timer20 = new Timer(5000, e -> {
+			try {
+				Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
+				Statement statement = connection.createStatement();
+
+				String queryConsulta = "SELECT * FROM clientes";
+				ResultSet resultSetConsulta = statement.executeQuery(queryConsulta);
+
+				tableModelFuera.setRowCount(0);
+
+				while (resultSetConsulta.next()) {
+					String nombre = resultSetConsulta.getString("Nombre");
+					String apellidos = resultSetConsulta.getString("Apellidos");
+					String telefono = resultSetConsulta.getString("Teléfono");
+					String direccion = resultSetConsulta.getString("Dirección");
+
+					Object[] rowData = {nombre, apellidos, telefono, direccion};
+
+					tableModelFuera.addRow(rowData);
+				}
+
+				resultSetConsulta.close();
+				statement.close();
+				connection.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		});
+
+		timer20.start();
 
 
 
@@ -4376,7 +4530,7 @@ public class Restaurante extends JFrame {
 					String direccion = textoEdit4.getText();
 
 					try {
-						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+						Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 
 						String query = "UPDATE clientes SET Nombre = ?, Apellidos = ?, Teléfono = ?, Dirección = ? WHERE Nombre = ? AND Apellidos = ?";
 						PreparedStatement statement = connection.prepareStatement(query);
@@ -4827,7 +4981,7 @@ public class Restaurante extends JFrame {
 
 	public void updateComponents(DefaultTableModel tableModel1, DefaultTableModel tableModelInfo, DefaultTableModel tableModelEdicion, DefaultTableModel tableModelConsulta, JComboBox<String> comboBox1, JComboBox<String> comboBoxConsulta, JComboBox<String> comboBox2) {
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 
 			// actualiza ptabla  1
 			Statement statement1 = connection.createStatement();
@@ -4944,7 +5098,7 @@ public class Restaurante extends JFrame {
 
 	public void updateComponents(DefaultTableModel tablamodelinvconsulta, DefaultTableModel tableModel, DefaultTableModel eliminartableModel, JComboBox<String> editarartComboBox, JComboBox<String> eliminarartComboBox) {
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "root");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientes", "root", "");
 
 
 
@@ -5047,55 +5201,64 @@ public class Restaurante extends JFrame {
 
 
 	public static void migrateTables() {
-		try {
 
-			Connection sourceConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
-			DatabaseMetaData metaData = sourceConnection.getMetaData();
+		Timer timer = new Timer(10000, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Connection sourceConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "");
+					DatabaseMetaData metaData = sourceConnection.getMetaData();
 
-			ResultSet tables = metaData.getTables("ordenes", null, null, new String[]{"TABLE"});
+					ResultSet tables = metaData.getTables("ordenes", null, null, new String[]{"TABLE"});
 
-			Connection targetConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "root");
-			Statement targetStatement = targetConnection.createStatement();
+					Connection targetConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ordenes", "root", "");
+					Statement targetStatement = targetConnection.createStatement();
 
-			targetStatement.executeUpdate("DELETE FROM historialbueno");
+					targetStatement.executeUpdate("DELETE FROM historialbueno");
 
-			ResultSet idResult = targetStatement.executeQuery("SELECT MAX(ID) FROM historialbueno");
-			int nextId = 1;
-			if (idResult.next()) {
-				nextId = idResult.getInt(1) + 1;
-			}
-
-			while (tables.next()) {
-				String tableName = tables.getString("TABLE_NAME");
-
-				if (!tableName.equals("historialbueno")) {
-					String columnNames = "Nombre, Platillos, Total";
-					String selectQuery = "SELECT " + columnNames + " FROM " + tableName;
-					ResultSet resultSet = sourceConnection.createStatement().executeQuery(selectQuery);
-
-					while (resultSet.next()) {
-						StringBuilder insertQuery = new StringBuilder("INSERT INTO historialbueno (ID, ");
-						StringBuilder values = new StringBuilder("VALUES (");
-						insertQuery.append(columnNames.replace(",", ", ")).append(") ");
-						values.append("'").append(nextId++).append("', ");
-						values.append("'").append(resultSet.getString("Nombre")).append("', ");
-						values.append("'").append(resultSet.getString("Platillos")).append("', ");
-						values.append(resultSet.getDouble("Total")).append(")");
-
-						insertQuery.append(values);
-
-						targetStatement.executeUpdate(insertQuery.toString());
+					ResultSet idResult = targetStatement.executeQuery("SELECT MAX(ID) FROM historialbueno");
+					int nextId = 1;
+					if (idResult.next()) {
+						nextId = idResult.getInt(1) + 1;
 					}
+
+					while (tables.next()) {
+						String tableName = tables.getString("TABLE_NAME");
+
+						if (!tableName.equals("historialbueno")) {
+							String columnNames = "Nombre, Platillos, Total";
+							String selectQuery = "SELECT " + columnNames + " FROM " + tableName;
+							ResultSet resultSet = sourceConnection.createStatement().executeQuery(selectQuery);
+
+							while (resultSet.next()) {
+								StringBuilder insertQuery = new StringBuilder("INSERT INTO historialbueno (ID, ");
+								StringBuilder values = new StringBuilder("VALUES (");
+								insertQuery.append(columnNames.replace(",", ", ")).append(") ");
+								values.append("'").append(nextId++).append("', ");
+								values.append("'").append(resultSet.getString("Nombre")).append("', ");
+								values.append("'").append(resultSet.getString("Platillos")).append("', ");
+								values.append(resultSet.getDouble("Total")).append(")");
+
+								insertQuery.append(values);
+
+								targetStatement.executeUpdate(insertQuery.toString());
+							}
+						}
+					}
+
+					tables.close();
+					sourceConnection.close();
+					targetStatement.close();
+					targetConnection.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
 				}
 			}
+		});
 
-			tables.close();
-			sourceConnection.close();
-			targetStatement.close();
-			targetConnection.close();
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-		}
+
+		timer.start();
+
 	}
 
 
@@ -5125,8 +5288,8 @@ public class Restaurante extends JFrame {
 
 	private boolean ingredientExists(String tableName, String ingredient) {
 		String url = "jdbc:mysql://localhost:3306/platillos";
-		String username = "your-username";
-		String password = "your-password";
+		String username = "root";
+		String password = "";
 
 		try (Connection connection = DriverManager.getConnection(url, username, password)) {
 			Statement statement = connection.createStatement();
